@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   ],
 
   i18n: {
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     locales: [
       {
         code: 'en',
@@ -29,6 +30,12 @@ export default defineNuxtConfig({
           welcome: 'Willkommen'
         }
       }
+    }
+  },
+
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL
     }
   },
 
