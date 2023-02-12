@@ -33,6 +33,10 @@ export default defineNuxtConfig({
     }
   },
 
+  auth: {
+    origin: process.env.NUXT_PUBLIC_BASE_URL
+  },
+
   runtimeConfig: {
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL
