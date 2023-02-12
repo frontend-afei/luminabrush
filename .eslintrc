@@ -4,24 +4,15 @@
     "browser": true,
     "node": true
   },
-  "extends": [
-    "@nuxtjs/eslint-config-typescript"
-  ],
+  "extends": ["@nuxtjs/eslint-config-typescript"],
   "overrides": [
     {
-      "files": [
-        "./server/**/*.ts"
-      ],
+      "files": ["./server/**/*.ts"],
       "rules": {
         "no-console": [
           "error",
           {
-            "allow": [
-              "info",
-              "warn",
-              "trace",
-              "error"
-            ]
+            "allow": ["info", "warn", "trace", "error"]
           }
         ]
       }
