@@ -4,12 +4,19 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     '@nuxtjs/tailwindcss'
   ],
+
   build: {
     transpile: [
       'trpc-nuxt'
     ]
   },
+
   typescript: {
     shim: false
+  },
+
+  routeRules: {
+    '/app/**': { ssr: false },
+    '/auth/**': { ssr: false }
   }
 })
