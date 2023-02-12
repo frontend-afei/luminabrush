@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"vue.volar",
+		"bradlc.vscode-tailwindcss",
+		"attilabuti.vscode-mjml",
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"lokalise.i18n-ally"
+	]
+}
