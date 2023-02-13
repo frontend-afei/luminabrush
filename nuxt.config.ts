@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@sidebase/nuxt-auth',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss'
   ],
 
@@ -41,6 +42,12 @@ export default defineNuxtConfig({
     families: {
       Manrope: true
     }
+  },
+
+  // @nuxtjs/color-mode
+  colorMode: {
+    classPrefix: 'theme-',
+    classSuffix: ''
   },
 
   runtimeConfig: {

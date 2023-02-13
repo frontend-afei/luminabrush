@@ -1,12 +1,16 @@
 <template>
   <header class="LayoutHeader">
-    <div class="container mx-auto py-4 border-b mb-12 flex justify-between items-center h-20">
+    <div class="container mx-auto py-4 border-b theme-dark:border-gray-700 mb-12 flex justify-between items-center h-20">
       <NuxtLink :to="localePath({ name: 'index' })">
-        <span class="font-bold text-lg">🚀 supastarter Nuxt</span>
+        <span class="font-bold text-lg">
+          <span>🚀 supastarter&nbsp;</span>
+          <span class="text-primary">Nuxt</span>
+        </span>
       </NuxtLink>
 
       <div class="flex gap-8 items-center">
-        <div class="flex gap-6 items-center">
+        <div class="flex gap-4 items-center">
+          <CommonThemeSwitch />
           <CommonLanguageSwitch />
         </div>
 

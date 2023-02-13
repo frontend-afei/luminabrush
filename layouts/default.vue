@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir">
+  <ColorScheme placeholder="" tag="div">
+    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir" :style="`color-scheme: ${$colorMode.value}`">
       <Head>
         <template v-for="link in head.link" :key="link.id">
           <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
@@ -16,7 +16,7 @@
         </div>
       </Body>
     </Html>
-  </div>
+  </ColorScheme>
 </template>
 
 <script lang="ts" setup>

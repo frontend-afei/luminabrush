@@ -1,5 +1,10 @@
 {
   "welcome": "Willkommen",
   "home": "Start",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "theme": {
+    "system": "System",
+    "dark": "Dunkel",
+    "light": "Hell"
+  }
 }
