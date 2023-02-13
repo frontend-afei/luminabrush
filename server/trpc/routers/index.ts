@@ -8,10 +8,11 @@ export const appRouter = router({
         text: z.string().nullish()
       })
     )
-    .query(({ input }) => {
+    .query(async ({ input, ctx }) => {
       return {
         greeting: `hello ${input?.text ?? 'world'}`,
-        time: new Date()
+        time: new Date(),
+        users: (await ctx.prisma.user.findMany())
       }
     })
 })

@@ -5,8 +5,11 @@
       <span>Visit Dashboard &rarr;</span>
     </NuxtLink>
     <br><br>
-    <pre>tRPC Data: "{{ hello.data.value?.greeting }}" send at "{{ hello.data.value?.time.toLocaleDateString('en-EN') }}".</pre>
-    <br><br>
+
+    <h2>tRPC Data:</h2>
+    <pre>"{{ hello.data.value?.greeting }}" send at "{{ hello.data.value?.time.toLocaleDateString('en-EN') }}".</pre>
+    <br>
+    <pre>users (prisma): {{ hello.data.value?.users }}</pre>
   </div>
 </template>
 
