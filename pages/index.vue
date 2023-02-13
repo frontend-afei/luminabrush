@@ -16,5 +16,6 @@
 <script setup lang="ts">
 const { $trpcClient } = useNuxtApp()
 const localePath = useLocalePath()
+await new Promise(resolve => setTimeout(resolve, 1000))
 const hello = await $trpcClient.hello.useQuery({ text: 'client' })
 </script>
