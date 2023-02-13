@@ -1,11 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
+    '@nuxtjs/i18n',
     '@sidebase/nuxt-auth',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/i18n'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/tailwindcss'
   ],
 
+  // @nuxtjs/i18n
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     langDir: 'locales',
@@ -27,8 +29,18 @@ export default defineNuxtConfig({
     ]
   },
 
+  // @sidebase/nuxt-auth
   auth: {
     origin: process.env.NUXT_PUBLIC_BASE_URL
+  },
+
+  // @nuxtjs/google-fonts
+  googleFonts: {
+    display: 'swap',
+    download: true,
+    families: {
+      Manrope: true
+    }
   },
 
   runtimeConfig: {
