@@ -22,5 +22,7 @@
     "*.css": "tailwindcss"
   },
   // Auto-complete `.value` attribute when volar is installed
-  "volar.autoCompleteRefs": true
+  "volar.autoCompleteRefs": true,
+  "i18n-ally.localesPaths": ["locales"],
+  "i18n-ally.keystyle": "flat"
 }

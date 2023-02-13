@@ -13,12 +13,12 @@
         <ul class="flex gap-6 items-center">
           <li>
             <NuxtLink :to="localePath({ name: 'index' })">
-              Home
+              {{ $t('home') }}
             </NuxtLink>
           </li>
           <li>
             <NuxtLink :to="localePath({ name: 'app-dashboard' })">
-              Dashboard
+              {{ $t('dashboard') }}
             </NuxtLink>
           </li>
         </ul>
