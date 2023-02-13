@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     langDir: 'locales',
-    lazy: true,
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en'
