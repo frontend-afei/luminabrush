@@ -1,5 +1,5 @@
 <template>
-  <select class="CommonLanguageSwitch uppercase font-bold cursor-pointer" :value="locale" @change="handleLanguageChange">
+  <select class="CommonLanguageSwitch text-right bg-transparent uppercase font-bold cursor-pointer" :value="locale" @change="handleLanguageChange">
     <option
       v-for="availableLocale of availableLocales"
       :key="availableLocale"

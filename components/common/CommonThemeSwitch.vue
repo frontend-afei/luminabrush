@@ -1,7 +1,7 @@
 <template>
   <select
     v-model="colorMode.preference"
-    class="CommonThemeSwitch font-bold cursor-pointer"
+    class="CommonThemeSwitch text-right bg-transparent font-bold cursor-pointer"
   >
     <option value="system">
       🖥️&nbsp;&nbsp;{{ $t('theme.system') }}
