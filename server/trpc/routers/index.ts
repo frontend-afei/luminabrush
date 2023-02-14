@@ -9,10 +9,16 @@ export const appRouter = router({
       })
     )
     .query(async ({ input, ctx }) => {
-      return {
-        greeting: `hello ${input?.text ?? 'world'}`,
-        time: new Date(),
-        users: (await ctx.prisma.user.findMany())
+      try {
+        const users = await ctx.prisma.user.findMany()
+        return {
+          greeting: `hello ${input?.text ?? 'world'}`,
+          time: new Date(),
+          users
+        }
+      } catch (error) {
+        console.error(error)
+        return null
       }
     })
 })

@@ -21,6 +21,11 @@
             </NuxtLink>
           </li>
           <li>
+            <NuxtLink :to="localePath({ name: 'blog' })">
+              {{ $t('blog') }}
+            </NuxtLink>
+          </li>
+          <li>
             <NuxtLink :to="localePath({ name: 'app-dashboard' })">
               {{ $t('dashboard') }}
             </NuxtLink>

@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import typographyPlugin from '@tailwindcss/typography'
 import themerPlugin from 'tailwindcss-themer'
 
 export const themeConfig = {
@@ -24,7 +25,8 @@ export const themeConfig = {
 
 export default <Partial<Config>>{
   plugins: [
-    themerPlugin(themeConfig)
+    themerPlugin(themeConfig),
+    typographyPlugin()
   ],
 
   darkMode: 'class',

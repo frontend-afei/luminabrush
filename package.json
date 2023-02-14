@@ -19,7 +19,9 @@
     "@nuxtjs/google-fonts": "3.0.0-1",
     "@nuxtjs/i18n": "8.0.0-beta.9",
     "@nuxtjs/tailwindcss": "^6.4.0",
+    "@nuxt/content": "^2.4.3",
     "@prisma/client": "^4.10.1",
+    "@tailwindcss/typography": "^0.5.9",
     "@sidebase/nuxt-auth": "^0.4.1",
     "@trpc/client": "^10.11.0",
     "@trpc/server": "^10.11.0",
@@ -29,14 +31,14 @@
     "superjson": "^1.12.2",
     "trpc-nuxt": "^0.6.0",
     "typescript": "^4.9.5",
-    "zod": "^3.20.6"
+    "zod": "^3.20.6",
+    "tailwindcss-themer": "^2.0.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.13.0",
     "eslint": "^8.34.0",
     "npm-run-all": "^4.1.5",
-    "tailwindcss-themer": "^2.0.3",
     "vue-tsc": "^1.0.24"
   }
 }

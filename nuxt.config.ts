@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
     '@sidebase/nuxt-auth',
+    '@nuxt/content',
     '@nuxtjs/google-fonts',
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss'
@@ -33,6 +34,11 @@ export default defineNuxtConfig({
   // @sidebase/nuxt-auth
   auth: {
     origin: process.env.NUXT_PUBLIC_BASE_URL
+  },
+
+  // @nuxt/content
+  content: {
+
   },
 
   // @nuxtjs/google-fonts
@@ -80,6 +86,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/app/**': { ssr: false },
-    '/auth/**': { ssr: false }
+    '/auth/**': { ssr: false },
+    '/blog/**': { static: true }
   }
 })
