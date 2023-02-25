@@ -26,6 +26,11 @@
             </NuxtLink>
           </li>
           <li>
+            <NuxtLink :to="localePath({ name: 'pricing' })">
+              {{ $t('pricing') }}
+            </NuxtLink>
+          </li>
+          <li>
             <NuxtLink :to="localePath({ name: 'app-dashboard' })">
               {{ $t('dashboard') }}
             </NuxtLink>
