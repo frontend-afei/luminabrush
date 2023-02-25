@@ -10,6 +10,6 @@
 </template>
 
 <script setup lang="ts">
-const { $trpcClient } = useNuxtApp()
-const { data: products } = await $trpcClient.lemonsqueezy.retrieveProducts.useQuery()
+const { trpcClient } = useTrpcClient()
+const { data: products } = await trpcClient.lemonsqueezy.retrieveProducts.useQuery()
 </script>
