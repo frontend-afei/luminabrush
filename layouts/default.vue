@@ -1,5 +1,5 @@
 <template>
-  <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir" :style="`color-scheme: ${$colorMode.value}`">
+  <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir" :style="`color-scheme: ${colorModeValue}`">
     <Head>
       <template v-for="link in head.link" :key="link.id">
         <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
@@ -9,7 +9,7 @@
       </template>
     </Head>
     <Body>
-      <NuxtLoadingIndicator :height="4" :color="color" />
+      <CommonLoadingIndicator />
       <CommonLayoutHeader />
       <div class="container mx-auto">
         <slot />
@@ -19,8 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-const color = useThemeValue('colors.primary')
+const colorMode = useColorMode()
+const colorModeValue = computed(() => colorMode.value)
 
+// i18n
 const head = useLocaleHead({
   addDirAttribute: true,
   identifierAttribute: 'id',
