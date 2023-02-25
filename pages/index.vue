@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>{{ $t('welcome') }} to supastarter!</h1>
+    <h1 class="mb-4">
+      {{ $t('welcome') }} to supastarter!
+    </h1>
     <NuxtLink :to="localePath({ name: 'app-dashboard' })">
       <span>Visit Dashboard &rarr;</span>
     </NuxtLink>
