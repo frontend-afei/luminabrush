@@ -84,8 +84,7 @@ export default defineNuxtConfig({
   },
 
   components: [
-    { path: '~/modules', prefix: '' },
-    '~/components'
+    { path: '~/modules', prefix: '' }
   ],
 
   typescript: {

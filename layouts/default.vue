@@ -10,7 +10,7 @@
     </Head>
     <Body>
       <NuxtLoadingIndicator :height="4" :color="color" />
-      <LayoutHeader />
+      <CommonLayoutHeader />
       <div class="container mx-auto">
         <slot />
       </div>
