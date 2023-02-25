@@ -31,6 +31,10 @@ export default <Partial<Config>>{
 
   darkMode: 'class',
 
+  content: [
+    './modules/**/*.vue'
+  ],
+
   safelist: ['theme-dark'],
 
   theme: {
