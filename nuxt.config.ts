@@ -80,7 +80,7 @@ export default defineNuxtConfig({
   },
 
   imports: {
-    dirs: ['./modules']
+    dirs: ['modules/**']
   },
 
   components: [
