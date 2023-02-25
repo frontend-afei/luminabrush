@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   ],
 
   // @nuxtjs/i18n
+  // @ts-ignore
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     langDir: 'locales',
@@ -34,11 +35,6 @@ export default defineNuxtConfig({
   // @sidebase/nuxt-auth
   auth: {
     origin: process.env.NUXT_PUBLIC_BASE_URL
-  },
-
-  // @nuxt/content
-  content: {
-
   },
 
   // @nuxtjs/google-fonts
@@ -79,6 +75,15 @@ export default defineNuxtConfig({
       'trpc-nuxt'
     ]
   },
+
+  imports: {
+    dirs: ['./modules']
+  },
+
+  components: [
+    { path: '~/modules', prefix: '' },
+    '~/components'
+  ],
 
   typescript: {
     shim: false
