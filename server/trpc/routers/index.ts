@@ -1,7 +1,13 @@
 import { z } from 'zod'
 import { publicProcedure, router } from '../trpc'
 
+// Import routers from modules
+import { lemonsqueezyRouter } from '@/modules/lemonsqueezy/server/trpc/lemonsqueezyRouter'
+
 export const appRouter = router({
+  lemonsqueezy: lemonsqueezyRouter,
+
+  // Example
   hello: publicProcedure
     .input(
       z.object({

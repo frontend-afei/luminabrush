@@ -35,6 +35,7 @@
     "tailwindcss-themer": "^2.0.3"
   },
   "devDependencies": {
+    "lemonsqueezy.ts": "^0.1.6",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.13.0",
     "eslint": "^8.34.0",

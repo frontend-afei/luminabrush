@@ -53,6 +53,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    lemonsqueezy: {
+      apiKey: process.env.NUXT_LEMONSQUEEZY_API_KEY
+    },
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL
     }
