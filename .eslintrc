@@ -5,17 +5,8 @@
     "node": true
   },
   "extends": ["@nuxtjs/eslint-config-typescript"],
-  "overrides": [
-    {
-      "files": ["./server/**/*.ts"],
-      "rules": {
-        "no-console": [
-          "error",
-          {
-            "allow": ["info", "warn", "trace", "error"]
-          }
-        ]
-      }
-    }
-  ]
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/no-unused-vars": "off"
+  }
 }
