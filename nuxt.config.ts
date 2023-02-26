@@ -60,6 +60,18 @@ export default defineNuxtConfig({
     lemonsqueezy: {
       apiKey: process.env.NUXT_LEMONSQUEEZY_API_KEY
     },
+    email: {
+      server: {
+        host: process.env.NUXT_EMAIL_HOST,
+        port: Number(process.env.NUXT_EMAIL_PORT),
+        secure: Boolean(process.env.NUXT_EMAIL_SECURE || 'false'),
+        auth: {
+          user: process.env.NUXT_EMAIL_USER,
+          pass: process.env.NUXT_EMAIL_PASSWORD
+        }
+      },
+      from: process.env.NUXT_EMAIL_FROM
+    },
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL
     }
