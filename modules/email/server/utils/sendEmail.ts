@@ -15,8 +15,6 @@ export const sendEmail = async (params: {
       throw new Error('runtimeConfig.email.server and or runtimeConfig.email.from not configured')
     }
 
-    console.log(runtimeConfig.email.server)
-
     const { to, subject, text, context, templateId } = params
     let { html } = params
 
