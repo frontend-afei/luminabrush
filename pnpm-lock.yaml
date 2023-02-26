@@ -8,7 +8,7 @@ specifiers:
   '@nuxtjs/i18n': 8.0.0-beta.9
   '@nuxtjs/tailwindcss': ^6.4.0
   '@prisma/client': ^4.10.1
-  '@sidebase/nuxt-auth': ^0.4.1
+  '@sidebase/nuxt-auth': ^0.4.2
   '@tailwindcss/typography': ^0.5.9
   '@trpc/client': ^10.11.0
   '@trpc/server': ^10.11.0
@@ -33,7 +33,7 @@ dependencies:
   '@nuxtjs/i18n': 8.0.0-beta.9
   '@nuxtjs/tailwindcss': 6.4.0
   '@prisma/client': 4.10.1_prisma@4.10.1
-  '@sidebase/nuxt-auth': 0.4.1_next-auth@4.19.2
+  '@sidebase/nuxt-auth': 0.4.2_next-auth@4.19.2
   '@tailwindcss/typography': 0.5.9
   '@trpc/client': 10.11.0_@trpc+server@10.11.0
   '@trpc/server': 10.11.0
@@ -1716,8 +1716,8 @@ packages:
       rollup: 3.15.0
     dev: false
 
-  /@sidebase/nuxt-auth/0.4.1_next-auth@4.19.2:
-    resolution: {integrity: sha512-NgoTZFHiedjgrTVD+xni/xMrSQP1kypjASBhpnOjRTaU8xeI5d/eLpitB5BTGiE1qH9TUFRQz5QR1xs0bRlNlg==}
+  /@sidebase/nuxt-auth/0.4.2_next-auth@4.19.2:
+    resolution: {integrity: sha512-lsHKIOukfxFOWF54/h0I2HujYoEQzGHWpHWb9yI84R7UPEvpONWAWoQ1ozWXnf1MDXQobsrJ5iTB22fI/xmxoQ==}
     peerDependencies:
       next-auth: ^4.18.8
     dependencies:
