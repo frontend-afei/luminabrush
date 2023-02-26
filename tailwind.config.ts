@@ -40,8 +40,9 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        display: ['Manrope', ...defaultTheme.fontFamily.sans]
-      }
+        sans: ['Manrope', 'sans-serif', ...defaultTheme.fontFamily.sans],
+        serif: ['Manrope', 'serif', ...defaultTheme.fontFamily.sans],
+      },
     }
   }
 }

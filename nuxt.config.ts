@@ -40,9 +40,13 @@ export default defineNuxtConfig({
   // @nuxtjs/google-fonts
   googleFonts: {
     display: 'swap',
+    subsets: 'latin',
     download: true,
     families: {
-      Manrope: true
+      Manrope: {
+        wght: [400, 500, 600, 700, 800],
+        ital: [400, 500, 600, 700, 800]
+      }
     }
   },
 
