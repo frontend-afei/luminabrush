@@ -1,11 +1,12 @@
 {
   "welcome": "Willkommen",
-  "theme": {
-    "system": "System",
-    "dark": "Dunkel",
-    "light": "Hell"
-  },
   "common": {
+    "colorMode": {
+      "label": "Farbmodus",
+      "system": "Gerät",
+      "dark": "Dunkel",
+      "light": "Hell"
+    },
     "menu": {
       "home": "Start",
       "features": "Features",

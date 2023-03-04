@@ -1,11 +1,12 @@
 {
   "welcome": "Welcome",
-  "theme": {
-    "system": "System",
-    "dark": "Dark",
-    "light": "Light"
-  },
   "common": {
+    "colorMode": {
+      "label": "Color Mode",
+      "system": "System",
+      "dark": "Dark",
+      "light": "Light"
+    },
     "menu": {
       "home": "Home",
       "features": "Features",
