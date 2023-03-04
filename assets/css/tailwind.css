@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-white dark:text-white dark:bg-zinc-800;
+    @apply bg-white dark:text-white dark:bg-zinc-900;
   }
 
   h1 {
