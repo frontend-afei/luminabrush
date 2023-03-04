@@ -4,13 +4,13 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@sidebase/nuxt-auth',
     '@nuxt/content',
+    'nuxt-icon',
     '@nuxtjs/google-fonts',
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss'
   ],
 
   // @nuxtjs/i18n
-  // @ts-ignore
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     langDir: 'locales',
@@ -52,7 +52,7 @@ export default defineNuxtConfig({
 
   // @nuxtjs/color-mode
   colorMode: {
-    classPrefix: 'theme-',
+    classPrefix: '',
     classSuffix: ''
   },
 

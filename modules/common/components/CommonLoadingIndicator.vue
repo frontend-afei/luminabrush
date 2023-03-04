@@ -3,5 +3,11 @@
 </template>
 
 <script setup lang="ts">
-const color = useThemeValue('colors.primary')
+const colorMode = useColorMode()
+const color = computed(() => {
+  switch (colorMode.value) {
+    case 'dark': return '#fff'
+    case 'light': return '#000'
+  }
+})
 </script>

@@ -10,10 +10,7 @@
     </Head>
     <Body>
       <CommonLoadingIndicator />
-      <CommonLayoutHeader />
-      <div class="container mx-auto">
-        <slot />
-      </div>
+      <slot />
     </Body>
   </Html>
 </template>

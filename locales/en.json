@@ -1,12 +1,18 @@
 {
   "welcome": "Welcome",
-  "home": "Home",
-  "dashboard": "Dashboard",
   "theme": {
     "system": "System",
     "dark": "Dark",
     "light": "Light"
   },
-  "blog": "Blog",
-  "pricing": "Pricing"
+  "common": {
+    "menu": {
+      "home": "Home",
+      "features": "Features",
+      "pricing": "Pricing",
+      "blog": "Blog",
+      "dashboard": "Dashboard",
+      "signIn": "Sign In"
+    }
+  }
 }

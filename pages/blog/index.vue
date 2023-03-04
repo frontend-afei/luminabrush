@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <BlogLayout>
     <h1 class="text-center text-4xl font-bold mb-12">
-      {{ $t('blog') }}
+      {{ $t('common.menu.blog') }}
     </h1>
 
     <section class="mx-auto max-w-3xl space-y-8">
@@ -9,7 +9,7 @@
         v-for="item of data"
         :key="item._id"
         :to="localePath({ path: item._path })"
-        class="bg-gray-100 theme-dark:bg-gray-700 p-4 block"
+        class="bg-gray-100 dark:bg-gray-700 p-4 block"
       >
         <h2 class="text-xl mb-1 font-bold">
           {{ item.title }}
@@ -17,7 +17,7 @@
         <p>{{ item.excerpt }}</p>
       </NuxtLink>
     </section>
-  </div>
+  </BlogLayout>
 </template>
 
 <script setup lang="ts">

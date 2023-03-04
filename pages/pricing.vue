@@ -1,3 +1,5 @@
 <template>
-  <LemonsqueezyPricingPage />
+  <CommonLayout>
+    <LemonsqueezyLayoutPricingPage />
+  </CommonLayout>
 </template>

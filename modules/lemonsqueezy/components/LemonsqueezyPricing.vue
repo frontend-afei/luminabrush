@@ -1,5 +1,5 @@
 <template>
-  <article class="flex-1 bg-gray-100 theme-dark:bg-gray-700 p-4">
+  <article class="flex-1 bg-gray-100 dark:bg-gray-700 p-4">
     <h2 class="mb-1 text-center">
       {{ props.product.data.attributes.name }}
     </h2>

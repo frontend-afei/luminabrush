@@ -1,8 +1,10 @@
 <template>
-  <main class="prose theme-dark:prose-invert max-w-3xl mx-auto">
-    <h1>{{ data?.title }}</h1>
-    <ContentRenderer v-if="data" :value="data" />
-  </main>
+  <BlogLayout>
+    <div class="prose dark:prose-invert max-w-3xl mx-auto">
+      <h1>{{ data?.title }}</h1>
+      <ContentRenderer v-if="data" :value="data" />
+    </div>
+  </BlogLayout>
 </template>
 
 <script setup lang="ts">

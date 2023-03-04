@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <CommonLayout>
     <h1 class="mb-4">
       {{ $t('welcome') }} to supastarter!
     </h1>
@@ -12,7 +12,7 @@
     <pre>"{{ hello.data.value?.greeting }}" send at "{{ hello.data.value?.time.toLocaleDateString('en-EN') }}".</pre>
     <br>
     <pre>users (prisma): {{ hello.data.value?.users }}</pre>
-  </div>
+  </CommonLayout>
 </template>
 
 <script setup lang="ts">

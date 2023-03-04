@@ -4,11 +4,11 @@
 
 @layer base {
   html {
-    @apply font-sans;
+    @apply font-sans font-medium;
   }
 
   body {
-    @apply text-gray-700 bg-white theme-dark:text-white theme-dark:bg-gray-800;
+    @apply bg-white dark:text-white dark:bg-zinc-800;
   }
 
   h1 {

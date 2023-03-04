@@ -1,12 +1,18 @@
 {
   "welcome": "Willkommen",
-  "home": "Start",
-  "dashboard": "Dashboard",
   "theme": {
     "system": "System",
     "dark": "Dunkel",
     "light": "Hell"
   },
-  "blog": "Blog",
-  "pricing": "Preise"
+  "common": {
+    "menu": {
+      "home": "Start",
+      "features": "Features",
+      "pricing": "Preise",
+      "blog": "Blog",
+      "dashboard": "Dashboard",
+      "signIn": "Anmelden"
+    }
+  }
 }
