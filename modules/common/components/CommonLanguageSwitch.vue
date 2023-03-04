@@ -1,38 +1,60 @@
 <template>
-  <select class="CommonLanguageSwitch text-right bg-transparent uppercase font-bold cursor-pointer" :value="locale" @change="handleLanguageChange">
-    <option
-      v-for="availableLocale of availableLocales"
-      :key="availableLocale"
-      :value="availableLocale"
-      :selected="locale === availableLocale"
-    >
-      {{ availableLocale }}
-    </option>
-  </select>
+  <CommonButton v-bind="(api.triggerProps as any)" intent="primary-outline" size="small">
+    <Icon name="feather:globe" />
+  </CommonButton>
+
+  <div v-bind="api.positionerProps">
+    <CommonMenu v-bind="api.contentProps">
+      <CommonMenuItem
+        v-for="option in languageOptions"
+        :key="option.value"
+        v-bind="api.getOptionItemProps({ name: 'locale', type: 'radio', value: option.value })"
+      >
+        {{ option.label }}
+      </CommonMenuItem>
+    </CommonMenu>
+  </div>
 </template>
 
 <script setup lang="ts">
-const { locale, locales } = useI18n()
+import * as menu from '@zag-js/menu'
+import { normalizeProps, useMachine } from '@zag-js/vue'
+
+const { t, locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
-const availableLocales = computed(() => {
+const [state, send] = useMachine(menu.machine({
+  id: 'language-switch',
+  'aria-label': t('common.i18n.switchLabel'),
+  value: { locale: locale.value },
+  onValueChange: ({ value }) => {
+    if (Array.isArray(value)) {
+      value = value[0]
+    }
+
+    // Switch locale
+    locale.value = value
+
+    // Switch locale path
+    const newPath = switchLocalePath(value)
+    navigateTo(newPath, { replace: true })
+  },
+  loop: true
+}))
+const api = computed(() => menu.connect(state.value, send, normalizeProps))
+
+const languageOptions = computed(() => {
   return locales.value.map((locale) => {
     if (typeof locale === 'string') {
-      return locale
+      return {
+        value: locale,
+        label: locale
+      }
     }
-    return locale.code
+    return {
+      value: locale.code,
+      label: locale.name
+    }
   })
 })
-
-const handleLanguageChange = (e: Event) => {
-  const target = e.target as HTMLSelectElement
-  const newValue = target.value
-
-  // Switch locale
-  locale.value = newValue
-
-  // Switch locale path
-  const newPath = switchLocalePath(newValue)
-  navigateTo(newPath, { replace: true })
-}
 </script>

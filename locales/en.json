@@ -7,6 +7,9 @@
       "dark": "Dark",
       "light": "Light"
     },
+    "i18n": {
+      "switchLabel": "Language"
+    },
     "menu": {
       "home": "Home",
       "features": "Features",

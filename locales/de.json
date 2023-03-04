@@ -7,6 +7,9 @@
       "dark": "Dunkel",
       "light": "Hell"
     },
+    "i18n": {
+      "switchLabel": "Sprache"
+    },
     "menu": {
       "home": "Start",
       "features": "Features",
