@@ -39,6 +39,13 @@ export default defineNuxtConfig({
     origin: process.env.NUXT_PUBLIC_BASE_URL
   },
 
+  // @nuxt/content
+  content: {
+    markdown: {
+      anchorLinks: false
+    }
+  },
+
   // @nuxtjs/google-fonts
   googleFonts: {
     display: 'swap',

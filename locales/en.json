@@ -2,7 +2,8 @@
   "welcome": "Welcome",
   "blog": {
     "pageTitle": "Blog",
-    "pageDescription": "Read about the latest news and updates here."
+    "pageDescription": "Read about the latest news and updates here.",
+    "postBackLabel": "Back to Blog"
   },
   "common": {
     "colorMode": {

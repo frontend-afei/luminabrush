@@ -6,4 +6,13 @@
   body {
     @apply bg-white font-sans font-medium dark:text-white dark:bg-zinc-900;
   }
+
+  a {
+    @apply text-black text-opacity-75 dark:text-white dark:text-opacity-75;
+
+    &:hover,
+    &:focus {
+      @apply underline;
+    }
+  }
 }
