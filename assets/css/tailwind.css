@@ -3,19 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply font-sans font-medium;
-  }
-
   body {
-    @apply bg-white dark:text-white dark:bg-zinc-900;
-  }
-
-  h1 {
-    @apply text-4xl font-bold leading-tight;
-  }
-
-  h2 {
-    @apply text-2xl font-bold leading-tight;
+    @apply bg-white font-sans font-medium dark:text-white dark:bg-zinc-900;
   }
 }

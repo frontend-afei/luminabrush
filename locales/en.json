@@ -1,5 +1,9 @@
 {
   "welcome": "Welcome",
+  "blog": {
+    "pageTitle": "Blog",
+    "pageDescription": "Read about the latest news and updates here."
+  },
   "common": {
     "colorMode": {
       "label": "Color Mode",
