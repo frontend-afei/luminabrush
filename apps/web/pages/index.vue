@@ -1,5 +1,7 @@
 <template>
-	<div>Home Page</div>
+	<MarketingHero />
+	<MarketingFeatures />
+	<MarketingNewsletter />
 </template>
 
 <script setup lang="ts">

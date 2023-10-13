@@ -1,6 +1,9 @@
 <template>
 	<MarketingNavBar />
-	<slot />
+	<main class="min-h-screen pt-32">
+		<slot />
+	</main>
+	<MarketingFooter />
 </template>
 
 <script setup lang="ts"></script>

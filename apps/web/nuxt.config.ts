@@ -45,6 +45,7 @@ export default defineNuxtConfig({
 		{ path: '@/modules/ui/components', pathPrefix: false },
 		{ path: '@/modules/shared/components', pathPrefix: false },
 		{ path: '@/modules/marketing/shared/components', pathPrefix: false },
+		{ path: '@/modules/marketing/home/components', pathPrefix: false },
 	],
 
 	app: {
@@ -102,9 +103,8 @@ export default defineNuxtConfig({
 	// @nuxtjs/google-fonts
 	googleFonts: {
 		display: 'swap',
-		subsets: ['latin'],
 		families: {
-			'Plus+Jakarta+Sans': true,
+			'Plus+Jakarta+Sans': [400, 500, 600, 700, 800],
 		},
 	},
 
