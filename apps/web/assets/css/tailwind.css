@@ -2,8 +2,17 @@
 	* {
 		@apply border-border;
 	}
+	html {
+		color-scheme: light dark;
+	}
+	html.dark {
+		color-scheme: dark;
+	}
+	html.light {
+		color-scheme: light;
+	}
 	body {
-		@apply bg-background text-foreground font-sans;
+		@apply bg-background text-foreground overflow-y-scroll font-sans;
 	}
 }
 
