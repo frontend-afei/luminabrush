@@ -2,8 +2,10 @@
 	<DropdownMenuRoot>
 		<DropdownMenuTrigger asChild>
 			<Button variant="ghost" size="icon">
-				<Icon v-if="resolvedValue === 'light'" name="lightMode" class="h-4 w-4" />
-				<Icon v-else name="darkMode" class="h-4 w-4" />
+				<ClientOnly>
+					<Icon v-if="resolvedValue === 'light'" name="lightMode" class="h-4 w-4" />
+					<Icon v-else name="darkMode" class="h-4 w-4" />
+				</ClientOnly>
 			</Button>
 		</DropdownMenuTrigger>
 
