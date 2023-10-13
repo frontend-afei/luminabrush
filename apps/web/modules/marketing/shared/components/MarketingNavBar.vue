@@ -20,6 +20,32 @@
 					<ColorModeToggle />
 					<LocaleSwitch :locales="locales" />
 
+					<SheetRoot>
+						<SheetTrigger asChild>
+							<Button class="md:hidden" size="icon" variant="outline">
+								<Icon name="menu" />
+							</Button>
+						</SheetTrigger>
+						<SheetContent class="w-[250px]" side="right">
+							<div class="flex flex-col items-center justify-center">
+								<NuxtLink
+									v-for="menuItem of menuItems"
+									:key="menuItem.to"
+									:to="menuItem.to"
+									class="block px-3 py-2 text-lg">
+									{{ menuItem.label }}
+								</NuxtLink>
+
+								<NuxtLink
+									:to="localePath(hasUser ? '/team/redirect' : '/auth/login')"
+									:prefetch="!hasUser"
+									class="block px-3 py-2 text-lg">
+									{{ hasUser ? t('common.menu.dashboard') : t('common.menu.login') }}
+								</NuxtLink>
+							</div>
+						</SheetContent>
+					</SheetRoot>
+
 					<Button class="hidden md:block" asChild variant="ghost">
 						<NuxtLink :to="localePath(hasUser ? '/team/redirect' : '/auth/login')" :prefetch="!hasUser">
 							{{ hasUser ? t('common.menu.dashboard') : t('common.menu.login') }}
