@@ -14,6 +14,6 @@
 </template>
 
 <script setup lang="ts">
-	const { t, locale } = useLocale()
+	const { t, locale } = useTranslations()
 	const colorMode = useColorMode()
 </script>

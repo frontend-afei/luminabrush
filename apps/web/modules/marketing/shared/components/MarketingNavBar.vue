@@ -59,17 +59,19 @@
 
 <script setup lang="ts">
 	const { locales } = useI18n()
-	const { t } = useLocale()
+	const { t } = useTranslations()
 
 	const localePath = useLocalePath()
 
 	// TODO: Replace with real user check
 	const hasUser = ref(false)
 
-	const menuItems: {
-		label: string
-		to: string
-	}[] = [
+	const menuItems = computed<
+		{
+			label: string
+			to: string
+		}[]
+	>(() => [
 		{
 			label: t('common.menu.pricing'),
 			to: localePath('/pricing'),
@@ -78,5 +80,5 @@
 			label: t('common.menu.blog'),
 			to: localePath('/blog'),
 		},
-	]
+	])
 </script>
