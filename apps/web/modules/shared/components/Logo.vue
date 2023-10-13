@@ -20,7 +20,12 @@
 </template>
 
 <script setup lang="ts">
-	const props = defineProps<{
-		withLabel?: boolean
-	}>()
+	const props = withDefaults(
+		defineProps<{
+			withLabel?: boolean
+		}>(),
+		{
+			withLabel: true,
+		}
+	)
 </script>
