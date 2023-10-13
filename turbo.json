@@ -1,0 +1,37 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": ["**/.env.*local"],
+	"globalEnv": [
+		"NODE_ENV",
+		"PORT",
+		"NUXT_PUBLIC_SITE_URL",
+		"VERCEL_URL",
+		"LEMONSQUEEZY_WEBHOOK_SECRET",
+		"LEMONSQUEEZY_API_KEY",
+		"STRIPE_SECRET_KEY",
+		"STRIPE_WEBHOOK_SECRET",
+		"MAIL_HOST",
+		"MAIL_PORT",
+		"MAIL_USER",
+		"MAIL_PASS",
+		"GITHUB_CLIENT_ID",
+		"GITHUB_CLIENT_SECRET",
+		"GOOGLE_CLIENT_ID",
+		"GOOGLE_CLIENT_SECRET"
+	],
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**", ".output/**"]
+		},
+		"lint": {
+			"outputs": []
+		},
+		"lint:fix": {
+			"outputs": []
+		},
+		"dev": {
+			"cache": false
+		}
+	}
+}

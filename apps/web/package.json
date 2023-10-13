@@ -1,0 +1,27 @@
+{
+	"name": "web",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev --dotenv ../../.env.local",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"lint": "eslint",
+		"lint:fix": "eslint --fix"
+	},
+	"devDependencies": {
+		"@nuxtjs/color-mode": "^3.3.0",
+		"@nuxtjs/google-fonts": "^3.0.2",
+		"@nuxtjs/i18n": "8.0.0-rc.5",
+		"@nuxtjs/tailwindcss": "^6.8.0",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.0.0",
+		"lucide-vue-next": "^0.286.0",
+		"nuxt": "3.7.4",
+		"radix-vue": "^0.4.1",
+		"tailwind-config": "workspace:*",
+		"tailwind-merge": "^1.14.0",
+		"tsconfig": "workspace:*"
+	}
+}
