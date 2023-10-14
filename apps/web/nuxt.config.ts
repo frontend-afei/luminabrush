@@ -68,6 +68,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/color-mode',
 		'@nuxt/content',
 		'@nuxt/image',
+		'nuxt-simple-robots',
 	],
 
 	// @nuxtjs/i18n
@@ -129,5 +130,16 @@ export default defineNuxtConfig({
 	// @nuxt/image
 	image: {
 		domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
+	},
+
+	// nuxt-simple-robots -> nuxt-site-config
+	site: {
+		url: process.env.NUXT_PUBLIC_SITE_URL,
+	},
+
+	// nuxt-simple-robots
+	robots: {
+		allow: '*',
+		// sitemap: 'sitemap.xml',
 	},
 })

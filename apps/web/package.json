@@ -21,6 +21,7 @@
 		"clsx": "^2.0.0",
 		"lucide-vue-next": "^0.286.0",
 		"nuxt": "3.7.4",
+		"nuxt-simple-robots": "^3.1.6",
 		"radix-vue": "^0.4.1",
 		"tailwind-config": "workspace:*",
 		"tailwind-merge": "^1.14.0",
