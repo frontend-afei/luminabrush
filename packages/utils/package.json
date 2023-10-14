@@ -1,0 +1,12 @@
+{
+	"name": "utils",
+	"license": "MIT",
+	"version": "0.0.0",
+	"devDependencies": {
+		"eslint-config-custom": "workspace:*",
+		"tsconfig": "workspace:*"
+	},
+	"scripts": {
+		"lint": "eslint \"**/*.ts*\""
+	}
+}

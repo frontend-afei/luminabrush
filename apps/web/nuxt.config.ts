@@ -1,3 +1,7 @@
+import { getBaseUrl } from 'utils/lib/base-url'
+
+const baseUrl = getBaseUrl()
+
 export default defineNuxtConfig({
 	experimental: {
 		typedPages: true,
@@ -5,7 +9,7 @@ export default defineNuxtConfig({
 
 	runtimeConfig: {
 		public: {
-			siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
+			siteUrl: baseUrl,
 			locales: {
 				localeLabels: {
 					en: 'English',
@@ -146,7 +150,7 @@ export default defineNuxtConfig({
 
 	// nuxt-simple-robots -> nuxt-site-config
 	site: {
-		url: process.env.NUXT_PUBLIC_SITE_URL,
+		url: baseUrl,
 	},
 
 	// nuxt-simple-robots
