@@ -54,6 +54,8 @@
 	const localePath = useLocalePath()
 
 	const pagePath = computed(() => {
-		return localePath(props.post._path || '')
+		console.log({ post: props.post })
+		return 'x'
+		// return localePath(props.post._path || '')
 	})
 </script>
