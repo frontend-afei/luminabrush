@@ -1,7 +1,3 @@
 {
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "lokalise.i18n-ally"
-  ]
+	"recommendations": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint", "lokalise.i18n-ally", "Nuxt.mdc"]
 }

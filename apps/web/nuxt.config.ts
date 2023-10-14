@@ -44,6 +44,7 @@ export default defineNuxtConfig({
 		//
 		{ path: '@/modules/ui/components', pathPrefix: false },
 		{ path: '@/modules/shared/components', pathPrefix: false },
+		{ path: '@/modules/marketing/blog/components', pathPrefix: false },
 		{ path: '@/modules/marketing/shared/components', pathPrefix: false },
 		{ path: '@/modules/marketing/home/components', pathPrefix: false },
 	],
@@ -65,6 +66,8 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss', // configured in tailwind.config.ts
 		'@nuxtjs/google-fonts',
 		'@nuxtjs/color-mode',
+		'@nuxt/content',
+		'@nuxt/image',
 	],
 
 	// @nuxtjs/i18n
@@ -114,5 +117,17 @@ export default defineNuxtConfig({
 		fallback: 'light',
 		classSuffix: '',
 		storageKey: 'NUXT_COLOR_MODE',
+	},
+
+	// @nuxt/content
+	content: {
+		markdown: {
+			anchorLinks: false,
+		},
+	},
+
+	// @nuxt/image
+	image: {
+		domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
 	},
 })
