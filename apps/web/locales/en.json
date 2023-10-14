@@ -100,7 +100,8 @@
 	},
 	"blog": {
 		"description": "Read the latest news from our company",
-		"title": "My awesome blog"
+		"title": "My awesome blog",
+		"backLabel": "Back to blog"
 	},
 	"common": {
 		"locales": {},

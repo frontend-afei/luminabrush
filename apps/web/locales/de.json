@@ -100,7 +100,8 @@
 	},
 	"blog": {
 		"description": "In diesem Blog schreibe ich über alles mögliche.",
-		"title": "Mein toller Blog"
+		"title": "Mein toller Blog",
+		"backLabel": "Zurück zum Blog"
 	},
 	"common": {
 		"locales": {},

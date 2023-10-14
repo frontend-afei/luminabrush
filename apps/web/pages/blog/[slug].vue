@@ -3,7 +3,7 @@
 		<div class="container max-w-6xl pb-24">
 			<div class="mx-auto max-w-2xl">
 				<div class="mb-12">
-					<NuxtLink :to="localePath('/blog')"> &larr; Back to blog </NuxtLink>
+					<NuxtLink :to="localePath('/blog')"> &larr; {{ t('blog.backLabel') }} </NuxtLink>
 				</div>
 
 				<h1 class="text-4xl font-bold">{{ post.title }}</h1>
@@ -62,6 +62,7 @@
 	const runtimeConfig = useRuntimeConfig()
 	const localePath = useLocalePath()
 	const { routeBasePath } = useRouteBasePath({ path: route.path })
+	const { t } = useTranslations()
 
 	const { data: post } = await useAsyncData(route.path, () => {
 		return queryContent<MarketingBlogPageFields>(routeBasePath.value).findOne()

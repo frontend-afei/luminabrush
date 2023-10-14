@@ -99,7 +99,8 @@
 	},
 	"blog": {
 		"description": "Lea las últimas noticias de nuestra empresa.",
-		"title": "mi blog genial"
+		"title": "mi blog genial",
+		"backLabel": "Volver al blog"
 	},
 	"common": {
 		"menu": {
