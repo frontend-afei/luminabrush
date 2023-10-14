@@ -10,7 +10,7 @@ export const useApiCaller = () => {
 	const apiCaller = createTRPCNuxtClient<ApiRouter>({
 		links: [
 			httpBatchLink({
-				url: '/api',
+				url: '/api/trpc',
 			}),
 		],
 		transformer: superjson,
