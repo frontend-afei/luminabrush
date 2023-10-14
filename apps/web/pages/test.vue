@@ -1,19 +1,19 @@
 <template>
 	<div class="container">
-		<h2 class="my-4 text-xl">i18n:</h2>
-		<p>
-			Locale: <strong>{{ locale }}</strong>
-		</p>
-		<p>{{ t('blog.title') }}</p>
-
-		<br /><br />
-
-		<h2 class="my-4 text-xl">color mode:</h2>
-		<p>{{ colorMode.preference }}</p>
+		<pre>
+			{{ res }}
+		</pre
+		>
 	</div>
 </template>
 
 <script setup lang="ts">
-	const { t, locale } = useTranslations()
-	const colorMode = useColorMode()
+	const { apiCaller } = useApiCaller()
+	const res = await apiCaller.newsletter.signup.mutate({
+		email: 'example@exampl.com',
+	})
+
+	definePageMeta({
+		layout: 'marketing',
+	})
 </script>

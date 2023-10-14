@@ -61,6 +61,18 @@ export default defineNuxtConfig({
 		},
 	},
 
+	routeRules: {
+		'/api/**': {
+			prerender: false,
+			swr: false,
+			isr: false,
+		},
+	},
+
+	build: {
+		transpile: ['trpc-nuxt'],
+	},
+
 	modules: [
 		'@nuxtjs/i18n', // configured here and in i18n.config.ts
 		'@nuxtjs/tailwindcss', // configured in tailwind.config.ts
