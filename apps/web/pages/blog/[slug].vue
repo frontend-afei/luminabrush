@@ -42,7 +42,7 @@
 					sizes="100vw md:50vw lg:1200px"
 					width="1920"
 					height="1080"
-					class="w-full" />
+					class="h-full w-full object-cover object-center" />
 			</div>
 
 			<MarketingPostContent :post="post" />

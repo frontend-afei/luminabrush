@@ -7,7 +7,7 @@
 				sizes="100vw md:50vw"
 				width="1920"
 				height="1080"
-				class="w-full" />
+				class="h-full h-full object-cover object-center" />
 
 			<NuxtLink :to="pagePath" class="absolute inset-0" />
 		</div>
