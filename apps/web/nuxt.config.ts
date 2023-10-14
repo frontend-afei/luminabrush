@@ -65,16 +65,6 @@ export default defineNuxtConfig({
 		},
 	},
 
-	/*
-	routeRules: {
-		'/api/**': {
-			prerender: false,
-			swr: false,
-			isr: false,
-		},
-	},
-	*/
-
 	build: {
 		transpile: ['trpc-nuxt'],
 	},
