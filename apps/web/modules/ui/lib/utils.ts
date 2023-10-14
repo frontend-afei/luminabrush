@@ -3,6 +3,6 @@ import { twMerge } from 'tailwind-merge'
 
 export type ClassValue = _ClassValue
 
-export function cn(...inputs: _ClassValue[]) {
+export const cn = (...inputs: _ClassValue[]) => {
 	return twMerge(clsx(inputs))
 }
