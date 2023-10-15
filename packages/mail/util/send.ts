@@ -6,7 +6,12 @@ import { send } from '../provider/plunk'
 import { getBaseUrl } from 'utils/lib/base-url'
 import { mailTemplates } from './template'
 
-const vueEmail = config('../../packages/mail/emails', {
+const assetsPath =
+	process.env.NODE_ENV === 'production'
+		? './server/mail/emails' // see apps/web/package.json `build` script
+		: '../../packages/mail/emails'
+
+const vueEmail = config(assetsPath, {
 	// TODO remove in prod
 	verbose: true,
 	options: {
