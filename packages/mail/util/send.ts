@@ -7,6 +7,7 @@ import { getBaseUrl } from 'utils/lib/base-url'
 import { mailTemplates } from './template'
 
 const vueEmail = config('../../packages/mail/emails', {
+	// TODO remove in prod
 	verbose: true,
 	options: {
 		baseUrl: getBaseUrl(),

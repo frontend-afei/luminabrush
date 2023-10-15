@@ -38,6 +38,9 @@ importers:
       '@nuxtjs/tailwindcss':
         specifier: ^6.8.0
         version: 6.8.0(webpack@5.88.2)
+      '@vee-validate/zod':
+        specifier: ^4.11.8
+        version: 4.11.8(vue@3.3.4)
       api:
         specifier: workspace:*
         version: link:../../packages/api
@@ -77,6 +80,12 @@ importers:
       utils:
         specifier: workspace:*
         version: link:../../packages/utils
+      vee-validate:
+        specifier: ^4.11.8
+        version: 4.11.8(vue@3.3.4)
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
 
   packages/api:
     devDependencies:
@@ -2411,6 +2420,16 @@ packages:
       hookable: 5.5.3
       unhead: 1.7.4
       vue: 3.3.4
+    dev: true
+
+  /@vee-validate/zod@4.11.8(vue@3.3.4):
+    resolution: {integrity: sha512-qAyqDEigklMf669ZqIw9t95g0Ipzu9rMYUqcZpANlCvyaIAeBlJGcsv+2CewlqgwuC6BL9EAURLJ8Ux5WlBgXg==}
+    dependencies:
+      type-fest: 4.4.0
+      vee-validate: 4.11.8(vue@3.3.4)
+      zod: 3.22.4
+    transitivePeerDependencies:
+      - vue
     dev: true
 
   /@vercel/nft@0.23.1:
@@ -9968,6 +9987,11 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
+  /type-fest@4.4.0:
+    resolution: {integrity: sha512-HT3RRs7sTfY22KuPQJkD/XjbTbxgP2Je5HPt6H6JEGvcjHd5Lqru75EbrP3tb4FYjNJ+DjLp+MNQTFQU0mhXNw==}
+    engines: {node: '>=16'}
+    dev: true
+
   /type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -10394,6 +10418,16 @@ packages:
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /vee-validate@4.11.8(vue@3.3.4):
+    resolution: {integrity: sha512-ZuVpw0axWYBM3aVTD/bm94hcWHumqeUgNjptOqfBT0gyqyHaGYCrm0tSD/0bygEbWUDwEPJOQaEKaUGM82j8TQ==}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      '@vue/devtools-api': 6.5.1
+      type-fest: 4.4.0
+      vue: 3.3.4
     dev: true
 
   /vfile-location@4.1.0:

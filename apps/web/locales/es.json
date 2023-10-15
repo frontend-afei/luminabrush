@@ -137,6 +137,11 @@
 			"success": {
 				"message": "Gracias por suscribirse a nuestro boletín. \nLos mantendremos informados.",
 				"title": "suscrito"
+			},
+			"error": {
+				"title": "Error",
+				"input": "Por favor ingrese un correo electrónico válido.",
+				"submission": "Lo sentimos, pero no pudimos suscribirlo a nuestro boletín. \nPor favor, inténtelo de nuevo más tarde."
 			}
 		},
 		"submit": "Suscribir",

@@ -139,6 +139,11 @@
 			"success": {
 				"message": "Danke, dass du unseren Newsletter abonniert haben. \nWir werden dich auf dem Laufenden halten.",
 				"title": "Gezeichnet"
+			},
+			"error": {
+				"title": "Fehler",
+				"input": "Bitte gib eine gültige E-Mail-Adresse ein.",
+				"submission": "Es tut uns leid, aber wir konnten dich nicht für unseren Newsletter anmelden. \nBitte versuche es später noch einmal."
 			}
 		},
 		"submit": "Abonnieren",
