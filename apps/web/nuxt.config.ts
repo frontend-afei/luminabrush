@@ -77,6 +77,7 @@ export default defineNuxtConfig({
 		'@nuxt/content',
 		'@nuxt/image',
 		'nuxt-simple-robots',
+		'vue-email/nuxt', // @TODO temporary, remove later. see packages/mail/util/send.ts
 	],
 
 	// @nuxtjs/i18n
@@ -149,5 +150,11 @@ export default defineNuxtConfig({
 	robots: {
 		allow: '*',
 		// sitemap: 'sitemap.xml',
+	},
+
+	// @TODO temporary, remove later. see packages/mail/util/send.ts
+	// vue-email/nuxt
+	vueEmail: {
+		baseUrl,
 	},
 })
