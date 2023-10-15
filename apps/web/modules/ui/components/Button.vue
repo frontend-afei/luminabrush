@@ -10,8 +10,9 @@
 
 <script setup lang="ts">
 	import { Slot } from 'radix-vue'
+	import type { ButtonHTMLAttributes } from 'vue'
+	import { type VariantProps, cva } from 'class-variance-authority'
 	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
-	import { VariantProps, cva } from 'class-variance-authority'
 
 	const buttonVariants = cva(
 		'focus-visible:ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -39,20 +40,21 @@
 		}
 	)
 
-	type ButtonProps = VariantProps<typeof buttonVariants>
+	type ButtonVariantProps = VariantProps<typeof buttonVariants>
 
-	const props = withDefaults(
-		defineProps<{
-			class?: ClassValue
-			variant?: ButtonProps['variant']
-			size?: ButtonProps['size']
-			asChild?: boolean
-			loading?: boolean
-			disabled?: HTMLButtonElement['disabled']
-		}>(),
-		{
-			variant: 'default',
-			size: 'default',
-		}
-	)
+	/** @see https://github.com/vuejs/core/issues/8286#issuecomment-1545659320 */
+	interface HTMLAttributes extends /* @vue-ignore */ ButtonHTMLAttributes {}
+
+	type Props = HTMLAttributes & {
+		class?: ClassValue
+		variant?: ButtonVariantProps['variant']
+		size?: ButtonVariantProps['size']
+		asChild?: boolean
+		loading?: boolean
+	}
+
+	const props = withDefaults(defineProps<Props>(), {
+		variant: 'default',
+		size: 'default',
+	})
 </script>
