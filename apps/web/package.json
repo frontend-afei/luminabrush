@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "nuxt build && cp -r ../../packages/mail/emails .output/server/mail/emails",
+		"build": "nuxt build",
 		"dev": "nuxt dev --dotenv ../../.env.local",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
