@@ -1,17 +1,17 @@
 <template>
 	<div class="container">
-		<pre>
-			{{ res }}
-		</pre
-		>
+		<Button @click="() => handleTest()"> Send Test</Button>
 	</div>
 </template>
 
 <script setup lang="ts">
 	const { apiCaller } = useApiCaller()
-	const res = await apiCaller.newsletter.signup.mutate({
-		email: 'example@exampl.com',
-	})
+
+	const handleTest = async () => {
+		await apiCaller.newsletter.signup.mutate({
+			email: 'hello@madebyfabian.com',
+		})
+	}
 
 	definePageMeta({
 		layout: 'marketing',

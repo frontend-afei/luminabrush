@@ -1,4 +1,4 @@
-// @TODO import { sendEmail } from "mail";
+import { sendEmail } from 'mail/util/send'
 import { z } from 'zod'
 import { publicProcedure } from '../../trpc/trpc'
 
@@ -9,13 +9,8 @@ export const signup = publicProcedure
 		})
 	)
 	.mutation(async ({ input: { email } }) => {
-		/** @TODO */
-		/* await sendEmail({
-      to: email,
-      templateId: "newsletterSignup",
-    });
-		*/
-		return {
-			example: true,
-		}
+		await sendEmail({
+			to: email,
+			templateId: 'newsletterSignup',
+		})
 	})
