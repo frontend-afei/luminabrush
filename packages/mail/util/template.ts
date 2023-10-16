@@ -1,3 +1,6 @@
 export const mailTemplates = {
-	newsletterSignup: 'NewsletterSignup.vue',
+	newsletterSignup: {
+		name: 'NewsletterSignup.vue',
+		subject: 'Welcome to our newsletter!',
+	},
 }

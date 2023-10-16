@@ -10,7 +10,8 @@ export const signup = publicProcedure
 	)
 	.mutation(async ({ input: { email } }) => {
 		// @TODO @temporary remove, see packages/mail/util/send.ts
-		const template = await renderTemplate({
+		// @ts-ignore
+		const { template, subject } = await renderTemplate({
 			templateId: 'newsletterSignup',
 			props: {
 				email,
@@ -19,6 +20,7 @@ export const signup = publicProcedure
 
 		await sendEmail({
 			to: email,
+			subject,
 			template, // templateId: 'newsletterSignup',
 		})
 	})

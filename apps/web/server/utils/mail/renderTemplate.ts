@@ -10,10 +10,10 @@ export const renderTemplate = async <TemplateId extends keyof typeof mailTemplat
 	// @TODO
 	props?: any
 }) => {
-	const templateName = mailTemplates[params.templateId]
+	const templateData = mailTemplates[params.templateId]
 
 	const template = await useCompiler(
-		templateName,
+		templateData.name,
 		{
 			props: params.props,
 		},
@@ -21,5 +21,5 @@ export const renderTemplate = async <TemplateId extends keyof typeof mailTemplat
 		process.env.NODE_ENV === 'production' ? false : true
 	)
 
-	return template
+	return { template, subject: templateData.subject }
 }

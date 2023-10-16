@@ -10,11 +10,11 @@ import { send } from '../provider/plunk'
  * @temporary, replace with fuunction below
  * @see apps/web/server/utils/mail/renderTemplate.ts
  */
-export const sendEmail = async (params: { to: string; template: string }) => {
+export const sendEmail = async (params: { to: string; subject: string; template: string }) => {
 	try {
 		await send({
 			to: params.to,
-			subject: 'Supastarter Nuxt', // TODO
+			subject: params.subject,
 			/** @see https://github.com/Dave136/vue-email/issues/79 */
 			text: '',
 			html: params.template,
