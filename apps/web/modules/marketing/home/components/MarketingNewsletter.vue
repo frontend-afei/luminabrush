@@ -10,7 +10,6 @@
 			</div>
 
 			<div class="mx-auto max-w-lg">
-				<!-- TODO: <Alert /> -->
 				<Alert v-if="isSubmitSuccessful === true" variant="success">
 					<Icon name="success" class="h-4 w-4" />
 					<template #title>
@@ -31,7 +30,6 @@
 						</div>
 					</form>
 
-					<!-- TODO: <Alert /> -->
 					<Alert v-if="errors.email" variant="error" class="mt-6 text-sm">
 						<Icon name="error" class="h-4 w-4" />
 						<template #title>
