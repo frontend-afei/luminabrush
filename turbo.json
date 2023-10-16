@@ -21,17 +21,24 @@
 	],
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["^db:generate", "^build"],
 			"outputs": ["dist/**", ".output/**"]
 		},
-		"lint": {
-			"outputs": []
+		"check-types": {},
+		"clean": {
+			"cache": false
 		},
-		"lint:fix": {
-			"outputs": []
+		"db:generate": {
+			"cache": false
+		},
+		"db:push": {
+			"cache": false
 		},
 		"dev": {
-			"cache": false
-		}
+			"cache": false,
+			"dependsOn": ["^db:generate"],
+			"persistent": true
+		},
+		"lint": {}
 	}
 }

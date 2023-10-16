@@ -14,7 +14,12 @@
 		"dev": "turbo run dev --parallel",
 		"start": "pnpm run dev",
 		"lint": "turbo run lint",
-		"lint:fix": "turbo run lint:fix"
+		"lint:fix": "turbo run lint:fix",
+		"clean": "turbo clean",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"db:push": "turbo db:push",
+		"db:generate": "turbo db:generate",
+		"db:studio": "pnpm --filter database run db:studio"
 	},
 	"devDependencies": {
 		"eslint-config-custom": "workspace:*",
