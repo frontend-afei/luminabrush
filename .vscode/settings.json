@@ -1,7 +1,7 @@
 {
 	"editor.formatOnSave": true,
 	"tailwindCSS.experimental.classRegex": [["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
-	"tailwindCSS.experimental.configFile": "apps/web/index.ts",
+	"tailwindCSS.experimental.configFile": "apps/web/tailwind.config.ts",
 	"typescript.preferences.importModuleSpecifier": "shortest",
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
