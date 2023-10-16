@@ -65,7 +65,9 @@
 	const { t } = useTranslations()
 
 	const { data: post } = await useAsyncData(route.path, () => {
-		return queryContent<MarketingBlogPageFields>(routeBasePath.value).findOne()
+		return queryContent<MarketingBlogPageFields>(routeBasePath.value)
+			.where({ draft: { $not: true } })
+			.findOne()
 	})
 	if (!post.value) {
 		throw createError({ statusCode: 404 })

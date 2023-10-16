@@ -28,6 +28,8 @@
 	const { routeBasePath } = useRouteBasePath({ path: route.path })
 
 	const { data: posts } = await useAsyncData('blog', () => {
-		return queryContent<MarketingBlogPageFields>(routeBasePath.value).find()
+		return queryContent<MarketingBlogPageFields>(routeBasePath.value)
+			.where({ draft: { $not: true } })
+			.find()
 	})
 </script>
