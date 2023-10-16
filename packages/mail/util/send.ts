@@ -3,7 +3,7 @@
 
 // Change this import to the provider you like to use
 import { send } from '../provider/plunk'
-// import { getBaseUrl } from 'utils/lib/base-url'
+// import { getBaseUrl } from 'utils'
 // import { mailTemplates } from './template'
 
 /**
