@@ -1,4 +1,4 @@
-import { mailTemplates } from 'mail/util/template'
+import { mailTemplates } from 'mail/util/templates'
 import { useCompiler } from '#vue-email'
 
 /**
@@ -8,7 +8,7 @@ import { useCompiler } from '#vue-email'
 export const renderTemplate = async <TemplateId extends keyof typeof mailTemplates>(params: {
 	templateId: TemplateId
 	// @TODO
-	props?: any
+	props?: Record<string, any>
 }) => {
 	const templateData = mailTemplates[params.templateId]
 
