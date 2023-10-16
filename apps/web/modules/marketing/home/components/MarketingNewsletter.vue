@@ -75,9 +75,11 @@
 	const onSubmit = handleSubmit(
 		async values => {
 			try {
-				await apiCaller.newsletter.signup.mutate({
+				const emailSent = await apiCaller.newsletter.signup.mutate({
 					email: values.email,
 				})
+				if (!emailSent) throw new Error()
+
 				isSubmitSuccessful.value = true
 			} catch (error) {
 				isSubmitSuccessful.value = false
