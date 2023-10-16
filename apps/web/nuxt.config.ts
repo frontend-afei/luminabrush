@@ -69,6 +69,11 @@ export default defineNuxtConfig({
 		transpile: ['trpc-nuxt'],
 	},
 
+	// packages/auth
+	nitro: {
+		moduleSideEffects: ['lucia/polyfill/node'],
+	},
+
 	modules: [
 		'@nuxtjs/i18n', // configured here and in i18n.config.ts
 		'@nuxtjs/tailwindcss', // configured in tailwind.config.ts
@@ -77,7 +82,7 @@ export default defineNuxtConfig({
 		'@nuxt/content',
 		'@nuxt/image',
 		'nuxt-simple-robots',
-		'vue-email/nuxt', // @TODO temporary, remove later. see packages/mail/util/send.ts
+		'vue-email/nuxt',
 	],
 
 	// @nuxtjs/i18n
@@ -152,7 +157,6 @@ export default defineNuxtConfig({
 		// sitemap: 'sitemap.xml',
 	},
 
-	// @TODO temporary, remove later. see packages/mail/util/send.ts
 	// vue-email/nuxt
 	vueEmail: {
 		baseUrl,

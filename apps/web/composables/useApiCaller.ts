@@ -1,6 +1,6 @@
 import superjson from 'superjson'
 import { createTRPCNuxtClient, httpBatchLink } from 'trpc-nuxt/client'
-import type { ApiRouter } from 'api/modules/trpc/router'
+import type { ApiRouter } from 'api/modules/trpc'
 
 export const useApiCaller = () => {
 	/**

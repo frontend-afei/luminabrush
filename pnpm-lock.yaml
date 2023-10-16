@@ -92,12 +92,15 @@ importers:
 
   packages/api:
     devDependencies:
-      '@trpc/server':
-        specifier: ^10.40.0
-        version: 10.40.0
       ai:
         specifier: ^2.2.15
         version: 2.2.15(react@18.2.0)(solid-js@1.8.1)(svelte@4.2.1)(vue@3.3.4)
+      auth:
+        specifier: workspace:*
+        version: link:../auth
+      database:
+        specifier: workspace:*
+        version: link:../database
       eslint-config-custom:
         specifier: workspace:*
         version: link:../config/eslint-config-custom
@@ -116,9 +119,42 @@ importers:
       superjson:
         specifier: ^2.0.0
         version: 2.0.0
+      trpc-nuxt:
+        specifier: ^0.10.12
+        version: 0.10.12(@trpc/client@10.40.0)(@trpc/server@10.40.0)
       tsconfig:
         specifier: workspace:*
         version: link:../config/tsconfig
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
+
+  packages/auth:
+    devDependencies:
+      '@lucia-auth/adapter-prisma':
+        specifier: ^3.0.2
+        version: 3.0.2(@prisma/client@5.4.2)(lucia@2.7.1)
+      '@lucia-auth/oauth':
+        specifier: ^3.3.1
+        version: 3.3.1(lucia@2.7.1)
+      database:
+        specifier: workspace:*
+        version: link:../database
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../config/eslint-config-custom
+      lucia:
+        specifier: ^2.7.1
+        version: 2.7.1
+      mail:
+        specifier: workspace:*
+        version: link:../mail
+      tsconfig:
+        specifier: workspace:*
+        version: link:../config/tsconfig
+      utils:
+        specifier: workspace:*
+        version: link:../utils
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -1340,6 +1376,24 @@ packages:
       path-to-regexp: 6.2.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@lucia-auth/adapter-prisma@3.0.2(@prisma/client@5.4.2)(lucia@2.7.1):
+    resolution: {integrity: sha512-EyJWZene1/zasPwPctv8wwNErZt5mwwm5JATbhg+kXr3R8pbC7lJfVzDTAeeFClVH5k/FywRcsBl3JkPaNIcow==}
+    peerDependencies:
+      '@prisma/client': ^4.2.0 || ^5.0.0
+      lucia: ^2.0.0
+    dependencies:
+      '@prisma/client': 5.4.2(prisma@5.4.2)
+      lucia: 2.7.1
+    dev: true
+
+  /@lucia-auth/oauth@3.3.1(lucia@2.7.1):
+    resolution: {integrity: sha512-2fGXPRXXQ58YGpN3zzbLSTWBXU4I3URcSXF7enR4cLugUcwdtYaGRL9b92tfZPHudr5BJRrrVqcs/VTjHTrdiw==}
+    peerDependencies:
+      lucia: ^2.0.0
+    dependencies:
+      lucia: 2.7.1
     dev: true
 
   /@mapbox/node-pre-gyp@1.0.11:
@@ -6437,6 +6491,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /lucia@2.7.1:
+    resolution: {integrity: sha512-EHDTajS1YWA7Q37jd29Far1l4nfZgsWLp4hDQeaQhVpJd2WKQqA3626kJYmOj1CTweVMkE54xFi5JIph+agZkQ==}
+    dev: true
 
   /lucide-vue-next@0.286.0(vue@3.3.4):
     resolution: {integrity: sha512-32ENlCDVP5MxTlM9oWRC339/iSF8Mo8NXdR/6LwW6g82QIZBZ21XkVlTozJJOqSwc3MHf2XverAdtQ/IKuF+4Q==}

@@ -1,14 +1,15 @@
 import { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
 import * as newsletterProcedures from '../newsletter/procedures'
+import * as authProcedures from '../auth/procedures'
 import { router } from './trpc'
 
 export const apiRouter = router({
 	newsletter: router(newsletterProcedures),
+	auth: router(authProcedures),
 	/**
 	 * @TODO
 	 */
 	/*
-	auth:
 	billing:
 	team:
 	ai:

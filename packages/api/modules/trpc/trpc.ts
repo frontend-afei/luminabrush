@@ -7,10 +7,7 @@ const t = initTRPC.context<Context>().create({
 })
 
 const isAuthenticated = t.middleware(({ ctx, next }) => {
-	/**
-	 * @TODO missing `isAuthenticated` check, see `base.ts` in nextjs project
-	 */
-	if (1 === 1) throw new TRPCError({ code: 'UNAUTHORIZED' })
+	if (!ctx.user) throw new TRPCError({ code: 'UNAUTHORIZED' })
 	return next()
 })
 
