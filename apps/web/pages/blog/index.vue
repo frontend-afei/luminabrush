@@ -30,6 +30,7 @@
 	const { data: posts } = await useAsyncData('blog', () => {
 		return queryContent<MarketingBlogPageFields>(routeBasePath.value)
 			.where({ draft: { $not: true } })
+			.sort({ date: -1 })
 			.find()
 	})
 </script>
