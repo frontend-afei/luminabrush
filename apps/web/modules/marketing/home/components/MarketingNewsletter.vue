@@ -46,14 +46,11 @@
 </template>
 
 <script setup lang="ts">
-	import { useForm } from 'vee-validate'
-	import { z } from 'zod'
-	import { toTypedSchema } from '@vee-validate/zod'
-
 	const { apiCaller } = useApiCaller()
 	const { t } = useTranslations()
 
-	// Creates a typed schema for vee-validate
+	const { z, toTypedSchema, useForm } = formUtils
+
 	const formSchema = toTypedSchema(
 		z.object({
 			email: z.string().email(t('newsletter.hints.error.input')),
@@ -64,11 +61,12 @@
 
 	const { defineInputBinds, handleSubmit, isSubmitting, meta, errors, setFieldError, submitCount } = useForm({
 		validationSchema: formSchema,
-
 		initialValues: {
 			email: '',
 		},
 	})
+
+	const email = defineInputBinds('email')
 
 	const onSubmit = handleSubmit(
 		async values => {
@@ -88,6 +86,4 @@
 			isSubmitSuccessful.value = false
 		}
 	)
-
-	const email = defineInputBinds('email')
 </script>
