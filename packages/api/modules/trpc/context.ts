@@ -4,9 +4,9 @@ import { db } from 'database'
 import { type H3Event } from 'h3'
 import { defineAbilitiesFor } from '../auth'
 
-export async function createContext(event: H3Event /** @TODO | { isAdmin?: boolean }*/) {
-	const authRequest = auth.handleRequest(event)
-	const session = await authRequest.validate() // or `authRequest.validateBearerToken()`
+export async function createContext(event?: H3Event /** @TODO | { isAdmin?: boolean }*/) {
+	const authRequest = event ? auth.handleRequest(event) : null
+	const session = await authRequest?.validate() // or `authRequest.validateBearerToken()`
 	const user: SessionUser | null = session?.user ?? null
 
 	const teamMemberships = user
