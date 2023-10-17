@@ -8,10 +8,10 @@
 		<PrimaryButton :href="props.url">Confirm email &rarr;</PrimaryButton>
 		<br />
 
-		<Text :style="{ fontSize: '14px', lineHeight: '20px', color: colors.mutedForeground }">
+		<EText :style="{ fontSize: '14px', lineHeight: '20px', color: colors.mutedForeground }">
 			If you want to open the link in a different browser than your default one, copy and paste this link:
 			<ELink :href="props.url">{{ props.url }}</ELink>
-		</Text>
+		</EText>
 	</Wrapper>
 </template>
 

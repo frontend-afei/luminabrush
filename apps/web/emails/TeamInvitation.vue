@@ -15,10 +15,10 @@
 
 		<br />
 
-		<Text :style="{ fontSize: '14px', lineHeight: '20px', color: colors.mutedForeground }">
+		<EText :style="{ fontSize: '14px', lineHeight: '20px', color: colors.mutedForeground }">
 			Or manually copy and paste this link into your browser:
 			<ELink :href="props.url">{{ props.url }}</ELink>
-		</Text>
+		</EText>
 	</Wrapper>
 </template>
 

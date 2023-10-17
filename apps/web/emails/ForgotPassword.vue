@@ -14,16 +14,16 @@
 			<strong :style="{ fontSize: '24px', lineHeight: '32px', fontWeight: 'bold' }">{{ props.otp }}</strong>
 		</EText>
 
-		<Text>or use this link:</Text>
+		<EText>or use this link:</EText>
 		<br />
 		<br />
 		<PrimaryButton :href="props.url">Reset password &rarr;</PrimaryButton>
 		<br />
 
-		<Text :style="{ fontSize: '14px', lineHeight: '20px', color: colors.mutedForeground }">
+		<EText :style="{ fontSize: '14px', lineHeight: '20px', color: colors.mutedForeground }">
 			If you want to open the link in a different browser than your default one, copy and paste this link:
 			<ELink :href="props.url">{{ props.url }}</ELink>
-		</Text>
+		</EText>
 	</Wrapper>
 </template>
 
