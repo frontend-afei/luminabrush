@@ -8,13 +8,13 @@
 		"lint": "eslint \"**/*.ts*\""
 	},
 	"dependencies": {
-		"database": "workspace:*"
-	},
-	"devDependencies": {
+		"database": "workspace:*",
 		"eslint-config-custom": "workspace:*",
 		"tsconfig": "workspace:*",
 		"mail": "workspace:*",
-		"utils": "workspace:*",
+		"utils": "workspace:*"
+	},
+	"devDependencies": {
 		"@lucia-auth/adapter-prisma": "^3.0.2",
 		"@lucia-auth/oauth": "^3.3.1",
 		"lucia": "^2.7.1",

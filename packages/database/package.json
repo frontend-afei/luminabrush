@@ -10,13 +10,15 @@
 		"db:push": "dotenv -c -e ../../.env.local -- prisma db push --skip-generate",
 		"db:studio": "dotenv -c -e ../../.env.local -- prisma studio"
 	},
+	"dependencies": {
+		"eslint-config-custom": "workspace:*",
+		"tsconfig": "workspace:*"
+	},
 	"devDependencies": {
 		"@prisma/client": "^5.4.2",
 		"prisma": "^5.4.2",
 		"zod-prisma": "^0.5.4",
 		"zod": "^3.22.4",
-		"dotenv-cli": "^7.3.0",
-		"eslint-config-custom": "workspace:*",
-		"tsconfig": "workspace:*"
+		"dotenv-cli": "^7.3.0"
 	}
 }

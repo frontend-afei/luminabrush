@@ -3,13 +3,14 @@
 	"private": true,
 	"license": "MIT",
 	"version": "0.0.0",
+	"dependencies": {
+		"eslint-config-custom": "workspace:*",
+		"tsconfig": "workspace:*",
+		"utils": "workspace:*"
+	},
 	"devDependencies": {
 		"@types/nodemailer": "^6.4.11",
-		"eslint-config-custom": "workspace:*",
 		"nodemailer": "^6.9.5",
-		"tailwind-config": "workspace:*",
-		"tsconfig": "workspace:*",
-		"vue-email": "^0.7.2",
-		"utils": "workspace:*"
+		"vue-email": "^0.7.2"
 	}
 }

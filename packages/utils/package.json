@@ -2,7 +2,7 @@
 	"name": "utils",
 	"license": "MIT",
 	"version": "0.0.0",
-	"devDependencies": {
+	"dependencies": {
 		"eslint-config-custom": "workspace:*",
 		"tsconfig": "workspace:*"
 	},
