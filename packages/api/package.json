@@ -6,6 +6,9 @@
 	},
 	"license": "MIT",
 	"main": "./index.ts",
+	"dependencies": {
+		"database": "workspace:*"
+	},
 	"devDependencies": {
 		"trpc-nuxt": "^0.10.12",
 		"ai": "^2.2.15",
@@ -17,7 +20,6 @@
 		"tsconfig": "workspace:*",
 		"mail": "workspace:*",
 		"auth": "workspace:*",
-		"database": "workspace:*",
 		"zod": "^3.22.4"
 	}
 }
