@@ -4,8 +4,8 @@ import { db } from 'database'
 import { type H3Event } from 'h3'
 import { defineAbilitiesFor } from '../auth'
 
-export async function createContext(event?: H3Event /** @TODO | { isAdmin?: boolean }*/) {
-	const authRequest = event ? auth.handleRequest(event) : null
+export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
+	const authRequest = event && 'node' in event ? auth.handleRequest(event) : null
 	const session = await authRequest?.validate() // or `authRequest.validateBearerToken()`
 	const user: SessionUser | null = session?.user ?? null
 
@@ -31,7 +31,7 @@ export async function createContext(event?: H3Event /** @TODO | { isAdmin?: bool
 		abilities,
 		sessionId: session?.sessionId ?? null,
 		responseHeaders: event && 'headers' in event ? event.headers : undefined,
-		isAdmin: false /** @TODO params && 'isAdmin' in params ? params.isAdmin : false, */,
+		isAdmin: event && 'isAdmin' in event ? event.isAdmin : false,
 	}
 }
 
