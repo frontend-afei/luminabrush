@@ -13,7 +13,9 @@ export const sendEmail = async <TemplateId extends keyof typeof mailTemplates>({
 }) => {
 	const templateData = mailTemplates[templateId]
 
-	const template = await useCompiler(templateData.name, context)
+	const template = await useCompiler(templateData.name, {
+		props: context,
+	})
 
 	try {
 		await send({
