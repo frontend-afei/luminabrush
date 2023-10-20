@@ -63,6 +63,9 @@ importers:
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
+      database:
+        specifier: workspace:*
+        version: link:../../packages/database
       lucide-vue-next:
         specifier: ^0.286.0
         version: 0.286.0(vue@3.3.4)
@@ -108,6 +111,9 @@ importers:
       tsconfig:
         specifier: workspace:*
         version: link:../config/tsconfig
+      utils:
+        specifier: workspace:*
+        version: link:../utils
     devDependencies:
       ai:
         specifier: ^2.2.15

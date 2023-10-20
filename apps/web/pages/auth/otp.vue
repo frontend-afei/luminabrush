@@ -1,5 +1,5 @@
 <template>
-	<SaasLoginForm />
+	<SaasOtpForm />
 </template>
 
 <script setup lang="ts">
@@ -10,6 +10,6 @@
 	})
 
 	useSeoMeta({
-		title: t('auth.login.title'),
+		title: t('auth.verifyOtp.title'),
 	})
 </script>

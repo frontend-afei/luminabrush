@@ -44,6 +44,10 @@ export default defineNuxtConfig({
 		},
 	},
 
+	imports: {
+		dirs: ['modules/saas/auth/composables/**', 'composables/**'],
+	},
+
 	components: [
 		//
 		{ path: '@/modules/ui/components', pathPrefix: false },
@@ -51,6 +55,7 @@ export default defineNuxtConfig({
 		{ path: '@/modules/marketing/blog/components', pathPrefix: false },
 		{ path: '@/modules/marketing/shared/components', pathPrefix: false },
 		{ path: '@/modules/marketing/home/components', pathPrefix: false },
+		{ path: '@/modules/saas/auth/components', pathPrefix: false },
 	],
 
 	app: {
