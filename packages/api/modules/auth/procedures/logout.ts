@@ -2,12 +2,12 @@ import { TRPCError } from '@trpc/server'
 import { auth } from 'auth'
 import { protectedProcedure } from '../../trpc'
 
-export const logout = protectedProcedure.mutation(async ({ ctx: { sessionId, responseHeaders } }) => {
+export const logout = protectedProcedure.mutation(async ({ ctx: { sessionId, event } }) => {
 	try {
 		if (!sessionId) return
 		await auth.invalidateSession(sessionId)
 		const sessionCookie = auth.createSessionCookie(null)
-		responseHeaders?.append('Set-Cookie', sessionCookie.serialize())
+		if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 	} catch (e) {
 		console.error(e)
 		throw new TRPCError({

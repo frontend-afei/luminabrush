@@ -12,7 +12,7 @@ export const verifyOtp = publicProcedure
 			code: z.string(),
 		})
 	)
-	.mutation(async ({ input: { type, identifier, code }, ctx: { responseHeaders } }) => {
+	.mutation(async ({ input: { type, identifier, code }, ctx: { event } }) => {
 		try {
 			const userId = await validateOneTimePassword({
 				type,
@@ -27,7 +27,7 @@ export const verifyOtp = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			responseHeaders?.append('Set-Cookie', sessionCookie.serialize())
+			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
 			return session
 		} catch (e) {

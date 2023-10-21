@@ -18,7 +18,7 @@ export const signup = publicProcedure
 			callbackUrl: z.string(),
 		})
 	)
-	.mutation(async ({ input: { email, password, name, callbackUrl }, ctx: { responseHeaders } }) => {
+	.mutation(async ({ input: { email, password, name, callbackUrl }, ctx: { event } }) => {
 		try {
 			const user = await auth.createUser({
 				key: {
@@ -42,7 +42,7 @@ export const signup = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			responseHeaders?.append('Set-Cookie', sessionCookie.serialize())
+			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
 			const token = await generateVerificationToken({
 				userId: user.userId,

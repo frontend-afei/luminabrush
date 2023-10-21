@@ -64,7 +64,7 @@ export const useUser = ({ initialUser, teamRole }: { initialUser: User; teamRole
 		}
 	}
 
-	watch(user, () => {
+	onMounted(() => {
 		authBroadcastChannel.addEventListener('message', handleAuthEvent)
 	})
 

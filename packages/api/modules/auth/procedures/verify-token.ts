@@ -9,7 +9,7 @@ export const verifyToken = publicProcedure
 			token: z.string(),
 		})
 	)
-	.mutation(async ({ input: { token }, ctx: { responseHeaders } }) => {
+	.mutation(async ({ input: { token }, ctx: { event } }) => {
 		try {
 			const userId = await validateVerificationToken({
 				token,
@@ -22,7 +22,7 @@ export const verifyToken = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			responseHeaders?.append('Set-Cookie', sessionCookie.serialize())
+			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
 			return session
 		} catch (e) {

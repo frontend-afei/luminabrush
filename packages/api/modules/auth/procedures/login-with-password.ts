@@ -28,7 +28,7 @@ export const loginWithPassword = publicProcedure
 			}),
 		})
 	)
-	.mutation(async ({ input: { email, password }, ctx: { responseHeaders } }) => {
+	.mutation(async ({ input: { email, password }, ctx: { event } }) => {
 		try {
 			const key = await auth.useKey('email', email, password)
 			const session = await auth.createSession({
@@ -38,7 +38,7 @@ export const loginWithPassword = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			responseHeaders?.append('Set-Cookie', sessionCookie.serialize())
+			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
 			return session
 		} catch (e) {

@@ -30,8 +30,8 @@ export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
 		teamMemberships,
 		abilities,
 		sessionId: session?.sessionId ?? null,
-		responseHeaders: event && 'headers' in event ? event.headers : undefined,
 		isAdmin: event && 'isAdmin' in event ? event.isAdmin : false,
+		event: event && 'node' in event ? event : undefined,
 	}
 }
 
