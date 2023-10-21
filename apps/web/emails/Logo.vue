@@ -37,6 +37,6 @@
 	)
 
 	const colors = {
-		primary: '#5871bb',
+		primary: '#10b981',
 	}
 </script>

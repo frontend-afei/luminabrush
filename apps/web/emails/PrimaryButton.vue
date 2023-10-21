@@ -21,7 +21,7 @@
 	})
 
 	const colors = {
-		primary: '#5871bb',
+		primary: '#10b981',
 		primaryForeground: '#ffffff',
 	}
 </script>
