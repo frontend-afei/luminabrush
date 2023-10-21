@@ -3,6 +3,8 @@ import { getBaseUrl } from 'utils'
 const baseUrl = getBaseUrl()
 
 export default defineNuxtConfig({
+	devtools: true,
+
 	experimental: {
 		typedPages: true,
 	},
