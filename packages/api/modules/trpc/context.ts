@@ -1,12 +1,18 @@
 import { inferAsyncReturnType } from '@trpc/server'
-import { type SessionUser, auth } from 'auth'
+import { type SessionUser, type Session, auth } from 'auth'
 import { db } from 'database'
 import { type H3Event } from 'h3'
 import { defineAbilitiesFor } from '../auth'
 
 export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
 	const authRequest = event && 'node' in event ? auth.handleRequest(event) : null
-	const session = await authRequest?.validate() // or `authRequest.validateBearerToken()`
+	let session: Session | null = null
+	try {
+		session = await authRequest?.validate() // or `authRequest.validateBearerToken()`
+	} catch (e) {
+		console.error(e)
+	}
+
 	const user: SessionUser | null = session?.user ?? null
 
 	const teamMemberships = user

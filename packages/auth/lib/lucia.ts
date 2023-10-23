@@ -44,4 +44,4 @@ export const googleAuth = google(auth, {
 export type Auth = typeof auth
 export type SessionUser = User
 export { OAuthRequestError } from '@lucia-auth/oauth'
-export { LuciaError } from 'lucia'
+export { LuciaError, type Session } from 'lucia'
