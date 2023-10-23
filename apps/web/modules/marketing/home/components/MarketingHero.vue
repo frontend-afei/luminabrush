@@ -1,7 +1,7 @@
 <template>
 	<nav class="border-b py-24">
 		<div class="container text-center">
-			<h1 class="text-5xl font-bold lg:text-7xl">Your revolutionary SaaS</h1>
+			<h1 class="mx-auto max-w-3xl text-5xl font-bold lg:text-7xl">Your revolutionary Nuxt 3 SaaS</h1>
 
 			<p class="mt-5 text-lg opacity-75">
 				This is a demo application built with supastarter. <br />
