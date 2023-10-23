@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"continueWithProvider": "Continuar con {proveedor}",
+		"continueWithProvider": "Continuar con {provider}",
 		"forgotPassword": {
 			"backToSignin": "Volver al inicio de sesión",
 			"email": "Correo electrónico",
