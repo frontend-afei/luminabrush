@@ -138,7 +138,7 @@
 		"hints": {
 			"success": {
 				"message": "Danke, dass du unseren Newsletter abonniert haben. \nWir werden dich auf dem Laufenden halten.",
-				"title": "Gezeichnet"
+				"title": "Erfolgreich angemeldet!"
 			},
 			"error": {
 				"title": "Fehler",
