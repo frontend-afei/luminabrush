@@ -27,7 +27,7 @@
 							</Button>
 						</SheetTrigger>
 						<SheetContent class="w-[250px]" side="right">
-							<div class="flex flex-col items-center justify-center">
+							<div class="flex flex-col items-start justify-center">
 								<NuxtLink
 									v-for="menuItem of menuItems"
 									:key="menuItem.to"
