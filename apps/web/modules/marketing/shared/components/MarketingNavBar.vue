@@ -62,9 +62,11 @@
 	const { t } = useTranslations()
 
 	const localePath = useLocalePath()
+	const { user, loaded: userLoaded } = useUser()
 
-	// TODO: Replace with real user check
-	const hasUser = ref(false)
+	const hasUser = computed(() => {
+		return userLoaded.value && user.value
+	})
 
 	const menuItems = computed<
 		{
