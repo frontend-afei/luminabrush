@@ -28,21 +28,6 @@ export default defineNuxtConfig({
 			auth: {
 				oAuthProviders: ['google', 'github'],
 			},
-			marketing: {
-				menu: [
-					{
-						translationKey: 'pricing',
-						href: '/pricing',
-					},
-					{
-						translationKey: 'blog',
-						href: '/Blog',
-					},
-				],
-			},
-			teams: {
-				avatarColors: ['#425693', '#9170b4', '#7e91c9', '#6e90ba'],
-			},
 		},
 	},
 
@@ -150,7 +135,7 @@ export default defineNuxtConfig({
 
 	// @nuxt/image
 	image: {
-		domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
+		domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com', 'source.boringavatars.com'],
 	},
 
 	// nuxt-simple-robots -> nuxt-site-config

@@ -1,26 +1,34 @@
-import { joinURL } from 'ufo'
+import { joinURL, withLeadingSlash } from 'ufo'
 import type { Team } from 'database'
 import { createApiCaller } from 'api'
+
+const createResponse = (redirectPath: string) => {
+	return {
+		redirectPath: withLeadingSlash(redirectPath),
+	}
+}
 
 export default defineEventHandler(async event => {
 	const requestUrl = new URL(getRequestURL(event))
 	const redirectTo = requestUrl.searchParams.get('redirectTo') || null
 
-	const apiCaller = await createApiCaller()
+	const apiCaller = await createApiCaller(event)
 
 	const getRedirectUrl = ({ teamSlug, path }: { teamSlug?: string; path: string }) => {
 		let redirectPath = redirectTo ?? path
 		if (teamSlug) redirectPath = joinURL(teamSlug, redirectPath)
-		return new URL(redirectPath, requestUrl.origin).toString()
+		return redirectPath
 	}
 
 	try {
 		const user = await apiCaller.auth.user()
 		if (!user) {
 			// TODO i18n
-			const redirectUrl = new URL('/auth/login', requestUrl.origin)
-			if (redirectTo) redirectUrl.searchParams.set('redirectTo', redirectTo)
-			return sendRedirect(event, redirectUrl.toString())
+			let redirectUrl = '/auth/login'
+			if (redirectTo) {
+				redirectUrl = `${redirectUrl}?redirectTo=${redirectTo}}`
+			}
+			return createResponse(redirectUrl)
 		}
 
 		const { teamMemberships } = user
@@ -31,7 +39,7 @@ export default defineEventHandler(async event => {
 
 			do {
 				if (iteration === 10) {
-					return sendRedirect(event, requestUrl.origin)
+					return createResponse('/')
 				}
 
 				try {
@@ -50,7 +58,7 @@ export default defineEventHandler(async event => {
 			} while (!team)
 
 			// TODO i18n
-			return sendRedirect(event, getRedirectUrl({ teamSlug: team.slug, path: '/dashboard' }))
+			return createResponse(getRedirectUrl({ teamSlug: team.slug, path: '/dashboard' }))
 		}
 
 		const teamSlugCookie = getCookie(event, 'team-slug')
@@ -60,13 +68,13 @@ export default defineEventHandler(async event => {
 
 			if (teamMembership) {
 				// TODO i18n
-				return sendRedirect(event, getRedirectUrl({ teamSlug: teamMembership.team.slug, path: '/dashboard' }))
+				return createResponse(getRedirectUrl({ teamSlug: teamMembership.team.slug, path: '/dashboard' }))
 			}
 		}
 
-		return sendRedirect(event, getRedirectUrl({ teamSlug: teamMemberships[0].team.slug, path: '/dashboard' }))
+		return createResponse(getRedirectUrl({ teamSlug: teamMemberships[0].team.slug, path: '/dashboard' }))
 	} catch (e) {
 		console.error(e)
-		return sendRedirect(event, requestUrl.origin)
+		return createResponse('/')
 	}
 })

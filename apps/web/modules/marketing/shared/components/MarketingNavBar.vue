@@ -60,7 +60,6 @@
 <script setup lang="ts">
 	const { locales } = useI18n()
 	const { t } = useTranslations()
-
 	const localePath = useLocalePath()
 	const { user, loaded: userLoaded } = useUser()
 
@@ -68,12 +67,11 @@
 		return userLoaded.value && user.value
 	})
 
-	const menuItems = computed<
-		{
-			label: string
-			to: string
-		}[]
-	>(() => [
+	type MenuItem = {
+		label: string
+		to: string
+	}
+	const menuItems = computed<MenuItem[]>(() => [
 		{
 			label: t('common.menu.pricing'),
 			to: localePath('/pricing'),

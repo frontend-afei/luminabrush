@@ -1,16 +1,14 @@
 import type { ApiOutput } from 'api/modules/trpc/router'
 import { useBroadcastChannel } from '@vueuse/core'
-// import type { TeamMemberRole } from 'database'
 
-// @TODO
-type TeamMemberRole = any
 type User = ApiOutput['auth']['user']
 type AuthEvent = {
 	type: 'loaded' | 'logout'
 	user: User | null
 }
 
-export const useUser = ({ initialUser, teamRole }: { initialUser?: User; teamRole?: TeamMemberRole } = {}) => {
+export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
+	const route = useRoute()
 	const { apiCaller } = useApiCaller()
 	const localePath = useLocalePath()
 
@@ -22,6 +20,24 @@ export const useUser = ({ initialUser, teamRole }: { initialUser?: User; teamRol
 
 	const loaded = useState('useUser-loaded', () => !!initialUser)
 	const user = useState('useUser-user', () => initialUser)
+
+	const routeTeamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : null
+	})
+
+	const teamMemberships = computed(() => {
+		return user.value?.teamMemberships ?? []
+	})
+
+	const selectedTeamMembership = computed(() => {
+		return teamMemberships.value?.find(membership => {
+			return membership.team.slug === routeTeamSlug.value
+		})
+	})
+
+	const currentTeamRole = computed(() => {
+		return selectedTeamMembership.value?.role ?? null
+	})
 
 	const loadUser = async () => {
 		const userRes = await apiCaller.auth.user.query()
@@ -76,7 +92,10 @@ export const useUser = ({ initialUser, teamRole }: { initialUser?: User; teamRol
 	return {
 		user,
 		loaded,
-		teamRole: computed(() => teamRole),
+		teamMemberships,
+		selectedTeamMembership,
+		currentTeamRole,
+		routeTeamSlug,
 		logout,
 		reloadUser,
 	}
