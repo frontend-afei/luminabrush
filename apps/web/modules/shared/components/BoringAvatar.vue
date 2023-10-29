@@ -1,5 +1,5 @@
 <template>
-	<NuxtImg :style="{ width: `${props.size}px`, height: `${props.size}px` }" :src="boringAvatarUrl" alt="Avatar" />
+	<img :style="{ width: `${props.size}px`, height: `${props.size}px` }" :src="boringAvatarUrl" alt="Avatar" />
 </template>
 
 <script setup lang="ts">

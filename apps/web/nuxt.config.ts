@@ -135,7 +135,7 @@ export default defineNuxtConfig({
 
 	// @nuxt/image
 	image: {
-		domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com', 'source.boringavatars.com'],
+		domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
 	},
 
 	// nuxt-simple-robots -> nuxt-site-config
