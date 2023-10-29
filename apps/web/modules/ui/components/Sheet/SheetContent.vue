@@ -38,6 +38,10 @@
 		}
 	)
 
+	defineOptions({
+		inheritAttrs: false,
+	})
+
 	type SheetProps = DialogContentProps & VariantProps<typeof sheetVariants>
 
 	const props = withDefaults(
