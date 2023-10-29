@@ -67,6 +67,7 @@ export default defineNuxtConfig({
 	},
 
 	modules: [
+		'./modules/ui/lib/radixModule.ts',
 		'@nuxtjs/i18n', // configured here and in i18n.config.ts
 		'@nuxtjs/tailwindcss', // configured in tailwind.config.ts
 		'@nuxtjs/google-fonts',
