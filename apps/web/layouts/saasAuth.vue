@@ -8,7 +8,7 @@
 					</NuxtLink>
 
 					<div class="flex items-center justify-end gap-2">
-						<LocaleSwitch :locales="locales" />
+						<LocaleSwitch />
 						<ColorModeToggle />
 					</div>
 				</div>
@@ -22,6 +22,5 @@
 </template>
 
 <script setup lang="ts">
-	const { locales } = useI18n()
 	const localePath = useLocalePath()
 </script>

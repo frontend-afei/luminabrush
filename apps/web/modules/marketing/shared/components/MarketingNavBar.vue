@@ -18,7 +18,7 @@
 
 				<div class="flex flex-1 items-center justify-end gap-3">
 					<ColorModeToggle />
-					<LocaleSwitch :locales="locales" />
+					<LocaleSwitch />
 
 					<SheetRoot>
 						<SheetTrigger asChild>
@@ -58,7 +58,6 @@
 </template>
 
 <script setup lang="ts">
-	const { locales } = useI18n()
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
 	const { user, loaded: userLoaded } = useUser()
