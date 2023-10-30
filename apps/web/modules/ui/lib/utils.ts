@@ -1,8 +1,4 @@
-import { clsx, type ClassValue as _ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export type ClassValue = _ClassValue
-
-export const cn = (...inputs: _ClassValue[]) => {
-	return twMerge(clsx(inputs))
-}
+export { twMerge } from 'tailwind-merge'
+export { cva } from 'class-variance-authority'
+export type { ClassNameValue as ClassProp } from 'tailwind-merge'
+export type { VariantProps } from 'class-variance-authority'

@@ -2,7 +2,8 @@
 	<SheetPortal>
 		<SheetOverlay />
 
-		<DialogContent v-bind="{ ...$attrs, ...props, class: cn(sheetVariants({ side: props.side, class: props.class })) }">
+		<DialogContent
+			v-bind="{ ...$attrs, ...props, class: twMerge(sheetVariants({ side: props.side, class: props.class })) }">
 			<slot />
 
 			<DialogClose
@@ -16,7 +17,6 @@
 
 <script setup lang="ts">
 	import { DialogClose, DialogContent, type DialogContentProps } from 'radix-vue'
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
 	import { type VariantProps, cva } from 'class-variance-authority'
 
 	const sheetVariants = cva(
@@ -46,7 +46,7 @@
 
 	const props = withDefaults(
 		defineProps<{
-			class?: ClassValue
+			class?: ClassProp
 			side?: SheetProps['side']
 		}>(),
 		{

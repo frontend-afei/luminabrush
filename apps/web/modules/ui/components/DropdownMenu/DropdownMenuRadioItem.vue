@@ -3,7 +3,7 @@
 		v-bind="{
 			...$attrs,
 			...props,
-			class: cn(
+			class: twMerge(
 				'focus:bg-accent focus:text-accent-foreground relative flex cursor-default select-none items-center rounded-sm py-2 pl-8 pr-3 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[state=checked]:font-semibold data-[disabled]:opacity-50',
 				props.class
 			),
@@ -19,10 +19,9 @@
 
 <script setup lang="ts">
 	import { DropdownMenuRadioItem, DropdownMenuItemIndicator, type DropdownMenuRadioItemProps } from 'radix-vue'
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
 
 	type Props = DropdownMenuRadioItemProps & {
-		class?: ClassValue
+		class?: ClassProp
 	}
 	const props = defineProps<Props>()
 </script>

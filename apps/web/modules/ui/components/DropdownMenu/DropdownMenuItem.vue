@@ -3,7 +3,7 @@
 		v-bind="{
 			...$attrs,
 			...props,
-			class: cn(
+			class: twMerge(
 				'focus:bg-accent focus:text-accent-foreground relative flex cursor-default select-none items-center rounded-sm px-3 py-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
 				inset ? 'pl-8' : '',
 				props.class
@@ -15,11 +15,10 @@
 
 <script setup lang="ts">
 	import { DropdownMenuItem, type DropdownMenuItemProps } from 'radix-vue'
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
 
 	type Props = DropdownMenuItemProps & {
 		inset?: boolean
-		class?: ClassValue
+		class?: ClassProp
 	}
 	const props = defineProps<Props>()
 </script>

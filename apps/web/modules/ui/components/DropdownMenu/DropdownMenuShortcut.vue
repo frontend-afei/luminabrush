@@ -1,12 +1,10 @@
 <template>
-	<span v-bind="{ ...props, ...$attrs, class: cn('ml-auto text-xs tracking-widest opacity-60', props.class) }" />
+	<span v-bind="{ ...props, ...$attrs, class: twMerge('ml-auto text-xs tracking-widest opacity-60', props.class) }" />
 </template>
 
 <script setup lang="ts">
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
-
 	type Props = {
-		class?: ClassValue
+		class?: ClassProp
 	}
 	const props = defineProps<Props>()
 </script>

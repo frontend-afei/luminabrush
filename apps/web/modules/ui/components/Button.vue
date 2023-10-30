@@ -1,7 +1,7 @@
 <template>
 	<component
 		:is="props.asChild ? Slot : 'button'"
-		:class="cn(buttonVariants({ variant: props.variant, size: props.size, class: props.class }))"
+		:class="twMerge(buttonVariants({ variant: props.variant, size: props.size, class: props.class }))"
 		:disabled="props.disabled || props.loading">
 		<Icon v-if="props.loading" name="spinner" class="h-4 w-4 animate-spin" />
 		<slot v-else />
@@ -11,8 +11,6 @@
 <script setup lang="ts">
 	import { Slot } from 'radix-vue'
 	import type { ButtonHTMLAttributes } from 'vue'
-	import { type VariantProps, cva } from 'class-variance-authority'
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
 
 	const buttonVariants = cva(
 		'focus-visible:ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -46,7 +44,7 @@
 	interface HTMLAttributes extends /* @vue-ignore */ ButtonHTMLAttributes {}
 
 	type Props = HTMLAttributes & {
-		class?: ClassValue
+		class?: ClassProp
 		variant?: ButtonVariantProps['variant']
 		size?: ButtonVariantProps['size']
 		asChild?: boolean

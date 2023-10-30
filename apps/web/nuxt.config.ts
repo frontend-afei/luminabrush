@@ -32,7 +32,7 @@ export default defineNuxtConfig({
 	},
 
 	imports: {
-		dirs: ['modules/saas/auth/composables/**', 'composables/**'],
+		dirs: ['modules/saas/auth/composables/**', 'modules/ui/lib/**', 'composables/**'],
 	},
 
 	components: [

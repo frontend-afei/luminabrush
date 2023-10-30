@@ -1,12 +1,12 @@
 <template>
-	<ToastRoot v-bind="{ ...$attrs, ...props, class: cn(toastVariants({ variant: props.variant, class: props.class })) }">
+	<ToastRoot
+		v-bind="{ ...$attrs, ...props, class: twMerge(toastVariants({ variant: props.variant, class: props.class })) }">
 		<slot />
 	</ToastRoot>
 </template>
 
 <script setup lang="ts">
 	import { ToastRoot, type ToastRootProps } from 'radix-vue'
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
 	import { type ToastVariantProps, toastVariants } from './toastUtils'
 
 	defineOptions({
@@ -17,7 +17,7 @@
 
 	const props = withDefaults(
 		defineProps<{
-			class?: ClassValue
+			class?: ClassProp
 			variant?: ToastProps['variant']
 		}>(),
 		{

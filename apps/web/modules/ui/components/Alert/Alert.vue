@@ -1,5 +1,5 @@
 <template>
-	<div role="alert" :class="cn(alertVariants({ variant, class: props.class }))">
+	<div role="alert" :class="twMerge(alertVariants({ variant, class: props.class }))">
 		<slot />
 
 		<h5 v-if="$slots.title" class="mb-1 font-medium leading-none tracking-tight">
@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 	import { type VariantProps, cva } from 'class-variance-authority'
-	import { cn, type ClassValue } from '@/modules/ui/lib/utils'
 
 	const alertVariants = cva(
 		'relative w-full rounded-lg border p-6 [&>svg~*]:pl-8 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-6 [&>svg]:top-6 [&>svg]:text-foreground',
@@ -36,7 +35,7 @@
 	type AlertVariantProps = VariantProps<typeof alertVariants>
 	type Props = {
 		variant?: AlertVariantProps['variant']
-		class?: ClassValue
+		class?: ClassProp
 	}
 
 	const props = withDefaults(defineProps<Props>(), {
