@@ -12,7 +12,10 @@
 		color-scheme: light;
 	}
 	body {
-		@apply bg-background text-foreground overflow-y-scroll font-sans;
+		@apply bg-background text-foreground font-sans;
+
+		/** reset radix-vue classes when opening `DropdownMenu` **/
+		@apply !overflow-y-scroll !pr-0;
 	}
 }
 

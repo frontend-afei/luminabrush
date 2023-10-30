@@ -17,6 +17,14 @@ const componentList = [
 
 	/** Toast */
 	'ToastProvider',
+
+	/** DropdownMenu */
+	'DropdownMenuRoot',
+	'DropdownMenuPortal',
+	'DropdownMenuTrigger',
+	'DropdownMenuGroup',
+	'DropdownMenuRadioGroup',
+	'DropdownMenuSub',
 ]
 
 /**
