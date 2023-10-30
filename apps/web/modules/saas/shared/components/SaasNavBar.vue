@@ -11,7 +11,7 @@
 						<Icon name="chevronRight" class="h-4 w-4" />
 					</span>
 
-					<TeamSelect />
+					<SaasTeamSelect />
 				</div>
 
 				<div class="ml-auto mr-0 flex items-center justify-end gap-4">

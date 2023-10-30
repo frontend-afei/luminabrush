@@ -1,13 +1,13 @@
 <template>
 	<div v-if="userLoaded" class="bg-muted min-h-screen">
-		<NavBar />
+		<SaasNavBar />
 
 		<main>
 			<slot />
 		</main>
 	</div>
 
-	<Loading v-else />
+	<SaasLoadingWrapper v-else />
 </template>
 
 <script setup lang="ts">

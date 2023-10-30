@@ -34,7 +34,7 @@
 		</DropdownMenuContent>
 	</DropdownMenuRoot>
 
-	<CreateTeamDialog @success="newSlug => switchTeam(newSlug, { refresh: true })" />
+	<SaasCreateTeamDialog @success="newSlug => switchTeam(newSlug, { refresh: true })" />
 </template>
 
 <script setup lang="ts">

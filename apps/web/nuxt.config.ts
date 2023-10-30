@@ -43,6 +43,7 @@ export default defineNuxtConfig({
 		{ path: '@/modules/marketing/shared/components', pathPrefix: false },
 		{ path: '@/modules/marketing/home/components', pathPrefix: false },
 		{ path: '@/modules/saas/auth/components', pathPrefix: false },
+		{ path: '@/modules/saas/shared/components', pathPrefix: false },
 	],
 
 	app: {

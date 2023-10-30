@@ -1,5 +1,5 @@
 <template>
-	<Loading />
+	<SaasLoadingWrapper />
 </template>
 
 <script setup lang="ts">

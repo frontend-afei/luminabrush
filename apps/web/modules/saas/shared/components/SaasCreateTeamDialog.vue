@@ -10,7 +10,7 @@
 				</DialogTitle>
 			</DialogHeader>
 
-			<CreateTeamForm :isInitialTeam="false" @success="newTeam => handleCreateTeamSuccess(newTeam.slug)" />
+			<SaasCreateTeamForm :isInitialTeam="false" @success="newTeam => handleCreateTeamSuccess(newTeam.slug)" />
 		</DialogContent>
 	</DialogRoot>
 </template>
