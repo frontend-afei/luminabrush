@@ -119,11 +119,11 @@ importers:
         version: link:../utils
     devDependencies:
       ai:
-        specifier: ^2.2.15
-        version: 2.2.15(react@18.2.0)(solid-js@1.8.1)(svelte@4.2.1)(vue@3.3.4)
+        specifier: ^2.2.19
+        version: 2.2.20(react@18.2.0)(solid-js@1.8.1)(svelte@4.2.1)(vue@3.3.4)
       openai:
-        specifier: ^4.12.1
-        version: 4.12.1
+        specifier: ^4.14.1
+        version: 4.14.1
       prisma:
         specifier: ^5.4.2
         version: 5.4.2
@@ -3284,8 +3284,8 @@ packages:
       indent-string: 4.0.0
     dev: true
 
-  /ai@2.2.15(react@18.2.0)(solid-js@1.8.1)(svelte@4.2.1)(vue@3.3.4):
-    resolution: {integrity: sha512-pl3cWgb2aM6HQo/heX/oIH0TlXXI9hOyT2n6KokNPjLTfWiPFGZ6thXLEi80xaS0tvtAc30qJqwt8VtSsfLNLA==}
+  /ai@2.2.20(react@18.2.0)(solid-js@1.8.1)(svelte@4.2.1)(vue@3.3.4):
+    resolution: {integrity: sha512-BTZ8VEsIdapZM46Tt72FzYPY4Kt55ANpYubUSYJCrrdUfMDCPfT/XwqPsXZam1i7Go6YrUPha9VBdrvzQxBtXw==}
     engines: {node: '>=14.6'}
     peerDependencies:
       react: ^18.2.0
@@ -8813,8 +8813,8 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
-  /openai@4.12.1:
-    resolution: {integrity: sha512-EAoUwm4dtiWvFwBhOCK/VfF8sj1ZU8+aAIJnfT4NyeTfrt1DM/6Gdd6fOZWTjBYryTAqu9Vpb5+9Wu6JMtm/gA==}
+  /openai@4.14.1:
+    resolution: {integrity: sha512-aBb7DVdzSnEUBFHTbnVoitauefvjRuUHS5pa7lm1m5JmHifD+1Hff1RzxYC12ogugVcCmWT99NZNfzyD6n/0IQ==}
     hasBin: true
     dependencies:
       '@types/node': 18.18.5
@@ -8825,6 +8825,7 @@ packages:
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
       node-fetch: 2.7.0
+      web-streams-polyfill: 3.2.1
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -12135,6 +12136,11 @@ packages:
 
   /web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
+    dev: true
+
+  /web-streams-polyfill@3.2.1:
+    resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
+    engines: {node: '>= 8'}
     dev: true
 
   /web-streams-polyfill@4.0.0-beta.3:
