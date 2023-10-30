@@ -1,0 +1,45 @@
+<template>
+	<ToastProvider>
+		<ToastRoot
+			v-for="toast of toasts"
+			:key="toast.id"
+			v-bind="{ id: toast.id, variant: toast.variant }"
+			@update:open="() => dismiss(toast.id)">
+			<div class="flex items-center gap-3">
+				<Icon
+					v-if="getToastIconName({ toast })"
+					:name="getToastIconName({ toast })"
+					:class="['h-6 w-6 shrink-0 opacity-50', toast.variant === 'loading' ? 'animate-spin' : '']" />
+
+				<div className="grid gap-1">
+					<ToastTitle v-if="toast.title">{{ toast.title }}</ToastTitle>
+					<ToastDescription v-if="toast.description">{{ toast.description }}</ToastDescription>
+				</div>
+			</div>
+
+			<!-- @TODO action slot here -->
+
+			<ToastClose />
+		</ToastRoot>
+
+		<ToastViewport />
+	</ToastProvider>
+</template>
+
+<script setup lang="ts">
+	import type { ToastVariantProps } from './toastUtils'
+
+	const { state: toasts, dismiss } = useToast()
+
+	// TODO improve type of icon names
+	const variantIcons = computed<Record<NonNullable<ToastVariantProps['variant']>, string>>(() => ({
+		default: 'notification',
+		loading: 'spinner',
+		success: 'check',
+		error: 'error',
+	}))
+
+	const getToastIconName = ({ toast }: { toast: Toast }): any => {
+		return toast.icon ?? toast.variant != null ? variantIcons.value[toast.variant!] : undefined
+	}
+</script>

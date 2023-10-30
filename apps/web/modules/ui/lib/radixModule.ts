@@ -14,6 +14,9 @@ const componentList = [
 	'DialogRoot',
 	'DialogPortal',
 	'DialogTrigger',
+
+	/** Toast */
+	'ToastProvider',
 ]
 
 /**

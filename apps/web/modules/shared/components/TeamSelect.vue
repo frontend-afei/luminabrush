@@ -35,7 +35,7 @@
 			</DropdownMenuContent>
 		</DropdownMenuRoot>
 
-		<CreateTeamDialog />
+		<CreateTeamDialog @success="newSlug => switchTeam(newSlug, { refresh: true })" />
 	</div>
 </template>
 
@@ -57,10 +57,12 @@
 
 	const teamSlugCookie = useCookie('team-slug')
 
-	const switchTeam = (slug: string | undefined) => {
+	const switchTeam = (slug: string | undefined, options: { refresh?: boolean } = {}) => {
 		if (!activeTeam.value || !slug) return
 
 		teamSlugCookie.value = slug
-		navigateTo(route.path.replace(activeTeam.value.slug, slug))
+		navigateTo(route.path.replace(activeTeam.value.slug, slug), {
+			external: !!options.refresh, // so that the page refreshes and user context is updated to include new team.
+		})
 	}
 </script>
