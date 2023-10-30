@@ -12,19 +12,6 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			siteUrl: baseUrl,
-			locales: {
-				localeLabels: {
-					en: 'English',
-					es: 'Español',
-					de: 'Deutsch',
-				},
-				localeCurrencies: {
-					/* This only works with Stripe for now. For LemonSqueezy, we need to set the currency in the LemonSqueezy dashboard and there can only be one. */
-					en: 'USD',
-					de: 'USD',
-					es: 'USD',
-				},
-			},
 			auth: {
 				oAuthProviders: ['google', 'github'],
 			},
@@ -44,6 +31,7 @@ export default defineNuxtConfig({
 		{ path: '@/modules/marketing/home/components', pathPrefix: false },
 		{ path: '@/modules/saas/auth/components', pathPrefix: false },
 		{ path: '@/modules/saas/shared/components', pathPrefix: false },
+		{ path: '@/modules/saas/dashboard/components', pathPrefix: false },
 	],
 
 	app: {
