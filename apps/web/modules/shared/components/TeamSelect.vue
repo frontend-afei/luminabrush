@@ -55,7 +55,7 @@
 		return selectedTeamMembership.value?.team
 	})
 
-	const teamSlugCookie = useCookie('team-slug')
+	const teamSlugCookie = useCookie(TEAM_SLUG_COOKIE_NAME)
 
 	const switchTeam = (slug: string | undefined, options: { refresh?: boolean } = {}) => {
 		if (!activeTeam.value || !slug) return

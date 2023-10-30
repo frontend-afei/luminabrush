@@ -1,6 +1,7 @@
 import { joinURL, withLeadingSlash } from 'ufo'
 import type { Team } from 'database'
 import { createApiCaller } from 'api'
+import { TEAM_SLUG_COOKIE_NAME } from '@/modules/saas/shared/constants'
 
 const createResponse = (redirectPath: string) => {
 	return {
@@ -61,7 +62,7 @@ export default defineEventHandler(async event => {
 			return createResponse(getRedirectUrl({ teamSlug: team.slug, path: '/dashboard' }))
 		}
 
-		const teamSlugCookie = getCookie(event, 'team-slug')
+		const teamSlugCookie = getCookie(event, TEAM_SLUG_COOKIE_NAME)
 
 		if (teamSlugCookie) {
 			const teamMembership = teamMemberships.find(membership => membership.team.slug === teamSlugCookie)
