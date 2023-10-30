@@ -15,9 +15,6 @@ const componentList = [
 	'DialogPortal',
 	'DialogTrigger',
 
-	/** Toast */
-	'ToastProvider',
-
 	/** DropdownMenu */
 	'DropdownMenuRoot',
 	'DropdownMenuPortal',
@@ -25,6 +22,12 @@ const componentList = [
 	'DropdownMenuGroup',
 	'DropdownMenuRadioGroup',
 	'DropdownMenuSub',
+
+	/** Tabs */
+	'TabsRoot',
+
+	/** Toast */
+	'ToastProvider',
 ]
 
 /**
