@@ -14,7 +14,9 @@
 					<TeamSelect />
 				</div>
 
-				<div class="ml-auto mr-0 flex items-center justify-end gap-4">User Menu @TODO</div>
+				<div class="ml-auto mr-0 flex items-center justify-end gap-4">
+					<UserMenu />
+				</div>
 			</div>
 
 			<ul
