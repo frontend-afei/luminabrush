@@ -1,5 +1,5 @@
 <template>
-	<div>Dashboard!</div>
+	<div>Dashboard! @TODO</div>
 </template>
 
 <script setup lang="ts">

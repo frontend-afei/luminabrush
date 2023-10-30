@@ -20,7 +20,21 @@
 			</div>
 
 			<ul
-				class="no-scrollbar -mx-8 -mb-4 mt-6 flex list-none items-center justify-start gap-6 overflow-x-auto px-8 text-sm lg:text-base"></ul>
+				class="no-scrollbar -mx-8 -mb-4 mt-6 flex list-none items-center justify-start gap-6 overflow-x-auto px-8 text-sm lg:text-base">
+				<li v-for="menuItem of menuItems" :key="menuItem.to">
+					<NuxtLink
+						:to="menuItem.to"
+						:class="[
+							'flex items-center gap-2 border-b-2 px-1 pb-3',
+							isActiveMenuItem(menuItem.to) ? 'border-primary font-bold' : 'border-transparent',
+						]">
+						<Icon
+							:name="menuItem.icon"
+							:class="['h-4 w-4 shrink-0', isActiveMenuItem(menuItem.to) ? 'text-primary' : '']" />
+						<span>{{ menuItem.label }}</span>
+					</NuxtLink>
+				</li>
+			</ul>
 		</div>
 	</nav>
 </template>
@@ -28,30 +42,59 @@
 <script setup lang="ts">
 	const router = useRouter()
 	const route = useRoute()
-	const { locales } = useI18n()
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
-	const { user, loaded: userLoaded, routeTeamSlug } = useUser()
+	const { routeTeamSlug } = useUser()
 
 	type MenuItem = {
 		label: string
 		to: string
+		// @TODO better icon types
+		icon: any
 	}
 
-	const menuItems = computed<MenuItem[]>(() => [
-		{
-			label: t('dashboard.menu.dashboard'),
-			to: localePath(
-				router.resolve({
-					name: 'teamSlug-dashboard___en',
-					params: {
-						teamSlug: routeTeamSlug.value || '',
-					},
-				}).path
-			),
-		},
-		// @todo missing menu items
-	])
+	const menuItems = computed<MenuItem[]>(() => {
+		const teamSlug = routeTeamSlug.value
+		if (!teamSlug) return []
+		return [
+			{
+				label: t('dashboard.menu.dashboard'),
+				icon: 'grid',
+				to: localePath(
+					router.resolve({
+						name: 'teamSlug-dashboard___en',
+						params: {
+							teamSlug: routeTeamSlug.value || '',
+						},
+					}).path
+				),
+			},
+			{
+				label: t('dashboard.menu.aiDemo'),
+				icon: 'magic',
+				to: localePath(
+					router.resolve({
+						name: 'teamSlug-ai-demo___en',
+						params: {
+							teamSlug: routeTeamSlug.value || '',
+						},
+					}).path
+				),
+			},
+			{
+				label: t('dashboard.menu.settings'),
+				icon: 'settings',
+				to: localePath(
+					router.resolve({
+						name: 'teamSlug-settings___en',
+						params: {
+							teamSlug: routeTeamSlug.value || '',
+						},
+					}).path
+				),
+			},
+		]
+	})
 
 	const isActiveMenuItem = (href: string | null) => {
 		return href && route.path.includes(href)

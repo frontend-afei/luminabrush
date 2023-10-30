@@ -1,5 +1,5 @@
 <template>
-	<div>General Settings @TODO</div>
+	<div>Team Settings @TODO</div>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-	<div>General Settings @TODO</div>
+	<div>AI Demo @TODO</div>
 </template>
 
 <script setup lang="ts">
