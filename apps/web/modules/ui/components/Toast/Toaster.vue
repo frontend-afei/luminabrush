@@ -11,7 +11,7 @@
 					:name="getToastIconName({ toast })"
 					:class="['h-6 w-6 shrink-0 opacity-50', toast.variant === 'loading' ? 'animate-spin' : '']" />
 
-				<div className="grid gap-1">
+				<div class="grid gap-1">
 					<ToastTitle v-if="toast.title">{{ toast.title }}</ToastTitle>
 					<ToastDescription v-if="toast.description">{{ toast.description }}</ToastDescription>
 				</div>
