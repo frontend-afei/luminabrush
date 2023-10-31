@@ -20,6 +20,12 @@ export const verifyToken = publicProcedure
 				attributes: {},
 			})
 
+			if (!session.user.email_verified) {
+				await auth.updateUserAttributes(session.user.id, {
+					email_verified: true,
+				})
+			}
+
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
 			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
