@@ -19,7 +19,13 @@ export default defineNuxtConfig({
 	},
 
 	imports: {
-		dirs: ['modules/saas/auth/composables/**', 'modules/ui/lib/**', 'modules/saas/shared/**', 'composables/**'],
+		dirs: [
+			'modules/saas/auth/composables/**',
+			'modules/saas/dashboard/composables/**',
+			'modules/saas/shared/**',
+			'modules/ui/lib/**',
+			'composables/**',
+		],
 	},
 
 	components: [
