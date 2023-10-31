@@ -10,7 +10,7 @@ import {
 import { callStripeApi } from './api'
 
 export const getAllPlans: GetAllPlans = async function () {
-	const response = await callStripeApi('/prices?expand[]=data.product')
+	const response = await callStripeApi('/prices?active=true&expand[]=data.product')
 
 	const plans: SubscriptionPlan[] = []
 
