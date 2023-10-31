@@ -254,6 +254,7 @@
 			"emailUpdated": "Your email has been updated.",
 			"nameUpdated": "Your name has been updated.",
 			"passwordUpdated": "Your password has been updated.",
+			"passwordNotUpdated": "We were unable to update your password. Please try again.",
 			"teamNameNotUpdated": "We were unable to update your team name. Please try again later.",
 			"teamNameUpdated": "Your team name has been updated.",
 			"nameUpdateFailed": "Could not update your name. Please try again later."

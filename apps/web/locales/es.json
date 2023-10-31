@@ -252,6 +252,7 @@
 			"emailUpdated": "Su correo electrónico ha sido actualizado.",
 			"nameUpdated": "Su nombre ha sido actualizado.",
 			"passwordUpdated": "Su contraseña ha sido actualizada.",
+			"passwordNotUpdated": "No pudimos actualizar su contraseña. \nInténtalo de nuevo.",
 			"teamNameNotUpdated": "No pudimos actualizar el nombre de su equipo. \nPor favor, inténtelo de nuevo más tarde.",
 			"teamNameUpdated": "El nombre de tu equipo ha sido actualizado.",
 			"nameUpdateFailed": "No se pudo actualizar su nombre. \nPor favor, inténtelo de nuevo más tarde."
