@@ -23,6 +23,9 @@ importers:
       api:
         specifier: workspace:*
         version: link:../../packages/api
+      auth:
+        specifier: workspace:*
+        version: link:../../packages/auth
       mail:
         specifier: workspace:*
         version: link:../../packages/mail

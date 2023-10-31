@@ -15,7 +15,8 @@
 		"mail": "workspace:*",
 		"tailwind-config": "workspace:*",
 		"tsconfig": "workspace:*",
-		"utils": "workspace:*"
+		"utils": "workspace:*",
+		"auth": "workspace:*"
 	},
 	"devDependencies": {
 		"@nuxt/content": "^2.8.5",
