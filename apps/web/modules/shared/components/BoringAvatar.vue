@@ -16,7 +16,7 @@
 	)
 
 	// You can customize the colors the avatars are generated with
-	const avatarColors = computed(() => ['#425693', '#9170b4', '#7e91c9', '#6e90ba'])
+	const avatarColors = computed(() => ['#3A9567', '#00A199', '#689EB1', '#589DB1'])
 
 	const boringAvatarUrl = computed(() => {
 		const colorList = avatarColors.value.map(color => color.replace('#', '')).join(',')
