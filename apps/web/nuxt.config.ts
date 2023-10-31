@@ -24,6 +24,7 @@ export default defineNuxtConfig({
 			'modules/saas/dashboard/composables/**',
 			'modules/saas/shared/**',
 			'modules/ui/lib/**',
+			'modules/ui/composables/**',
 			'composables/**',
 		],
 	},
