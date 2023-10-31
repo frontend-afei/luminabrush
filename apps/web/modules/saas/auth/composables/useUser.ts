@@ -39,6 +39,17 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 		return selectedTeamMembership.value?.role ?? null
 	})
 
+	watch(
+		() => routeTeamSlug,
+		() => {
+			if (!routeTeamSlug.value || !loaded.value || !user.value) return
+			if (!selectedTeamMembership.value) return navigateTo(localePath('/'))
+		},
+		{
+			immediate: true,
+		}
+	)
+
 	const loadUser = async () => {
 		const userRes = await apiCaller.auth.user.query()
 		user.value = userRes
@@ -46,7 +57,8 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 	}
 
 	onMounted(async () => {
-		if (initialUser) return
+		const hasUser = loaded.value && user.value
+		if (initialUser || hasUser) return
 		// Load user if there is no initial user set.
 		await loadUser()
 	})
