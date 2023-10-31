@@ -79,7 +79,6 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 	const logout = async () => {
 		await apiCaller.auth.logout.mutate()
 		user.value = null
-		loaded.value = false
 
 		postChannelMessage({
 			type: 'logout',
