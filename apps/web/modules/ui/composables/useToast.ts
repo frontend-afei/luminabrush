@@ -1,10 +1,10 @@
-import type { ToastVariantProps } from '@/modules/ui/components/Toast/toastUtils'
-
-export type Toast = Pick<ToastVariantProps, 'variant'> & {
+export type Toast = {
 	id: string
 	title?: string
 	description?: string
-	// TODO improve type
+	// TODO improve type, not possible because we cannot import from vue component here.
+	variant: 'default' | 'loading' | 'error' | 'success'
+	// TODO improve type, not possible because we cannot import from vue component here.
 	icon?: string
 	// TODO: missing `action`
 }

@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-	import type { ToastVariantProps } from './toastUtils'
+	import type { ToastVariantProps } from './ToastRoot.vue'
 
 	const { state: toasts, dismiss } = useToast()
 
