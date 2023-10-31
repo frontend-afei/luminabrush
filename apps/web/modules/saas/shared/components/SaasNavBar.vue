@@ -40,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+	import type { IconName } from '@/modules/ui/components/Icon.vue'
+
 	const router = useRouter()
 	const route = useRoute()
 	const { t } = useTranslations()
@@ -49,8 +51,7 @@
 	type MenuItem = {
 		label: string
 		to: string
-		// @TODO better icon types
-		icon: any
+		icon: IconName
 	}
 
 	const menuItems = computed<MenuItem[]>(() => {

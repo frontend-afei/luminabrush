@@ -28,8 +28,6 @@
 		value: number
 		valueFormat: 'currency' | 'number' | 'percentage'
 		context?: string
-		// @TODO improve types
-		icon?: any
 		trend?: number
 	}>()
 

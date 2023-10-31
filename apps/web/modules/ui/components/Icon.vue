@@ -134,5 +134,7 @@
 		),
 	}
 
+	export type IconName = keyof typeof icons
+
 	const icon = computed(() => icons[props.name])
 </script>

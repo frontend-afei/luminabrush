@@ -9,25 +9,26 @@
 
 <script setup lang="ts">
 	import { joinURL } from 'ufo'
+	import type { IconName } from '@/modules/ui/components/Icon.vue'
 
 	const { t } = useTranslations()
 
-	const providers = {
+	const providers: { [key: string]: { name: string; icon: IconName } } = {
 		google: {
 			name: 'Google',
-			icon: 'google' as const,
+			icon: 'google',
 		},
 		apple: {
 			name: 'Apple',
-			icon: 'apple' as const,
+			icon: 'apple',
 		},
 		github: {
 			name: 'Github',
-			icon: 'github' as const,
+			icon: 'github',
 		},
 		twitter: {
 			name: 'Twitter',
-			icon: 'twitter' as const,
+			icon: 'twitter',
 		},
 	}
 

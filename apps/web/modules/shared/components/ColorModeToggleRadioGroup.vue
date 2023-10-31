@@ -1,28 +1,33 @@
 <template>
 	<DropdownMenuRadioGroup v-model="$colorMode.preference">
 		<DropdownMenuRadioItem v-for="option of colorModeOptions" :key="option.value" :value="option.value">
-			<Icon :name="option.iconName" class="mr-2 h-4 w-4 opacity-50" /> {{ option.label }}
+			<Icon :name="option.icon" class="mr-2 h-4 w-4 opacity-50" /> {{ option.label }}
 		</DropdownMenuRadioItem>
 	</DropdownMenuRadioGroup>
 </template>
 
 <script lang="ts" setup>
-	// @TODO improve icon name types
-	const colorModeOptions = [
+	import type { IconName } from '@/modules/ui/components/Icon.vue'
+
+	const colorModeOptions: {
+		value: string
+		label: string
+		icon: IconName
+	}[] = [
 		{
 			value: 'system',
 			label: 'System',
-			iconName: 'system' as const,
+			icon: 'system',
 		},
 		{
 			value: 'light',
 			label: 'Light',
-			iconName: 'lightMode' as const,
+			icon: 'lightMode',
 		},
 		{
 			value: 'dark',
 			label: 'Dark',
-			iconName: 'darkMode' as const,
+			icon: 'darkMode',
 		},
 	]
 </script>
