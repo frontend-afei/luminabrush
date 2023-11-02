@@ -1,4 +1,5 @@
-import { auth, githubAuth, type Session } from 'auth'
+import { auth, githubAuth, OAuthRequestError, type Session } from 'auth'
+import { db } from 'database'
 
 export default defineEventHandler(async event => {
 	const authRequest = auth.handleRequest(event)
@@ -21,6 +22,59 @@ export default defineEventHandler(async event => {
 
 	try {
 		const { getExistingUser, githubUser, createUser, createKey } = await githubAuth.validateCallback(code)
-		// @TODO unfinished, and check why `validateCallback` returns `any` type.
-	} catch (error) {}
+
+		const getUser = async () => {
+			const existingUser = await getExistingUser()
+
+			if (existingUser) return existingUser
+
+			// check if user exists with same email
+			if (githubUser.email) {
+				const existingDatabaseUserWithEmail = await db.user.findFirst({
+					where: {
+						email: githubUser.email,
+					},
+				})
+
+				if (existingDatabaseUserWithEmail) {
+					await createKey(existingDatabaseUserWithEmail.id)
+					return await auth.updateUserAttributes(existingDatabaseUserWithEmail.id, {
+						github_username: githubUser.login,
+					})
+				}
+			}
+
+			const user = await createUser({
+				attributes: {
+					email: githubUser.email!,
+					name: githubUser.name ?? githubUser.login,
+					github_username: githubUser.login,
+					avatar_url: githubUser.avatar_url,
+					email_verified: githubUser.email !== null,
+					role: 'USER',
+				},
+			})
+			return user
+		}
+
+		const user = await getUser()
+		const session = await auth.createSession({
+			userId: user.userId,
+			attributes: {},
+		})
+		authRequest.setSession(session)
+
+		setResponseStatus(event, 302)
+		return sendRedirect(event, '/team/redirect')
+	} catch (error) {
+		console.error(error)
+
+		if (error instanceof OAuthRequestError) {
+			setResponseStatus(event, 400)
+			return null
+		}
+
+		setResponseStatus(event, 500)
+		return null
+	}
 })
