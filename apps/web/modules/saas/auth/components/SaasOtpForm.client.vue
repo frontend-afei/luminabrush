@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-	import { UserOneTimePasswordType } from 'database'
+	import type { UserOneTimePasswordType } from 'database'
 
 	const { apiCaller } = useApiCaller()
 	const { t } = useTranslations()
@@ -57,7 +57,7 @@
 	const redirectTo = computed(() => {
 		const path = invitationCode.value
 			? `/team/invitation?code=${invitationCode.value}`
-			: `/team/redirect?redirectTo=${redirectToParam.value}`
+			: `/team/redirect?redirectTo=${encodeURIComponent(redirectToParam.value || '')}`
 		return localePath(path)
 	})
 

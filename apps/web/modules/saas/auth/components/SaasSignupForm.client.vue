@@ -78,7 +78,7 @@
 	const redirectTo = computed(() => {
 		const path = invitationCode.value
 			? `/team/invitation?code=${invitationCode.value}`
-			: `/team/redirect?redirectTo=${redirectToParam.value}`
+			: `/team/redirect?redirectTo=${encodeURIComponent(redirectToParam.value || '')}`
 		return localePath(path)
 	})
 
