@@ -33,6 +33,7 @@ export const auth = lucia({
 export const githubAuth = github(auth, {
 	clientId: process.env.GITHUB_CLIENT_ID as string,
 	clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+	scope: ['user:email'],
 })
 
 export const googleAuth = google(auth, {
