@@ -38,10 +38,12 @@
 </template>
 
 <script setup lang="ts">
-	const route = useRoute()
+	// @TODO somehow this is not auto-importable
+	import { useSwitchTeam } from '@/modules/saas/dashboard/composables/useSwitchTeam'
+
 	const { t } = useTranslations()
 	const { teamMemberships, selectedTeamMembership } = useUser()
-
+	const { switchTeam } = useSwitchTeam()
 	const { createTeamDialogOpen } = useDashboardState()
 
 	const activeTeamSlug = computed({
@@ -52,15 +54,4 @@
 	const activeTeam = computed(() => {
 		return selectedTeamMembership.value?.team
 	})
-
-	const { teamSlugCookie } = useTeamSlugCookie()
-
-	const switchTeam = (slug: string | undefined, options: { refresh?: boolean } = {}) => {
-		if (!activeTeam.value || !slug) return
-
-		teamSlugCookie.value = slug
-		navigateTo(route.path.replace(activeTeam.value.slug, slug), {
-			external: !!options.refresh, // so that the page refreshes and user context is updated to include new team.
-		})
-	}
 </script>
