@@ -3,9 +3,9 @@
 		<div class="container max-w-6xl py-4">
 			<div class="flex flex-wrap items-center justify-between gap-4">
 				<div class="flex items-center gap-3">
-					<NuxtLink :to="localePath('/')" class="block">
+					<NuxtLinkLocale to="/" class="block">
 						<Logo :withLabel="false" />
-					</NuxtLink>
+					</NuxtLinkLocale>
 
 					<span class="hidden opacity-30 lg:block">
 						<Icon name="chevronRight" class="h-4 w-4" />
@@ -22,7 +22,7 @@
 			<ul
 				class="no-scrollbar -mx-8 -mb-4 mt-6 flex list-none items-center justify-start gap-6 overflow-x-auto px-8 text-sm lg:text-base">
 				<li v-for="menuItem of menuItems" :key="menuItem.to">
-					<NuxtLink
+					<NuxtLinkLocale
 						:to="menuItem.to"
 						:class="[
 							'flex items-center gap-2 border-b-2 px-1 pb-3',
@@ -32,7 +32,7 @@
 							:name="menuItem.icon"
 							:class="['h-4 w-4 shrink-0', isActiveMenuItem(menuItem.to) ? 'text-primary' : '']" />
 						<span>{{ menuItem.label }}</span>
-					</NuxtLink>
+					</NuxtLinkLocale>
 				</li>
 			</ul>
 		</div>
@@ -45,7 +45,6 @@
 	const router = useRouter()
 	const route = useRoute()
 	const { t } = useTranslations()
-	const localePath = useLocalePath()
 	const { routeTeamSlug } = useUser()
 
 	type MenuItem = {
@@ -61,38 +60,32 @@
 			{
 				label: t('dashboard.menu.dashboard'),
 				icon: 'grid',
-				to: localePath(
-					router.resolve({
-						name: 'teamSlug-dashboard___en',
-						params: {
-							teamSlug: routeTeamSlug.value || '',
-						},
-					}).path
-				),
+				to: router.resolve({
+					name: 'teamSlug-dashboard___en',
+					params: {
+						teamSlug: routeTeamSlug.value || '',
+					},
+				}).path,
 			},
 			{
 				label: t('dashboard.menu.aiDemo'),
 				icon: 'magic',
-				to: localePath(
-					router.resolve({
-						name: 'teamSlug-ai-demo___en',
-						params: {
-							teamSlug: routeTeamSlug.value || '',
-						},
-					}).path
-				),
+				to: router.resolve({
+					name: 'teamSlug-ai-demo___en',
+					params: {
+						teamSlug: routeTeamSlug.value || '',
+					},
+				}).path,
 			},
 			{
 				label: t('dashboard.menu.settings'),
 				icon: 'settings',
-				to: localePath(
-					router.resolve({
-						name: 'teamSlug-settings___en',
-						params: {
-							teamSlug: routeTeamSlug.value || '',
-						},
-					}).path
-				),
+				to: router.resolve({
+					name: 'teamSlug-settings___en',
+					params: {
+						teamSlug: routeTeamSlug.value || '',
+					},
+				}).path,
 			},
 		]
 	})

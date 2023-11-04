@@ -3,9 +3,9 @@
 		<div class="container">
 			<div class="mx-auto grid w-full max-w-md gap-6">
 				<div class="flex items-center justify-between">
-					<NuxtLink :to="localePath('/')" class="block">
+					<NuxtLinkLocale to="/" class="block">
 						<Logo />
-					</NuxtLink>
+					</NuxtLinkLocale>
 
 					<div class="flex items-center justify-end gap-2">
 						<LocaleSwitch />
@@ -20,7 +20,3 @@
 		</div>
 	</div>
 </template>
-
-<script setup lang="ts">
-	const localePath = useLocalePath()
-</script>

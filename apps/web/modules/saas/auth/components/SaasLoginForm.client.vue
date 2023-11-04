@@ -36,9 +36,9 @@
 					<SaasPasswordInput :fieldData="password" id="password" autocomplete="current-password" required />
 
 					<div class="mt-1 text-right text-sm">
-						<NuxtLink :to="localePath('/auth/forgot-password')">
+						<NuxtLinkLocale to="/auth/forgot-password">
 							{{ t('auth.login.forgotPassword') }}
-						</NuxtLink>
+						</NuxtLinkLocale>
 					</div>
 				</div>
 			</div>
@@ -49,12 +49,10 @@
 
 			<p>
 				<span class="text-muted-foreground"> {{ t('auth.login.dontHaveAnAccount') }}&nbsp;</span>
-				<NuxtLink
-					:to="
-						localePath(`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`)
-					">
+				<NuxtLinkLocale
+					:to="`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`">
 					{{ t('auth.login.createAnAccount') }} &rarr;
-				</NuxtLink>
+				</NuxtLinkLocale>
 			</p>
 		</form>
 	</div>

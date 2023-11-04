@@ -7,7 +7,7 @@
 			</div>
 
 			<div class="flex flex-col gap-2">
-				<NuxtLink :href="localePath('/blog')" class="block"> Blog </NuxtLink>
+				<NuxtLinkLocale to="/blog" class="block"> Blog </NuxtLinkLocale>
 				<a href="#" class="block"> Features </a>
 				<a href="#" class="block"> Pricing </a>
 			</div>
@@ -21,8 +21,4 @@
 	</footer>
 </template>
 
-<script setup lang="ts">
-	const localePath = useLocalePath()
-</script>
-
-<style scoped></style>
+<script setup lang="ts"></script>

@@ -3,7 +3,7 @@
 		<div class="container max-w-6xl pb-32">
 			<div class="mx-auto max-w-2xl">
 				<div class="mb-12">
-					<NuxtLink :to="localePath('/blog')"> &larr; {{ t('blog.backLabel') }} </NuxtLink>
+					<NuxtLinkLocale to="/blog"> &larr; {{ t('blog.backLabel') }} </NuxtLinkLocale>
 				</div>
 
 				<h1 class="text-4xl font-bold">{{ post.title }}</h1>
@@ -60,7 +60,6 @@
 
 	const route = useRoute('blog-slug___en')
 	const runtimeConfig = useRuntimeConfig()
-	const localePath = useLocalePath()
 	const { routeBasePath } = useRouteBasePath({ path: route.path })
 	const { t } = useTranslations()
 

@@ -7,9 +7,9 @@
 				sizes="100vw md:50vw"
 				width="1920"
 				height="1080"
-				class="h-full h-full object-cover object-center" />
+				class="h-full object-cover object-center" />
 
-			<NuxtLink :to="pagePath" class="absolute inset-0" />
+			<NuxtLinkLocale :to="pagePath" class="absolute inset-0" />
 		</div>
 
 		<div v-if="post.tags?.length" class="mb-2 flex flex-wrap gap-2">
@@ -18,9 +18,9 @@
 			</span>
 		</div>
 
-		<NuxtLink :to="pagePath" class="text-xl font-semibold">
+		<NuxtLinkLocale :to="pagePath" class="text-xl font-semibold">
 			{{ props.post.title }}
-		</NuxtLink>
+		</NuxtLinkLocale>
 		<p v-if="post.description" class="opacity-50">
 			{{ post.description }}
 		</p>
@@ -51,9 +51,7 @@
 		post: MarketingBlogPageFields
 	}>()
 
-	const localePath = useLocalePath()
-
 	const pagePath = computed(() => {
-		return localePath(props.post._path || '')
+		return props.post._path || ''
 	})
 </script>

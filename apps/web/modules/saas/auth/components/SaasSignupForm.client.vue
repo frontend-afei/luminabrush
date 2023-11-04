@@ -37,12 +37,10 @@
 
 			<p>
 				<span class="text-muted-foreground"> {{ t('auth.signup.alreadyHaveAccount') }}&nbsp;</span>
-				<NuxtLink
-					:to="
-						localePath(`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`)
-					">
+				<NuxtLinkLocale
+					:to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`">
 					{{ t('auth.signup.signIn') }} &rarr;
-				</NuxtLink>
+				</NuxtLinkLocale>
 			</p>
 		</form>
 	</div>

@@ -47,10 +47,10 @@
 			<DropdownMenuSeparator />
 
 			<DropdownMenuItem asChild>
-				<NuxtLink :to="accountSettingsLink">
+				<NuxtLinkLocale :to="accountSettingsLink">
 					<Icon name="settings" class="mr-2 h-4 w-4" />
 					Account settings
-				</NuxtLink>
+				</NuxtLinkLocale>
 			</DropdownMenuItem>
 
 			<DropdownMenuItem @click="logout">
@@ -64,18 +64,16 @@
 <script setup lang="ts">
 	const router = useRouter()
 	const { user, logout, routeTeamSlug } = useUser()
-	const localePath = useLocalePath()
 
 	/** @TODO missing i18n in this whole component */
 
-	const accountSettingsLink = computed(() =>
-		localePath(
+	const accountSettingsLink = computed(
+		() =>
 			router.resolve({
 				name: 'teamSlug-settings-account-general___en',
 				params: {
 					teamSlug: routeTeamSlug.value || '',
 				},
 			}).path
-		)
 	)
 </script>
