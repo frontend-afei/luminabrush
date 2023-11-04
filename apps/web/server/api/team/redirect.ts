@@ -10,7 +10,7 @@ const createResponse = (redirectPath: string) => {
 }
 
 export default defineEventHandler(async event => {
-	const requestUrl = new URL(getRequestURL(event))
+	const requestUrl = getRequestURL(event)
 	const redirectTo = requestUrl.searchParams.get('redirectTo') || null
 
 	const apiCaller = await createApiCaller(event)

@@ -10,7 +10,6 @@ export default defineEventHandler(async event => {
 	}
 
 	const storedState = getCookie(event, 'github_oauth_state')
-	const url = new URL(getRequestURL(event))
 	const queryParams = getQuery(event)
 	const state = String(queryParams.state)
 	const code = String(queryParams.code)

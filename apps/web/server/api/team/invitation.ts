@@ -8,33 +8,28 @@ const createResponse = (redirectPath: string) => {
 }
 
 export default defineEventHandler(async event => {
-	const requestUrl = new URL(getRequestURL(event))
+	const requestUrl = getRequestURL(event)
 	const code = requestUrl.searchParams.get('code') || null
-	if (!code) {
-		return createResponse('/')
-	}
-
-	const apiCaller = await createApiCaller(event)
-
-	const invitation = await apiCaller.team.invitationById({
-		id: code,
-	})
-	if (!invitation) {
-		return createResponse('/')
-	}
-
-	const user = await apiCaller.auth.user()
-	if (!user) {
-		return createResponse(`/auth/login?invitationCode=${invitation.id}&email=${invitation.email}`)
-	}
 
 	try {
+		if (!code) throw new Error('No invitation code query param provided')
+
+		const apiCaller = await createApiCaller(event)
+
+		const invitation = await apiCaller.team.invitationById({
+			id: code,
+		})
+		if (!invitation) throw new Error('Invitation not found')
+
+		const user = await apiCaller.auth.user()
+		if (!user) {
+			return createResponse(`/auth/login?invitationCode=${invitation.id}&email=${invitation.email}`)
+		}
+
 		const team = await apiCaller.team.acceptInvitation({
 			id: code,
 		})
-		if (!team) {
-			return createResponse('/')
-		}
+		if (!team) throw new Error('Team not found')
 
 		return createResponse(joinURL(team.slug, '/dashboard'))
 	} catch (e) {
