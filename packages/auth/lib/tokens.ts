@@ -67,6 +67,19 @@ export const generateOneTimePassword = async ({
 	identifier: string
 	expireDuration?: number
 }) => {
+	const storedUserTokens = await db.userOneTimePassword.findMany({
+		where: {
+			user_id: userId,
+		},
+	})
+
+	if (storedUserTokens.length > 0) {
+		const reusableStoredToken = storedUserTokens.find(token => {
+			return isWithinExpiration(Number(token.expires) - expireDuration / 2)
+		})
+		if (reusableStoredToken) return reusableStoredToken.code
+	}
+
 	const otp = generateRandomString(6, '0123456789')
 
 	await db.userOneTimePassword.create({
