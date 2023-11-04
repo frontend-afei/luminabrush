@@ -67,11 +67,6 @@
 	const { searchQuery: invitationCode } = useRouteSearchQuery({ name: 'invitationCode', replace: true })
 	const { searchQuery: redirectToParam } = useRouteSearchQuery({ name: 'redirectTo', replace: true })
 	const { searchQuery: emailParam } = useRouteSearchQuery({ name: 'email', replace: true })
-	watchEffect(() => {
-		if (emailParam.value) {
-			setFieldValue('email', emailParam.value)
-		}
-	})
 
 	const redirectTo = computed(() => {
 		return invitationCode.value
@@ -92,6 +87,12 @@
 			password: '',
 			name: '',
 		},
+	})
+
+	watchEffect(() => {
+		if (emailParam.value) {
+			setFieldValue('email', emailParam.value)
+		}
 	})
 
 	const email = defineInputBinds('email')
