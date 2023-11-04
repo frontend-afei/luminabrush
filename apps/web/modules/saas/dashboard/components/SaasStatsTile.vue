@@ -7,7 +7,7 @@
 		</CardHeader>
 		<CardContent>
 			<div class="flex items-center justify-between">
-				<strong className="text-2xl font-bold">
+				<strong class="text-2xl font-bold">
 					{{ formattedValue }}
 					<small v-if="props.context">{{ context }}</small>
 				</strong>

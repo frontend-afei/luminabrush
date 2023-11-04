@@ -1,7 +1,8 @@
 <template>
-	<div v-if="team" class="grid gap-6">
-		<SaasChangeTeamNameForm :initialValue="team.name" :teamId="team.id" />
+	<div v-if="!pending" class="grid gap-6">
+		<SaasChangeTeamNameForm v-if="team" :initialValue="team.name" :teamId="team.id" />
 	</div>
+	<SaasLoadingSpinner v-else />
 </template>
 
 <script setup lang="ts">
@@ -22,7 +23,7 @@
 		data: team,
 		pending,
 		error,
-	} = await apiCaller.team.bySlug.useQuery({
+	} = apiCaller.team.bySlug.useQuery({
 		slug: route.params.teamSlug,
 	})
 
