@@ -23,6 +23,11 @@ const componentList = [
 	'DropdownMenuRadioGroup',
 	'DropdownMenuSub',
 
+	/** Select */
+	'SelectRoot',
+	'SelectGroup',
+	'SelectValue',
+
 	/** Tabs */
 	'TabsRoot',
 
