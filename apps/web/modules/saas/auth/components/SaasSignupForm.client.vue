@@ -74,10 +74,9 @@
 	})
 
 	const redirectTo = computed(() => {
-		const path = invitationCode.value
+		return invitationCode.value
 			? `/team/invitation?code=${invitationCode.value}`
 			: `/team/redirect?redirectTo=${encodeURIComponent(redirectToParam.value || '')}`
-		return localePath(path)
 	})
 
 	type ServerErrorType = {
@@ -116,8 +115,7 @@
 			if (invitationCode) redirectSearchParams.set('invitationCode', invitationCode.value)
 			if (values.email) redirectSearchParams.set('identifier', values.email)
 
-			navigateTo({
-				path: localePath(`/auth/otp?${redirectSearchParams.toString()}`),
+			navigateTo(localePath(`/auth/otp?${redirectSearchParams.toString()}`), {
 				replace: true,
 			})
 		} catch (e) {
