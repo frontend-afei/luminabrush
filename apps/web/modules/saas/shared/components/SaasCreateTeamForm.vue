@@ -23,8 +23,6 @@
 	}>()
 
 	const props = defineProps<{
-		isInitialTeam: boolean
-		defaultSlug?: string
 		defaultName?: string
 	}>()
 
@@ -49,7 +47,6 @@
 		try {
 			const newTeam = await apiCaller.team.create.mutate({
 				name: values.name,
-				slug: (values.name === props.defaultName && props.defaultSlug) || undefined,
 			})
 
 			toast({
