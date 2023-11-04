@@ -35,27 +35,16 @@ export default defineEventHandler(async event => {
 
 		if (!teamMemberships || !teamMemberships.length) {
 			let team: Team | undefined = undefined
-			let iteration = 0
 
-			do {
-				if (iteration === 10) {
-					return createResponse('/')
-				}
-
-				try {
-					const name = user.name || user.email.split('@')[0]
-					const slug = `${name}${iteration ? ` ${iteration + 1}` : ''}`
-
-					team = await apiCaller.team.create({
-						name: name,
-						slug,
-					})
-				} catch (e) {
-					console.error(e)
-				}
-
-				iteration++
-			} while (!team)
+			try {
+				const name = user.name || user.email.split('@')[0]
+				team = await apiCaller.team.create({
+					name,
+				})
+			} catch (e) {
+				console.error(e)
+				return createResponse('/')
+			}
 
 			return createResponse(getRedirectUrl({ teamSlug: team.slug, path: '/[teamSlug]/dashboard' }))
 		}
