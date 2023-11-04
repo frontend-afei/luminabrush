@@ -1,15 +1,8 @@
 import { TRPCError } from '@trpc/server'
 import { TeamModel, db } from 'database'
-import slugify from 'slugify'
 import { z } from 'zod'
 import { protectedProcedure } from '../../trpc'
-
-const slugifyConfig = {
-	lower: true,
-	remove: /[*+~.()'"!:@]/g,
-	replacement: '-',
-	trim: true,
-}
+import { slugifyTeamName } from '../lib/team-slug'
 
 export const create = protectedProcedure
 	.input(
@@ -19,7 +12,7 @@ export const create = protectedProcedure
 	)
 	.output(TeamModel)
 	.mutation(async ({ input: { name }, ctx: { user } }) => {
-		let slug = slugify(name, slugifyConfig)
+		let slug = slugifyTeamName(name)
 
 		let isSlugAvailable = false
 		let iteration = 0
@@ -39,7 +32,7 @@ export const create = protectedProcedure
 
 			if (!existingTeam) isSlugAvailable = true
 			else {
-				slug = slugify(`${name}-${(Math.random() + 1).toString(36).substring(2, 7)}`, slugifyConfig)
+				slug = slugifyTeamName(`${name}-${(Math.random() + 1).toString(36).substring(2, 7)}`)
 			}
 		}
 
