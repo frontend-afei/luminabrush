@@ -17,17 +17,16 @@ export default defineEventHandler(async event => {
 
 	const getRedirectUrl = ({ teamSlug, path }: { teamSlug?: string; path: string }) => {
 		let redirectPath = redirectTo ?? path
-		if (teamSlug) redirectPath = joinURL(teamSlug, redirectPath)
+		if (teamSlug && redirectPath.includes('[teamSlug]')) redirectPath = redirectPath.replace('[teamSlug]', teamSlug)
 		return redirectPath
 	}
 
 	try {
 		const user = await apiCaller.auth.user()
 		if (!user) {
-			// TODO i18n
 			let redirectUrl = '/auth/login'
 			if (redirectTo) {
-				redirectUrl = `${redirectUrl}?redirectTo=${redirectTo}}`
+				redirectUrl = `${redirectUrl}?redirectTo=${redirectTo}`
 			}
 			return createResponse(redirectUrl)
 		}
@@ -58,8 +57,7 @@ export default defineEventHandler(async event => {
 				iteration++
 			} while (!team)
 
-			// TODO i18n
-			return createResponse(getRedirectUrl({ teamSlug: team.slug, path: '/dashboard' }))
+			return createResponse(getRedirectUrl({ teamSlug: team.slug, path: '/[teamSlug]/dashboard' }))
 		}
 
 		const teamSlugCookie = getCookie(event, TEAM_SLUG_COOKIE_NAME)
@@ -68,12 +66,11 @@ export default defineEventHandler(async event => {
 			const teamMembership = teamMemberships.find(membership => membership.team.slug === teamSlugCookie)
 
 			if (teamMembership) {
-				// TODO i18n
-				return createResponse(getRedirectUrl({ teamSlug: teamMembership.team.slug, path: '/dashboard' }))
+				return createResponse(getRedirectUrl({ teamSlug: teamMembership.team.slug, path: '/[teamSlug]/dashboard' }))
 			}
 		}
 
-		return createResponse(getRedirectUrl({ teamSlug: teamMemberships[0].team.slug, path: '/dashboard' }))
+		return createResponse(getRedirectUrl({ teamSlug: teamMemberships[0].team.slug, path: '/[teamSlug]/dashboard' }))
 	} catch (e) {
 		console.error(e)
 		return createResponse('/')
