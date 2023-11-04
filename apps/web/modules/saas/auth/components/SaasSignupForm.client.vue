@@ -116,7 +116,7 @@
 			redirectSearchParams.set('type', 'SIGNUP')
 			if (!redirectTo.value.startsWith('/team/redirect')) redirectSearchParams.set('redirectTo', redirectTo.value)
 			if (invitationCode) redirectSearchParams.set('invitationCode', invitationCode.value)
-			if (values.email) redirectSearchParams.set('email', values.email)
+			if (values.email) redirectSearchParams.set('identifier', values.email)
 
 			navigateTo({
 				path: localePath(`/auth/otp?${redirectSearchParams.toString()}`),
