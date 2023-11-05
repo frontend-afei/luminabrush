@@ -38,9 +38,6 @@
 </template>
 
 <script setup lang="ts">
-	// @TODO somehow this is not auto-importable
-	import { useSwitchTeam } from '@/modules/saas/dashboard/composables/useSwitchTeam'
-
 	const { t } = useTranslations()
 	const { teamMemberships, selectedTeamMembership } = useUser()
 	const { switchTeam } = useSwitchTeam()

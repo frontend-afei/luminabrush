@@ -18,7 +18,6 @@ const componentList = [
 	'DropdownMenuSub',
 
 	/** Select */
-	// TODO these 3 somehow don't work. others do. see `SaasInviteMemberForm.vue` for usage.
 	'SelectRoot',
 	'SelectGroup',
 	'SelectValue',

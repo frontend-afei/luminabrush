@@ -42,9 +42,6 @@
 </template>
 
 <script setup lang="ts">
-	// TODO see `radixModule`, these should be auto imported but arent
-	import { SelectRoot, SelectValue } from 'radix-vue'
-
 	const props = defineProps<{
 		teamId: string
 	}>()
