@@ -27,12 +27,12 @@
 </template>
 
 <script setup lang="ts">
+	import type { IconName } from '../Icon.vue'
 	import type { ToastVariantProps } from './ToastRoot.vue'
 
 	const { state: toasts, dismiss } = useToast()
 
-	// TODO improve type of icon names
-	const variantIcons = computed<Record<NonNullable<ToastVariantProps['variant']>, string>>(() => ({
+	const variantIcons = computed<Record<NonNullable<ToastVariantProps['variant']>, IconName>>(() => ({
 		default: 'notification',
 		loading: 'spinner',
 		success: 'check',

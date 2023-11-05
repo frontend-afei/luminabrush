@@ -20,7 +20,6 @@ export default defineEventHandler(async event => {
 	}
 
 	try {
-		// @TODO check why `validateCallback` returns `any` type.
 		const { getExistingUser, googleUser, createUser, createKey } = await googleAuth.validateCallback(code)
 
 		const getUser = async () => {
