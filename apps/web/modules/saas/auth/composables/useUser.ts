@@ -58,7 +58,7 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 
 	onMounted(async () => {
 		const hasUser = loaded.value && user.value
-		if (initialUser || hasUser) return
+		if (initialUser !== undefined || hasUser) return
 		// Load user if there is no initial user set.
 		await loadUser()
 	})
