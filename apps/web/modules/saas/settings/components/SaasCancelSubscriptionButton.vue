@@ -1,6 +1,6 @@
 <template>
 	<Button variant="outline" @click="cancelSubscription" :loading="mutationPending">
-		<Icon name="close" claass="mr-2 h-4 w-4" />
+		<Icon name="close" class="mr-2 h-4 w-4" />
 		{{ t('settings.billing.subscription.cancel') }}
 	</Button>
 </template>

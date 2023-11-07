@@ -1,6 +1,6 @@
 <template>
 	<Button variant="default" @click="createCustomerPortal" :loading="mutationPending">
-		<Icon name="creditCard" claass="mr-2 h-4 w-4" />
+		<Icon name="creditCard" class="mr-2 h-4 w-4" />
 		{{ t('settings.billing.createCustomerPortal.label') }}
 	</Button>
 </template>

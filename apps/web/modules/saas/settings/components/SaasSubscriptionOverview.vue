@@ -37,6 +37,9 @@
 </template>
 
 <script setup lang="ts">
+	// TODO REMOVE
+	import { useLocaleDate } from '@/modules/shared/composables/useLocaleDate'
+
 	import type { ApiOutput } from 'api'
 
 	type SubscriptionPlan = ApiOutput['billing']['plans'][number]
@@ -87,17 +90,24 @@
 		return props.currentSubscription.status === 'ACTIVE' || props.currentSubscription.status === 'TRIALING'
 	})
 
+	const { formatDate } = useLocaleDate()
+
 	const nextPaymentLabel = computed(() => {
 		const currentSubscription = props.currentSubscription
 		if (!currentSubscription) return
 
+		const nextPaymentDate = currentSubscription.next_payment_date
+			? new Date(currentSubscription.next_payment_date)
+			: null
+		if (!nextPaymentDate) return
+
 		const isExceeding = subscriptionIsExceeding.value
 		return isExceeding
 			? t('settings.billing.subscription.endsOn', {
-					nextPaymentDate: currentSubscription.next_payment_date,
+					nextPaymentDate: formatDate({ date: nextPaymentDate }),
 			  })
 			: t('settings.billing.subscription.nextPayment', {
-					nextPaymentDate: currentSubscription.next_payment_date,
+					nextPaymentDate: formatDate({ date: nextPaymentDate }),
 			  })
 	})
 </script>
