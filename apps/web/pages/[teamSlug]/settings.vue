@@ -47,8 +47,15 @@
 							},
 						}).path,
 					},
-					// @TODO missing:
-					// billing
+					{
+						title: t('settings.menu.team.billing'),
+						to: router.resolve({
+							name: 'teamSlug-settings-team-billing___en',
+							params: {
+								teamSlug: activeTeam.slug,
+							},
+						}).path,
+					},
 				],
 			},
 			{
