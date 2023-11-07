@@ -3,7 +3,6 @@ import {
 	CreateCheckoutLink,
 	CreateCustomerPortalLink,
 	GetAllPlans,
-	PauseSubscription,
 	ResumeSubscription,
 	SubscriptionPlan,
 } from '../../types'
@@ -83,18 +82,6 @@ export const createCustomerPortalLink: CreateCustomerPortalLink = async ({
 	})
 
 	return response.url
-}
-
-export const pauseSubscription: PauseSubscription = async params => {
-	const { id } = params
-
-	const body = new URLSearchParams()
-	body.append('pause_collection[behavior]', 'void')
-
-	await callStripeApi(`/subscriptions/${id}`, {
-		method: 'POST',
-		body,
-	})
 }
 
 export const cancelSubscription: CancelSubscription = async params => {

@@ -3,7 +3,6 @@ import {
 	CreateCheckoutLink,
 	CreateCustomerPortalLink,
 	GetAllPlans,
-	PauseSubscription,
 	ResumeSubscription,
 	SubscriptionPlan,
 } from '../../types'
@@ -89,25 +88,6 @@ export const createCustomerPortalLink: CreateCustomerPortalLink = async params =
 	const response = await callLemonsqueezyApi(`/subscriptions/${subscriptionId}`)
 
 	return response.data.attributes.urls.update_payment_method
-}
-
-export const pauseSubscription: PauseSubscription = async params => {
-	const { id } = params
-
-	await callLemonsqueezyApi(`/subscriptions/${id}`, {
-		method: 'PATCH',
-		body: JSON.stringify({
-			data: {
-				type: 'subscriptions',
-				id,
-				attributes: {
-					pause: {
-						mode: 'free',
-					},
-				},
-			},
-		}),
-	})
 }
 
 export const cancelSubscription: CancelSubscription = async params => {
