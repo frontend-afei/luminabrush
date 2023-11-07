@@ -1,10 +1,6 @@
 <template>
 	<div v-if="!pending" class="grid gap-6">
-		<SaasSubscriptionOverview
-			v-if="data?.plans"
-			:plans="data.plans"
-			:currentSubscription="data.teamSubscription"
-			class="mb-4" />
+		<SaasSubscriptionOverview v-if="data?.plans" :plans="data.plans" :currentSubscription="data.teamSubscription" />
 
 		<SaasUpgradePlan
 			v-if="data?.plans"
