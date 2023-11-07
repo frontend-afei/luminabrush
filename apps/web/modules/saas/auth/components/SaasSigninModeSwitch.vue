@@ -1,5 +1,5 @@
 <template>
-	<TabsRoot :modelValue="props.modelValue" @update:modelValue="emit('update:modelValue', $event)">
+	<TabsRoot :modelValue="props.modelValue" @update:modelValue="emit('update:modelValue', $event as ActiveMode)">
 		<TabsList class="w-full">
 			<TabsTrigger v-for="mode of modes" :key="mode.value" :value="mode.value" class="flex-1">
 				{{ mode.label }}
@@ -19,7 +19,10 @@
 		'update:modelValue': [value: ActiveMode]
 	}>()
 
-	const modes = [
+	const modes: {
+		value: ActiveMode
+		label: string
+	}[] = [
 		{
 			value: 'magic-link',
 			label: 'Magic Link',
