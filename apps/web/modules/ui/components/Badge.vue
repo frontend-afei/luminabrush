@@ -21,12 +21,12 @@
 
 	type ButtonVariantProps = VariantProps<typeof badgeVariants>
 
-	type Props = {
+	export type BadgeProps = {
 		class?: ClassProp
 		status?: ButtonVariantProps['status']
 	}
 
-	const props = withDefaults(defineProps<Props>(), {
+	const props = withDefaults(defineProps<BadgeProps>(), {
 		status: 'info',
 	})
 </script>
