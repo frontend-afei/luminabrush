@@ -37,9 +37,6 @@
 </template>
 
 <script setup lang="ts">
-	// TODO REMOVE
-	import { useLocaleDate } from '@/modules/shared/composables/useLocaleDate'
-
 	import type { ApiOutput } from 'api'
 
 	type SubscriptionPlan = ApiOutput['billing']['plans'][number]
