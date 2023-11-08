@@ -21,6 +21,11 @@ export const update = protectedProcedure
 		}
 
 		let slug = slugifyTeamName(name)
+		if (!slug)
+			throw new TRPCError({
+				code: 'BAD_REQUEST',
+				message: 'Invalid team name',
+			})
 
 		let isSlugAvailable = false
 		let iteration = 0
