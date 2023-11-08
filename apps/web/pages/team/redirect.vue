@@ -15,5 +15,7 @@
 		return localePath(data.value?.redirectPath ?? '/')
 	})
 
-	navigateTo(redirectPath.value)
+	navigateTo(redirectPath.value, {
+		replace: true,
+	})
 </script>
