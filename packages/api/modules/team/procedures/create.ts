@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server'
-import { TeamModel, db } from 'database'
+import { TeamModel, TeamMemberRole, db } from 'database'
 import { z } from 'zod'
 import { protectedProcedure } from '../../trpc'
 import { slugifyTeamName } from '../lib/team-slug'
@@ -48,7 +48,7 @@ export const create = protectedProcedure
 				memberships: {
 					create: {
 						user_id: user!.userId,
-						role: 'OWNER',
+						role: TeamMemberRole.OWNER,
 						is_creator: true,
 					},
 				},
