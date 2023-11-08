@@ -1,7 +1,9 @@
 <template>
 	<div v-if="!pending" class="grid grid-cols-1 gap-6">
-		<SaasInviteMemberForm v-if="data" :teamId="data.team.id" @success="refresh" />
-		<pre v-if="data">{{ { team: data.team, memberships: data.memberships, invitations: data.invitations } }}</pre>
+		<template v-if="data">
+			<SaasInviteMemberForm :teamId="data.team.id" @success="refresh" />
+			<SaasTeamMembersBlock :memberships="data.memberships" :invitations="data.invitations" />
+		</template>
 	</div>
 	<SaasLoadingSpinner v-else />
 </template>
