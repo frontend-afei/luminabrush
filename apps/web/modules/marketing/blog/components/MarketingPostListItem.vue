@@ -37,7 +37,7 @@
 
 			<div v-if="post.date" class="ml-auto mr-0">
 				<p class="text-sm opacity-30">
-					{{ Intl.DateTimeFormat('en-US').format(new Date(post.date)) }}
+					{{ formatDate({ date: new Date(post.date) }) }}
 				</p>
 			</div>
 		</div>
@@ -50,6 +50,8 @@
 	const props = defineProps<{
 		post: MarketingBlogPageFields
 	}>()
+
+	const { formatDate } = useLocaleDate()
 
 	const pagePath = computed(() => {
 		return props.post._path || ''

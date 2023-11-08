@@ -20,7 +20,7 @@
 
 					<div v-if="post.date" class="ml-auto mr-0">
 						<p class="text-sm opacity-30">
-							{{ Intl.DateTimeFormat('en-US').format(new Date(post.date)) }}
+							{{ formatDate({ date: new Date(post.date) }) }}
 						</p>
 					</div>
 
@@ -62,6 +62,7 @@
 	const runtimeConfig = useRuntimeConfig()
 	const { routeBasePath } = useRouteBasePath({ path: route.path })
 	const { t } = useTranslations()
+	const { formatDate } = useLocaleDate()
 
 	const { data: post } = await useAsyncData(route.path, () => {
 		return queryContent<MarketingBlogPageFields>(routeBasePath.value)
