@@ -17,8 +17,6 @@
 				</div>
 			</div>
 
-			<!-- @TODO action slot here -->
-
 			<ToastClose />
 		</ToastRoot>
 

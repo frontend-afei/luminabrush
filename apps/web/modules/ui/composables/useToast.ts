@@ -2,11 +2,8 @@ export type Toast = {
 	id: string
 	title?: string
 	description?: string
-	// TODO improve type, not possible because we cannot import from vue component here.
 	variant: 'default' | 'loading' | 'error' | 'success'
-	// TODO improve type, not possible because we cannot import from vue component here.
 	icon?: string
-	// TODO: missing `action`
 }
 
 export const useToast = () => {

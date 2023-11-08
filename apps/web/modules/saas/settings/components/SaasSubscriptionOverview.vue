@@ -58,7 +58,7 @@
 				interval_count: 1,
 				price: 0,
 				interval: 'month',
-				currency: localeCurrency.value, // TODO localeCurrency,
+				currency: localeCurrency.value,
 			},
 		],
 	}))
