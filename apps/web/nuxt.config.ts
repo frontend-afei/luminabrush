@@ -34,9 +34,10 @@ export default defineNuxtConfig({
 		//
 		{ path: '@/modules/ui/components', pathPrefix: false },
 		{ path: '@/modules/shared/components', pathPrefix: false },
-		{ path: '@/modules/marketing/blog/components', pathPrefix: false },
 		{ path: '@/modules/marketing/shared/components', pathPrefix: false },
 		{ path: '@/modules/marketing/home/components', pathPrefix: false },
+		{ path: '@/modules/marketing/blog/components', pathPrefix: false },
+		{ path: '@/modules/marketing/pricing/components', pathPrefix: false },
 		{ path: '@/modules/saas/auth/components', pathPrefix: false },
 		{ path: '@/modules/saas/dashboard/components', pathPrefix: false },
 		{ path: '@/modules/saas/settings/components', pathPrefix: false },
