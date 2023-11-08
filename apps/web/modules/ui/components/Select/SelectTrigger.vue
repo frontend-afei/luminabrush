@@ -4,7 +4,7 @@
 			...$attrs,
 			...props,
 			class: twMerge(
-				'border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
+				'border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
 				props.class
 			),
 		}">

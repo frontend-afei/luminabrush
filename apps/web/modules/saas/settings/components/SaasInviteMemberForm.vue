@@ -18,16 +18,7 @@
 						<FormLabel for="role" required>
 							{{ t('settings.team.members.inviteMember.role') }}
 						</FormLabel>
-						<SelectRoot v-model="roleValue">
-							<SelectTrigger class="w-[180px]">
-								<SelectValue />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem v-for="option of roleOptions" :key="option.value" :value="option.value">
-									{{ option.label }}
-								</SelectItem>
-							</SelectContent>
-						</SelectRoot>
+						<SaasTeamRoleSelect v-model="roleValue" />
 					</div>
 				</div>
 
@@ -42,6 +33,8 @@
 </template>
 
 <script setup lang="ts">
+	import type { TeamMemberRole } from 'database'
+
 	const props = defineProps<{
 		teamId: string
 	}>()
@@ -57,7 +50,7 @@
 
 	const { z, toTypedSchema, useForm } = formUtils
 
-	const roleValues = ['MEMBER', 'OWNER'] as const
+	const roleValues: [TeamMemberRole, TeamMemberRole] = ['MEMBER', 'OWNER']
 
 	const formSchema = toTypedSchema(
 		z.object({
@@ -66,25 +59,13 @@
 		})
 	)
 
-	const roleOptions = computed<{ label: string; value: (typeof roleValues)[number] }[]>(() => [
-		{
-			label: t('settings.team.members.roles.member'),
-			value: 'MEMBER',
+	const { defineInputBinds, handleSubmit, isSubmitting, useFieldModel, resetForm } = useForm({
+		validationSchema: formSchema,
+		initialValues: {
+			email: '',
+			role: 'MEMBER',
 		},
-		{
-			label: t('settings.team.members.roles.owner'),
-			value: 'OWNER',
-		},
-	])
-
-	const { defineInputBinds, defineComponentBinds, handleSubmit, setValues, isSubmitting, useFieldModel, resetForm } =
-		useForm({
-			validationSchema: formSchema,
-			initialValues: {
-				email: '',
-				role: 'MEMBER',
-			},
-		})
+	})
 
 	const email = defineInputBinds('email')
 	const roleValue = useFieldModel('role')

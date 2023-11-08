@@ -10,7 +10,6 @@
 		subscriptionId: string
 	}>()
 
-	const route = useRoute()
 	const { t } = useTranslations()
 	const { toast } = useToast()
 	const { apiCaller } = useApiCaller()
@@ -34,10 +33,7 @@
 				title: t('settings.billing.cancelSubscription.notifications.success.title'),
 			})
 
-			// Refresh page
-			navigateTo(route.fullPath, {
-				external: true,
-			})
+			location.reload()
 		} catch (error) {
 			toast({
 				variant: 'error',

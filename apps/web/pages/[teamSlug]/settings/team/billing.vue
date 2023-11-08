@@ -20,13 +20,12 @@
 	const { t } = useTranslations()
 	const { apiCaller } = useApiCaller()
 	const localePath = useLocalePath()
-	const { user, selectedTeamMembership } = useUser()
 
 	useSeoMeta({
 		title: t('settings.billing.title'),
 	})
 
-	const { data, error, pending, refresh } = useAsyncData(async () => {
+	const { data, pending } = useAsyncData(async () => {
 		const team = await apiCaller.team.bySlug.query({
 			slug: route.params.teamSlug,
 		})
