@@ -25,15 +25,17 @@
 				<template #description>{{ serverError.message }}</template>
 			</Alert>
 
-			<div>
-				<label for="email" class="mb-1 block font-semibold"> {{ t('auth.login.email') }} * </label>
+			<FormItem>
+				<FormLabel for="email" required> {{ t('auth.login.email') }} </FormLabel>
 				<Input v-bind="email" type="text" id="email" required autocomplete="name" />
-			</div>
+			</FormItem>
 
 			<div v-if="signinMode === 'password'">
 				<div>
-					<label for="password" class="mb-1 block font-semibold"> {{ t('auth.signup.password') }} * </label>
-					<SaasPasswordInput :fieldData="password" id="password" autocomplete="current-password" required />
+					<FormItem>
+						<FormLabel for="password" required> {{ t('auth.signup.password') }} </FormLabel>
+						<SaasPasswordInput :fieldData="password" id="password" autocomplete="current-password" required />
+					</FormItem>
 
 					<div class="mt-1 text-right text-sm">
 						<NuxtLinkLocale to="/auth/forgot-password">

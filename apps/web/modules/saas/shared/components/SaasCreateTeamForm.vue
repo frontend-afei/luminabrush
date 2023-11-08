@@ -1,9 +1,9 @@
 <template>
 	<form @submit.prevent="onSubmit">
-		<div>
-			<label for="name" class="mb-1 block text-sm font-semibold"> {{ t('createTeam.name') }} * </label>
+		<FormItem>
+			<FormLabel for="name" required> {{ t('createTeam.name') }} </FormLabel>
 			<Input v-bind="name" type="text" id="name" required />
-		</div>
+		</FormItem>
 
 		<Button class="mt-4 w-full" type="submit" :loading="isSubmitting">
 			{{ t('createTeam.submit') }}

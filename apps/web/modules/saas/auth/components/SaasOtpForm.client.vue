@@ -14,10 +14,10 @@
 				<template #description>{{ serverError.message }}</template>
 			</Alert>
 
-			<div>
-				<label for="code" class="mb-1 block font-semibold"> {{ t('auth.verifyOtp.otp') }} * </label>
+			<FormItem>
+				<FormLabel for="code" required> {{ t('auth.verifyOtp.otp') }} </FormLabel>
 				<Input v-bind="code" type="text" id="code" required autocomplete="name" />
-			</div>
+			</FormItem>
 
 			<Button :loading="isSubmitting" type="submit"> {{ t('auth.verifyOtp.submit') }} &rarr; </Button>
 		</form>

@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<form @submit.prevent="onSubmit">
-			<div>
-				<label for="topic" class="mb-1 block font-semibold"> Topic </label>
+			<FormItem>
+				<FormLabel for="topic"> Topic </FormLabel>
 				<Input v-bind="topic" type="text" id="topic" required />
-			</div>
+			</FormItem>
 
 			<Button class="mt-4 w-full" :loading="pending && status !== 'idle'">
 				<Icon name="magic" class="mr-2 h-4 w-4" />

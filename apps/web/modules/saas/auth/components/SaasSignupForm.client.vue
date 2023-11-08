@@ -14,19 +14,21 @@
 				<template #description>{{ serverError.message }}</template>
 			</Alert>
 
-			<div>
-				<label for="name" class="mb-1 block font-semibold"> {{ t('auth.signup.name') }} * </label>
+			<FormItem>
+				<FormLabel for="name" required> {{ t('auth.signup.name') }} </FormLabel>
 				<Input v-bind="name" type="text" id="name" required autocomplete="name" />
-			</div>
+			</FormItem>
 
-			<div>
-				<label for="email" class="mb-1 block font-semibold"> {{ t('auth.signup.email') }} * </label>
+			<FormItem>
+				<FormLabel for="email" required> {{ t('auth.signup.email') }} </FormLabel>
 				<Input v-bind="email" type="email" id="email" required autocomplete="email" />
-			</div>
+			</FormItem>
 
 			<div>
-				<label for="password" class="mb-1 block font-semibold"> {{ t('auth.signup.password') }} * </label>
-				<SaasPasswordInput :fieldData="password" id="password" autocomplete="new-password" required />
+				<FormItem>
+					<FormLabel for="password" required> {{ t('auth.signup.password') }} </FormLabel>
+					<SaasPasswordInput :fieldData="password" id="password" autocomplete="new-password" required />
+				</FormItem>
 
 				<p class="mt-1 text-xs italic opacity-50">
 					{{ t('auth.signup.passwordHint') }}

@@ -15,10 +15,10 @@
 				<template #description>{{ serverError.message }}</template>
 			</Alert>
 
-			<div>
-				<FormLabel for="email"> {{ t('auth.forgotPassword.email') }} * </FormLabel>
+			<FormItem>
+				<FormLabel for="email" required> {{ t('auth.forgotPassword.email') }} </FormLabel>
 				<Input v-bind="email" type="email" id="email" required autocomplete="email" />
-			</div>
+			</FormItem>
 
 			<Button :loading="isSubmitting" type="submit">
 				<Icon name="submit" class="mr-2 h-4 w-4" />

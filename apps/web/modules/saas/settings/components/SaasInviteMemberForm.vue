@@ -7,19 +7,19 @@
 
 			<CardContent>
 				<div class="@md:flex-row flex flex-col gap-2">
-					<div class="flex-1">
+					<FormItem class="flex-1">
 						<FormLabel for="email" required>
 							{{ t('settings.team.members.inviteMember.email') }}
 						</FormLabel>
 						<Input v-bind="email" type="email" id="email" required />
-					</div>
+					</FormItem>
 
-					<div>
+					<FormItem>
 						<FormLabel for="role" required>
 							{{ t('settings.team.members.inviteMember.role') }}
 						</FormLabel>
 						<SaasTeamRoleSelect v-model="roleValue" />
-					</div>
+					</FormItem>
 				</div>
 
 				<div class="mt-6 flex justify-end border-t pt-3">
