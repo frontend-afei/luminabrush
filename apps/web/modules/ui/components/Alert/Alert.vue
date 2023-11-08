@@ -13,8 +13,6 @@
 </template>
 
 <script setup lang="ts">
-	import { type VariantProps, cva } from 'class-variance-authority'
-
 	const alertVariants = cva(
 		'relative w-full rounded-lg border p-6 [&>svg~*]:pl-8 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-6 [&>svg]:top-6 [&>svg]:text-foreground',
 		{
