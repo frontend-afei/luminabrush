@@ -1,3 +1,3 @@
 export const config = {
-	from: 'supastarter@madebyfabian.com',
+	from: 'contact@supastarter.dev',
 }
