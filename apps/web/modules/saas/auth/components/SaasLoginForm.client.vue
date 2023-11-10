@@ -98,8 +98,9 @@
 	}
 
 	const signinMode = ref<'password' | 'magic-link'>('magic-link')
-	watch(signinMode, () => {
+	watch(signinMode, async () => {
 		resetForm()
+		await nextTick()
 		serverError.value = null
 	})
 
