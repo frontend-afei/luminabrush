@@ -24,7 +24,7 @@
 					<ColorModeToggle />
 					<LocaleSwitch />
 
-					<SheetRoot>
+					<SheetRoot v-model:open="mobileMenuOpen">
 						<SheetTrigger asChild>
 							<Button class="md:hidden" size="icon" variant="outline">
 								<Icon name="menu" />
@@ -62,12 +62,22 @@
 </template>
 
 <script setup lang="ts">
+	const route = useRoute()
 	const { t } = useTranslations()
 	const { user, loaded: userLoaded } = useUser()
 
 	const hasUser = computed(() => {
 		return userLoaded.value && user.value
 	})
+
+	const mobileMenuOpen = ref(false)
+
+	watch(
+		() => route.fullPath,
+		() => {
+			mobileMenuOpen.value = false
+		}
+	)
 
 	type MenuItem = {
 		label: string
