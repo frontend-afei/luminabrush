@@ -6,7 +6,7 @@
 			"email": "E-Mail",
 			"hints": {
 				"linkNotSent": {
-					"message": "Es tut uns leid, aber wir konnten deinen keinen Link zum Zurücksetzen des Passworts nicht senden. \nBitte versuche es später noch einmal.",
+					"message": "Es tut uns leid, aber wir konnten keinen Link zum Zurücksetzen des Passworts senden. \nBitte versuche es später noch einmal.",
 					"title": "Link nicht gesendet"
 				},
 				"linkSent": {
@@ -21,11 +21,11 @@
 		"login": {
 			"createAnAccount": "Ein Konto erstellen",
 			"dontHaveAnAccount": "Du hast noch kein Konto?",
-			"email": "Email",
+			"email": "E-Mail",
 			"forgotPassword": "Passwort vergessen?",
 			"hints": {
 				"emailNotVerified": {
-					"message": "Bitte überprüfe deine E-Mail-Adresse, bevor du dich anmelden. Überprüfe deinen Posteingang auf die Bestätigungsmail.",
+					"message": "Bitte überprüfe deine E-Mail-Adresse, bevor du dich anmeldest. Überprüfe deinen Posteingang auf die Bestätigungsmail.",
 					"title": "E-Mail nicht bestätigt"
 				},
 				"invalidCredentials": {
@@ -61,7 +61,7 @@
 					"title": "Bestätige deine E-Mail"
 				}
 			},
-			"message": "Wir freuen uns, dass du dich uns anschließen möchten. \nBitte fülle das untenstehende Formular aus, um dein Konto zu erstellen.",
+			"message": "Wir freuen uns, dass du dich uns anschließen möchtest. \nBitte fülle das untenstehende Formular aus, um dein Konto zu erstellen.",
 			"name": "Name",
 			"password": "Passwort",
 			"passwordHint": "Bitte gib mindestens 8 Zeichen ein.",
@@ -70,7 +70,7 @@
 			"title": "Ein Konto erstellen"
 		},
 		"teamInvitation": {
-			"description": "Sie wurden eingeladen, einem Team beizutreten. \nWenn Sie sich anmelden oder registrieren, nehmen Sie automatisch die Einladung an und treten dem Team bei.",
+			"description": "Du wurdest eingeladen, einem Team beizutreten. \nWenn du dich anmeldest oder registrierst, nimmst du automatisch die Einladung an und trittst dem Team bei.",
 			"title": "Teameinladung annehmen"
 		},
 		"verifyOtp": {
@@ -79,23 +79,23 @@
 			},
 			"hints": {
 				"verificationFailed": {
-					"message": "Es tut uns leid, das von Ihnen eingegebene Passwort ist ungültig. \nBitte versuche es erneut.",
+					"message": "Es tut uns leid, das von dir eingegebene Passwort ist ungültig. \nBitte versuche es erneut.",
 					"title": "Ungültiges Einmalpasswort"
 				}
 			},
-			"message": "Du hast Post! \nBitte überprüfen Sie Ihren Posteingang auf das Einmalpasswort, das wir Ihnen gesendet haben. \nSie können auch auf den Link in der E-Mail klicken und diese Seite wird Sie automatisch weiterleiten.",
+			"message": "Du hast Post! \nBitte überprüfe deinen Posteingang auf das Einmalpasswort, das wir dir gesendet haben. \nDu kannst auch auf den Link in der E-Mail klicken und du wirst automatisch weitergeleitet.",
 			"otp": "Einmaliges Passwort",
 			"submit": "Weitermachen",
-			"title": "Bestätigen Sie Ihre E-Mail"
+			"title": "Bestätige deine E-Mail"
 		},
 		"confirmation": {
-			"close": "Schließe dieses Fenster",
-			"message": "Sie können dieses Fenster schließen und in dem Fenster fortfahren, aus dem Sie gekommen sind.",
-			"title": "Sie wurden eingeloggt!"
+			"close": "Schließe diesen Tab",
+			"message": "Du kannst diesen Tab jetzt schließen und in dem ursprünglichen Tab fortfahren.",
+			"title": "Du wurdest eingeloggt!"
 		},
 		"invalidToken": {
-			"message": "Der Link ist entweder ungültig oder abgelaufen. \nBitte versuchen Sie erneut, sich anzumelden.",
-			"title": "Ungültiges Token"
+			"message": "Der Link ist entweder ungültig oder abgelaufen. \nBitte versuche es erneut, dich anzumelden.",
+			"title": "Ungültiger Token"
 		}
 	},
 	"blog": {
@@ -108,7 +108,7 @@
 		"menu": {
 			"blog": "Blog",
 			"dashboard": "Dashboard",
-			"login": "Anmeldung",
+			"login": "Anmelden",
 			"pricing": "Preise"
 		}
 	},
@@ -130,14 +130,14 @@
 		"sidebar": {
 			"createTeam": "Erstelle ein neues Team"
 		},
-		"subtitle": "Sehen Sie sich die neuesten Statistiken Ihres großartigen Unternehmens an.",
+		"subtitle": "Sieh dir die neuesten Statistiken deines großartigen Unternehmens an.",
 		"welcome": "Willkommen {name}!"
 	},
 	"newsletter": {
 		"email": "Email",
 		"hints": {
 			"success": {
-				"message": "Danke, dass du unseren Newsletter abonniert haben. \nWir werden dich auf dem Laufenden halten.",
+				"message": "Danke, dass du unseren Newsletter abonniert hast. \nWir werden dich auf dem Laufenden halten.",
 				"title": "Erfolgreich angemeldet!"
 			},
 			"error": {
@@ -197,7 +197,7 @@
 					"paused": "Pausiert",
 					"incomplete": "Unvollständig",
 					"past_due": "Überfällig",
-					"trialing": "Versuch",
+					"trialing": "Testversion",
 					"unpaid": "Unbezahlt"
 				},
 				"subscribe": "Abonnieren",
@@ -257,7 +257,7 @@
 			"passwordNotUpdated": "Wir konnten dein Passwort nicht aktualisieren. \nBitte versuche es erneut.",
 			"teamNameNotUpdated": "Wir konnten deinen Teamnamen nicht aktualisieren. \nBitte versuche es später noch einmal.",
 			"teamNameUpdated": "Dein Teamname wurde aktualisiert.",
-			"nameUpdateFailed": "Ihr Name konnte nicht aktualisiert werden. \nBitte versuchen Sie es später noch einmal."
+			"nameUpdateFailed": "Dein Name konnte nicht aktualisiert werden. \nBitte versuche es später noch einmal."
 		},
 		"save": "Speichern",
 		"subtitle": "Verwalte deinen Account und deine Anwendungseinstellungen.",
@@ -294,25 +294,25 @@
 				"activeMembers": "Aktive Mitglieder",
 				"invitations": {
 					"email": "Email",
-					"empty": "Sie haben noch keine Mitglieder eingeladen.",
+					"empty": "Du hast noch keine Mitglieder eingeladen.",
 					"revoke": "Einladung widerrufen"
 				},
 				"pendingInvitations": "Ausstehende Einladungen",
 				"notifications": {
 					"removeMember": {
 						"error": {
-							"description": "Das Mitglied konnte nicht aus Ihrem Team entfernt werden. \nBitte versuche es erneut."
+							"description": "Das Mitglied konnte nicht aus deinem Team entfernt werden. \nBitte versuche es erneut."
 						},
 						"loading": {
 							"description": "Mitglied wird aus dem Team entfernt..."
 						},
 						"success": {
-							"description": "Das Mitglied wurde erfolgreich aus Ihrem Team entfernt."
+							"description": "Das Mitglied wurde erfolgreich aus deinem Team entfernt."
 						}
 					},
 					"revokeInvitation": {
 						"error": {
-							"description": "Die Einladung konnte nicht widerrufen werden. \nBitte versuchen Sie es später noch einmal."
+							"description": "Die Einladung konnte nicht widerrufen werden. \nBitte versuche es später noch einmal."
 						},
 						"loading": {
 							"description": "Einladung wird zurückgezogen..."
