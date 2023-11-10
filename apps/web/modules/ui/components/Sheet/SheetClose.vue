@@ -1,8 +1,0 @@
-<template>
-	<DialogClose v-bind="{ ...$attrs, ...props }"><slot /></DialogClose>
-</template>
-
-<script setup lang="ts">
-	import { DialogClose, type DialogCloseProps } from 'radix-vue'
-	const props = defineProps<DialogCloseProps>()
-</script>
