@@ -1,5 +1,5 @@
 <template>
-	<div class="px-8 pb-24 pt-12">
+	<div class="pb-24 pt-12">
 		<div class="container">
 			<div class="mb-12 text-center">
 				<h1 class="text-4xl font-bold lg:text-5xl">
@@ -10,7 +10,7 @@
 				</p>
 			</div>
 
-			<div class="container max-w-4xl">
+			<div class="mx-auto max-w-4xl">
 				<MarketingPricingTable v-if="plans" :plans="plans" />
 			</div>
 		</div>
