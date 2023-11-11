@@ -20,7 +20,7 @@
 		})
 	)
 
-	const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+	const { defineInputBinds, handleSubmit, isSubmitting, setFieldValue } = useForm({
 		validationSchema: formSchema,
 		initialValues: {
 			password: '',
@@ -42,6 +42,8 @@
 			await apiCaller.auth.changePassword.mutate({
 				password: values.password,
 			})
+
+			setFieldValue('password', '')
 
 			toast({
 				variant: 'success',
