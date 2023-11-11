@@ -13,10 +13,10 @@ export const syncSubscription = publicProcedure
 
 		let existingSubscription: Subscription | null = null
 
-		if (subscription?.id) {
+		if (subscription?.team_id) {
 			existingSubscription = await db.subscription.findFirst({
 				where: {
-					id: subscription.id,
+					team_id: subscription.team_id,
 				},
 			})
 		}
@@ -29,7 +29,7 @@ export const syncSubscription = publicProcedure
 			else
 				await db.subscription.update({
 					where: {
-						id: existingSubscription.id,
+						team_id: existingSubscription.team_id,
 					},
 					data: subscription,
 				})
