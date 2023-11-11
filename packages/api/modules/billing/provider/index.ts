@@ -1,1 +1,1 @@
-export * from './lemonsqueezy'
+export * from './stripe'
