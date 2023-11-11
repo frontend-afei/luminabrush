@@ -42,7 +42,7 @@ export const getAllPlans: GetAllPlans = async function () {
 		.filter((product: any) => product.variants.length > 0)
 }
 
-export const createCheckoutLink: CreateCheckoutLink = async function ({ variantId, name, teamId, redirectUrl }) {
+export const createCheckoutLink: CreateCheckoutLink = async function ({ variantId, email, name, teamId, redirectUrl }) {
 	const response = await callLemonsqueezyApi('/checkouts', {
 		method: 'POST',
 		body: JSON.stringify({
@@ -54,6 +54,7 @@ export const createCheckoutLink: CreateCheckoutLink = async function ({ variantI
 						redirect_url: redirectUrl,
 					},
 					checkout_data: {
+						email,
 						name,
 						custom: {
 							team_id: teamId,
