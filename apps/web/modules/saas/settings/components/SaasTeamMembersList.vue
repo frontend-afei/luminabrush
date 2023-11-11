@@ -1,8 +1,8 @@
 <template>
 	<div class="rounded-md border">
 		<TableRoot>
-			<TableBody>
-				<TableRow v-if="props.memberships.length" v-for="row of props.memberships" :key="row.id">
+			<TableBody v-if="props.memberships.length">
+				<TableRow v-for="row of props.memberships" :key="row.id">
 					<!-- User Details -->
 					<TableCell>
 						<div v-if="row.user" class="flex items-center gap-2">
@@ -41,8 +41,10 @@
 						</div>
 					</TableCell>
 				</TableRow>
+			</TableBody>
 
-				<TableRow v-else>
+			<TableBody v-else>
+				<TableRow>
 					<!-- TODO i18n -->
 					<TableCell colspan="2" class="h-24 text-center"> No results. </TableCell>
 				</TableRow>
@@ -59,7 +61,7 @@
 	}>()
 
 	const { t } = useTranslations()
-	const { user, currentTeamRole } = useUser()
+	const { user } = useUser()
 	const { toast, dismiss } = useToast()
 	const { apiCaller } = useApiCaller()
 
@@ -75,7 +77,7 @@
 
 		try {
 			await apiCaller.team.removeMember.mutate({
-				membershipId: membershipId,
+				membershipId,
 			})
 
 			toast({

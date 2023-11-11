@@ -78,12 +78,16 @@
 	})
 
 	const subscriptionIsExceeding = computed(() => {
-		if (!props.currentSubscription) return false
+		if (!props.currentSubscription) {
+			return false
+		}
 		return props.currentSubscription.status === 'CANCELED' || props.currentSubscription.status === 'PAUSED'
 	})
 
 	const subscriptionIsRunning = computed(() => {
-		if (!props.currentSubscription) return false
+		if (!props.currentSubscription) {
+			return false
+		}
 		return props.currentSubscription.status === 'ACTIVE' || props.currentSubscription.status === 'TRIALING'
 	})
 
@@ -91,12 +95,16 @@
 
 	const nextPaymentLabel = computed(() => {
 		const currentSubscription = props.currentSubscription
-		if (!currentSubscription) return
+		if (!currentSubscription) {
+			return
+		}
 
 		const nextPaymentDate = currentSubscription.next_payment_date
 			? new Date(currentSubscription.next_payment_date)
 			: null
-		if (!nextPaymentDate) return
+		if (!nextPaymentDate) {
+			return
+		}
 
 		const isExceeding = subscriptionIsExceeding.value
 		return isExceeding

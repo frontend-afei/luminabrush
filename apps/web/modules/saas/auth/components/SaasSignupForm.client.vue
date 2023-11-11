@@ -114,9 +114,15 @@
 
 			const redirectSearchParams = new URLSearchParams()
 			redirectSearchParams.set('type', 'SIGNUP')
-			if (!redirectTo.value.startsWith('/team/redirect')) redirectSearchParams.set('redirectTo', redirectTo.value)
-			if (invitationCode) redirectSearchParams.set('invitationCode', invitationCode.value)
-			if (values.email) redirectSearchParams.set('identifier', values.email)
+			if (!redirectTo.value.startsWith('/team/redirect')) {
+				redirectSearchParams.set('redirectTo', redirectTo.value)
+			}
+			if (invitationCode) {
+				redirectSearchParams.set('invitationCode', invitationCode.value)
+			}
+			if (values.email) {
+				redirectSearchParams.set('identifier', values.email)
+			}
 
 			navigateTo(localePath(`/auth/otp?${redirectSearchParams.toString()}`), {
 				replace: true,

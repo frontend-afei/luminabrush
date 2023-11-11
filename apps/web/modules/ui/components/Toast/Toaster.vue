@@ -9,7 +9,8 @@
 				<Icon
 					v-if="getToastIconName({ toast })"
 					:name="getToastIconName({ toast })"
-					:class="['h-6 w-6 shrink-0 opacity-50', toast.variant === 'loading' ? 'animate-spin' : '']" />
+					class="h-6 w-6 shrink-0 opacity-50"
+					:class="toast.variant === 'loading' ? 'animate-spin' : ''" />
 
 				<div class="grid gap-1">
 					<ToastTitle v-if="toast.title">{{ toast.title }}</ToastTitle>

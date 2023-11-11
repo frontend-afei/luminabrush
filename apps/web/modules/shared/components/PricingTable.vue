@@ -65,8 +65,14 @@
 			})
 			.filter(plan => plan.variants.length > 0)
 			.sort((a, b) => {
-				const lowestPriceA = a.variants.reduce((lowest, variant) => Math.min(lowest, variant.price), Infinity)
-				const lowestPriceB = b.variants.reduce((lowest, variant) => Math.min(lowest, variant.price), Infinity)
+				const lowestPriceA = a.variants.reduce(
+					(lowest, variant) => Math.min(lowest, variant.price),
+					Number.POSITIVE_INFINITY
+				)
+				const lowestPriceB = b.variants.reduce(
+					(lowest, variant) => Math.min(lowest, variant.price),
+					Number.POSITIVE_INFINITY
+				)
 				return lowestPriceA - lowestPriceB
 			})
 	})

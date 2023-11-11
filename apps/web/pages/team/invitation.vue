@@ -6,7 +6,7 @@
 	const route = useRoute('team-invitation___en')
 	const localePath = useLocalePath()
 
-	const { data, pending, error } = await useFetch('/api/team/invitation', {
+	const { data } = await useFetch('/api/team/invitation', {
 		query: {
 			code: route.query.code as string,
 		},

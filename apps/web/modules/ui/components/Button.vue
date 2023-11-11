@@ -41,6 +41,7 @@
 	type ButtonVariantProps = VariantProps<typeof buttonVariants>
 
 	/** @see https://github.com/vuejs/core/issues/8286#issuecomment-1545659320 */
+	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 	interface HTMLAttributes extends /* @vue-ignore */ ButtonHTMLAttributes {}
 
 	type Props = HTMLAttributes & {

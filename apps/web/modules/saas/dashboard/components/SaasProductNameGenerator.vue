@@ -55,7 +55,7 @@
 		}
 	)
 
-	const onSubmit = handleSubmit(async values => {
+	const onSubmit = handleSubmit(async () => {
 		refresh()
 	})
 </script>

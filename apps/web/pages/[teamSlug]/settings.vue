@@ -22,7 +22,9 @@
 
 	const menuItems = computed<SaasSettingsMenuItemGroup[]>(() => {
 		const activeTeam = selectedTeamMembership.value?.team
-		if (!activeTeam) return []
+		if (!activeTeam) {
+			return []
+		}
 
 		return [
 			{

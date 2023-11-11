@@ -17,7 +17,7 @@
 
 	useHead({
 		// general seo
-		titleTemplate: title => (!!title ? `${title} ${titleDivider} ${titleTemplateDefault}` : titleTemplateDefault),
+		titleTemplate: title => (title ? `${title} ${titleDivider} ${titleTemplateDefault}` : titleTemplateDefault),
 
 		// i18n
 		htmlAttrs: {

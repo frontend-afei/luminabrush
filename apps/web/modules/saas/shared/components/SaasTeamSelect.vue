@@ -43,12 +43,12 @@
 	const { switchTeam } = useSwitchTeam()
 	const { createTeamDialogOpen } = useDashboardState()
 
+	const activeTeam = computed(() => {
+		return selectedTeamMembership.value?.team
+	})
+
 	const activeTeamSlug = computed({
 		get: () => activeTeam.value?.slug,
 		set: newValue => switchTeam(newValue),
-	})
-
-	const activeTeam = computed(() => {
-		return selectedTeamMembership.value?.team
 	})
 </script>

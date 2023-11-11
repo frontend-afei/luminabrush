@@ -69,11 +69,6 @@
 	const localePath = useLocalePath()
 	const { user, loaded } = useUser({ initialUser: null })
 
-	// Redirect if user is already logged in
-	watchEffect(() => {
-		if (user.value && loaded.value) handleRedirect()
-	})
-
 	const { z, toTypedSchema, useForm } = formUtils
 
 	const formSchema = toTypedSchema(
@@ -97,11 +92,11 @@
 		navigateTo(localePath(redirectTo.value))
 	}
 
-	const signinMode = ref<'password' | 'magic-link'>('magic-link')
-	watch(signinMode, async () => {
-		resetForm()
-		await nextTick()
-		serverError.value = null
+	// Redirect if user is already logged in
+	watchEffect(() => {
+		if (user.value && loaded.value) {
+			handleRedirect()
+		}
 	})
 
 	type ServerErrorType = {
@@ -115,6 +110,13 @@
 		initialValues: {
 			email: '',
 		},
+	})
+
+	const signinMode = ref<'password' | 'magic-link'>('magic-link')
+	watch(signinMode, async () => {
+		resetForm()
+		await nextTick()
+		serverError.value = null
 	})
 
 	watchEffect(() => {
@@ -145,9 +147,15 @@
 
 				const redirectSearchParams = new URLSearchParams()
 				redirectSearchParams.set('type', 'LOGIN')
-				if (!redirectTo.value.startsWith('/team/redirect')) redirectSearchParams.set('redirectTo', redirectTo.value)
-				if (invitationCode) redirectSearchParams.set('invitationCode', invitationCode.value)
-				if (values.email) redirectSearchParams.set('identifier', values.email)
+				if (!redirectTo.value.startsWith('/team/redirect')) {
+					redirectSearchParams.set('redirectTo', redirectTo.value)
+				}
+				if (invitationCode) {
+					redirectSearchParams.set('invitationCode', invitationCode.value)
+				}
+				if (values.email) {
+					redirectSearchParams.set('identifier', values.email)
+				}
 
 				navigateTo(localePath(`/auth/otp?${redirectSearchParams.toString()}`), {
 					replace: true,

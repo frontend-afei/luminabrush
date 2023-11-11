@@ -1,8 +1,8 @@
 <template>
 	<div class="rounded-md border">
 		<TableRoot>
-			<TableBody>
-				<TableRow v-if="props.invitations.length" v-for="row of props.invitations" :key="row.id">
+			<TableBody v-if="props.invitations.length">
+				<TableRow v-for="row of props.invitations" :key="row.id">
 					<!-- User Details -->
 					<TableCell>
 						<div>
@@ -34,8 +34,10 @@
 						</div>
 					</TableCell>
 				</TableRow>
+			</TableBody>
 
-				<TableRow v-else>
+			<TableBody v-else>
+				<TableRow>
 					<TableCell colspan="2" class="h-24 text-center">
 						{{ t('settings.team.members.invitations.empty') }}
 					</TableCell>
@@ -69,7 +71,7 @@
 
 		try {
 			await apiCaller.team.revokeInvitation.mutate({
-				invitationId: invitationId,
+				invitationId,
 			})
 
 			toast({

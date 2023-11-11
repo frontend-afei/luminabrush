@@ -1,7 +1,7 @@
 <template>
 	<SelectRoot
 		:modelValue="props.modelValue"
-		@update:modelValue="$emit('update:modelValue', $event as TeamMemberRole)"
+		@update:modelValue="emit('update:modelValue', $event as TeamMemberRole)"
 		:disabled="$props.disabled">
 		<SelectTrigger class="w-[180px]">
 			<SelectValue />

@@ -16,6 +16,7 @@
 	import type { InputHTMLAttributes } from 'vue'
 
 	/** @see https://github.com/vuejs/core/issues/8286#issuecomment-1545659320 */
+	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 	interface HTMLAttributes extends /* @vue-ignore */ InputHTMLAttributes {}
 
 	type Props = HTMLAttributes & {

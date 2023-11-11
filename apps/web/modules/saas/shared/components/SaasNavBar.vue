@@ -24,13 +24,12 @@
 				<li v-for="menuItem of menuItems" :key="menuItem.to">
 					<NuxtLinkLocale
 						:to="menuItem.to"
-						:class="[
-							'flex items-center gap-2 border-b-2 px-1 pb-3',
-							isActiveMenuItem(menuItem.to) ? 'border-primary font-bold' : 'border-transparent',
-						]">
+						class="flex items-center gap-2 border-b-2 px-1 pb-3"
+						:class="isActiveMenuItem(menuItem.to) ? 'border-primary font-bold' : 'border-transparent'">
 						<Icon
 							:name="menuItem.icon"
-							:class="['h-4 w-4 shrink-0', isActiveMenuItem(menuItem.to) ? 'text-primary' : '']" />
+							class="h-4 w-4 shrink-0"
+							:class="isActiveMenuItem(menuItem.to) ? 'text-primary' : ''" />
 						<span>{{ menuItem.label }}</span>
 					</NuxtLinkLocale>
 				</li>
@@ -55,7 +54,9 @@
 
 	const menuItems = computed<MenuItem[]>(() => {
 		const teamSlug = routeTeamSlug.value
-		if (!teamSlug) return []
+		if (!teamSlug) {
+			return []
+		}
 		return [
 			{
 				label: t('dashboard.menu.dashboard'),

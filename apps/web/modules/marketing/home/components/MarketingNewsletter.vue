@@ -59,7 +59,7 @@
 
 	const isSubmitSuccessful = ref(false)
 
-	const { defineInputBinds, handleSubmit, isSubmitting, meta, errors, setFieldError, submitCount } = useForm({
+	const { defineInputBinds, handleSubmit, isSubmitting, errors, setFieldError } = useForm({
 		validationSchema: formSchema,
 		initialValues: {
 			email: '',
@@ -74,7 +74,9 @@
 				const emailSent = await apiCaller.newsletter.signup.mutate({
 					email: values.email,
 				})
-				if (!emailSent) throw new Error()
+				if (!emailSent) {
+					throw new Error('Email not sent')
+				}
 
 				isSubmitSuccessful.value = true
 			} catch (error) {

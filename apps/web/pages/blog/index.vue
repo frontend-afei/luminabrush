@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-	import { MarketingBlogPageFields } from '~/modules/marketing/blog/types'
+	import type { MarketingBlogPageFields } from '@/modules/marketing/blog/types'
 
 	const { t } = useTranslations()
 

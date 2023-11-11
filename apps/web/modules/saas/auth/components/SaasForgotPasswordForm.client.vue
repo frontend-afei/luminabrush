@@ -70,7 +70,9 @@
 
 			const redirectSearchParams = new URLSearchParams()
 			redirectSearchParams.set('type', 'PASSWORD_RESET')
-			if (values.email) redirectSearchParams.set('identifier', values.email)
+			if (values.email) {
+				redirectSearchParams.set('identifier', values.email)
+			}
 			redirectSearchParams.set('redirectTo', '/[teamSlug]/settings/account/general')
 
 			navigateTo(localePath(`/auth/otp?${redirectSearchParams.toString()}`), {

@@ -32,11 +32,6 @@
 	const localePath = useLocalePath()
 	const { user, loaded } = useUser({ initialUser: null })
 
-	// Redirect if user is already logged in
-	watchEffect(() => {
-		if (user.value && loaded.value) handleRedirect()
-	})
-
 	const { z, toTypedSchema, useForm } = formUtils
 
 	const formSchema = toTypedSchema(
@@ -64,6 +59,13 @@
 	const handleRedirect = () => {
 		navigateTo(localePath(redirectTo.value))
 	}
+
+	// Redirect if user is already logged in
+	watchEffect(() => {
+		if (user.value && loaded.value) {
+			handleRedirect()
+		}
+	})
 
 	type ServerErrorType = {
 		title: string

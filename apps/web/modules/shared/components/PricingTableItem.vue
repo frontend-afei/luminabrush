@@ -73,7 +73,9 @@
 
 	const handleSelectPlan = async () => {
 		try {
-			if (!variant.value) throw new Error()
+			if (!variant.value) {
+				throw new Error('No variant found')
+			}
 			planSelectionPending.value = true
 			await props.onSelectPlan(props.plan.id, String(variant.value.id))
 			planSelectionPending.value = false

@@ -9,7 +9,8 @@
 			<li v-for="subitem of props.menuItemGroup.items" :key="subitem.to">
 				<NuxtLinkLocale
 					:to="subitem.to"
-					:class="['block py-1.5 pl-10', isActiveMenuItem(subitem.to) ? 'font-bold' : '']">
+					class="block py-1.5 pl-10"
+					:class="isActiveMenuItem(subitem.to) ? 'font-bold' : ''">
 					{{ subitem.title }}
 				</NuxtLinkLocale>
 			</li>
