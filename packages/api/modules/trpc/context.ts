@@ -1,4 +1,4 @@
-import { inferAsyncReturnType } from '@trpc/server'
+import type { inferAsyncReturnType } from '@trpc/server'
 import { type SessionUser, type Session, auth } from 'auth'
 import { db } from 'database'
 import { type H3Event } from 'h3'

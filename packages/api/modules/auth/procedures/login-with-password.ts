@@ -38,7 +38,9 @@ export const loginWithPassword = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+			if (event) {
+				setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+			}
 
 			return session
 		} catch (e) {

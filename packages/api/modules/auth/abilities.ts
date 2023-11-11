@@ -1,5 +1,5 @@
 import type { SessionUser } from 'auth'
-import { TeamMemberRole, TeamMembership, UserRole } from 'database'
+import { TeamMemberRole, type TeamMembership, UserRole } from 'database'
 
 export function defineAbilitiesFor({
 	user,

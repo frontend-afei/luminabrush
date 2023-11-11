@@ -4,10 +4,14 @@ import { protectedProcedure } from '../../trpc'
 
 export const logout = protectedProcedure.mutation(async ({ ctx: { sessionId, event } }) => {
 	try {
-		if (!sessionId) return
+		if (!sessionId) {
+			return
+		}
 		await auth.invalidateSession(sessionId)
 		const sessionCookie = auth.createSessionCookie(null)
-		if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+		if (event) {
+			setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+		}
 	} catch (e) {
 		console.error(e)
 		throw new TRPCError({

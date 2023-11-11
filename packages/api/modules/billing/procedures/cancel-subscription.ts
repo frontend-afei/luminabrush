@@ -32,7 +32,7 @@ export const cancelSubscription = protectedProcedure
 
 			await db.subscription.update({
 				where: {
-					id: id,
+					id,
 				},
 				data: {
 					status: 'CANCELED',

@@ -27,7 +27,7 @@ export const signup = publicProcedure
 					password,
 				},
 				attributes: {
-					email: email,
+					email,
 					email_verified: false,
 					name,
 					role: UserRole.USER,
@@ -42,7 +42,9 @@ export const signup = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+			if (event) {
+				setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+			}
 
 			const token = await generateVerificationToken({
 				userId: user.userId,

@@ -23,7 +23,9 @@ export const user = publicProcedure
 			.nullable()
 	)
 	.query(async ({ ctx: { user, teamMemberships } }) => {
-		if (!user) return null
+		if (!user) {
+			return null
+		}
 
 		return {
 			...user,

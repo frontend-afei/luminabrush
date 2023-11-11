@@ -1,4 +1,4 @@
-import { SubscriptionStatus } from 'database'
+import type { SubscriptionStatus } from 'database'
 import { z } from 'zod'
 
 export type GetAllPlans = () => Promise<SubscriptionPlan[]>

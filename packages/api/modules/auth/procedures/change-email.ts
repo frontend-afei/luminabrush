@@ -15,7 +15,9 @@ export const changeEmail = protectedProcedure
 		})
 	)
 	.mutation(async ({ ctx: { user, event }, input: { email, callbackUrl } }) => {
-		if (!user) return
+		if (!user) {
+			return
+		}
 
 		const updatedUser = await auth.updateUserAttributes(user.id, {
 			email,
@@ -24,7 +26,9 @@ export const changeEmail = protectedProcedure
 
 		await auth.invalidateAllUserSessions(user.id)
 		const sessionCookie = auth.createSessionCookie(null)
-		if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+		if (event) {
+			setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+		}
 
 		const token = await generateVerificationToken({
 			userId: user.userId,

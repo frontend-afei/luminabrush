@@ -1,4 +1,4 @@
-import {
+import type {
 	CancelSubscription,
 	CreateCheckoutLink,
 	CreateCustomerPortalLink,
@@ -50,7 +50,7 @@ export const getAllPlans: GetAllPlans = async function () {
 	return plans.filter((product: any) => product.variants.length > 0)
 }
 
-export const createCheckoutLink: CreateCheckoutLink = async function ({ variantId, email, name, teamId, redirectUrl }) {
+export const createCheckoutLink: CreateCheckoutLink = async function ({ variantId, teamId, redirectUrl }) {
 	const body = new URLSearchParams()
 
 	body.append('mode', 'subscription')
@@ -67,11 +67,7 @@ export const createCheckoutLink: CreateCheckoutLink = async function ({ variantI
 	return response.url
 }
 
-export const createCustomerPortalLink: CreateCustomerPortalLink = async ({
-	subscriptionId,
-	customerId,
-	redirectUrl,
-}) => {
+export const createCustomerPortalLink: CreateCustomerPortalLink = async ({ customerId, redirectUrl }) => {
 	const body = new URLSearchParams()
 	body.append('customer', customerId)
 	body.append('return_url', redirectUrl ?? '')

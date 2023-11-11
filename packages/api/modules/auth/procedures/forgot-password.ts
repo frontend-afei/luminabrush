@@ -16,7 +16,7 @@ export const forgotPassword = publicProcedure
 			callbackUrl: z.string(),
 		})
 	)
-	.mutation(async ({ ctx: { user }, input: { email, callbackUrl } }) => {
+	.mutation(async ({ input: { email, callbackUrl } }) => {
 		try {
 			const user = await db.user.findFirst({
 				where: {
@@ -24,7 +24,9 @@ export const forgotPassword = publicProcedure
 				},
 			})
 
-			if (!user) throw new Error('User not found')
+			if (!user) {
+				throw new Error('User not found')
+			}
 
 			const token = await generateVerificationToken({
 				userId: user.id,

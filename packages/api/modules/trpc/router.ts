@@ -1,4 +1,4 @@
-import { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
+import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
 import * as authProcedures from '../auth/procedures'
 import * as billingProcedures from '../billing/procedures'
 import * as teamProcedures from '../team/procedures'

@@ -1,4 +1,4 @@
-import { db, type UserOneTimePasswordType } from 'database'
+import { type UserOneTimePasswordType, db } from 'database'
 import { generateRandomString, isWithinExpiration } from 'lucia/utils'
 
 export const generateVerificationToken = async ({
@@ -18,7 +18,9 @@ export const generateVerificationToken = async ({
 		const reusableStoredToken = storedUserTokens.find(token => {
 			return isWithinExpiration(Number(token.expires) - expireDuration / 2)
 		})
-		if (reusableStoredToken) return reusableStoredToken.token
+		if (reusableStoredToken) {
+			return reusableStoredToken.token
+		}
 	}
 
 	const token = generateRandomString(63)
@@ -41,7 +43,9 @@ export const validateVerificationToken = async ({ token }: { token: string }) =>
 		},
 	})
 
-	if (!storedToken) throw new Error('Invalid token')
+	if (!storedToken) {
+		throw new Error('Invalid token')
+	}
 
 	await db.userVerificationToken.delete({
 		where: {
@@ -51,7 +55,9 @@ export const validateVerificationToken = async ({ token }: { token: string }) =>
 
 	const expires = storedToken.expires.getTime()
 
-	if (!isWithinExpiration(expires)) throw new Error('Expired token')
+	if (!isWithinExpiration(expires)) {
+		throw new Error('Expired token')
+	}
 
 	return storedToken.user_id
 }
@@ -77,7 +83,9 @@ export const generateOneTimePassword = async ({
 		const reusableStoredToken = storedUserTokens.find(token => {
 			return isWithinExpiration(Number(token.expires) - expireDuration / 2)
 		})
-		if (reusableStoredToken) return reusableStoredToken.code
+		if (reusableStoredToken) {
+			return reusableStoredToken.code
+		}
 	}
 
 	const otp = generateRandomString(6, '0123456789')
@@ -112,7 +120,9 @@ export const validateOneTimePassword = async ({
 		},
 	})
 
-	if (!storedOtp) throw new Error('Invalid token')
+	if (!storedOtp) {
+		throw new Error('Invalid token')
+	}
 
 	await db.userOneTimePassword.delete({
 		where: {
@@ -122,7 +132,9 @@ export const validateOneTimePassword = async ({
 
 	const expires = storedOtp.expires.getTime()
 
-	if (!isWithinExpiration(expires)) throw new Error('Expired token')
+	if (!isWithinExpiration(expires)) {
+		throw new Error('Expired token')
+	}
 
 	return storedOtp.user_id
 }

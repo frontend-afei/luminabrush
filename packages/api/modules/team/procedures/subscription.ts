@@ -10,7 +10,9 @@ export const subscription = protectedProcedure
 	)
 	.output(SubscriptionModel.nullable())
 	.query(async ({ input: { teamId }, ctx: { abilities } }) => {
-		if (!abilities.isTeamMember(teamId)) throw new Error('Unauthorized')
+		if (!abilities.isTeamMember(teamId)) {
+			throw new Error('Unauthorized')
+		}
 
 		const subscription = await db.subscription.findFirst({
 			where: {

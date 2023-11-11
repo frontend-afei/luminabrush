@@ -16,7 +16,7 @@ export const verifyToken = publicProcedure
 			})
 
 			const session = await auth.createSession({
-				userId: userId,
+				userId,
 				attributes: {},
 			})
 
@@ -28,7 +28,9 @@ export const verifyToken = publicProcedure
 
 			// auth.handleRequest(req);
 			const sessionCookie = auth.createSessionCookie(session)
-			if (event) setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+			if (event) {
+				setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+			}
 
 			return session
 		} catch (e) {
