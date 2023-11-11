@@ -43,10 +43,13 @@ export const update = protectedProcedure
 				},
 			})
 
-			if (!existingTeam) isSlugAvailable = true
-			else {
+			if (!existingTeam) {
+				isSlugAvailable = true
+			} else {
 				slug = slugifyTeamName(`${name}-${(Math.random() + 1).toString(36).substring(2, 7)}`)
 			}
+
+			iteration++
 		}
 
 		const team = await db.team.update({
