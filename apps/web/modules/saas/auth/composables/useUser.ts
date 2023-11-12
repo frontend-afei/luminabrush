@@ -53,9 +53,12 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 		if (JSON.stringify(data.user) !== JSON.stringify(user.value)) {
 			if (data.type === 'logout') {
 				user.value = null
+				loaded.value = false
+
 				navigateTo(localePath('/'))
 			} else {
 				user.value = data.user
+				loaded.value = true
 			}
 		}
 	})
@@ -67,6 +70,7 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 	const logout = async () => {
 		await apiCaller.auth.logout.mutate()
 		user.value = null
+		loaded.value = false
 
 		postChannelMessage({
 			type: 'logout',

@@ -30,7 +30,7 @@
 	const { apiCaller } = useApiCaller()
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
-	const { user, loaded } = useUser({ initialUser: null })
+	const { user, loaded } = useUser()
 
 	const { z, toTypedSchema, useForm } = formUtils
 

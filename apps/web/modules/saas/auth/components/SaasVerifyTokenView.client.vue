@@ -10,9 +10,6 @@
 		<p class="text-muted-foreground mb-4 mt-2">
 			{{ tokenVerified ? t('auth.confirmation.message') : t('auth.invalidToken.message') }}
 		</p>
-		<Button @click="handleCloseWindow">
-			{{ t('auth.confirmation.close') }}
-		</Button>
 	</div>
 </template>
 
@@ -41,11 +38,4 @@
 			loading.value = false
 		}
 	})
-
-	const handleCloseWindow = () => {
-		if (!process.client || typeof window === 'undefined') {
-			return
-		}
-		window.close()
-	}
 </script>
