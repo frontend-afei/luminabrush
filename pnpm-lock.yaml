@@ -58,7 +58,7 @@ importers:
         specifier: 8.0.0-rc.5
         version: 8.0.0-rc.5(vue@3.3.8)
       '@nuxtjs/tailwindcss':
-        specifier: ^6.8.0
+        specifier: ^6.9.4
         version: 6.9.4(webpack@5.89.0)
       '@vee-validate/zod':
         specifier: ^4.11.8
