@@ -320,6 +320,17 @@
 						"loading": {
 							"description": "Revoking invitation..."
 						}
+					},
+					"updateMembership": {
+						"success": {
+							"description": "Membership was updated successfully"
+						},
+						"error": {
+							"description": "Could not update team membership. Please try again."
+						},
+						"loading": {
+							"description": "Updating membership..."
+						}
 					}
 				}
 			},

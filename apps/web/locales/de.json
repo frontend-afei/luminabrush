@@ -320,6 +320,17 @@
 						"success": {
 							"description": "Die Einladung wurde widerrufen."
 						}
+					},
+					"updateMembership": {
+						"error": {
+							"description": "Die Teammitgliedschaft konnte nicht aktualisiert werden. \nBitte versuche es erneut."
+						},
+						"loading": {
+							"description": "Mitgliedschaft wird aktualisiert..."
+						},
+						"success": {
+							"description": "Die Mitgliedschaft wurde erfolgreich aktualisiert"
+						}
 					}
 				}
 			},

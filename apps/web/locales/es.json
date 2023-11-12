@@ -318,6 +318,17 @@
 						"success": {
 							"description": "La invitación ha sido revocada."
 						}
+					},
+					"updateMembership": {
+						"error": {
+							"description": "No se pudo actualizar la membresía del equipo. \nInténtalo de nuevo."
+						},
+						"loading": {
+							"description": "Actualizando membresía..."
+						},
+						"success": {
+							"description": "La membresía se actualizó exitosamente"
+						}
 					}
 				}
 			},

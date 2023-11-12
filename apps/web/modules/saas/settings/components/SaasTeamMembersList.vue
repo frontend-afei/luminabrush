@@ -19,8 +19,10 @@
 					<!-- Actions -->
 					<TableCell>
 						<div class="flex flex-row justify-end gap-2">
-							<!-- TODO :disabled should be "currentTeamRole !== 'OWNER' || row.is_creator" -->
-							<SaasTeamRoleSelect :modelValue="row.role" @update:modelValue="() => {}" :disabled="true" />
+							<SaasTeamRoleSelect
+								:modelValue="row.role"
+								@update:modelValue="val => handleUpdateRole({ membershipId: row.id, role: val })"
+								:disabled="currentTeamRole !== 'OWNER' || row.is_creator" />
 
 							<DropdownMenuRoot>
 								<DropdownMenuTrigger asChild>
@@ -55,15 +57,48 @@
 
 <script setup lang="ts">
 	import type { ApiOutput } from 'api'
+	import type { TeamMemberRole } from 'database'
 
 	const props = defineProps<{
 		memberships: ApiOutput['team']['memberships']
 	}>()
 
 	const { t } = useTranslations()
-	const { user } = useUser()
+	const { user, currentTeamRole } = useUser()
 	const { toast, dismiss } = useToast()
 	const { apiCaller } = useApiCaller()
+
+	const handleUpdateRole = async ({ membershipId, role }: { membershipId: string; role: TeamMemberRole }) => {
+		if (!process.client || typeof window === 'undefined') {
+			return
+		}
+
+		const loadingToast = toast({
+			variant: 'loading',
+			description: t('settings.team.members.notifications.updateMembership.loading.description'),
+		})
+
+		try {
+			await apiCaller.team.updateMembership.mutate({
+				id: membershipId,
+				role,
+			})
+
+			toast({
+				variant: 'success',
+				description: t('settings.team.members.notifications.updateMembership.success.description'),
+			})
+
+			location.reload()
+		} catch (error) {
+			toast({
+				variant: 'error',
+				description: t('settings.team.members.notifications.updateMembership.error.description'),
+			})
+		} finally {
+			dismiss(loadingToast.id)
+		}
+	}
 
 	const handleRemoveMember = async ({ membershipId }: { membershipId: string }) => {
 		if (!process.client || typeof window === 'undefined') {
