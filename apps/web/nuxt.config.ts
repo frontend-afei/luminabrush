@@ -114,7 +114,7 @@ export default defineNuxtConfig({
 	googleFonts: {
 		display: 'swap',
 		families: {
-			'Plus+Jakarta+Sans': [400, 500, 600, 700, 800],
+			'Onest': [400, 500, 600, 700, 800],
 		},
 	},
 

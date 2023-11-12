@@ -3,7 +3,7 @@ import colorVariable from '@mertasan/tailwindcss-variables/colorVariable'
 import containerQueryPlugin from '@tailwindcss/container-queries'
 import formsPlugin from '@tailwindcss/forms'
 import typographyPlugin from '@tailwindcss/typography'
-import { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 import animatePlugin from 'tailwindcss-animate'
 
 const lightVariables = {
@@ -85,7 +85,7 @@ const config: Config = {
 			},
 			fontFamily: {
 				// Loaded from @nuxtjs/google-fonts. Configure in apps/web/nuxt.config.ts
-				sans: ['Plus Jakarta Sans', 'sans-serif'],
+				sans: ['Onest', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {

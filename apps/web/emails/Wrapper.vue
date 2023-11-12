@@ -1,7 +1,7 @@
 <template>
 	<EHtml lang="en">
 		<EHead>
-			<EFont fontFamily="Plus Jakarta Sans" fallbackFontFamily="Arial" :fontWeight="400" fontStyle="normal" />
+			<EFont fontFamily="Onest" fallbackFontFamily="Arial" :fontWeight="400" fontStyle="normal" />
 		</EHead>
 
 		<ESection
