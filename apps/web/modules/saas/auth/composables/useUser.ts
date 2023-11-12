@@ -8,7 +8,6 @@ type AuthEvent = {
 }
 
 export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
-	const route = useRoute()
 	const { apiCaller } = useApiCaller()
 	const localePath = useLocalePath()
 
@@ -21,34 +20,9 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 	const loaded = useState('useUser-loaded', () => !!initialUser)
 	const user = useState('useUser-user', () => initialUser)
 
-	const routeTeamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : null
-	})
-
 	const teamMemberships = computed(() => {
 		return user.value?.teamMemberships ?? []
 	})
-
-	const selectedTeamMembership = computed(() => {
-		return teamMemberships.value?.find(membership => {
-			return membership.team.slug === routeTeamSlug.value
-		})
-	})
-
-	const currentTeamRole = computed(() => {
-		return selectedTeamMembership.value?.role ?? null
-	})
-
-	watch(
-		() => routeTeamSlug,
-		() => {
-			if (!routeTeamSlug.value || !loaded.value || !user.value) return
-			if (!selectedTeamMembership.value) return navigateTo(localePath('/'))
-		},
-		{
-			immediate: true,
-		}
-	)
 
 	const loadUser = async () => {
 		const userRes = await apiCaller.auth.user.query()
@@ -58,7 +32,9 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 
 	onMounted(async () => {
 		const hasUser = loaded.value && user.value
-		if (initialUser !== undefined || hasUser) return
+		if (initialUser !== undefined || hasUser) {
+			return
+		}
 		// Load user if there is no initial user set.
 		await loadUser()
 	})
@@ -104,9 +80,6 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 		user,
 		loaded,
 		teamMemberships,
-		selectedTeamMembership,
-		currentTeamRole,
-		routeTeamSlug,
 		logout,
 		reloadUser,
 	}

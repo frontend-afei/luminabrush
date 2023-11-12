@@ -63,10 +63,25 @@
 		memberships: ApiOutput['team']['memberships']
 	}>()
 
+	const route = useRoute()
 	const { t } = useTranslations()
-	const { user, currentTeamRole } = useUser()
+	const { user, teamMemberships } = useUser()
 	const { toast, dismiss } = useToast()
 	const { apiCaller } = useApiCaller()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
+
+	const activeMembership = computed(() => {
+		return teamMemberships.value.find(membership => {
+			return membership.team.slug === teamSlug.value
+		})
+	})
+
+	const currentTeamRole = computed(() => {
+		return activeMembership.value?.role
+	})
 
 	const handleUpdateRole = async ({ membershipId, role }: { membershipId: string; role: TeamMemberRole }) => {
 		if (!process.client || typeof window === 'undefined') {

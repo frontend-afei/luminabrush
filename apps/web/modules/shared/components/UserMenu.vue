@@ -62,8 +62,13 @@
 </template>
 
 <script setup lang="ts">
+	const route = useRoute()
 	const router = useRouter()
-	const { user, logout, routeTeamSlug } = useUser()
+	const { user, logout } = useUser()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
 
 	/** @TODO missing i18n in this whole component */
 
@@ -72,7 +77,7 @@
 			router.resolve({
 				name: 'teamSlug-settings-account-general___en',
 				params: {
-					teamSlug: routeTeamSlug.value || '',
+					teamSlug: teamSlug.value,
 				},
 			}).path
 	)

@@ -43,10 +43,25 @@
 		success: []
 	}>()
 
+	const route = useRoute()
 	const { t } = useTranslations()
 	const { apiCaller } = useApiCaller()
 	const { toast } = useToast()
-	const { currentTeamRole } = useUser()
+	const { teamMemberships } = useUser()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
+
+	const activeMembership = computed(() => {
+		return teamMemberships.value.find(membership => {
+			return membership.team.slug === teamSlug.value
+		})
+	})
+
+	const currentTeamRole = computed(() => {
+		return activeMembership.value?.role
+	})
 
 	const { z, toTypedSchema, useForm } = formUtils
 

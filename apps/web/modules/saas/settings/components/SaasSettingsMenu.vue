@@ -16,8 +16,16 @@
 		menuItems: SaasSettingsMenuItemGroup[]
 	}>()
 
-	const { user, selectedTeamMembership } = useUser()
+	const route = useRoute()
+	const { user, teamMemberships } = useUser()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
+
 	const activeTeam = computed(() => {
-		return selectedTeamMembership.value?.team
+		return teamMemberships.value.find(membership => {
+			return membership.team.slug === teamSlug.value
+		})?.team
 	})
 </script>

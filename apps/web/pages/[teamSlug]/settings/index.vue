@@ -3,9 +3,13 @@
 </template>
 
 <script setup lang="ts">
+	const route = useRoute('teamSlug-settings___en')
 	const router = useRouter()
 	const localePath = useLocalePath()
-	const { routeTeamSlug } = useUser()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
 
 	onMounted(() => {
 		navigateTo(
@@ -13,7 +17,7 @@
 				router.resolve({
 					name: 'teamSlug-settings-team-general___en',
 					params: {
-						teamSlug: routeTeamSlug.value || '',
+						teamSlug: teamSlug.value,
 					},
 				}).path
 			)

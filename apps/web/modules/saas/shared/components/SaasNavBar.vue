@@ -44,7 +44,10 @@
 	const router = useRouter()
 	const route = useRoute()
 	const { t } = useTranslations()
-	const { routeTeamSlug } = useUser()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
 
 	type MenuItem = {
 		label: string
@@ -53,8 +56,7 @@
 	}
 
 	const menuItems = computed<MenuItem[]>(() => {
-		const teamSlug = routeTeamSlug.value
-		if (!teamSlug) {
+		if (!teamSlug.value) {
 			return []
 		}
 		return [
@@ -64,7 +66,7 @@
 				to: router.resolve({
 					name: 'teamSlug-dashboard___en',
 					params: {
-						teamSlug: routeTeamSlug.value || '',
+						teamSlug: teamSlug.value,
 					},
 				}).path,
 			},
@@ -74,7 +76,7 @@
 				to: router.resolve({
 					name: 'teamSlug-ai-demo___en',
 					params: {
-						teamSlug: routeTeamSlug.value || '',
+						teamSlug: teamSlug.value,
 					},
 				}).path,
 			},
@@ -84,7 +86,7 @@
 				to: router.resolve({
 					name: 'teamSlug-settings___en',
 					params: {
-						teamSlug: routeTeamSlug.value || '',
+						teamSlug: teamSlug.value,
 					},
 				}).path,
 			},

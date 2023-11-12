@@ -54,10 +54,25 @@
 		invitations: ApiOutput['team']['invitations']
 	}>()
 
+	const route = useRoute()
 	const { t } = useTranslations()
-	const { currentTeamRole } = useUser()
+	const { teamMemberships } = useUser()
 	const { toast, dismiss } = useToast()
 	const { apiCaller } = useApiCaller()
+
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
+
+	const activeMembership = computed(() => {
+		return teamMemberships.value.find(membership => {
+			return membership.team.slug === teamSlug.value
+		})
+	})
+
+	const currentTeamRole = computed(() => {
+		return activeMembership.value?.role
+	})
 
 	const handleRevokeInvitation = async ({ invitationId }: { invitationId: string }) => {
 		if (!process.client || typeof window === 'undefined') {

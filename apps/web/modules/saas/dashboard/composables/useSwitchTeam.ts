@@ -1,14 +1,20 @@
 export const useSwitchTeam = () => {
-	const route = useRoute()
-	const { selectedTeamMembership } = useUser()
+	const { teamMemberships } = useUser()
 	const { teamSlugCookie } = useTeamSlugCookie()
 
-	const activeTeam = computed(() => {
-		return selectedTeamMembership.value?.team
-	})
-
 	const switchTeam = (slug: string | undefined, options: { refresh?: boolean } = {}) => {
-		if (!activeTeam.value || !slug) return
+		const route = useRoute()
+		const teamSlug = computed(() => {
+			return 'teamSlug' in route.params ? route.params.teamSlug : ''
+		})
+		const activeTeam = computed(() => {
+			return teamMemberships.value.find(membership => {
+				return membership.team.slug === teamSlug.value
+			})?.team
+		})
+		if (!activeTeam.value || !slug) {
+			return
+		}
 
 		teamSlugCookie.value = slug
 		navigateTo(route.path.replace(activeTeam.value.slug, slug), {

@@ -11,7 +11,7 @@
 			</div>
 		</DropdownMenuTrigger>
 		<DropdownMenuContent class="w-full">
-			<DropdownMenuRadioGroup v-model="activeTeamSlug">
+			<DropdownMenuRadioGroup v-model="activeTeamSlugModel">
 				<DropdownMenuRadioItem
 					v-for="teamMembership of teamMemberships"
 					:key="teamMembership.team.slug"
@@ -38,16 +38,23 @@
 </template>
 
 <script setup lang="ts">
+	const route = useRoute()
 	const { t } = useTranslations()
-	const { teamMemberships, selectedTeamMembership } = useUser()
+	const { teamMemberships } = useUser()
 	const { switchTeam } = useSwitchTeam()
 	const { createTeamDialogOpen } = useDashboardState()
 
-	const activeTeam = computed(() => {
-		return selectedTeamMembership.value?.team
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
 	})
 
-	const activeTeamSlug = computed({
+	const activeTeam = computed(() => {
+		return teamMemberships.value.find(membership => {
+			return membership.team.slug === teamSlug.value
+		})?.team
+	})
+
+	const activeTeamSlugModel = computed({
 		get: () => activeTeam.value?.slug,
 		set: newValue => switchTeam(newValue),
 	})

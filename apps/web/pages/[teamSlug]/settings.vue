@@ -1,5 +1,5 @@
 <template>
-	<div v-if="selectedTeamMembership" class="container max-w-6xl py-8">
+	<div v-if="activeTeam" class="container max-w-6xl py-8">
 		<div class="align-start flex flex-col gap-8 md:flex-row">
 			<div class="w-full md:max-w-[200px]">
 				<SaasSettingsMenu :menuItems="menuItems" />
@@ -16,13 +16,23 @@
 <script setup lang="ts">
 	import type { SaasSettingsMenuItemGroup } from '@/modules/saas/settings/components/SaasSettingsMenuGroup.vue'
 
+	const route = useRoute()
 	const router = useRouter()
-	const { selectedTeamMembership } = useUser()
+	const { teamMemberships } = useUser()
 	const { t } = useTranslations()
 
+	const teamSlug = computed(() => {
+		return 'teamSlug' in route.params ? route.params.teamSlug : ''
+	})
+
+	const activeTeam = computed(() => {
+		return teamMemberships.value.find(membership => {
+			return membership.team.slug === teamSlug.value
+		})?.team
+	})
+
 	const menuItems = computed<SaasSettingsMenuItemGroup[]>(() => {
-		const activeTeam = selectedTeamMembership.value?.team
-		if (!activeTeam) {
+		if (!activeTeam.value) {
 			return []
 		}
 
@@ -36,7 +46,7 @@
 						to: router.resolve({
 							name: 'teamSlug-settings-team-general___en',
 							params: {
-								teamSlug: activeTeam.slug,
+								teamSlug: activeTeam.value.slug,
 							},
 						}).path,
 					},
@@ -45,7 +55,7 @@
 						to: router.resolve({
 							name: 'teamSlug-settings-team-members___en',
 							params: {
-								teamSlug: activeTeam.slug,
+								teamSlug: activeTeam.value.slug,
 							},
 						}).path,
 					},
@@ -54,7 +64,7 @@
 						to: router.resolve({
 							name: 'teamSlug-settings-team-billing___en',
 							params: {
-								teamSlug: activeTeam.slug,
+								teamSlug: activeTeam.value.slug,
 							},
 						}).path,
 					},
@@ -69,7 +79,7 @@
 						to: router.resolve({
 							name: 'teamSlug-settings-account-general___en',
 							params: {
-								teamSlug: activeTeam.slug,
+								teamSlug: activeTeam.value.slug,
 							},
 						}).path,
 					},
