@@ -1,9 +1,9 @@
 import { config } from '../config'
-import { SendEmailHandler } from '../types'
+import type { SendEmailHandler } from '../types'
 
 const { from } = config
 
-export const send: SendEmailHandler = async ({ to, subject, html, text }) => {
+export const send: SendEmailHandler = async ({ to, subject, html }) => {
 	const response = await fetch('https://api.resend.com/emails', {
 		method: 'POST',
 		headers: {

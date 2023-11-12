@@ -1,5 +1,5 @@
 import { config } from '../config'
-import { SendEmailHandler } from '../types'
+import type { SendEmailHandler } from '../types'
 
 const { from } = config
 
