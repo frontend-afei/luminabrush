@@ -276,7 +276,7 @@
 					"title": "Neues Mitglied einladen",
 					"notifications": {
 						"error": {
-							"description": "Wir konnten das Mitglied nicht einladen. \nBitte versuchen Sie es später noch einmal.",
+							"description": "Wir konnten das Mitglied nicht einladen. \nBitte versuche es später noch einmal.",
 							"title": "Mitglied konnte nicht eingeladen werden"
 						},
 						"success": {
