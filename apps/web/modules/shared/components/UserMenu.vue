@@ -18,7 +18,6 @@
 			<DropdownMenuSub>
 				<DropdownMenuSubTrigger>
 					<ColorModeToggleIcon />
-					<!-- @TODO missing i18n -->
 					<div class="ml-2">Color mode</div>
 				</DropdownMenuSubTrigger>
 				<DropdownMenuPortal>
@@ -69,8 +68,6 @@
 	const teamSlug = computed(() => {
 		return 'teamSlug' in route.params ? route.params.teamSlug : ''
 	})
-
-	/** @TODO missing i18n in this whole component */
 
 	const accountSettingsLink = computed(
 		() =>

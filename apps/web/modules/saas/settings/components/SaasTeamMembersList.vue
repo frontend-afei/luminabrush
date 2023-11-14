@@ -47,7 +47,6 @@
 
 			<TableBody v-else>
 				<TableRow>
-					<!-- TODO i18n -->
 					<TableCell colspan="2" class="h-24 text-center"> No results. </TableCell>
 				</TableRow>
 			</TableBody>

@@ -35,10 +35,6 @@
 
 	const onSubmit = handleSubmit(async values => {
 		try {
-			/**
-			 * @TODO not working currently, awaiting
-			 * @see https://github.com/supastarter/supastarter-nextjs/issues/164
-			 */
 			await apiCaller.auth.changePassword.mutate({
 				password: values.password,
 			})
