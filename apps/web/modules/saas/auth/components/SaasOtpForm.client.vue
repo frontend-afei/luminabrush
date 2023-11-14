@@ -57,13 +57,21 @@
 	})
 
 	const handleRedirect = () => {
-		navigateTo(localePath(redirectTo.value))
+		if (!process.client || typeof window === 'undefined') {
+			return
+		}
+
+		// Hard redirect to reset all states after signup
+		window.location.href = localePath(redirectTo.value)
 	}
 
 	// Redirect if user is already logged in
 	watchEffect(() => {
 		if (user.value && loaded.value) {
-			handleRedirect()
+			// Only redirect a user that already has a team.
+			if (user.value.teamMemberships?.length) {
+				handleRedirect()
+			}
 		}
 	})
 
