@@ -33,7 +33,7 @@ model User {
 }
 
 model UserSession {
-  id             String @id @unique
+  id             String @id
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
