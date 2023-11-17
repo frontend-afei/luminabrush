@@ -49,8 +49,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
       '@nuxtjs/color-mode':
-        specifier: ^3.3.0
-        version: 3.3.0
+        specifier: ^3.3.2
+        version: 3.3.2
       '@nuxtjs/google-fonts':
         specifier: ^3.0.2
         version: 3.0.2
@@ -1983,8 +1983,8 @@ packages:
       - vue-tsc
     dev: true
 
-  /@nuxtjs/color-mode@3.3.0:
-    resolution: {integrity: sha512-YVFNmTISke1eL7uk5p9I1suOsM222FxrqKoF13HS4x94OKCWwPLLeTCEzHZ8orzKnaFUbCXpuL4pRv8gvW+0Kw==}
+  /@nuxtjs/color-mode@3.3.2:
+    resolution: {integrity: sha512-BLpBfrYZngV2QWFQ4HNEFwAXa3Pno43Ge+2XHcZJTTa1Z4KzRLvOwku8yiyV3ovIaaXKGwduBdv3Z5Ocdp0/+g==}
     dependencies:
       '@nuxt/kit': 3.8.1
       lodash.template: 4.5.0
