@@ -3,6 +3,9 @@
 
 # supastarter – Nuxt 3
 
+- [📖 &nbsp;Docs — Getting Started](https://docs.supastarter.dev/2.0/nuxt/getting-started)
+- [🌐 &nbsp;Discord Community](https://discord.gg/GAuQq56ZTe)
+
 supastarter is the ultimate starter kit for production-ready, scalable SaaS applications.
 
 The goal of it is to provide a scalable and production-ready template that can be fully customized to your needs, while still being easy to use and maintain. It also is structured in a modular way, so we can implemented multiple providers for different features (like payments, auth, analytics, etc.) and you can choose features and providers you want to use.
