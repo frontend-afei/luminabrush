@@ -1,4 +1,4 @@
-import { joinURL, withLeadingSlash } from 'ufo'
+import { withLeadingSlash } from 'ufo'
 import type { Team } from 'database'
 import { createApiCaller } from 'api'
 import { TEAM_SLUG_COOKIE_NAME } from '@/modules/saas/shared/constants'
@@ -15,9 +15,11 @@ export default defineEventHandler(async event => {
 
 	const apiCaller = await createApiCaller(event)
 
-	const getRedirectUrl = ({ teamSlug, path }: { teamSlug?: string; path: string }) => {
+	const getRedirectPath = ({ teamSlug, path }: { teamSlug?: string; path: string }) => {
 		let redirectPath = redirectTo ?? path
-		if (teamSlug && redirectPath.includes('[teamSlug]')) redirectPath = redirectPath.replace('[teamSlug]', teamSlug)
+		if (teamSlug && redirectPath.includes('[teamSlug]')) {
+			redirectPath = redirectPath.replace('[teamSlug]', teamSlug)
+		}
 		return redirectPath
 	}
 
@@ -34,7 +36,7 @@ export default defineEventHandler(async event => {
 		const { teamMemberships } = user
 
 		if (!teamMemberships || !teamMemberships.length) {
-			let team: Team | undefined = undefined
+			let team: Team | undefined
 
 			try {
 				const name = user.name || user.email.split('@')[0]
@@ -46,7 +48,7 @@ export default defineEventHandler(async event => {
 				return createResponse('/')
 			}
 
-			return createResponse(getRedirectUrl({ teamSlug: team.slug, path: '/[teamSlug]/dashboard' }))
+			return createResponse(getRedirectPath({ teamSlug: team.slug, path: '/[teamSlug]/dashboard' }))
 		}
 
 		const teamSlugCookie = getCookie(event, TEAM_SLUG_COOKIE_NAME)
@@ -55,11 +57,11 @@ export default defineEventHandler(async event => {
 			const teamMembership = teamMemberships.find(membership => membership.team.slug === teamSlugCookie)
 
 			if (teamMembership) {
-				return createResponse(getRedirectUrl({ teamSlug: teamMembership.team.slug, path: '/[teamSlug]/dashboard' }))
+				return createResponse(getRedirectPath({ teamSlug: teamMembership.team.slug, path: '/[teamSlug]/dashboard' }))
 			}
 		}
 
-		return createResponse(getRedirectUrl({ teamSlug: teamMemberships[0].team.slug, path: '/[teamSlug]/dashboard' }))
+		return createResponse(getRedirectPath({ teamSlug: teamMemberships[0].team.slug, path: '/[teamSlug]/dashboard' }))
 	} catch (e) {
 		console.error(e)
 		return createResponse('/')
