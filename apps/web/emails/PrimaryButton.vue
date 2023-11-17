@@ -1,10 +1,16 @@
 <template>
 	<ERow>
 		<EButton
-			:px="20"
-			:py="12"
 			:href="props.href"
-			:style="{ backgroundColor: colors.primary, color: colors.primaryForeground, borderRadius: '10px' }"
+			:style="{
+				backgroundColor: colors.primary,
+				color: colors.primaryForeground,
+				borderRadius: '10px',
+				paddingLeft: '16px',
+				paddingRight: '16px',
+				paddingTop: '8px',
+				paddingBottom: '8px',
+			}"
 			v-bind="$attrs">
 			<slot />
 		</EButton>
