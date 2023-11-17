@@ -1,6 +1,6 @@
 <template>
 	<ContentRenderer v-if="post" :value="post">
-		<div class="container max-w-6xl pb-32">
+		<div class="container max-w-6xl pb-24">
 			<div class="mx-auto max-w-2xl">
 				<div class="mb-12">
 					<NuxtLinkLocale to="/blog"> &larr; {{ t('blog.backLabel') }} </NuxtLinkLocale>
