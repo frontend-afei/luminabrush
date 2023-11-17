@@ -30,7 +30,7 @@
 		"@vueuse/core": "^10.5.0",
 		"class-variance-authority": "^0.7.0",
 		"database": "workspace:*",
-		"lucide-vue-next": "^0.286.0",
+		"lucide-vue-next": "^0.292.0",
 		"nuxt": "3.8.1",
 		"nuxt-simple-robots": "^3.1.9",
 		"radix-vue": "^0.4.1",
