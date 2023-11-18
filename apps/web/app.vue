@@ -16,6 +16,11 @@
 		addSeoAttributes: true,
 	})
 
+	const { init } = useAnalytics()
+
+	// You might want to display a consent banner before initializing analytics
+	init()
+
 	useHead({
 		// general seo
 		titleTemplate: title => (title ? `${title} ${titleDivider} ${titleTemplateDefault}` : titleTemplateDefault),
