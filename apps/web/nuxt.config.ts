@@ -12,6 +12,13 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			siteUrl: baseUrl,
+			analytics: {
+				googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID,
+				mixpanelToken: process.env.NUXT_PUBLIC_MIXPANEL_TOKEN,
+				pirschCode: process.env.NUXT_PUBLIC_PIRSCH_CODE,
+				plausibleUrl: process.env.NUXT_PUBLIC_PLAUSIBLE_URL,
+				umamiTrackingId: process.env.NUXT_PUBLIC_UMAMI_TRACKING_ID,
+			},
 			auth: {
 				oAuthProviders: ['google', 'github'],
 			},
