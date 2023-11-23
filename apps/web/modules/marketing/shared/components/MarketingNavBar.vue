@@ -31,6 +31,11 @@
 							</Button>
 						</SheetTrigger>
 						<SheetContent class="w-[250px]" side="right">
+							<VisuallyHidden>
+								<DialogTitle> Menu </DialogTitle>
+								<DialogDescription> Navigation Menu </DialogDescription>
+							</VisuallyHidden>
+
 							<div class="flex flex-col items-start justify-center">
 								<NuxtLinkLocale
 									v-for="menuItem of menuItems"
@@ -62,6 +67,8 @@
 </template>
 
 <script setup lang="ts">
+	import { VisuallyHidden } from 'radix-vue'
+
 	const route = useRoute()
 	const { t } = useTranslations()
 	const { user, loaded: userLoaded } = useUser()
