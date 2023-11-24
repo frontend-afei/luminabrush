@@ -23,7 +23,7 @@
 		"@nuxt/devtools": "^1.0.3",
 		"@nuxt/image": "1.0.0",
 		"@nuxtjs/color-mode": "^3.3.2",
-		"@nuxtjs/google-fonts": "^3.0.2",
+		"@nuxtjs/google-fonts": "^3.1.0",
 		"@nuxtjs/i18n": "8.0.0-rc.5",
 		"@nuxtjs/tailwindcss": "^6.10.1",
 		"@vee-validate/zod": "^4.11.8",
