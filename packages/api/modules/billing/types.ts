@@ -35,8 +35,8 @@ export const SubscriptionPlanVariantModel = z.object({
 export const SubscriptionPlanModel = z.object({
 	id: z.string(),
 	name: z.string(),
-	description: z.string().optional(),
-	storeId: z.string().optional(),
+	description: z.string().nullable().optional(),
+	storeId: z.string().nullable().optional(),
 	variants: z.array(SubscriptionPlanVariantModel),
 })
 
