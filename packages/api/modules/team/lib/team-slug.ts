@@ -12,5 +12,6 @@ export function slugifyTeamName(name: string) {
 		remove: /[*+~.()'"!?:@]/g,
 		replacement: '-',
 		trim: true,
+		strict: true,
 	})
 }
