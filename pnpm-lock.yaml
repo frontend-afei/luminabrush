@@ -73,8 +73,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       lucide-vue-next:
-        specifier: ^0.292.0
-        version: 0.292.0(vue@3.3.8)
+        specifier: ^0.294.0
+        version: 0.294.0(vue@3.3.8)
       nuxt:
         specifier: 3.8.1
         version: 3.8.1(vite@4.5.0)
@@ -6748,8 +6748,8 @@ packages:
     resolution: {integrity: sha512-do6Aah5kX2DUl7N0CvELWV1/b+qZGF0AUmUrkthYeNfXfgx4RAkWi4BkAlgGDBB/0c1WApb18mUD1pA5qTaWmw==}
     dev: true
 
-  /lucide-vue-next@0.292.0(vue@3.3.8):
-    resolution: {integrity: sha512-tVnEPLJvB9n+REfJsgJsG/zxGM0yamFs6WkOjuAvMG1ZlMS27soiKekuWk/+G2uLF4jqhEegQHVmcAJBlnJpeg==}
+  /lucide-vue-next@0.294.0(vue@3.3.8):
+    resolution: {integrity: sha512-bcUuGyLJoq9ExyozROMezdaczK2loP3emYb8PvS7HhZ56rUJVOv5hJgTmWfrfr8vJE7J69ImoMyPTwmUHF198w==}
     peerDependencies:
       vue: '>=3.0.1'
     dependencies:
