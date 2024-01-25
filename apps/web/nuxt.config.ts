@@ -81,7 +81,7 @@ export default defineNuxtConfig({
 		'@nuxt/content',
 		'@nuxt/image',
 		'nuxt-simple-robots',
-		'vue-email/nuxt',
+		'@vue-email/nuxt',
 	],
 
 	// @nuxtjs/i18n
@@ -156,7 +156,7 @@ export default defineNuxtConfig({
 		// sitemap: 'sitemap.xml',
 	},
 
-	// vue-email/nuxt
+	// @vue-email/nuxt
 	vueEmail: {
 		baseUrl,
 	},

@@ -21,9 +21,8 @@ export const sendEmail = async <TemplateId extends keyof typeof mailTemplates>({
 		await send({
 			to,
 			subject: templateData.subject,
-			/** @see https://github.com/Dave136/vue-email/issues/79 */
-			text: '',
-			html: template,
+			text: template.text,
+			html: template.html,
 		})
 
 		return true
