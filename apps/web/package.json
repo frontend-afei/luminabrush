@@ -12,6 +12,7 @@
 		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
+		"@vue-email/nuxt": "^0.8.6",
 		"api": "workspace:*",
 		"auth": "workspace:*",
 		"mail": "workspace:*",
