@@ -10,6 +10,7 @@ type AuthEvent = {
 export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 	const { apiCaller } = useApiCaller()
 	const localePath = useLocalePath()
+	const currentTeamId = useCurrentTeamIdCookie()
 
 	const authBroadcastChannel = useBroadcastChannel<AuthEvent, AuthEvent>({ name: 'auth' })
 	const postChannelMessage = (message: AuthEvent) => {
@@ -18,11 +19,21 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 	}
 
 	const loaded = useState('useUser-loaded', () => !!initialUser)
-	const user = useState('useUser-user', () => initialUser)
+	const user = useState('useUser-user', () => initialUser ?? null)
 
 	const teamMemberships = computed(() => {
 		return user.value?.teamMemberships ?? []
 	})
+
+	const currentTeamMemberships = computed(() =>
+		teamMemberships.value.find(membership => {
+			return membership.team.id === currentTeamId.value
+		})
+	)
+
+	const currentTeam = computed(() => currentTeamMemberships.value?.team ?? null)
+
+	const teamRole = computed(() => currentTeamMemberships.value?.role ?? 'MEMBER')
 
 	const loadUser = async () => {
 		const userRes = await apiCaller.auth.user.query()
@@ -86,5 +97,7 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
 		teamMemberships,
 		logout,
 		reloadUser,
+		currentTeam,
+		teamRole,
 	}
 }

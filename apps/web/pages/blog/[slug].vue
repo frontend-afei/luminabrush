@@ -58,7 +58,7 @@
 		layout: 'marketing',
 	})
 
-	const route = useRoute('blog-slug___en')
+	const route = useRoute('blog-slug')
 	const runtimeConfig = useRuntimeConfig()
 	const { routeBasePath } = useRouteBasePath({ path: route.path })
 	const { t } = useTranslations()

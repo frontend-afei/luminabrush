@@ -1,5 +1,5 @@
 export * from './accept-invite'
-export * from './by-slug'
+export * from './by-id'
 export * from './create'
 export * from './invitation-by-id'
 export * from './invitations'

@@ -7,16 +7,17 @@
 		"lint": "eslint \"**/*.ts*\""
 	},
 	"dependencies": {
+		"@lucia-auth/adapter-prisma": "^4.0.0",
+		"arctic": "^1.1.0",
 		"database": "workspace:*",
 		"eslint-config-custom": "workspace:*",
-		"tsconfig": "workspace:*",
+		"h3": "^1.10.1",
+		"lucia": "^3.0.1",
 		"mail": "workspace:*",
-		"utils": "workspace:*"
-	},
-	"devDependencies": {
-		"@lucia-auth/adapter-prisma": "^3.0.2",
-		"@lucia-auth/oauth": "^3.3.1",
-		"lucia": "^2.7.1",
+		"next": "14.1.0",
+		"oslo": "^1.0.4",
+		"tsconfig": "workspace:*",
+		"utils": "workspace:*",
 		"zod": "^3.22.4"
 	}
 }

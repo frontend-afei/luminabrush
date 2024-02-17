@@ -1,4 +1,4 @@
-import { joinURL, withLeadingSlash } from 'ufo'
+import { withLeadingSlash } from 'ufo'
 import { createApiCaller } from 'api'
 
 const createResponse = (redirectPath: string) => {
@@ -12,14 +12,18 @@ export default defineEventHandler(async event => {
 	const code = requestUrl.searchParams.get('code') || null
 
 	try {
-		if (!code) throw new Error('No invitation code query param provided')
+		if (!code) {
+			throw new Error('No invitation code query param provided')
+		}
 
 		const apiCaller = await createApiCaller(event)
 
 		const invitation = await apiCaller.team.invitationById({
 			id: code,
 		})
-		if (!invitation) throw new Error('Invitation not found')
+		if (!invitation) {
+			throw new Error('Invitation not found')
+		}
 
 		const user = await apiCaller.auth.user()
 		if (!user) {
@@ -29,9 +33,11 @@ export default defineEventHandler(async event => {
 		const team = await apiCaller.team.acceptInvitation({
 			id: code,
 		})
-		if (!team) throw new Error('Team not found')
+		if (!team) {
+			throw new Error('Team not found')
+		}
 
-		return createResponse(joinURL(team.slug, '/dashboard'))
+		return createResponse('/app/dashboard')
 	} catch (e) {
 		console.error(e)
 		return createResponse('/')

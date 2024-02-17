@@ -3,16 +3,16 @@
 </template>
 
 <script setup lang="ts">
-	import type { SubscriptionStatus } from 'database'
+	import type { SubscriptionStatusType } from 'database'
 	import type { BadgeProps } from '@/modules/ui/components/Badge.vue'
 
 	const props = defineProps<{
-		status: SubscriptionStatus
+		status: SubscriptionStatusType
 	}>()
 
 	const { t } = useTranslations()
 
-	const badgeLabels = computed<Record<SubscriptionStatus, string>>(() => ({
+	const badgeLabels = computed<Record<SubscriptionStatusType, string>>(() => ({
 		ACTIVE: t('settings.billing.subscription.status.active'),
 		CANCELED: t('settings.billing.subscription.status.canceled'),
 		EXPIRED: t('settings.billing.subscription.status.expired'),
@@ -23,7 +23,7 @@
 		UNPAID: t('settings.billing.subscription.status.unpaid'),
 	}))
 
-	const badgeColors = computed<Record<SubscriptionStatus, BadgeProps['status']>>(() => ({
+	const badgeColors = computed<Record<SubscriptionStatusType, BadgeProps['status']>>(() => ({
 		ACTIVE: 'success',
 		CANCELED: 'error',
 		EXPIRED: 'error',

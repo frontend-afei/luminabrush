@@ -1,21 +1,21 @@
-import { TeamMembershipModel, TeamModel, UserModel } from 'database'
+import { TeamMembershipSchema, TeamSchema, UserSchema } from 'database'
 import { z } from 'zod'
 import { publicProcedure } from '../../trpc'
 
 export const user = publicProcedure
 	.output(
-		UserModel.pick({
+		UserSchema.pick({
 			id: true,
 			email: true,
 			role: true,
-			avatar_url: true,
+			avatarUrl: true,
 			name: true,
 		})
 			.extend({
 				teamMemberships: z
 					.array(
-						TeamMembershipModel.extend({
-							team: TeamModel,
+						TeamMembershipSchema.extend({
+							team: TeamSchema,
 						})
 					)
 					.nullable(),
@@ -29,7 +29,7 @@ export const user = publicProcedure
 
 		return {
 			...user,
-			id: user.userId,
+			avatarUrl: user.avatarUrl ?? null,
 			teamMemberships,
 		}
 	})

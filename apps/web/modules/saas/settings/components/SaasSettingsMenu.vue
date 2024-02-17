@@ -3,7 +3,7 @@
 		<SaasSettingsMenuGroup v-for="(item, key) of props.menuItems" :menuItemGroup="item" :key="key">
 			<template #avatar>
 				<BoringAvatar v-if="item.avatar === 'team'" :size="32" :name="activeTeam.name" variant="marble" />
-				<UserAvatar v-else-if="item.avatar === 'user'" :name="user.name || ''" :avatarUrl="user.avatar_url" />
+				<UserAvatar v-else-if="item.avatar === 'user'" :name="user.name || ''" :avatarUrl="user.avatarUrl" />
 			</template>
 		</SaasSettingsMenuGroup>
 	</div>
@@ -16,16 +16,13 @@
 		menuItems: SaasSettingsMenuItemGroup[]
 	}>()
 
-	const route = useRoute()
 	const { user, teamMemberships } = useUser()
 
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
+	const currentTeamId = useCurrentTeamIdCookie()
 
 	const activeTeam = computed(() => {
 		return teamMemberships.value.find(membership => {
-			return membership.team.slug === teamSlug.value
+			return membership.team.id === currentTeamId.value
 		})?.team
 	})
 </script>

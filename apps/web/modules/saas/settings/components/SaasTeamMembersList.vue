@@ -6,7 +6,7 @@
 					<!-- User Details -->
 					<TableCell>
 						<div v-if="row.user" class="flex items-center gap-2">
-							<UserAvatar :name="row.user.name ?? row.user.email" :avatarUrl="row.user.avatar_url" />
+							<UserAvatar :name="row.user.name ?? row.user.email" :avatarUrl="row.user.avatarUrl" />
 							<div>
 								<strong class="block">{{ row.user.name }}</strong>
 								<small class="text-muted-foreground">
@@ -22,7 +22,7 @@
 							<SaasTeamRoleSelect
 								:modelValue="row.role"
 								@update:modelValue="val => handleUpdateRole({ membershipId: row.id, role: val })"
-								:disabled="currentTeamRole !== 'OWNER' || row.is_creator" />
+								:disabled="teamRole !== 'OWNER' || row.isCreator" />
 
 							<DropdownMenuRoot>
 								<DropdownMenuTrigger asChild>
@@ -32,7 +32,7 @@
 								</DropdownMenuTrigger>
 								<DropdownMenuContent>
 									<DropdownMenuItem
-										:disabled="row.is_creator"
+										:disabled="row.isCreator"
 										class="text-error"
 										@click="() => handleRemoveMember({ membershipId: row.id })">
 										<Icon :name="row.user?.id === user?.id ? 'logout' : 'delete'" class="mr-2 h-4 w-4" />
@@ -56,33 +56,18 @@
 
 <script setup lang="ts">
 	import type { ApiOutput } from 'api'
-	import type { TeamMemberRole } from 'database'
+	import type { TeamMemberRoleType } from 'database'
 
 	const props = defineProps<{
 		memberships: ApiOutput['team']['memberships']
 	}>()
 
-	const route = useRoute()
 	const { t } = useTranslations()
-	const { user, teamMemberships } = useUser()
+	const { user, teamRole } = useUser()
 	const { toast, dismiss } = useToast()
 	const { apiCaller } = useApiCaller()
 
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
-
-	const activeMembership = computed(() => {
-		return teamMemberships.value.find(membership => {
-			return membership.team.slug === teamSlug.value
-		})
-	})
-
-	const currentTeamRole = computed(() => {
-		return activeMembership.value?.role
-	})
-
-	const handleUpdateRole = async ({ membershipId, role }: { membershipId: string; role: TeamMemberRole }) => {
+	const handleUpdateRole = async ({ membershipId, role }: { membershipId: string; role: TeamMemberRoleType }) => {
 		if (!process.client || typeof window === 'undefined') {
 			return
 		}

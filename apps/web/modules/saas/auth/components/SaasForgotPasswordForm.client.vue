@@ -73,7 +73,7 @@
 			if (values.email) {
 				redirectSearchParams.set('identifier', values.email)
 			}
-			redirectSearchParams.set('redirectTo', '/[teamSlug]/settings/account/general')
+			redirectSearchParams.set('redirectTo', '/app/settings/account/general')
 
 			navigateTo(localePath(`/auth/otp?${redirectSearchParams.toString()}`), {
 				replace: true,

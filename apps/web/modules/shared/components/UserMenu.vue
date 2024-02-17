@@ -2,7 +2,7 @@
 	<DropdownMenuRoot v-if="user">
 		<DropdownMenuTrigger asChild>
 			<button class="focus-visible:ring-primary rounded-full outline-none focus-visible:ring-2">
-				<UserAvatar :name="user.name ?? ''" :avatarUrl="user.avatar_url" />
+				<UserAvatar :name="user.name ?? ''" :avatarUrl="user.avatarUrl" />
 			</button>
 		</DropdownMenuTrigger>
 
@@ -21,7 +21,7 @@
 					<div class="ml-2">Color mode</div>
 				</DropdownMenuSubTrigger>
 				<DropdownMenuPortal>
-					<DropdownMenuSubContent>
+					<DropdownMenuSubContent avoid-collisions>
 						<ColorModeToggleRadioGroup />
 					</DropdownMenuSubContent>
 				</DropdownMenuPortal>
@@ -37,7 +37,7 @@
 					<div class="ml-2">Language</div>
 				</DropdownMenuSubTrigger>
 				<DropdownMenuPortal>
-					<DropdownMenuSubContent>
+					<DropdownMenuSubContent avoid-collisions>
 						<LocaleSwitchRadioGroup />
 					</DropdownMenuSubContent>
 				</DropdownMenuPortal>
@@ -46,7 +46,7 @@
 			<DropdownMenuSeparator />
 
 			<DropdownMenuItem asChild>
-				<NuxtLinkLocale :to="accountSettingsLink">
+				<NuxtLinkLocale to="/app/settings/account/general">
 					<Icon name="settings" class="mr-2 h-4 w-4" />
 					Account settings
 				</NuxtLinkLocale>
@@ -61,21 +61,5 @@
 </template>
 
 <script setup lang="ts">
-	const route = useRoute()
-	const router = useRouter()
 	const { user, logout } = useUser()
-
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
-
-	const accountSettingsLink = computed(
-		() =>
-			router.resolve({
-				name: 'teamSlug-settings-account-general___en',
-				params: {
-					teamSlug: teamSlug.value,
-				},
-			}).path
-	)
 </script>

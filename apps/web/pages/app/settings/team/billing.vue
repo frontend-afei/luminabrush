@@ -5,7 +5,7 @@
 		<SaasUpgradePlan
 			v-if="data?.plans"
 			:plans="data.plans"
-			:activePlanId="data.teamSubscription?.plan_id"
+			:activePlanId="data.teamSubscription?.planId"
 			:teamId="data.team.id" />
 	</div>
 	<SaasLoadingSpinner v-else />
@@ -16,7 +16,6 @@
 		layout: 'saas-app',
 	})
 
-	const route = useRoute('teamSlug-settings-team-billing___en')
 	const { t } = useTranslations()
 	const { apiCaller } = useApiCaller()
 	const localePath = useLocalePath()
@@ -26,8 +25,15 @@
 	})
 
 	const { data, pending } = useAsyncData(async () => {
-		const team = await apiCaller.team.bySlug.query({
-			slug: route.params.teamSlug,
+		const currentTeamId = useCurrentTeamIdCookie()
+
+		if (!currentTeamId.value) {
+			navigateTo(localePath('/auth/login'))
+			return null
+		}
+
+		const team = await apiCaller.team.byId.query({
+			id: currentTeamId.value,
 		})
 
 		const [plans, teamSubscription] = await Promise.all([

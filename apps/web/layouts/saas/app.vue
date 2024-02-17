@@ -1,39 +1,50 @@
 <template>
-	<div v-if="userLoaded" class="bg-muted min-h-screen">
+	<div class="bg-muted min-h-screen">
 		<SaasNavBar />
 
 		<main>
 			<slot />
 		</main>
 	</div>
-
-	<SaasLoadingWrapper v-else />
 </template>
 
 <script setup lang="ts">
-	const route = useRoute()
+	const { user, reloadUser } = useUser()
+
+	await reloadUser()
+
 	const localePath = useLocalePath()
-	const { user, loaded: userLoaded, teamMemberships } = useUser()
+	const currentTeamId = useCurrentTeamIdCookie()
 
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
+	if (!user.value) {
+		await navigateTo(localePath('/auth/login'))
+		throw new Error('User not found')
+	}
 
-	const activeMembership = computed(() => {
-		return teamMemberships.value.find(membership => {
-			return membership.team.slug === teamSlug.value
-		})
-	})
+	const { apiCaller } = useApiCaller()
 
-	watchEffect(() => {
-		if (userLoaded.value) {
-			if (!user.value) {
-				return navigateTo(localePath('/auth/login'))
-			}
+	// if user has no team memberships, we create a team for them
+	if (!user.value.teamMemberships?.length) {
+		try {
+			const name = user.value.name || user.value.email.split('@')[0]
+			await apiCaller.team.create.mutate({
+				name,
+			})
 
-			if (teamSlug.value && !activeMembership.value) {
-				return navigateTo(localePath('/'))
-			}
+			await reloadUser()
+		} catch (e) {
+			console.error(e)
+			await navigateTo(localePath('/'))
 		}
-	})
+	}
+
+	const teamMemberships = user.value.teamMemberships ?? []
+	const currentTeamMembership =
+		teamMemberships.find(membership => membership.team.id === currentTeamId.value) ?? teamMemberships[0]
+
+	if (!currentTeamMembership) {
+		await navigateTo(localePath('/'))
+	}
+
+	currentTeamId.value = currentTeamMembership.team.id
 </script>

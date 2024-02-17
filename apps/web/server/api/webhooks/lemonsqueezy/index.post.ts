@@ -1,6 +1,6 @@
 import { createAdminApiCaller } from 'api/modules/trpc'
+import type { SubscriptionStatusType } from 'database'
 import { createHmac, timingSafeEqual } from 'node:crypto'
-import type { SubscriptionStatus } from 'database'
 
 export default defineEventHandler(async event => {
 	try {
@@ -13,7 +13,9 @@ export default defineEventHandler(async event => {
 		}
 		const signature = Buffer.from(signatureHeader, 'utf8')
 
-		if (!timingSafeEqual(digest, signature)) throw new Error('Invalid signature.')
+		if (!timingSafeEqual(digest, signature)) {
+			throw new Error('Invalid signature.')
+		}
 
 		const payload = await readBody(event)
 
@@ -22,7 +24,7 @@ export default defineEventHandler(async event => {
 			data,
 		} = payload
 
-		const statusMap: Record<string, SubscriptionStatus> = {
+		const statusMap: Record<string, SubscriptionStatusType> = {
 			active: 'ACTIVE',
 			past_due: 'PAST_DUE',
 			unpaid: 'UNPAID',
@@ -42,12 +44,12 @@ export default defineEventHandler(async event => {
 			case 'subscription_resumed':
 				await apiCaller.billing.syncSubscription({
 					id: String(data.id),
-					team_id: customData?.team_id,
-					customer_id: String(data.attributes.customer_id),
-					plan_id: String(data.attributes.product_id),
-					variant_id: String(data.attributes.variant_id),
+					teamId: customData?.team_id,
+					customerId: String(data.attributes.customer_id),
+					planId: String(data.attributes.product_id),
+					variantId: String(data.attributes.variant_id),
 					status: statusMap[data.attributes.status],
-					next_payment_date: new Date(data.attributes.trial_ends_at ?? data.attributes.renews_at),
+					nextPaymentDate: new Date(data.attributes.trial_ends_at ?? data.attributes.renews_at),
 				})
 				break
 		}

@@ -1,29 +1,31 @@
 import type { inferAsyncReturnType } from '@trpc/server'
-import { type SessionUser, type Session, auth } from 'auth'
+import { lucia, type SessionUser } from 'auth'
 import { db } from 'database'
-import { type H3Event } from 'h3'
+import { type H3Event, parseCookies } from 'h3'
 import { defineAbilitiesFor } from '../auth'
 
 export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
-	const authRequest = event && 'node' in event ? auth.handleRequest(event) : null
-	let session: Session | null = null
-	try {
-		session = await authRequest?.validate() // or `authRequest.validateBearerToken()`
-	} catch (e) {
-		console.error(e)
-	}
+	let user: SessionUser | null = null
 
-	const user: SessionUser | null = session?.user ?? null
+	const sessionId = (event && 'node' in event && parseCookies(event)?.[lucia.sessionCookieName]) || null
+
+	if (sessionId) {
+		const validatedSession = await lucia.validateSession(sessionId)
+
+		if (validatedSession.user) {
+			user = validatedSession.user
+		}
+	}
 
 	const teamMemberships = user
 		? await db.teamMembership.findMany({
 				where: {
-					user_id: user.id,
+					userId: user.id,
 				},
 				include: {
 					team: true,
 				},
-		  })
+			})
 		: null
 
 	const abilities = defineAbilitiesFor({
@@ -35,7 +37,7 @@ export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
 		user,
 		teamMemberships,
 		abilities,
-		sessionId: session?.sessionId ?? null,
+		sessionId: sessionId ?? null,
 		isAdmin: event && 'isAdmin' in event ? event.isAdmin : false,
 		event: event && 'node' in event ? event : undefined,
 	}

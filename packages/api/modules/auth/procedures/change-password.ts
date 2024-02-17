@@ -1,4 +1,5 @@
-import { auth } from 'auth'
+import { hashPassword } from 'auth/lib/password'
+import { db } from 'database'
 import { z } from 'zod'
 import { protectedProcedure } from '../../trpc'
 
@@ -9,19 +10,12 @@ export const changePassword = protectedProcedure
 		})
 	)
 	.mutation(async ({ ctx: { user }, input: { password } }) => {
-		// check if user has a password key
-		const userKeys = await auth.getAllUserKeys(user!.id)
-
-		if (!userKeys.some(key => key.providerId === 'email')) {
-			await auth.createKey({
-				userId: user!.id,
-				providerId: 'email',
-				providerUserId: user!.email,
-				password,
-			})
-
-			return
-		}
-
-		await auth.updateKeyPassword('email', user!.email, password)
+		await db.user.update({
+			where: {
+				id: user.id,
+			},
+			data: {
+				hashedPassword: await hashPassword(password),
+			},
+		})
 	})

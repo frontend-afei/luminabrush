@@ -1,6 +1,7 @@
 import { TRPCError } from '@trpc/server'
-import { auth, generateOneTimePassword, generateVerificationToken } from 'auth'
-import { UserRole } from 'database'
+import { generateOneTimePassword, generateVerificationToken, lucia } from 'auth'
+import { hashPassword } from 'auth/lib/password'
+import { UserRoleSchema, db } from 'database'
 import { z } from 'zod'
 import { publicProcedure } from '../../trpc'
 
@@ -20,37 +21,28 @@ export const signup = publicProcedure
 	)
 	.mutation(async ({ input: { email, password, name, callbackUrl }, ctx: { event } }) => {
 		try {
-			const user = await auth.createUser({
-				key: {
-					providerId: 'email',
-					providerUserId: email,
-					password,
-				},
-				attributes: {
+			const hashedPassword = await hashPassword(password)
+			const user = await db.user.create({
+				data: {
 					email,
-					email_verified: false,
 					name,
-					role: UserRole.USER,
-					avatar_url: null,
+					role: UserRoleSchema.Values.USER,
+					hashedPassword,
 				},
 			})
 
-			const session = await auth.createSession({
-				userId: user.userId,
-				attributes: {},
-			})
+			const session = await lucia.createSession(user.id, {})
 
-			// auth.handleRequest(req);
-			const sessionCookie = auth.createSessionCookie(session)
+			const sessionCookie = lucia.createSessionCookie(session.id)
 			if (event) {
 				setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 			}
 
 			const token = await generateVerificationToken({
-				userId: user.userId,
+				userId: user.id,
 			})
 			const otp = await generateOneTimePassword({
-				userId: user.userId,
+				userId: user.id,
 				type: 'SIGNUP',
 				identifier: email,
 			})

@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server'
-import { TeamMembershipModel, UserModel, db } from 'database'
+import { TeamMembershipSchema, UserSchema, db } from 'database'
 import { z } from 'zod'
 import { protectedProcedure } from '../../trpc'
 
@@ -11,9 +11,9 @@ export const memberships = protectedProcedure
 	)
 	.output(
 		z.array(
-			TeamMembershipModel.merge(
+			TeamMembershipSchema.merge(
 				z.object({
-					user: UserModel.optional(),
+					user: UserSchema.optional(),
 				})
 			)
 		)
@@ -28,11 +28,11 @@ export const memberships = protectedProcedure
 
 		const memberships = await db.teamMembership.findMany({
 			where: {
-				team_id: teamId,
+				teamId,
 			},
 		})
 
-		const userIds = memberships.map(m => m.user_id).filter((id): id is string => !!id) ?? []
+		const userIds = memberships.map(m => m.userId).filter((id): id is string => !!id) ?? []
 
 		const users = await db.user.findMany({
 			where: {
@@ -45,7 +45,7 @@ export const memberships = protectedProcedure
 		return (
 			memberships.map(m => ({
 				...m,
-				user: users.find(u => u.id === m.user_id),
+				user: users.find(u => u.id === m.userId),
 			})) ?? []
 		)
 	})

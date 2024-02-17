@@ -1,9 +1,9 @@
 import { TRPCError } from '@trpc/server'
-import { type Subscription, SubscriptionModel, db } from 'database'
+import { SubscriptionSchema, db, type Subscription } from 'database'
 import { publicProcedure } from '../../trpc'
 
 export const syncSubscription = publicProcedure
-	.input(SubscriptionModel)
+	.input(SubscriptionSchema)
 	.mutation(async ({ input: subscription, ctx: { isAdmin } }) => {
 		// this procedure can only be called by the admin caller from a webhook
 		if (!isAdmin)
@@ -13,10 +13,10 @@ export const syncSubscription = publicProcedure
 
 		let existingSubscription: Subscription | null = null
 
-		if (subscription?.team_id) {
+		if (subscription?.teamId) {
 			existingSubscription = await db.subscription.findFirst({
 				where: {
-					team_id: subscription.team_id,
+					teamId: subscription.teamId,
 				},
 			})
 		}
@@ -29,7 +29,7 @@ export const syncSubscription = publicProcedure
 			else
 				await db.subscription.update({
 					where: {
-						team_id: existingSubscription.team_id,
+						teamId: existingSubscription.teamId,
 					},
 					data: subscription,
 				})

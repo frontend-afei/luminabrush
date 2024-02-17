@@ -22,7 +22,7 @@ export const cancelSubscription = protectedProcedure
 				code: 'NOT_FOUND',
 			})
 
-		if (!abilities.isTeamOwner(subscription.team_id))
+		if (!abilities.isTeamOwner(subscription.teamId))
 			throw new TRPCError({
 				code: 'FORBIDDEN',
 			})

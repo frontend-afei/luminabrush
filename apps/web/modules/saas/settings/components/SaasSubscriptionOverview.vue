@@ -18,7 +18,7 @@
 				:status="props.currentSubscription.status" />
 		</div>
 
-		<p v-if="props.currentSubscription?.next_payment_date" class="text-muted-foreground mt-1">
+		<p v-if="props.currentSubscription?.nextPaymentDate" class="text-muted-foreground mt-1">
 			{{ nextPaymentLabel }}
 		</p>
 
@@ -64,10 +64,10 @@
 	}))
 
 	const activePlanId = computed(() => {
-		return props.currentSubscription ? props.currentSubscription.plan_id : 'free'
+		return props.currentSubscription ? props.currentSubscription.planId : 'free'
 	})
 	const activeVariantId = computed(() => {
-		return props.currentSubscription ? props.currentSubscription.variant_id : 'free'
+		return props.currentSubscription ? props.currentSubscription.variantId : 'free'
 	})
 
 	const subscriptionPlan = computed(() => {
@@ -99,9 +99,7 @@
 			return
 		}
 
-		const nextPaymentDate = currentSubscription.next_payment_date
-			? new Date(currentSubscription.next_payment_date)
-			: null
+		const nextPaymentDate = currentSubscription.nextPaymentDate ? new Date(currentSubscription.nextPaymentDate) : null
 		if (!nextPaymentDate) {
 			return
 		}
@@ -110,9 +108,9 @@
 		return isExceeding
 			? t('settings.billing.subscription.endsOn', {
 					nextPaymentDate: formatDate({ date: nextPaymentDate }),
-			  })
+				})
 			: t('settings.billing.subscription.nextPayment', {
 					nextPaymentDate: formatDate({ date: nextPaymentDate }),
-			  })
+				})
 	})
 </script>

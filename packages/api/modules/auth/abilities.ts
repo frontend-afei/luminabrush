@@ -1,5 +1,5 @@
 import type { SessionUser } from 'auth'
-import { TeamMemberRole, type TeamMembership, UserRole } from 'database'
+import { TeamMemberRoleSchema, UserRoleSchema, type TeamMembership } from 'database'
 
 export function defineAbilitiesFor({
 	user,
@@ -8,11 +8,12 @@ export function defineAbilitiesFor({
 	user: SessionUser | null
 	teamMemberships: TeamMembership[] | null
 }) {
-	const isAdmin = user?.role === UserRole.ADMIN
+	const isAdmin = user?.role === UserRoleSchema.Values.ADMIN
 
-	const getTeamRole = (teamId: string) => teamMemberships?.find(m => m.team_id === teamId)?.role ?? null
-	const isTeamOwner = (teamId: string) => isAdmin || getTeamRole(teamId) === TeamMemberRole.OWNER
-	const isTeamMember = (teamId: string) => isTeamOwner(teamId) || getTeamRole(teamId) === TeamMemberRole.MEMBER
+	const getTeamRole = (teamId: string) => teamMemberships?.find(m => m.teamId === teamId)?.role ?? null
+	const isTeamOwner = (teamId: string) => isAdmin || getTeamRole(teamId) === TeamMemberRoleSchema.Values.OWNER
+	const isTeamMember = (teamId: string) =>
+		isTeamOwner(teamId) || getTeamRole(teamId) === TeamMemberRoleSchema.Values.MEMBER
 
 	return {
 		isAdmin,

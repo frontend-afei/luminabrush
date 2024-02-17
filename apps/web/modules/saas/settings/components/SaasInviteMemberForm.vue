@@ -1,5 +1,5 @@
 <template>
-	<Card v-if="currentTeamRole === 'OWNER'">
+	<Card v-if="teamRole === 'OWNER'">
 		<form @submit.prevent="onSubmit" class="@container">
 			<CardHeader>
 				<template #title>{{ t('settings.team.members.inviteMember.title') }}</template>
@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-	import type { TeamMemberRole } from 'database'
+	import type { TeamMemberRoleType } from 'database'
 
 	const props = defineProps<{
 		teamId: string
@@ -43,29 +43,14 @@
 		success: []
 	}>()
 
-	const route = useRoute()
 	const { t } = useTranslations()
 	const { apiCaller } = useApiCaller()
 	const { toast } = useToast()
-	const { teamMemberships } = useUser()
-
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
-
-	const activeMembership = computed(() => {
-		return teamMemberships.value.find(membership => {
-			return membership.team.slug === teamSlug.value
-		})
-	})
-
-	const currentTeamRole = computed(() => {
-		return activeMembership.value?.role
-	})
+	const { teamRole } = useUser()
 
 	const { z, toTypedSchema, useForm } = formUtils
 
-	const roleValues: [TeamMemberRole, TeamMemberRole] = ['MEMBER', 'OWNER']
+	const roleValues: [TeamMemberRoleType, TeamMemberRoleType] = ['MEMBER', 'OWNER']
 
 	const formSchema = toTypedSchema(
 		z.object({

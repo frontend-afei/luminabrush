@@ -24,7 +24,7 @@ export const createCustomerPortalLink = protectedProcedure
 				code: 'BAD_REQUEST',
 			})
 
-		if (!abilities.isTeamOwner(subscription.team_id))
+		if (!abilities.isTeamOwner(subscription.teamId))
 			throw new TRPCError({
 				code: 'FORBIDDEN',
 			})
@@ -32,7 +32,7 @@ export const createCustomerPortalLink = protectedProcedure
 		try {
 			const customerPortalLink = await createCustomerPortalLinkResolver({
 				subscriptionId,
-				customerId: subscription.customer_id,
+				customerId: subscription.customerId,
 				redirectUrl,
 			})
 

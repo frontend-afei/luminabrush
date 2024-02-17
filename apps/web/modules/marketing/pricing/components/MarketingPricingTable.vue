@@ -3,7 +3,7 @@
 		:plans="props.plans"
 		:onSelectPlan="
 			() => {
-				navigateTo(`/team/redirect?redirectTo=${encodeURIComponent('/[teamSlug]/settings/team/billing')}`)
+				navigateTo('/app/settings/team/billing')
 			}
 		" />
 </template>

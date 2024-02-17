@@ -1,4 +1,4 @@
-import { auth } from 'auth'
+import { db } from 'database'
 import { z } from 'zod'
 import { protectedProcedure } from '../../trpc'
 
@@ -9,7 +9,12 @@ export const changeName = protectedProcedure
 		})
 	)
 	.mutation(async ({ ctx: { user }, input: { name } }) => {
-		await auth.updateUserAttributes(user!.id, {
-			name,
+		await db.user.update({
+			where: {
+				id: user.id,
+			},
+			data: {
+				name,
+			},
 		})
 	})

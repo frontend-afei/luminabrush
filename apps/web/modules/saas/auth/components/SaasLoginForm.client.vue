@@ -85,7 +85,7 @@
 	const redirectTo = computed(() => {
 		return invitationCode.value
 			? `/team/invitation?code=${invitationCode.value}`
-			: `/team/redirect?redirectTo=${encodeURIComponent(redirectToParam.value || '')}`
+			: redirectToParam.value || runtimeConfig.public.auth.redirectPath
 	})
 
 	const handleRedirect = () => {
@@ -147,9 +147,7 @@
 
 				const redirectSearchParams = new URLSearchParams()
 				redirectSearchParams.set('type', 'LOGIN')
-				if (!redirectTo.value.startsWith('/team/redirect')) {
-					redirectSearchParams.set('redirectTo', redirectTo.value)
-				}
+				redirectSearchParams.set('redirectTo', redirectTo.value)
 				if (invitationCode) {
 					redirectSearchParams.set('invitationCode', invitationCode.value)
 				}

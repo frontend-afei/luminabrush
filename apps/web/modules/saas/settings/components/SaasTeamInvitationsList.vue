@@ -23,7 +23,7 @@
 								</DropdownMenuTrigger>
 								<DropdownMenuContent>
 									<DropdownMenuItem
-										:disabled="currentTeamRole !== 'OWNER'"
+										:disabled="teamRole !== 'OWNER'"
 										class="text-error"
 										@click="() => handleRevokeInvitation({ invitationId: row.id })">
 										<Icon name="undo" class="mr-2 h-4 w-4" />
@@ -54,25 +54,10 @@
 		invitations: ApiOutput['team']['invitations']
 	}>()
 
-	const route = useRoute()
 	const { t } = useTranslations()
-	const { teamMemberships } = useUser()
+	const { teamRole } = useUser()
 	const { toast, dismiss } = useToast()
 	const { apiCaller } = useApiCaller()
-
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
-
-	const activeMembership = computed(() => {
-		return teamMemberships.value.find(membership => {
-			return membership.team.slug === teamSlug.value
-		})
-	})
-
-	const currentTeamRole = computed(() => {
-		return activeMembership.value?.role
-	})
 
 	const handleRevokeInvitation = async ({ invitationId }: { invitationId: string }) => {
 		if (!process.client || typeof window === 'undefined') {

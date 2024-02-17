@@ -1,7 +1,7 @@
 <template>
 	<SelectRoot
 		:modelValue="props.modelValue"
-		@update:modelValue="emit('update:modelValue', $event as TeamMemberRole)"
+		@update:modelValue="emit('update:modelValue', $event as TeamMemberRoleType)"
 		:disabled="$props.disabled">
 		<SelectTrigger class="w-[180px]">
 			<SelectValue />
@@ -15,20 +15,20 @@
 </template>
 
 <script setup lang="ts">
-	import type { TeamMemberRole } from 'database'
+	import type { TeamMemberRoleType } from 'database'
 
 	const props = defineProps<{
-		modelValue: TeamMemberRole | undefined
+		modelValue: TeamMemberRoleType | undefined
 		disabled?: boolean
 	}>()
 
 	const emit = defineEmits<{
-		'update:modelValue': [value: TeamMemberRole]
+		'update:modelValue': [value: TeamMemberRoleType]
 	}>()
 
 	const { t } = useTranslations()
 
-	const roleOptions = computed<{ label: string; value: TeamMemberRole }[]>(() => [
+	const roleOptions = computed<{ label: string; value: TeamMemberRoleType }[]>(() => [
 		{
 			label: t('settings.team.members.roles.member'),
 			value: 'MEMBER',

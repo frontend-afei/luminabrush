@@ -16,7 +16,7 @@
 	const { t } = useTranslations()
 	const { apiCaller } = useApiCaller()
 	const { toast } = useToast()
-	const { switchTeam } = useSwitchTeam()
+	const { reloadUser } = useUser()
 
 	const { z, toTypedSchema, useForm } = formUtils
 
@@ -41,7 +41,7 @@
 
 	const onSubmit = handleSubmit(async values => {
 		try {
-			const res = await apiCaller.team.update.mutate({
+			await apiCaller.team.update.mutate({
 				name: values.name,
 				id: props.teamId,
 			})
@@ -51,7 +51,7 @@
 				title: t('settings.notifications.teamNameUpdated'),
 			})
 
-			switchTeam(res.slug, { refresh: true })
+			reloadUser()
 		} catch (error) {
 			toast({
 				variant: 'error',

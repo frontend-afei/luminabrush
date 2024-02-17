@@ -10,7 +10,7 @@
 				</DialogTitle>
 			</DialogHeader>
 
-			<SaasCreateTeamForm @success="newTeam => handleCreateTeamSuccess(newTeam.slug)" />
+			<SaasCreateTeamForm @success="newTeam => handleCreateTeamSuccess(newTeam.id)" />
 		</DialogContent>
 	</DialogRoot>
 </template>
@@ -20,11 +20,11 @@
 	const { t } = useTranslations()
 
 	const emit = defineEmits<{
-		success: [slug: string]
+		success: [id: string]
 	}>()
 
-	const handleCreateTeamSuccess = async (newTeamSlug: string) => {
-		emit('success', newTeamSlug)
+	const handleCreateTeamSuccess = async (newTeamId: string) => {
+		emit('success', newTeamId)
 		createTeamDialogOpen.value = false
 	}
 </script>

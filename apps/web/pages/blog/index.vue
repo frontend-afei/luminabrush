@@ -24,7 +24,7 @@
 		title: t('blog.title'),
 	})
 
-	const route = useRoute('blog-slug___en')
+	const route = useRoute('blog-slug')
 	const { routeBasePath } = useRouteBasePath({ path: route.path })
 
 	const { data: posts } = await useAsyncData('blog', () => {

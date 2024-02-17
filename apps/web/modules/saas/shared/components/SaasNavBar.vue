@@ -41,13 +41,10 @@
 <script setup lang="ts">
 	import type { IconName } from '@/modules/ui/components/Icon.vue'
 
-	const router = useRouter()
 	const route = useRoute()
 	const { t } = useTranslations()
 
-	const teamSlug = computed(() => {
-		return 'teamSlug' in route.params ? route.params.teamSlug : ''
-	})
+	const currentTeamId = useCurrentTeamIdCookie()
 
 	type MenuItem = {
 		label: string
@@ -56,39 +53,24 @@
 	}
 
 	const menuItems = computed<MenuItem[]>(() => {
-		if (!teamSlug.value) {
+		if (!currentTeamId.value) {
 			return []
 		}
 		return [
 			{
 				label: t('dashboard.menu.dashboard'),
 				icon: 'grid',
-				to: router.resolve({
-					name: 'teamSlug-dashboard___en',
-					params: {
-						teamSlug: teamSlug.value,
-					},
-				}).path,
+				to: '/app/dashboard',
 			},
 			{
 				label: t('dashboard.menu.aiDemo'),
 				icon: 'magic',
-				to: router.resolve({
-					name: 'teamSlug-ai-demo___en',
-					params: {
-						teamSlug: teamSlug.value,
-					},
-				}).path,
+				to: '/app/ai-demo',
 			},
 			{
 				label: t('dashboard.menu.settings'),
 				icon: 'settings',
-				to: router.resolve({
-					name: 'teamSlug-settings___en',
-					params: {
-						teamSlug: teamSlug.value,
-					},
-				}).path,
+				to: '/app/settings',
 			},
 		]
 	})

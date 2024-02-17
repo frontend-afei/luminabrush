@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-	const route = useRoute('team-invitation___en')
+	const route = useRoute('team-invitation')
 	const localePath = useLocalePath()
 
 	const { data } = await useFetch('/api/team/invitation', {

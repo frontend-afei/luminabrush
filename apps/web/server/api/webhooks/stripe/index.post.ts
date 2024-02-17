@@ -1,6 +1,6 @@
 import { createAdminApiCaller } from 'api/modules/trpc'
+import type { SubscriptionStatusType } from 'database'
 import { createHmac, timingSafeEqual } from 'node:crypto'
-import type { SubscriptionStatus } from 'database'
 
 export default defineEventHandler(async event => {
 	try {
@@ -29,7 +29,7 @@ export default defineEventHandler(async event => {
 			throw new Error('Invalid event type.')
 		}
 
-		const statusMap: Record<string, SubscriptionStatus> = {
+		const statusMap: Record<string, SubscriptionStatusType> = {
 			active: 'ACTIVE',
 			past_due: 'PAST_DUE',
 			unpaid: 'UNPAID',
@@ -43,16 +43,18 @@ export default defineEventHandler(async event => {
 		const apiCaller = await createAdminApiCaller()
 
 		const data = payload?.data.object
-		if (!data) throw new Error('Invalid payload.')
+		if (!data) {
+			throw new Error('Invalid payload.')
+		}
 
 		await apiCaller.billing.syncSubscription({
 			id: String(data.id),
-			team_id: data.metadata?.team_id,
-			customer_id: String(data.customer),
-			plan_id: String(data.plan.product),
-			variant_id: String(data.plan.id),
+			teamId: data.metadata?.team_id,
+			customerId: String(data.customer),
+			planId: String(data.plan.product),
+			variantId: String(data.plan.id),
 			status: statusMap[data.status],
-			next_payment_date: new Date((data.trial_end ?? data.current_period_end ?? 0) * 1000),
+			nextPaymentDate: new Date((data.trial_end ?? data.current_period_end ?? 0) * 1000),
 		})
 	} catch (error) {
 		throw createError({

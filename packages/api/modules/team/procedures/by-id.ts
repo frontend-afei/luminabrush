@@ -1,19 +1,19 @@
 import { TRPCError } from '@trpc/server'
-import { TeamModel, db } from 'database'
+import { TeamSchema, db } from 'database'
 import { z } from 'zod'
 import { protectedProcedure } from '../../trpc'
 
-export const bySlug = protectedProcedure
+export const byId = protectedProcedure
 	.input(
 		z.object({
-			slug: z.string(),
+			id: z.string(),
 		})
 	)
-	.output(TeamModel)
-	.query(async ({ input: { slug }, ctx: { abilities } }) => {
+	.output(TeamSchema)
+	.query(async ({ input: { id }, ctx: { abilities } }) => {
 		const team = await db.team.findFirst({
 			where: {
-				slug,
+				id,
 			},
 		})
 

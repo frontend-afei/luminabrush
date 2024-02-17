@@ -1,7 +1,7 @@
 <template>
-	<div v-if="!pending" class="grid grid-cols-1 gap-6">
+	<div v-if="!pending && currentTeam" class="grid grid-cols-1 gap-6">
 		<template v-if="data">
-			<SaasInviteMemberForm :teamId="data.team.id" @success="refresh" />
+			<SaasInviteMemberForm :teamId="currentTeam.id" @success="refresh" />
 			<SaasTeamMembersBlock :memberships="data.memberships" :invitations="data.invitations" />
 		</template>
 	</div>
@@ -13,38 +13,37 @@
 		layout: 'saas-app',
 	})
 
-	const route = useRoute('teamSlug-settings-team-members___en')
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
 	const { apiCaller } = useApiCaller()
+	const { currentTeam } = useUser()
 
 	useSeoMeta({
 		title: t('settings.team.title'),
 	})
 
 	const { data, error, pending, refresh } = useAsyncData(async () => {
-		const team = await apiCaller.team.bySlug.query({
-			slug: route.params.teamSlug,
-		})
+		if (!currentTeam.value) {
+			return
+		}
 
 		const [memberships, invitations] = await Promise.all([
 			apiCaller.team.memberships.query({
-				teamId: team.id,
+				teamId: currentTeam.value.id,
 			}),
 			apiCaller.team.invitations.query({
-				teamId: team.id,
+				teamId: currentTeam.value.id,
 			}),
 		])
 
 		return {
-			team,
 			memberships,
 			invitations,
 		}
 	})
 
 	watchEffect(() => {
-		if (!pending.value && (!data.value?.team || error.value)) {
+		if (!pending.value && (!currentTeam.value || error.value)) {
 			navigateTo(localePath('/auth/login'))
 		}
 	})

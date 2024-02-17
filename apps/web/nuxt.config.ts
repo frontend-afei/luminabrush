@@ -3,7 +3,9 @@ import { getBaseUrl } from 'utils'
 const baseUrl = getBaseUrl()
 
 export default defineNuxtConfig({
-	devtools: true,
+	devtools: {
+		enabled: true,
+	},
 
 	experimental: {
 		typedPages: true,
@@ -21,6 +23,7 @@ export default defineNuxtConfig({
 			},
 			auth: {
 				oAuthProviders: ['google', 'github'],
+				redirectPath: '/app/dashboard',
 			},
 		},
 	},
@@ -107,7 +110,7 @@ export default defineNuxtConfig({
 			},
 		],
 		defaultLocale: 'en',
-		strategy: 'prefix_except_default',
+		strategy: 'no_prefix',
 		detectBrowserLanguage: {
 			useCookie: true,
 			cookieKey: 'NUXT_LOCALE',

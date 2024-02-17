@@ -18,8 +18,8 @@ export const createCheckoutLink = protectedProcedure
 			const checkoutLink = await createCheckoutLinkResolver({
 				planId,
 				variantId,
-				email: user!.email,
-				name: user!.name ?? '',
+				email: user.email,
+				name: user.name ?? '',
 				teamId,
 				redirectUrl,
 			})

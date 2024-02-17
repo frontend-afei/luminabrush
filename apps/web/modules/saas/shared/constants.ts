@@ -1,1 +1,1 @@
-export const TEAM_SLUG_COOKIE_NAME = 'team-slug'
+export const CURRENT_TEAM_ID_COOKIE = 'current-team-id'

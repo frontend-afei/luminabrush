@@ -25,12 +25,13 @@
 </template>
 
 <script setup lang="ts">
-	import type { UserOneTimePasswordType } from 'database'
+	import type { UserOneTimePasswordTypeType } from 'database'
 
 	const { apiCaller } = useApiCaller()
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
 	const { user, loaded } = useUser()
+	const runtimeConfig = useRuntimeConfig()
 
 	const { z, toTypedSchema, useForm } = formUtils
 
@@ -46,13 +47,13 @@
 	const { searchQuery: typeParam } = useRouteSearchQuery({ name: 'type', replace: true })
 
 	const type = computed(() => {
-		return typeParam.value as UserOneTimePasswordType
+		return typeParam.value as UserOneTimePasswordTypeType
 	})
 
 	const redirectTo = computed(() => {
 		const path = invitationCode.value
 			? `/team/invitation?code=${invitationCode.value}`
-			: `/team/redirect?redirectTo=${encodeURIComponent(redirectToParam.value || '')}`
+			: redirectToParam.value || runtimeConfig.public.auth.redirectPath
 		return localePath(path)
 	})
 

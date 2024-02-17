@@ -17,6 +17,7 @@
 	const { apiCaller } = useApiCaller()
 	const { t } = useTranslations()
 	const { toast } = useToast()
+	const { reloadUser } = useUser()
 
 	const emit = defineEmits<{
 		success: [newTeam: ApiOutput['team']['create']]
@@ -53,6 +54,7 @@
 				title: t('createTeam.notifications.success'),
 			})
 
+			await reloadUser()
 			emit('success', newTeam)
 		} catch (e) {
 			toast({

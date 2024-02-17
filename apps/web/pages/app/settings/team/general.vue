@@ -10,7 +10,6 @@
 		layout: 'saas-app',
 	})
 
-	const route = useRoute('teamSlug-settings-team-general___en')
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
 	const { apiCaller } = useApiCaller()
@@ -19,12 +18,19 @@
 		title: t('settings.team.title'),
 	})
 
+	const currentTeamId = useCurrentTeamIdCookie()
+
+	if (!currentTeamId.value) {
+		navigateTo(localePath('/auth/login'))
+		throw new Error('Team not found')
+	}
+
 	const {
 		data: team,
 		pending,
 		error,
-	} = apiCaller.team.bySlug.useQuery({
-		slug: route.params.teamSlug,
+	} = apiCaller.team.byId.useQuery({
+		id: currentTeamId.value,
 	})
 
 	watchEffect(() => {

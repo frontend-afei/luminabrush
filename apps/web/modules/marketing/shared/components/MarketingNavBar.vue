@@ -46,7 +46,7 @@
 								</NuxtLinkLocale>
 
 								<NuxtLinkLocale
-									:to="hasUser ? '/team/redirect' : '/auth/login'"
+									:to="hasUser ? runtimeConfig.auth.redirectPath : '/auth/login'"
 									:prefetch="!hasUser"
 									class="block px-3 py-2 text-lg">
 									{{ hasUser ? t('common.menu.dashboard') : t('common.menu.login') }}
@@ -56,7 +56,7 @@
 					</SheetRoot>
 
 					<Button class="hidden md:block" asChild variant="ghost">
-						<NuxtLinkLocale :to="hasUser ? '/team/redirect' : '/auth/login'" :prefetch="!hasUser">
+						<NuxtLinkLocale :to="hasUser ? runtimeConfig.auth.redirectPath : '/auth/login'" :prefetch="!hasUser">
 							{{ hasUser ? t('common.menu.dashboard') : t('common.menu.login') }}
 						</NuxtLinkLocale>
 					</Button>
@@ -72,6 +72,8 @@
 	const route = useRoute()
 	const { t } = useTranslations()
 	const { user, loaded: userLoaded } = useUser()
+
+	const { public: runtimeConfig } = useRuntimeConfig()
 
 	const hasUser = computed(() => {
 		return userLoaded.value && user.value
