@@ -18,7 +18,8 @@
 		"mail": "workspace:*",
 		"tailwind-config": "workspace:*",
 		"tsconfig": "workspace:*",
-		"utils": "workspace:*"
+		"utils": "workspace:*",
+		"vue-email": "^0.8.8"
 	},
 	"devDependencies": {
 		"@nuxt/content": "^2.8.0",
