@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-muted text-foreground flex min-h-screen place-items-center">
+	<div class="bg-muted text-foreground flex min-h-screen place-items-center py-12">
 		<div class="container">
 			<div class="mx-auto grid w-full max-w-md gap-6">
 				<div class="flex items-center justify-between">
