@@ -12,14 +12,12 @@
 		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
-		"@vue-email/nuxt": "^0.8.6",
 		"api": "workspace:*",
 		"auth": "workspace:*",
 		"mail": "workspace:*",
 		"tailwind-config": "workspace:*",
 		"tsconfig": "workspace:*",
-		"utils": "workspace:*",
-		"vue-email": "^0.8.8"
+		"utils": "workspace:*"
 	},
 	"devDependencies": {
 		"@nuxt/content": "^2.8.0",
