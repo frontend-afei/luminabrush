@@ -251,8 +251,8 @@ importers:
   packages/mail:
     dependencies:
       '@vue-email/nuxt':
-        specifier: ^0.8.13
-        version: 0.8.13(typescript@5.3.3)(vue@3.4.19)
+        specifier: ^0.8.14
+        version: 0.8.14(typescript@5.3.3)(vue@3.4.19)
       eslint-config-custom:
         specifier: workspace:*
         version: link:../config/eslint-config-custom
@@ -3567,10 +3567,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@shikijs/core@1.0.0:
-    resolution: {integrity: sha512-UMKGMZ+8b88N0/n6DWwWth1PHsOaxjW+R2u+hzSiargZWTv+l3s1l8dhuIxUSsEUPlBDKLs2CSMiFZeviKQM1w==}
-    dev: false
-
   /@shikijs/core@1.0.0-beta.1:
     resolution: {integrity: sha512-z3gdznaRj/DJSLQdR2Gdx6AB3e5+Il/kSGdLTGHI7HnalgPL15RbGgBSdLHW8rKAz4+dezAcTdnxm8z6YTu7nA==}
     dev: false
@@ -4428,14 +4424,14 @@ packages:
     resolution: {integrity: sha512-20Yvbkn9xU+sbWg0c7f/Jo5/K8bo1483NQpF0AyYHDI+cvD+F76j+LkXyRRbgVN84Adi1aFKRi6Mcrov1+uo9Q==}
     hasBin: true
     dependencies:
-      '@vue-email/compiler': 0.8.11(typescript@5.3.3)(vue@3.4.19)
+      '@vue-email/compiler': 0.8.12(typescript@5.3.3)(vue@3.4.19)
     transitivePeerDependencies:
       - typescript
       - vue
     dev: false
 
-  /@vue-email/compiler@0.8.11(typescript@5.3.3)(vue@3.4.19):
-    resolution: {integrity: sha512-KSxn9cabAeOG7FIkdylp80sm6pRZL++eYyLME7qHZtJEF5jWpPSux+pydgrEjOxFQZW1+aJ5xw5ocufmpSG/5Q==}
+  /@vue-email/compiler@0.8.12(typescript@5.3.3)(vue@3.4.19):
+    resolution: {integrity: sha512-IPI1KWmH1qEE76SvOOlRXp6nDMSAu9Txb5NeUKehCg/1OGRqEBOzCpzn3VSBeg7a0BNX25nAcTJzY+Nry5db1g==}
     peerDependencies:
       vue: ^3.3.8
     dependencies:
@@ -4443,7 +4439,7 @@ packages:
       kolorist: 1.8.0
       scule: 1.3.0
       vue: 3.4.19(typescript@5.3.3)
-      vue-email: /vue-email-edge@0.8.8-28456447.eb83a24(typescript@5.3.3)(vue@3.4.19)
+      vue-email: 0.8.8(typescript@5.3.3)(vue@3.4.19)
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -4453,11 +4449,11 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@vue-email/nuxt@0.8.13(typescript@5.3.3)(vue@3.4.19):
-    resolution: {integrity: sha512-C6NZ2bxYIPFbKMn6ZYKVkoOlNhBvjOj8fEuguVwWXJKfp/o24a0NO+AS5cDpakwcczKWVWsGDckeKqONwrLM/Q==}
+  /@vue-email/nuxt@0.8.14(typescript@5.3.3)(vue@3.4.19):
+    resolution: {integrity: sha512-a4R/WViAyFVjUbtqnJrAzgdqfjmBuSuqKnq+I8F+PvJOO+kg5JTFznskQ0q/7KuzzICWrGpSyeH8aQnmYkgCgA==}
     dependencies:
       '@nuxt/kit': 3.10.2
-      '@vue-email/compiler': 0.8.11(typescript@5.3.3)(vue@3.4.19)
+      '@vue-email/compiler': 0.8.12(typescript@5.3.3)(vue@3.4.19)
       defu: 6.1.4
       destr: 2.0.2
       json5: 2.2.3
@@ -11171,12 +11167,6 @@ packages:
     deprecated: Please migrate to https://github.com/antfu/shikiji
     dev: true
 
-  /shiki@1.0.0:
-    resolution: {integrity: sha512-rOUGJa3yFGgOrEoiELYxraoBbag3ZWf9bpodlr05Wjm85Scx8OIX+otdSefq9Pk7L47TKEzGodSQb4L38jka6A==}
-    dependencies:
-      '@shikijs/core': 1.0.0
-    dev: false
-
   /shiki@1.0.0-beta.1:
     resolution: {integrity: sha512-iq32WxjemJVlAHg5HjYoL1qCxGmvyh3Z8kr2E/gMTQdcxyXxTpMhahIC7myxFBapAk9o8QN8mxCpr4JT5rqpRQ==}
     dependencies:
@@ -12688,28 +12678,6 @@ packages:
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
     dev: true
-
-  /vue-email-edge@0.8.8-28456447.eb83a24(typescript@5.3.3)(vue@3.4.19):
-    resolution: {integrity: sha512-y6UxMn93DSXTZQAkevbG/QxMvWgifXhXsrNAZmSVphZBswA5U4T7x3KKESA+MtqtG2KuRgsg/FG/mjTOmGXYLw==}
-    hasBin: true
-    peerDependencies:
-      vue: ^3.4.15
-    dependencies:
-      '@vue-email/cli': 0.0.12(typescript@5.3.3)(vue@3.4.19)
-      '@vue-email/tailwind': 0.0.6
-      isomorphic-dompurify: 2.3.0
-      shiki: 1.0.0
-      ufo: 1.4.0
-      vue: 3.4.19(typescript@5.3.3)
-      vue-i18n: 9.9.1(vue@3.4.19)
-    transitivePeerDependencies:
-      - bufferutil
-      - canvas
-      - supports-color
-      - ts-node
-      - typescript
-      - utf-8-validate
-    dev: false
 
   /vue-email@0.8.8(typescript@5.3.3)(vue@3.4.19):
     resolution: {integrity: sha512-wBPvGhh3okP6qk5XBELLikYHUzt6OgNRMmB9Cyk7QXOgNFo3D6DNaaSsZQ9cZrwtM35lD8bH/awy9QO4MoDZtg==}
