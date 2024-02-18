@@ -19,8 +19,10 @@ export const googleAuth = new Google(
 	new URL('/api/oauth/google/callback', getBaseUrl()).toString()
 )
 
+const GOOGLE_PROIVDER_ID = 'google'
+
 type GoogleUser = {
-	id: number
+	sub: string
 	email: string
 	email_verified?: boolean
 	picture?: string
@@ -74,15 +76,43 @@ export async function googleCallbackRouteHandler(event: H3Event<EventHandlerRequ
 				Authorization: `Bearer ${tokens.accessToken}`,
 			},
 		})
-		const existingUser = await db.userOauthAccount.findFirst({
+		const existingUser = await db.user.findFirst({
 			where: {
-				providerId: 'google',
-				providerUserId: String(googleUser.id),
+				OR: [
+					{
+						oauthAccounts: {
+							some: {
+								providerId: GOOGLE_PROIVDER_ID,
+								providerUserId: googleUser.sub,
+							},
+						},
+					},
+					{
+						email: googleUser.email,
+					},
+				],
+			},
+			select: {
+				id: true,
+				oauthAccounts: {
+					select: {
+						providerId: true,
+					},
+				},
 			},
 		})
 
 		if (existingUser) {
-			const session = await lucia.createSession(existingUser.userId, {})
+			if (!existingUser.oauthAccounts.some(account => account.providerId === GOOGLE_PROIVDER_ID)) {
+				await db.userOauthAccount.create({
+					data: {
+						providerId: GOOGLE_PROIVDER_ID,
+						providerUserId: googleUser.sub,
+						userId: existingUser.id,
+					},
+				})
+			}
+			const session = await lucia.createSession(existingUser.id, {})
 			const sessionCookie = lucia.createSessionCookie(session.id)
 			setCookie(event, sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 			return await sendRedirect(event, '/app/dashboard', 302)
@@ -100,7 +130,7 @@ export async function googleCallbackRouteHandler(event: H3Event<EventHandlerRequ
 		await db.userOauthAccount.create({
 			data: {
 				providerId: 'google',
-				providerUserId: String(googleUser.id),
+				providerUserId: googleUser.sub,
 				userId: newUser.id,
 			},
 		})
