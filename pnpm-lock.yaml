@@ -143,8 +143,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(@prisma/client@5.9.1)(lucia@3.0.1)
       arctic:
-        specifier: ^1.1.0
-        version: 1.1.6
+        specifier: ^1.2.0
+        version: 1.2.0
       database:
         specifier: workspace:*
         version: link:../database
@@ -5010,8 +5010,8 @@ packages:
       zip-stream: 5.0.1
     dev: true
 
-  /arctic@1.1.6:
-    resolution: {integrity: sha512-tE24DLtMn0s7BBqH3D8f8kWSqrg2AFYS3FVAvnj8N9h1Pu/dYmhyAy7WmW1/rrpLY4yP8q3D5s+PqfF3XybI+A==}
+  /arctic@1.2.0:
+    resolution: {integrity: sha512-fzJQgTGrjPtRU69Oz0091w1cGdfAKlnEoawaKuTJ52DOnpyQM2N18i1aeyvsvJKqb9P/PbPPfsyXgOEQS9wMTQ==}
     dependencies:
       auri: 1.0.2
       oslo: 1.0.1
