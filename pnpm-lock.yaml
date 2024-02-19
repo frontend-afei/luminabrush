@@ -164,8 +164,8 @@ importers:
         specifier: 14.1.0
         version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
       oslo:
-        specifier: ^1.0.4
-        version: 1.1.1
+        specifier: ^1.1.2
+        version: 1.1.2
       tsconfig:
         specifier: workspace:*
         version: link:../config/tsconfig
@@ -5105,7 +5105,7 @@ packages:
       dotenv: 16.4.4
       front-matter: 4.0.2
       nanoid: 4.0.2
-      oslo: 1.1.1
+      oslo: 1.1.2
     dev: false
 
   /autoprefixer@10.4.17(postcss@8.4.35):
@@ -9822,8 +9822,8 @@ packages:
       '@node-rs/bcrypt': 1.9.2
     dev: false
 
-  /oslo@1.1.1:
-    resolution: {integrity: sha512-BuJp5GfBW3jkUDLb8VftXD9FRTfjnodMyVshSy6p4UP8PhQI8auTxAQlef9NdFe6JC4mEgZb/mhMJpfNVudDTA==}
+  /oslo@1.1.2:
+    resolution: {integrity: sha512-l5tmumAHJy6wTfcxjwbPtcEn23lxnsBqbW1PqM11lqnQ79Q8Gzc7b3+OjRpLTbiqkfvhT4/BZ2Ooe8/QCJxyEg==}
     dependencies:
       '@node-rs/argon2': 1.7.0
       '@node-rs/bcrypt': 1.9.0
