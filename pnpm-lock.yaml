@@ -141,7 +141,7 @@ importers:
     dependencies:
       '@lucia-auth/adapter-prisma':
         specifier: ^4.0.0
-        version: 4.0.0(@prisma/client@5.9.1)(lucia@3.0.1)
+        version: 4.0.0(@prisma/client@5.10.0)(lucia@3.0.1)
       arctic:
         specifier: ^1.2.0
         version: 1.2.0
@@ -233,8 +233,8 @@ importers:
         version: link:../config/tsconfig
     devDependencies:
       '@prisma/client':
-        specifier: ^5.6.0
-        version: 5.9.1(prisma@5.9.1)
+        specifier: ^5.10.0
+        version: 5.10.0(prisma@5.9.1)
       dotenv-cli:
         specifier: ^7.3.0
         version: 7.3.0
@@ -1745,13 +1745,13 @@ packages:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
 
-  /@lucia-auth/adapter-prisma@4.0.0(@prisma/client@5.9.1)(lucia@3.0.1):
+  /@lucia-auth/adapter-prisma@4.0.0(@prisma/client@5.10.0)(lucia@3.0.1):
     resolution: {integrity: sha512-TJg4/U1K1slS4A/OzDYCgmHTrIArntIynue14zGIEaMDu+OD+tGyq9WwQWqOabpx2Gm9xtDsoK+tTokAY3Up7A==}
     peerDependencies:
       '@prisma/client': ^4.2.0 || ^5.0.0
       lucia: 3.x
     dependencies:
-      '@prisma/client': 5.9.1(prisma@5.9.1)
+      '@prisma/client': 5.10.0(prisma@5.9.1)
       lucia: 3.0.1
     dev: false
 
@@ -3239,8 +3239,8 @@ packages:
   /@polka/url@1.0.0-next.24:
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
 
-  /@prisma/client@5.9.1(prisma@5.9.1):
-    resolution: {integrity: sha512-caSOnG4kxcSkhqC/2ShV7rEoWwd3XrftokxJqOCMVvia4NYV/TPtJlS9C2os3Igxw/Qyxumj9GBQzcStzECvtQ==}
+  /@prisma/client@5.10.0(prisma@5.9.1):
+    resolution: {integrity: sha512-JQqKYpKplsAaPDk0RVKBsN4ly6AWJys6Hkjh9PJMgtdY0IME1C0aHckyGUhHpenmOO2J6liPDDm1svSrzce8BQ==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
