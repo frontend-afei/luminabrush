@@ -28,7 +28,7 @@
 		"@nuxtjs/i18n": "8.1.1",
 		"@nuxtjs/tailwindcss": "^6.10.1",
 		"@vee-validate/zod": "^4.11.8",
-		"@vueuse/core": "^10.6.1",
+		"@vueuse/core": "^10.8.0",
 		"class-variance-authority": "^0.7.0",
 		"database": "workspace:*",
 		"lucide-vue-next": "^0.334.0",
