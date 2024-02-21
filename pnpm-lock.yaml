@@ -82,8 +82,8 @@ importers:
         specifier: ^3.1.9
         version: 3.1.10(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.19)(nuxt@3.10.2)(postcss@8.4.35)(rollup@4.11.0)(vite@5.1.3)(vue@3.4.19)(webpack@5.90.2)
       radix-vue:
-        specifier: ^1.4.7
-        version: 1.4.7(vue@3.4.19)
+        specifier: ^1.4.8
+        version: 1.4.8(vue@3.4.19)
       tailwind-merge:
         specifier: ^2.2.1
         version: 2.2.1
@@ -10612,8 +10612,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /radix-vue@1.4.7(vue@3.4.19):
-    resolution: {integrity: sha512-wNfUCaghG2GWiPqCDK/Vp0WJPsEjXSVOwdiSMnYlKnSK3DQpCf4vJg9b67SA89xGB+YVQnLEqewSUn0G5scVSg==}
+  /radix-vue@1.4.8(vue@3.4.19):
+    resolution: {integrity: sha512-DDCA9QjyBpV9iOyUrSWjK8B5j78aFKZFl8DRGKYeR7l4nIejtxulVyWzaCk4lv+KXmupyP9SXC4LlC3AGjeR5w==}
     dependencies:
       '@floating-ui/dom': 1.6.3
       '@floating-ui/vue': 1.0.6(vue@3.4.19)
