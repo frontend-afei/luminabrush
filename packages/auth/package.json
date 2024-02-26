@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"@lucia-auth/adapter-prisma": "^4.0.0",
-		"arctic": "^1.2.0",
+		"arctic": "^1.2.1",
 		"database": "workspace:*",
 		"eslint-config-custom": "workspace:*",
 		"h3": "^1.10.2",
