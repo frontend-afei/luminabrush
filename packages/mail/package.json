@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"dependencies": {
-		"@vue-email/nuxt": "^0.8.18",
+		"@vue-email/nuxt": "^0.8.19",
 		"eslint-config-custom": "workspace:*",
 		"nodemailer": "^6.9.10",
 		"tsconfig": "workspace:*",
