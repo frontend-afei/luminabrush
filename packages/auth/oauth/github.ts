@@ -24,11 +24,17 @@ type GitHubUser = {
 	avatar_url: string
 }
 
+type GithubUserEmails = Array<{
+	email: string
+	primary?: boolean
+	verified?: boolean
+}>
+
 export async function githubRouteHandler(event: H3Event<EventHandlerRequest>) {
 	const state = generateState()
 
 	const url = await githubAuth.createAuthorizationURL(state, {
-		scopes: ['email'],
+		scopes: ['user:email'],
 	})
 
 	setCookie(event, 'github_oauth_state', state, {
@@ -61,6 +67,14 @@ export async function githubCallbackRouteHandler(event: H3Event<EventHandlerRequ
 				Authorization: `Bearer ${tokens.accessToken}`,
 			},
 		})
+
+		const emails = await $fetch<GithubUserEmails>('https://api.github.com/user/emails', {
+			headers: {
+				Authorization: `Bearer ${tokens.accessToken}`,
+			},
+		})
+
+		githubUser.email = githubUser.email ?? emails.find(email => email.primary)?.email
 
 		const existingUser = await db.user.findFirst({
 			where: {
