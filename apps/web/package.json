@@ -20,7 +20,7 @@
 		"utils": "workspace:*"
 	},
 	"devDependencies": {
-		"@nuxt/content": "^2.8.0",
+		"@nuxt/content": "^2.12.1",
 		"@nuxt/devtools": "^1.0.3",
 		"@nuxt/image": "1.4.0",
 		"@nuxtjs/color-mode": "^3.3.2",
