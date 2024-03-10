@@ -7,11 +7,12 @@ export const update = protectedProcedure
 	.input(
 		z.object({
 			id: z.string(),
-			name: z.string(),
+			name: z.string().optional(),
+			avatarUrl: z.string().optional(),
 		})
 	)
 	.output(TeamSchema)
-	.mutation(async ({ input: { id, name }, ctx: { abilities } }) => {
+	.mutation(async ({ input: { id, name, avatarUrl }, ctx: { abilities } }) => {
 		if (!abilities.isTeamOwner(id)) {
 			throw new TRPCError({
 				code: 'UNAUTHORIZED',
@@ -25,6 +26,7 @@ export const update = protectedProcedure
 			},
 			data: {
 				name,
+				avatarUrl,
 			},
 		})
 

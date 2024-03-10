@@ -34,6 +34,7 @@ export const create = protectedProcedure
 			select: {
 				id: true,
 				name: true,
+				avatarUrl: true,
 				memberships: {
 					select: {
 						id: true,

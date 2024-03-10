@@ -11,7 +11,8 @@
 		"eslint-config-custom": "workspace:*",
 		"mail": "workspace:*",
 		"tsconfig": "workspace:*",
-		"utils": "workspace:*"
+		"utils": "workspace:*",
+		"storage": "workspace:*"
 	},
 	"devDependencies": {
 		"openai": "^4.28.4",
