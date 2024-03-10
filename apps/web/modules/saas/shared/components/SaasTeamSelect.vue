@@ -4,7 +4,7 @@
 			class="focus-visible:ring-ring focus-visible:border-primary -ml-2 flex w-full items-center justify-between rounded-md px-2 py-2 text-left outline-none focus-visible:ring-1">
 			<div class="flex items-center justify-start gap-2 text-sm">
 				<span class="hidden lg:block">
-					<BoringAvatar :size="32" :name="currentTeam.name" variant="marble" />
+					<TeamAvatar class="size-8" :name="currentTeam.name" />
 				</span>
 				<span class="block flex-1 truncate">{{ currentTeam.name }}</span>
 				<Icon name="select" class="block h-4 w-4 opacity-50" />
@@ -17,7 +17,7 @@
 					:key="teamMembership.team.id"
 					:value="teamMembership.team.id">
 					<div class="flex flex-1 items-center justify-start gap-2">
-						<BoringAvatar :size="16" :name="teamMembership.team.name" variant="marble" />
+						<TeamAvatar class="size-6" :name="teamMembership.team.name" />
 						{{ teamMembership.team.name }}
 					</div>
 				</DropdownMenuRadioItem>
