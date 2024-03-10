@@ -94,8 +94,8 @@ importers:
         specifier: ^1.3.2
         version: 1.4.0
       vee-validate:
-        specifier: ^4.11.8
-        version: 4.12.5(vue@3.4.19)
+        specifier: ^4.12.6
+        version: 4.12.6(vue@3.4.19)
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -12376,6 +12376,16 @@ packages:
       '@vue/devtools-api': 6.5.1
       type-fest: 4.10.2
       vue: 3.4.19(typescript@5.4.2)
+    dev: true
+
+  /vee-validate@4.12.6(vue@3.4.19):
+    resolution: {integrity: sha512-EKM3YHy8t1miPh30d5X6xOrfG/Ctq0nbN4eMpCK7ezvI6T98/S66vswP+ihL4QqAK/k5KqreWOxof09+JG7N/A==}
+    peerDependencies:
+      vue: ^3.3.11
+    dependencies:
+      '@vue/devtools-api': 6.5.1
+      type-fest: 4.10.2
+      vue: 3.4.19(typescript@5.3.3)
     dev: true
 
   /vee-validate@4.12.6(vue@3.4.19):
