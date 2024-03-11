@@ -174,7 +174,11 @@
 				"note": "Please enter at least 8 characters.",
 				"title": "Your password"
 			},
-			"title": "Account"
+			"title": "Account",
+			"avatar": {
+				"title": "Your avatar",
+				"description": "To change your avatar click the picture on the right side of this block and select a file from your computer to upload."
+			}
 		},
 		"billing": {
 			"subscription": {
@@ -250,6 +254,9 @@
 				"label": "Pause subscription"
 			}
 		},
+		"cropImage": {
+			"save": "Save"
+		},
 		"notifications": {
 			"emailUpdated": "Your email has been updated.",
 			"nameUpdated": "Your name has been updated.",
@@ -257,7 +264,9 @@
 			"passwordNotUpdated": "We were unable to update your password. Please try again.",
 			"teamNameNotUpdated": "We were unable to update your team name. Please try again later.",
 			"teamNameUpdated": "Your team name has been updated.",
-			"nameUpdateFailed": "Could not update your name. Please try again later."
+			"nameUpdateFailed": "Could not update your name. Please try again later.",
+			"avatarUpdated": "Your avatar has been updated.",
+			"avatarNotUpdated": "We were unable to update your avatar. Please try again."
 		},
 		"save": "Save",
 		"subtitle": "Manage your settings",

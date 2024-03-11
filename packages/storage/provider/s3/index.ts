@@ -11,17 +11,17 @@ const getS3Client = () => {
 
 	const s3Endpoint = process.env.S3_ENDPOINT as string
 	if (!s3Endpoint) {
-		throw new Error('Missing env variable S3_ENDPOINT')
+		console.error('Missing env variable S3_ENDPOINT')
 	}
 
 	const s3AccessKeyId = process.env.S3_ACCESS_KEY_ID as string
 	if (!s3AccessKeyId) {
-		throw new Error('Missing env variable S3_ACCESS_KEY_ID')
+		console.error('Missing env variable S3_ACCESS_KEY_ID')
 	}
 
 	const s3SecretAccessKey = process.env.S3_SECRET_ACCESS_KEY as string
 	if (!s3SecretAccessKey) {
-		throw new Error('Missing env variable S3_SECRET_ACCESS_KEY')
+		console.error('Missing env variable S3_SECRET_ACCESS_KEY')
 	}
 
 	s3Client = new S3Client({

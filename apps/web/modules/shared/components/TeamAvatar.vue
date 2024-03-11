@@ -2,7 +2,7 @@
 	<AvatarRoot>
 		<AvatarImage v-if="props.avatarUrl" :src="props.avatarUrl" />
 		<AvatarFallback class="bg-primary/10 text-primary">
-			<BoringAvatar :size="32" :name="name" variant="marble" />
+			<BoringAvatar :size="84" :name="name" variant="marble" />
 		</AvatarFallback>
 	</AvatarRoot>
 </template>

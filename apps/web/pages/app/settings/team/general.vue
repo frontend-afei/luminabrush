@@ -1,8 +1,8 @@
 <template>
-	<div v-if="!pending" class="grid gap-6">
-		<SaasChangeTeamNameForm v-if="team" :initialValue="team.name" :teamId="team.id" />
+	<div v-if="currentTeam" class="grid gap-6">
+		<SaasTeamAvatarForm />
+		<SaasChangeTeamNameForm :initialValue="currentTeam.name" :teamId="currentTeam.id" />
 	</div>
-	<SaasLoadingSpinner v-else />
 </template>
 
 <script setup lang="ts">
@@ -12,7 +12,7 @@
 
 	const { t } = useTranslations()
 	const localePath = useLocalePath()
-	const { apiCaller } = useApiCaller()
+	const { currentTeam } = useUser()
 
 	useSeoMeta({
 		title: t('settings.team.title'),
@@ -24,18 +24,4 @@
 		navigateTo(localePath('/auth/login'))
 		throw new Error('Team not found')
 	}
-
-	const {
-		data: team,
-		pending,
-		error,
-	} = apiCaller.team.byId.useQuery({
-		id: currentTeamId.value,
-	})
-
-	watchEffect(() => {
-		if (!pending.value && (!team.value || error.value)) {
-			navigateTo(localePath('/auth/login'))
-		}
-	})
 </script>
