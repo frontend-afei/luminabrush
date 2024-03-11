@@ -1,19 +1,15 @@
 <template>
 	<DialogRoot :open="open" @update:open="(value: boolean) => emit('openChange', value)">
 		<DialogContent>
-			<DialogDescription class="sr-only">
-				{{ $t('createTeam.title') }}
-			</DialogDescription>
+			<DialogDescription class="sr-only"></DialogDescription>
 			<DialogHeader>
-				<DialogTitle>
-					{{ $t('createTeam.title') }}
-				</DialogTitle>
+				<DialogTitle></DialogTitle>
 			</DialogHeader>
 			<div class="aspect-square">
 				<img v-if="image && imageSrc" ref="imageRef" :src="imageSrc" style="width: 100%" @load="onImageLoaded()" />
 			</div>
 			<DialogFooter>
-				<Button size="sm" @click="saveCroppedImageData()">{{ t('settings.cropImage.save') }}</Button>
+				<Button size="sm" @click="saveCroppedImageData()">{{ $t('settings.cropImage.save') }}</Button>
 			</DialogFooter>
 		</DialogContent>
 	</DialogRoot>
@@ -43,6 +39,7 @@
 				viewMode: 1,
 				background: false,
 				autoCropArea: 1,
+				guides: true,
 			})
 		}
 	}
@@ -54,11 +51,13 @@
 	})
 
 	const saveCroppedImageData = async () => {
-		const canvas = cropper.value?.getCroppedCanvas()
+		const canvas = cropper.value?.getCroppedCanvas({
+			maxWidth: 512,
+			maxHeight: 512,
+		})
 		const croppedImageData = await new Promise<Blob | null>(resolve => canvas?.toBlob(resolve))
 
 		emit('save', croppedImageData)
-		emit('openChange', false)
 	}
 
 	const imageSrc = computed(() => props.image && URL.createObjectURL(props.image))
