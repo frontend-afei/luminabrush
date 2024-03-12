@@ -42,6 +42,12 @@ export const loginWithPassword = publicProcedure
 				code: 'NOT_FOUND',
 			})
 
+		if (!user.emailVerified)
+			throw new TRPCError({
+				code: 'UNAUTHORIZED',
+				message: 'Email not verified',
+			})
+
 		const isValidPassword = await verifyPassword(user.hashedPassword, password)
 
 		if (!isValidPassword)
