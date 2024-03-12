@@ -2,10 +2,7 @@
   <tfoot
     v-bind="{
       ...$attrs,
-      class: twMerge(
-        'bg-primary text-primary-foreground font-medium',
-        props.class,
-      ),
+      class: cn('bg-primary text-primary-foreground font-medium', props.class),
     }"
   >
     <slot />

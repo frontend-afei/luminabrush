@@ -41,13 +41,13 @@ export default defineNuxtConfig({
   },
 
   components: [
-    //
     { path: "@/modules/ui/components", pathPrefix: false },
     { path: "@/modules/shared/components", pathPrefix: false },
     { path: "@/modules/marketing/shared/components", pathPrefix: false },
     { path: "@/modules/marketing/home/components", pathPrefix: false },
     { path: "@/modules/marketing/blog/components", pathPrefix: false },
     { path: "@/modules/marketing/pricing/components", pathPrefix: false },
+    { path: "@/modules/saas/admin/components", pathPrefix: false },
     { path: "@/modules/saas/auth/components", pathPrefix: false },
     { path: "@/modules/saas/dashboard/components", pathPrefix: false },
     { path: "@/modules/saas/settings/components", pathPrefix: false },
@@ -124,7 +124,7 @@ export default defineNuxtConfig({
   googleFonts: {
     display: "swap",
     families: {
-      Onest: [400, 500, 600, 700, 800],
+      "Plus Jakarta Sans": [400, 500, 600, 700, 800],
     },
   },
 

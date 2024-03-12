@@ -2,7 +2,7 @@
   <caption
     v-bind="{
       ...$attrs,
-      class: twMerge('text-muted-foreground mt-4 text-sm', props.class),
+      class: cn('text-muted-foreground mt-4 text-sm', props.class),
     }"
   >
     <slot />

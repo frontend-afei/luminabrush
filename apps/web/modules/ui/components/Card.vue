@@ -1,7 +1,10 @@
 <template>
   <div
     :class="
-      twMerge('bg-card text-card-foreground rounded-lg shadow', props.class)
+      cn(
+        'bg-card/90 text-card-foreground rounded-lg shadow-sm backdrop-blur-md',
+        props.class,
+      )
     "
   >
     <slot />

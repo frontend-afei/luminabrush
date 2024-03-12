@@ -9,6 +9,7 @@ module.exports = {
     "vue/attribute-hyphenation": "off",
     "vue/v-on-event-hyphenation": "off",
     "vue/define-macros-order": "off",
+    "vue/sort-imports": "off",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
   },
 

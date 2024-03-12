@@ -3,7 +3,7 @@
     v-bind="{
       ...props,
       ...$attrs,
-      class: twMerge('ml-auto text-xs tracking-widest opacity-60', props.class),
+      class: cn('ml-auto text-xs tracking-widest opacity-60', props.class),
     }"
   />
 </template>

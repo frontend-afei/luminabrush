@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge(
+      class: cn(
         'border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
         props.class,
       ),
@@ -18,8 +18,8 @@
 
 <script setup lang="ts">
   import {
-    SelectTrigger,
     SelectIcon,
+    SelectTrigger,
     type SelectTriggerProps,
   } from "radix-vue";
 

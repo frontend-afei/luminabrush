@@ -10,15 +10,15 @@ const lightVariables = {
   colors: {
     border: "#e2e8f0",
     input: "#e2e8f0",
-    ring: "#10b981",
+    ring: "#42a46f",
     background: "#ffffff",
     foreground: "#020817",
-    primary: "#10b981",
+    primary: "#42a46f",
     "primary-foreground": "#ffffff",
     secondary: "#f1f5f9",
     "secondary-foreground": "#0f172a",
-    error: "#ef4444",
-    "error-foreground": "#ffffff",
+    destructive: "#ef4444",
+    "destructive-foreground": "#ffffff",
     success: "#39a561",
     "success-foreground": "#ffffff",
     muted: "#f8fafc",
@@ -36,15 +36,15 @@ const darkVariables = {
   colors: {
     border: "#2f3e57",
     input: "#1e293b",
-    ring: "#34d399",
+    ring: "#42a46f",
     background: "#121924",
     foreground: "#f8fafc",
-    primary: "#34d399",
+    primary: "#42a46f",
     "primary-foreground": "#ffffff",
     secondary: "#1e293b",
     "secondary-foreground": "#f8fafc",
-    error: "#ef4444",
-    "error-foreground": "#ffffff",
+    destructive: "#ef4444",
+    "destructive-foreground": "#ffffff",
     success: "#39a561",
     "success-foreground": "#f8fafc",
     muted: "#020817",
@@ -58,7 +58,7 @@ const darkVariables = {
   },
 };
 
-const config: Config = {
+export default {
   content: [],
   darkMode: ["class"],
   theme: {
@@ -84,8 +84,7 @@ const config: Config = {
         sm: "calc(0.75rem - 4px)",
       },
       fontFamily: {
-        // Loaded from @nuxtjs/google-fonts. Configure in apps/web/nuxt.config.ts
-        sans: ["Onest", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -115,9 +114,9 @@ const config: Config = {
           DEFAULT: colorVariable("--colors-secondary"),
           foreground: colorVariable("--colors-secondary-foreground"),
         },
-        error: {
-          DEFAULT: colorVariable("--colors-error"),
-          foreground: colorVariable("--colors-error-foreground"),
+        destructive: {
+          DEFAULT: colorVariable("--colors-destructive"),
+          foreground: colorVariable("--colors-destructive-foreground"),
         },
         success: {
           DEFAULT: colorVariable("--colors-success"),
@@ -159,6 +158,4 @@ const config: Config = {
       colorVariables: true,
     }),
   ],
-};
-
-export default config;
+} satisfies Config;

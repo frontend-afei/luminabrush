@@ -20,6 +20,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@tanstack/vue-table':
+        specifier: ^8.13.2
+        version: 8.13.2(vue@3.4.19)
       api:
         specifier: workspace:*
         version: link:../../packages/api
@@ -85,8 +88,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       lucide-vue-next:
-        specifier: ^0.356.0
-        version: 0.356.0(vue@3.4.19)
+        specifier: ^0.352.0
+        version: 0.352.0(vue@3.4.19)
       nuxt:
         specifier: 3.10.3
         version: 3.10.3(rollup@4.11.0)(vite@5.1.4)
@@ -94,7 +97,7 @@ importers:
         specifier: ^3.1.9
         version: 3.1.10(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.21)(nuxt@3.10.3)(postcss@8.4.35)(rollup@4.11.0)(vite@5.1.4)(vue@3.4.19)(webpack@5.90.2)
       radix-vue:
-        specifier: ^1.5.2
+        specifier: ^1.5.1
         version: 1.5.2(vue@3.4.19)
       tailwind-merge:
         specifier: ^2.2.1
@@ -4696,6 +4699,21 @@ packages:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.1
     dev: true
+
+  /@tanstack/table-core@8.13.2:
+    resolution: {integrity: sha512-/2saD1lWBUV6/uNAwrsg2tw58uvMJ07bO2F1IWMxjFRkJiXKQRuc3Oq2aufeobD3873+4oIM/DRySIw7+QsPPw==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/vue-table@8.13.2(vue@3.4.19):
+    resolution: {integrity: sha512-yWqLT4glpjpNpN5HUOhpR/cwHJIjQKT/njiW5jQYYB0kxJ6qX3Ra1+frKM50F1K7y8mdce8btTKzRUzx4+q7mQ==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.2.33
+    dependencies:
+      '@tanstack/table-core': 8.13.2
+      vue: 3.4.19(typescript@5.4.2)
+    dev: false
 
   /@trpc/client@10.45.1(@trpc/server@10.45.1):
     resolution: {integrity: sha512-nVbAk1xpIiI64WgzXGgfxPOGgHoYvffn1IsjV1D/Ri7DL4BKuo2qtZ7UQ+OuHkzH2M8j4ikSVBDpk545fOdvpw==}
@@ -9697,8 +9715,8 @@ packages:
       oslo: 1.0.1
     dev: false
 
-  /lucide-vue-next@0.356.0(vue@3.4.19):
-    resolution: {integrity: sha512-giWqqnnqAVCfgGXFzsrKaHC4cwxnX8ySB/5UMy0t2ZUBmOXYRo+0JI+bYHWTdqOEW5nfgjcSUUObt/M8s9HodQ==}
+  /lucide-vue-next@0.352.0(vue@3.4.19):
+    resolution: {integrity: sha512-69MsKENawidFEYUUFInlanAa1iVH0j3b7aFpCi/e8JjC1IaM5JgnwVGkfhx3EB1cCoS4jOJbeK4TEu0pQ16eOA==}
     peerDependencies:
       vue: '>=3.0.1'
     dependencies:

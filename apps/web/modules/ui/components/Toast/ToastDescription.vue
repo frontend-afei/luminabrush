@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge('text-sm opacity-90', props.class),
+      class: cn('text-sm opacity-90', props.class),
     }"
   >
     <slot />

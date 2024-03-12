@@ -1,6 +1,6 @@
-import { TeamMembershipSchema, TeamSchema, UserSchema } from "database";
-import { z } from "zod";
+import { TeamMembershipSchema, TeamSchema, UserSchema, db } from "database";
 import { getSignedUrl } from "storage";
+import { z } from "zod";
 import { publicProcedure } from "../../trpc";
 
 export const user = publicProcedure
@@ -20,10 +20,14 @@ export const user = publicProcedure
             }),
           )
           .nullable(),
+        impersonatedBy: UserSchema.pick({
+          id: true,
+          name: true,
+        }).nullish(),
       })
       .nullable(),
   )
-  .query(async ({ ctx: { user, teamMemberships } }) => {
+  .query(async ({ ctx: { user, teamMemberships, session } }) => {
     if (!user) {
       return null;
     }
@@ -37,9 +41,22 @@ export const user = publicProcedure
         expiresIn: 360,
       });
 
+    const impersonatedBy = session?.impersonatorId
+      ? await db.user.findUnique({
+          where: {
+            id: session.impersonatorId,
+          },
+          select: {
+            id: true,
+            name: true,
+          },
+        })
+      : undefined;
+
     return {
       ...user,
       avatarUrl,
+      impersonatedBy,
       teamMemberships,
     };
   });

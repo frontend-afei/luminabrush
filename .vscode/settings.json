@@ -1,7 +1,11 @@
 {
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": true
+  },
   "tailwindCSS.experimental.classRegex": [
-    ["twMerge\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "tailwindCSS.experimental.configFile": "apps/web/tailwind.config.ts",
   "typescript.preferences.importModuleSpecifier": "shortest",

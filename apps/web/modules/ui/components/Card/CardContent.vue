@@ -1,5 +1,5 @@
 <template>
-  <div :class="twMerge('p-6 pt-0', props.class)">
+  <div :class="cn('p-6 pt-0', props.class)">
     <slot />
   </div>
 </template>

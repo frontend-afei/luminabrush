@@ -1,5 +1,5 @@
 <template>
-  <div :class="twMerge(props.class, '@container')">
+  <div :class="cn(props.class, '@container')">
     <div class="flex justify-end">
       <TabsRoot v-model="interval" class="mb-4">
         <TabsList>
@@ -31,8 +31,8 @@
 
 <script setup lang="ts">
   import type {
-    SubscriptionPlan,
     SubscriptionInterval,
+    SubscriptionPlan,
   } from "@/modules/shared/components/PricingTableItem.vue";
 
   const props = defineProps<{

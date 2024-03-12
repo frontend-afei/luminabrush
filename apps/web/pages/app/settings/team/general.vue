@@ -5,6 +5,7 @@
       :initialValue="currentTeam.name"
       :teamId="currentTeam.id"
     />
+    <SaasDeleteTeamForm />
   </div>
 </template>
 

@@ -4,6 +4,7 @@ export type Toast = {
   description?: string;
   variant: "default" | "loading" | "error" | "success";
   icon?: string;
+  duration?: number;
 };
 
 export const useToast = () => {
@@ -28,9 +29,21 @@ export const useToast = () => {
     toasts.value = toasts.value.filter((n: Toast) => n.id !== id);
   };
 
+  const update = (id: string, updated: Partial<Toast>) => {
+    toasts.value = toasts.value.map((n) =>
+      n.id === id
+        ? {
+            ...n,
+            updated,
+          }
+        : n,
+    );
+  };
+
   return {
     state: toasts,
     toast,
     dismiss,
+    update,
   };
 };

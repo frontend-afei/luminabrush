@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge('aspect-square h-full w-full', props.class),
+      class: cn('aspect-square h-full w-full', props.class),
     }"
   >
     <slot />

@@ -24,7 +24,7 @@
                 <DropdownMenuContent>
                   <DropdownMenuItem
                     :disabled="teamRole !== 'OWNER'"
-                    class="text-error"
+                    class="text-destructive"
                     @click="
                       () => handleRevokeInvitation({ invitationId: row.id })
                     "

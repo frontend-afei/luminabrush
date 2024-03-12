@@ -1,7 +1,7 @@
 <template>
-  <Card>
+  <Card :class="{ 'border-destructive/50 border': danger }">
     <form @submit.prevent="emit('submit')">
-      <CardHeader>
+      <CardHeader :class="{ 'text-destructive': danger }">
         <template #title><slot name="title" /></template>
       </CardHeader>
 
@@ -14,10 +14,11 @@
         >
           <Button
             type="submit"
+            :variant="danger ? 'error' : 'default'"
             :disabled="props.isSubmitDisabled"
             :loading="props.isSubmitting"
           >
-            {{ t("settings.save") }}
+            {{ submitLabel ?? t("settings.save") }}
           </Button>
         </div>
       </CardContent>
@@ -33,6 +34,8 @@
   const props = defineProps<{
     isSubmitDisabled?: boolean;
     isSubmitting?: boolean;
+    submitLabel?: string;
+    danger?: boolean;
   }>();
 
   const { t } = useTranslations();

@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge('text-sm font-semibold [&+div]:text-xs', props.class),
+      class: cn('text-sm font-semibold [&+div]:text-xs', props.class),
     }"
   >
     <slot />

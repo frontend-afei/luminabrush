@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge(
+      class: cn(
         'focus:bg-accent focus:text-accent-foreground relative flex cursor-default select-none items-center rounded-sm py-2 pl-8 pr-3 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[state=checked]:font-semibold data-[disabled]:opacity-50',
         props.class,
       ),
@@ -20,8 +20,8 @@
 
 <script setup lang="ts">
   import {
-    DropdownMenuRadioItem,
     DropdownMenuItemIndicator,
+    DropdownMenuRadioItem,
     type DropdownMenuRadioItemProps,
   } from "radix-vue";
 

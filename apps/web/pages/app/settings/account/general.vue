@@ -3,6 +3,7 @@
     <SaasUserAvatarForm />
     <SaasChangeNameForm :initialValue="user.name || ''" />
     <SaasChangePasswordForm />
+    <SaasDeleteAccountForm />
   </div>
 </template>
 

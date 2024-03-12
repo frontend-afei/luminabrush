@@ -20,13 +20,12 @@ export const loginWithPassword = publicProcedure
   )
   .output(
     z.object({
-      sessionId: z.string(),
       user: UserSchema.pick({
         id: true,
         email: true,
         name: true,
         role: true,
-        avatar_url: true,
+        avatarUrl: true,
       }),
     }),
   )
@@ -68,7 +67,6 @@ export const loginWithPassword = publicProcedure
     }
 
     return {
-      sessionId: session.id,
       user,
     };
   });

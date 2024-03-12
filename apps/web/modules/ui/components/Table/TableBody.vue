@@ -2,7 +2,7 @@
   <tbody
     v-bind="{
       ...$attrs,
-      class: twMerge('[&_tr:last-child]:border-0', props.class),
+      class: cn('[&_tr:last-child]:border-0', props.class),
     }"
   >
     <slot />

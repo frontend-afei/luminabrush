@@ -22,7 +22,9 @@
       <DropdownMenuSub>
         <DropdownMenuSubTrigger>
           <ColorModeToggleIcon />
-          <div class="ml-2">Color mode</div>
+          <div class="ml-2">
+            {{ t("dashboard.userMenu.colorMode") }}
+          </div>
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
           <DropdownMenuSubContent avoid-collisions>
@@ -38,7 +40,9 @@
         <DropdownMenuSubTrigger>
           <Icon name="language" class="h-4 w-4" />
 
-          <div class="ml-2">Language</div>
+          <div class="ml-2">
+            {{ t("dashboard.userMenu.language") }}
+          </div>
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
           <DropdownMenuSubContent avoid-collisions>
@@ -52,13 +56,18 @@
       <DropdownMenuItem asChild>
         <NuxtLinkLocale to="/app/settings/account/general">
           <Icon name="settings" class="mr-2 h-4 w-4" />
-          Account settings
+          {{ t("dashboard.userMenu.accountSettings") }}
         </NuxtLinkLocale>
+      </DropdownMenuItem>
+
+      <DropdownMenuItem v-if="user.impersonatedBy" @click="unimpersonate()">
+        <Icon name="unimpersonate" class="mr-2 h-4 w-4" />
+        {{ t("dashboard.userMenu.unimpersonate") }}
       </DropdownMenuItem>
 
       <DropdownMenuItem @click="logout">
         <Icon name="logout" class="mr-2 h-4 w-4" />
-        Logout
+        {{ t("dashboard.userMenu.logout") }}
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenuRoot>
@@ -66,4 +75,19 @@
 
 <script setup lang="ts">
   const { user, logout } = useUser();
+  const { t } = useTranslations();
+  const { toast, dismiss: dismissToast } = useToast();
+  const { apiCaller } = useApiCaller();
+
+  const unimpersonateMutation = apiCaller.admin.unimpersonate.useMutation();
+
+  const unimpersonate = async () => {
+    const { id: toastId } = toast({
+      variant: "loading",
+      title: t("admin.users.impersonation.unimpersonating"),
+    });
+    await unimpersonateMutation.mutate();
+    dismissToast(toastId);
+    window.location.reload();
+  };
 </script>

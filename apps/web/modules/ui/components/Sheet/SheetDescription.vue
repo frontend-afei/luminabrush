@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge('text-muted-foreground text-sm', props.class),
+      class: cn('text-muted-foreground text-sm', props.class),
     }"
   >
     <slot />
