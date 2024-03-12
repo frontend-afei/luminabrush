@@ -1,4 +1,5 @@
 import type { inferAsyncReturnType } from '@trpc/server'
+import { getSignedUrl } from 'storage'
 import { lucia, type SessionUser } from 'auth'
 import { db } from 'database'
 import { type H3Event, parseCookies } from 'h3'
@@ -18,14 +19,29 @@ export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
 	}
 
 	const teamMemberships = user
-		? await db.teamMembership.findMany({
-				where: {
-					userId: user.id,
-				},
-				include: {
-					team: true,
-				},
-			})
+		? await Promise.all(
+				(
+					await db.teamMembership.findMany({
+						where: {
+							userId: user.id,
+						},
+						include: {
+							team: true,
+						},
+					})
+				).map(async membership => ({
+					...membership,
+					team: {
+						...membership.team,
+						avatarUrl: membership.team.avatarUrl
+							? await getSignedUrl(membership.team.avatarUrl, {
+									bucket: 'avatars',
+									expiresIn: 360,
+								})
+							: null,
+					},
+				}))
+			)
 		: null
 
 	const abilities = defineAbilitiesFor({

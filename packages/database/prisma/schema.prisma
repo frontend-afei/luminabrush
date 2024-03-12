@@ -84,6 +84,7 @@ model UserOneTimePassword {
 model Team {
   id           String           @id @default(cuid())
   name         String
+  avatarUrl    String?
   memberships  TeamMembership[]
   subscription Subscription?
   invitations  TeamInvitation[]

@@ -1,5 +1,5 @@
 export * from './change-email'
-export * from './change-name'
+export * from './update'
 export * from './change-password'
 export * from './forgot-password'
 export * from './login-with-email'

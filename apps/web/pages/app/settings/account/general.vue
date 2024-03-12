@@ -1,5 +1,6 @@
 <template>
 	<div v-if="user" class="grid gap-6">
+		<SaasUserAvatarForm />
 		<SaasChangeNameForm :initialValue="user.name || ''" />
 		<SaasChangePasswordForm />
 	</div>

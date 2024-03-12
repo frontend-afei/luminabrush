@@ -2,7 +2,11 @@
 	<div class="space-y-8" v-if="activeTeam && user">
 		<SaasSettingsMenuGroup v-for="(item, key) of props.menuItems" :menuItemGroup="item" :key="key">
 			<template #avatar>
-				<BoringAvatar v-if="item.avatar === 'team'" :size="32" :name="activeTeam.name" variant="marble" />
+				<TeamAvatar
+					v-if="item.avatar === 'team'"
+					class="size-8"
+					:name="activeTeam.name"
+					:avatar-url="activeTeam.avatarUrl" />
 				<UserAvatar v-else-if="item.avatar === 'user'" :name="user.name || ''" :avatarUrl="user.avatarUrl" />
 			</template>
 		</SaasSettingsMenuGroup>

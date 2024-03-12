@@ -4,6 +4,7 @@ import * as billingProcedures from '../billing/procedures'
 import * as teamProcedures from '../team/procedures'
 import * as newsletterProcedures from '../newsletter/procedures'
 import * as aiProcedures from '../ai/procedures'
+import * as uploadsProcedures from '../uploads/procedures'
 import { router } from './trpc'
 
 export const apiRouter = router({
@@ -12,6 +13,7 @@ export const apiRouter = router({
 	team: router(teamProcedures),
 	newsletter: router(newsletterProcedures),
 	ai: router(aiProcedures),
+	uploads: router(uploadsProcedures),
 })
 
 export type ApiRouter = typeof apiRouter
