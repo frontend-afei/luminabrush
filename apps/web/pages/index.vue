@@ -1,11 +1,11 @@
 <template>
-	<MarketingHero />
-	<MarketingFeatures />
-	<MarketingNewsletter />
+  <MarketingHero />
+  <MarketingFeatures />
+  <MarketingNewsletter />
 </template>
 
 <script setup lang="ts">
-	definePageMeta({
-		layout: 'marketing',
-	})
+  definePageMeta({
+    layout: "marketing",
+  });
 </script>

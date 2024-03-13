@@ -1,9 +1,9 @@
 <template>
-	<SaasVerifyTokenView />
+  <SaasVerifyTokenView />
 </template>
 
 <script setup lang="ts">
-	definePageMeta({
-		layout: 'saas-auth',
-	})
+  definePageMeta({
+    layout: "saas-auth",
+  });
 </script>

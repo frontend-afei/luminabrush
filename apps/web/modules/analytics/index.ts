@@ -1,13 +1,13 @@
-import { createResolver, defineNuxtModule, addImportsDir } from 'nuxt/kit'
+import { createResolver, defineNuxtModule, addImportsDir } from "nuxt/kit";
 
-const providerPath = './provider/custom'
+const providerPath = "./provider/custom";
 
 export default defineNuxtModule({
-	meta: {
-		name: 'analytics',
-	},
-	setup() {
-		const { resolve } = createResolver(import.meta.url)
-		addImportsDir(resolve(providerPath))
-	},
-})
+  meta: {
+    name: "analytics",
+  },
+  setup() {
+    const { resolve } = createResolver(import.meta.url);
+    addImportsDir(resolve(providerPath));
+  },
+});

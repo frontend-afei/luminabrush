@@ -1,1 +1,1 @@
-export * from './generate-product-names'
+export * from "./generate-product-names";

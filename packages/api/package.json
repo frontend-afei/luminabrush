@@ -1,24 +1,26 @@
 {
-	"name": "api",
-	"version": "0.0.0",
-	"scripts": {
-		"lint": "eslint \"**/*.ts\""
-	},
-	"main": "./index.ts",
-	"dependencies": {
-		"auth": "workspace:*",
-		"database": "workspace:*",
-		"eslint-config-custom": "workspace:*",
-		"mail": "workspace:*",
-		"tsconfig": "workspace:*",
-		"utils": "workspace:*",
-		"storage": "workspace:*"
-	},
-	"devDependencies": {
-		"openai": "^4.28.4",
-		"prisma": "^5.10.2",
-		"superjson": "^2.0.0",
-		"trpc-nuxt": "^0.10.20",
-		"zod": "^3.22.4"
-	}
+  "name": "api",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint \"**/*.ts\""
+  },
+  "main": "./index.ts",
+  "dependencies": {
+    "@lemonsqueezy/lemonsqueezy.js": "^2.2.0",
+    "auth": "workspace:*",
+    "database": "workspace:*",
+    "eslint-config-custom": "workspace:*",
+    "mail": "workspace:*",
+    "storage": "workspace:*",
+    "stripe": "^14.20.0",
+    "tsconfig": "workspace:*",
+    "utils": "workspace:*"
+  },
+  "devDependencies": {
+    "openai": "^4.28.4",
+    "prisma": "^5.10.2",
+    "superjson": "^2.0.0",
+    "trpc-nuxt": "^0.10.20",
+    "zod": "^3.22.4"
+  }
 }

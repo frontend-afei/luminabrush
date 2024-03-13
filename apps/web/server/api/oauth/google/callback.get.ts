@@ -1,3 +1,3 @@
-import { googleCallbackRouteHandler } from 'auth/oauth/google'
+import { googleCallbackRouteHandler } from "auth/oauth/google";
 
-export default defineEventHandler(googleCallbackRouteHandler)
+export default defineEventHandler(googleCallbackRouteHandler);

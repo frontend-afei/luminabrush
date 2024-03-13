@@ -1,3 +1,3 @@
-import { githubRouteHandler } from 'auth/oauth/github'
+import { githubRouteHandler } from "auth/oauth/github";
 
-export default defineEventHandler(githubRouteHandler)
+export default defineEventHandler(githubRouteHandler);

@@ -1,27 +1,30 @@
 <template>
-	<div v-if="currentTeam" class="grid gap-6">
-		<SaasTeamAvatarForm />
-		<SaasChangeTeamNameForm :initialValue="currentTeam.name" :teamId="currentTeam.id" />
-	</div>
+  <div v-if="currentTeam" class="grid gap-6">
+    <SaasTeamAvatarForm />
+    <SaasChangeTeamNameForm
+      :initialValue="currentTeam.name"
+      :teamId="currentTeam.id"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-	definePageMeta({
-		layout: 'saas-app',
-	})
+  definePageMeta({
+    layout: "saas-app",
+  });
 
-	const { t } = useTranslations()
-	const localePath = useLocalePath()
-	const { currentTeam } = useUser()
+  const { t } = useTranslations();
+  const localePath = useLocalePath();
+  const { currentTeam } = useUser();
 
-	useSeoMeta({
-		title: t('settings.team.title'),
-	})
+  useSeoMeta({
+    title: t("settings.team.title"),
+  });
 
-	const currentTeamId = useCurrentTeamIdCookie()
+  const currentTeamId = useCurrentTeamIdCookie();
 
-	if (!currentTeamId.value) {
-		navigateTo(localePath('/auth/login'))
-		throw new Error('Team not found')
-	}
+  if (!currentTeamId.value) {
+    navigateTo(localePath("/auth/login"));
+    throw new Error("Team not found");
+  }
 </script>

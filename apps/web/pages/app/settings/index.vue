@@ -1,8 +1,8 @@
 <script setup lang="ts">
-	const localePath = useLocalePath()
-	await navigateTo(localePath('/app/settings/account/general'))
+  const localePath = useLocalePath();
+  await navigateTo(localePath("/app/settings/account/general"));
 </script>
 
 <template>
-	<div />
+  <div />
 </template>

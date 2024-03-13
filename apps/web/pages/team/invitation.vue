@@ -1,19 +1,19 @@
 <template>
-	<SaasLoadingWrapper />
+  <SaasLoadingWrapper />
 </template>
 
 <script setup lang="ts">
-	const route = useRoute('team-invitation')
-	const localePath = useLocalePath()
+  const route = useRoute("team-invitation");
+  const localePath = useLocalePath();
 
-	const { data } = await useFetch('/api/team/invitation', {
-		query: {
-			code: route.query.code as string,
-		},
-	})
-	const redirectPath = computed(() => {
-		return localePath(data.value?.redirectPath ?? '/')
-	})
+  const { data } = await useFetch("/api/team/invitation", {
+    query: {
+      code: route.query.code as string,
+    },
+  });
+  const redirectPath = computed(() => {
+    return localePath(data.value?.redirectPath ?? "/");
+  });
 
-	navigateTo(redirectPath.value)
+  navigateTo(redirectPath.value);
 </script>
