@@ -6,13 +6,15 @@
 	},
 	"main": "./index.ts",
 	"dependencies": {
+		"@lemonsqueezy/lemonsqueezy.js": "^2.2.0",
 		"auth": "workspace:*",
 		"database": "workspace:*",
 		"eslint-config-custom": "workspace:*",
 		"mail": "workspace:*",
+		"storage": "workspace:*",
+		"stripe": "^14.20.0",
 		"tsconfig": "workspace:*",
-		"utils": "workspace:*",
-		"storage": "workspace:*"
+		"utils": "workspace:*"
 	},
 	"devDependencies": {
 		"openai": "^4.28.4",

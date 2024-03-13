@@ -24,6 +24,12 @@ export const createCheckoutLink = protectedProcedure
 				redirectUrl,
 			})
 
+			if (!checkoutLink) {
+				throw new TRPCError({
+					code: 'INTERNAL_SERVER_ERROR',
+				})
+			}
+
 			return checkoutLink
 		} catch (e) {
 			console.error(e)

@@ -10,13 +10,15 @@ export type CreateCheckoutLink = (params: {
 	name?: string
 	teamId: string
 	redirectUrl?: string
-}) => Promise<string>
+}) => Promise<string | null>
 
 export type CreateCustomerPortalLink = (params: {
 	subscriptionId: string
 	customerId: string
 	redirectUrl?: string
-}) => Promise<string>
+}) => Promise<string | null>
+
+export type PauseSubscription = (params: { id: string }) => Promise<void>
 
 export type CancelSubscription = (params: { id: string }) => Promise<void>
 

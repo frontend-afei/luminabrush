@@ -36,6 +36,12 @@ export const createCustomerPortalLink = protectedProcedure
 				redirectUrl,
 			})
 
+			if (!customerPortalLink) {
+				throw new TRPCError({
+					code: 'INTERNAL_SERVER_ERROR',
+				})
+			}
+
 			return customerPortalLink
 		} catch (e) {
 			console.error(e)
