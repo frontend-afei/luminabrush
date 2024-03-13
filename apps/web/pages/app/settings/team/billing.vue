@@ -1,58 +1,63 @@
 <template>
-	<div v-if="!pending" class="grid gap-6">
-		<SaasSubscriptionOverview v-if="data?.plans" :plans="data.plans" :currentSubscription="data.teamSubscription" />
+  <div v-if="!pending" class="grid gap-6">
+    <SaasSubscriptionOverview
+      v-if="data?.plans"
+      :plans="data.plans"
+      :currentSubscription="data.teamSubscription"
+    />
 
-		<SaasUpgradePlan
-			v-if="data?.plans"
-			:plans="data.plans"
-			:activePlanId="data.teamSubscription?.planId"
-			:teamId="data.team.id" />
-	</div>
-	<SaasLoadingSpinner v-else />
+    <SaasUpgradePlan
+      v-if="data?.plans"
+      :plans="data.plans"
+      :activePlanId="data.teamSubscription?.planId"
+      :teamId="data.team.id"
+    />
+  </div>
+  <SaasLoadingSpinner v-else />
 </template>
 
 <script setup lang="ts">
-	definePageMeta({
-		layout: 'saas-app',
-	})
+  definePageMeta({
+    layout: "saas-app",
+  });
 
-	const { t } = useTranslations()
-	const { apiCaller } = useApiCaller()
-	const localePath = useLocalePath()
+  const { t } = useTranslations();
+  const { apiCaller } = useApiCaller();
+  const localePath = useLocalePath();
 
-	useSeoMeta({
-		title: t('settings.billing.title'),
-	})
+  useSeoMeta({
+    title: t("settings.billing.title"),
+  });
 
-	const { data, pending } = useAsyncData(async () => {
-		const currentTeamId = useCurrentTeamIdCookie()
+  const { data, pending } = useAsyncData(async () => {
+    const currentTeamId = useCurrentTeamIdCookie();
 
-		if (!currentTeamId.value) {
-			navigateTo(localePath('/auth/login'))
-			return null
-		}
+    if (!currentTeamId.value) {
+      navigateTo(localePath("/auth/login"));
+      return null;
+    }
 
-		const team = await apiCaller.team.byId.query({
-			id: currentTeamId.value,
-		})
+    const team = await apiCaller.team.byId.query({
+      id: currentTeamId.value,
+    });
 
-		const [plans, teamSubscription] = await Promise.all([
-			apiCaller.billing.plans.query(),
-			apiCaller.team.subscription.query({
-				teamId: team.id,
-			}),
-		])
+    const [plans, teamSubscription] = await Promise.all([
+      apiCaller.billing.plans.query(),
+      apiCaller.team.subscription.query({
+        teamId: team.id,
+      }),
+    ]);
 
-		return {
-			team,
-			plans,
-			teamSubscription,
-		}
-	})
+    return {
+      team,
+      plans,
+      teamSubscription,
+    };
+  });
 
-	watchEffect(() => {
-		if (!pending.value && !data.value?.team) {
-			navigateTo(localePath('/auth/login'))
-		}
-	})
+  watchEffect(() => {
+    if (!pending.value && !data.value?.team) {
+      navigateTo(localePath("/auth/login"));
+    }
+  });
 </script>

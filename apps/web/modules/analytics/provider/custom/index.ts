@@ -1,17 +1,17 @@
 export const useAnalytics = () => {
-	const init = () => {
-		if (!process.client) {
-			return
-		}
+  const init = () => {
+    if (!process.client) {
+      return;
+    }
 
-		/*
+    /*
 		const runtimeConfig = useRuntimeConfig()
 		*/
 
-		useHead({
-			script: [
-				// Add your script here
-				/*
+    useHead({
+      script: [
+        // Add your script here
+        /*
 				{
 					key: 'analytics-custom',
 					src: 'https://example.com/script.js',
@@ -19,18 +19,18 @@ export const useAnalytics = () => {
 					async: true,
 				},
 				*/
-			],
-		})
-	}
+      ],
+    });
+  };
 
-	const trackEvent = (event: string, data?: Record<string, any>) => {
-		// call your analytics service to track a custom event here
-		// eslint-disable-next-line no-console
-		console.info('tracking event', event, data)
-	}
+  const trackEvent = (event: string, data?: Record<string, any>) => {
+    // call your analytics service to track a custom event here
+    // eslint-disable-next-line no-console
+    console.info("tracking event", event, data);
+  };
 
-	return {
-		init,
-		trackEvent,
-	}
-}
+  return {
+    init,
+    trackEvent,
+  };
+};

@@ -1,33 +1,33 @@
-import { mailTemplates } from 'mail/util/templates'
-import { send } from 'mail/provider'
-import { useCompiler } from '#vue-email'
+import { mailTemplates } from "mail/util/templates";
+import { send } from "mail/provider";
+import { useCompiler } from "#vue-email";
 
 export const sendEmail = async <TemplateId extends keyof typeof mailTemplates>({
-	to,
-	templateId,
-	context,
+  to,
+  templateId,
+  context,
 }: {
-	to: string
-	templateId: TemplateId
-	context?: any
+  to: string;
+  templateId: TemplateId;
+  context?: any;
 }) => {
-	const templateData = mailTemplates[templateId]
+  const templateData = mailTemplates[templateId];
 
-	const template = await useCompiler(templateData.name, {
-		props: context,
-	})
+  const template = await useCompiler(templateData.name, {
+    props: context,
+  });
 
-	try {
-		await send({
-			to,
-			subject: templateData.subject,
-			text: template.text,
-			html: template.html,
-		})
+  try {
+    await send({
+      to,
+      subject: templateData.subject,
+      text: template.text,
+      html: template.html,
+    });
 
-		return true
-	} catch (error) {
-		console.error(error)
-		return false
-	}
-}
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};

@@ -1,50 +1,52 @@
 <template>
-	<div class="bg-muted min-h-screen">
-		<SaasNavBar />
+  <div class="bg-muted min-h-screen">
+    <SaasNavBar />
 
-		<main>
-			<slot />
-		</main>
-	</div>
+    <main>
+      <slot />
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
-	const { user, reloadUser } = useUser()
+  const { user, reloadUser } = useUser();
 
-	await reloadUser()
+  await reloadUser();
 
-	const localePath = useLocalePath()
-	const currentTeamId = useCurrentTeamIdCookie()
+  const localePath = useLocalePath();
+  const currentTeamId = useCurrentTeamIdCookie();
 
-	if (!user.value) {
-		await navigateTo(localePath('/auth/login'))
-		throw new Error('User not found')
-	}
+  if (!user.value) {
+    await navigateTo(localePath("/auth/login"));
+    throw new Error("User not found");
+  }
 
-	const { apiCaller } = useApiCaller()
+  const { apiCaller } = useApiCaller();
 
-	// if user has no team memberships, we create a team for them
-	if (!user.value.teamMemberships?.length) {
-		try {
-			const name = user.value.name || user.value.email.split('@')[0]
-			await apiCaller.team.create.mutate({
-				name,
-			})
+  // if user has no team memberships, we create a team for them
+  if (!user.value.teamMemberships?.length) {
+    try {
+      const name = user.value.name || user.value.email.split("@")[0];
+      await apiCaller.team.create.mutate({
+        name,
+      });
 
-			await reloadUser()
-		} catch (e) {
-			console.error(e)
-			await navigateTo(localePath('/'))
-		}
-	}
+      await reloadUser();
+    } catch (e) {
+      console.error(e);
+      await navigateTo(localePath("/"));
+    }
+  }
 
-	const teamMemberships = user.value.teamMemberships ?? []
-	const currentTeamMembership =
-		teamMemberships.find(membership => membership.team.id === currentTeamId.value) ?? teamMemberships[0]
+  const teamMemberships = user.value.teamMemberships ?? [];
+  const currentTeamMembership =
+    teamMemberships.find(
+      (membership) => membership.team.id === currentTeamId.value,
+    ) ?? teamMemberships[0];
 
-	if (!currentTeamMembership) {
-		await navigateTo(localePath('/'))
-	}
+  if (!currentTeamMembership) {
+    await navigateTo(localePath("/"));
+  }
 
-	currentTeamId.value = currentTeamMembership.team.id
+  currentTeamId.value = currentTeamMembership.team.id;
 </script>

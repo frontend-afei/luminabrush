@@ -1,15 +1,15 @@
 <template>
-	<SaasOtpForm />
+  <SaasOtpForm />
 </template>
 
 <script setup lang="ts">
-	const { t } = useTranslations()
+  const { t } = useTranslations();
 
-	definePageMeta({
-		layout: 'saas-auth',
-	})
+  definePageMeta({
+    layout: "saas-auth",
+  });
 
-	useSeoMeta({
-		title: t('auth.verifyOtp.title'),
-	})
+  useSeoMeta({
+    title: t("auth.verifyOtp.title"),
+  });
 </script>

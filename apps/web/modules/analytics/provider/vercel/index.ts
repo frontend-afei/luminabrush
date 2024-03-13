@@ -1,20 +1,20 @@
-import { track, inject } from '@vercel/analytics'
+import { track, inject } from "@vercel/analytics";
 
 export const useAnalytics = () => {
-	const init = () => {
-		if (!process.client) {
-			return
-		}
+  const init = () => {
+    if (!process.client) {
+      return;
+    }
 
-		inject()
-	}
+    inject();
+  };
 
-	const trackEvent = (event: string, data?: Record<string, any>) => {
-		track(event, data)
-	}
+  const trackEvent = (event: string, data?: Record<string, any>) => {
+    track(event, data);
+  };
 
-	return {
-		init,
-		trackEvent,
-	}
-}
+  return {
+    init,
+    trackEvent,
+  };
+};

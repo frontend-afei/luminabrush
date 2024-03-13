@@ -1,43 +1,43 @@
-import { addComponent, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, defineNuxtModule } from "@nuxt/kit";
 
 /**
  * These components will be auto-imported directly from radix-vue.
  */
 const componentList: {
-	/** Original name of the component */
-	name: string
-	/** Rename the component to this name */
-	as?: string
+  /** Original name of the component */
+  name: string;
+  /** Rename the component to this name */
+  as?: string;
 }[] = [
-	/* Dialog */
-	{ name: 'DialogRoot' },
-	{ name: 'DialogPortal' },
-	{ name: 'DialogTrigger' },
+  /* Dialog */
+  { name: "DialogRoot" },
+  { name: "DialogPortal" },
+  { name: "DialogTrigger" },
 
-	/* Sheet (Dialog) */
-	{ name: 'DialogRoot', as: 'SheetRoot' },
-	{ name: 'DialogPortal', as: 'SheetPortal' },
-	{ name: 'DialogTrigger', as: 'SheetTrigger' },
+  /* Sheet (Dialog) */
+  { name: "DialogRoot", as: "SheetRoot" },
+  { name: "DialogPortal", as: "SheetPortal" },
+  { name: "DialogTrigger", as: "SheetTrigger" },
 
-	/** DropdownMenu */
-	{ name: 'DropdownMenuRoot' },
-	{ name: 'DropdownMenuPortal' },
-	{ name: 'DropdownMenuTrigger' },
-	{ name: 'DropdownMenuGroup' },
-	{ name: 'DropdownMenuRadioGroup' },
-	{ name: 'DropdownMenuSub' },
+  /** DropdownMenu */
+  { name: "DropdownMenuRoot" },
+  { name: "DropdownMenuPortal" },
+  { name: "DropdownMenuTrigger" },
+  { name: "DropdownMenuGroup" },
+  { name: "DropdownMenuRadioGroup" },
+  { name: "DropdownMenuSub" },
 
-	/** Select */
-	{ name: 'SelectRoot' },
-	{ name: 'SelectGroup' },
-	{ name: 'SelectValue' },
+  /** Select */
+  { name: "SelectRoot" },
+  { name: "SelectGroup" },
+  { name: "SelectValue" },
 
-	/** Tabs */
-	{ name: 'TabsRoot' },
+  /** Tabs */
+  { name: "TabsRoot" },
 
-	/** Toast */
-	{ name: 'ToastProvider' },
-]
+  /** Toast */
+  { name: "ToastProvider" },
+];
 
 /**
  * This is an internal nuxt module that imports certain radix components.
@@ -46,13 +46,13 @@ const componentList: {
  * @see https://github.com/radix-vue/radix-vue/blob/main/packages/plugins/src/nuxt/index.ts
  */
 export default defineNuxtModule({
-	setup() {
-		for (const component of componentList) {
-			addComponent({
-				name: component.as || component.name,
-				export: component.name,
-				filePath: 'radix-vue',
-			})
-		}
-	},
-})
+  setup() {
+    for (const component of componentList) {
+      addComponent({
+        name: component.as || component.name,
+        export: component.name,
+        filePath: "radix-vue",
+      });
+    }
+  },
+});
