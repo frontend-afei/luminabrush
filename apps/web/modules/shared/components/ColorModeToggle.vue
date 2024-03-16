@@ -1,7 +1,7 @@
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <Button variant="ghost" size="icon">
+      <Button data-test="color-mode-toggle" variant="ghost" size="icon">
         <ColorModeToggleIcon />
       </Button>
     </DropdownMenuTrigger>
