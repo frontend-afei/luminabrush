@@ -15,9 +15,10 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <a href="#" class="block"> Privacy policy </a>
-        <a href="#" class="block"> Terms of service </a>
-        <a href="#" class="block"> Contact </a>
+        <NuxtLink to="/legal/privacy" class="block"> Privacy policy </NuxtLink>
+        <NuxtLink href="/legal/terms" class="block">
+          Terms and conditions
+        </NuxtLink>
       </div>
     </div>
   </footer>

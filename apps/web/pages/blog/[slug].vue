@@ -68,8 +68,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { joinURL } from "ufo";
   import type { MarketingBlogPageFields } from "@/modules/marketing/blog/types";
+  import { joinURL } from "ufo";
 
   definePageMeta({
     layout: "marketing",
