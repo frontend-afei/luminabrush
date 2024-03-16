@@ -1,8 +1,5 @@
 <template>
-  <div
-    role="alert"
-    :class="twMerge(alertVariants({ variant, class: props.class }))"
-  >
+  <div role="alert" :class="cn(alertVariants({ variant, class: props.class }))">
     <slot />
 
     <h5
@@ -27,7 +24,8 @@
           default: "bg-background text-foreground",
           primary:
             "border-primary/20 bg-primary/10 text-primary [&>svg]:text-primary",
-          error: "border-error/20 bg-error/10 text-error [&>svg]:text-error",
+          error:
+            "border-destructive/20 bg-destructive/10 text-destructive [&>svg]:text-destructive",
           success:
             "border-success/20 bg-success/10 text-success [&>svg]:text-success",
         },

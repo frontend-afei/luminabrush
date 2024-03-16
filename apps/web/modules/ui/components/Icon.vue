@@ -15,6 +15,7 @@
     ChevronRight,
     ChevronUp,
     ChevronsUpDown,
+    Clock,
     Cloud,
     Cookie,
     CreditCard,
@@ -41,6 +42,7 @@
     Plus,
     Send,
     Settings,
+    SquareUserRound,
     Star,
     Sun,
     Trash,
@@ -48,7 +50,10 @@
     Undo,
     Upload,
     User,
+    UserCog,
+    UserRoundX,
     Users,
+    Users2,
     Wand2,
     X,
   } from "lucide-vue-next";
@@ -105,6 +110,11 @@
     team: Users,
     pause: Pause,
     magic: Wand2,
+    admin: UserCog,
+    clock: Clock,
+    impersonate: SquareUserRound,
+    unimpersonate: UserRoundX,
+    users: Users2,
 
     // social icons
     google: ({ ...props }) => (

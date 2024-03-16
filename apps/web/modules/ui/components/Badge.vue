@@ -1,8 +1,6 @@
 <template>
   <span
-    :class="
-      twMerge(badgeVariants({ status: props.status, class: props.class }))
-    "
+    :class="cn(badgeVariants({ status: props.status, class: props.class }))"
   >
     <slot />
   </span>

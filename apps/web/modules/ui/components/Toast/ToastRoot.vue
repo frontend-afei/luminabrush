@@ -3,9 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge(
-        toastVariants({ variant: props.variant, class: props.class }),
-      ),
+      class: cn(toastVariants({ variant: props.variant, class: props.class })),
     }"
   >
     <slot />
@@ -22,7 +20,8 @@
         variant: {
           default: "border bg-background",
           loading: "border bg-background",
-          error: "border-error bg-error text-error-foreground",
+          error:
+            "border-destructive bg-destructive text-destructive-foreground",
           success: "border-success bg-success text-success-foreground",
         },
       },
@@ -44,6 +43,7 @@
     defineProps<{
       class?: ClassProp;
       variant?: ToastProps["variant"];
+      duartion?: ToastProps["duration"];
     }>(),
     {
       variant: "default",

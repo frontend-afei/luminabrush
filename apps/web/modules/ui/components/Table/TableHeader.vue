@@ -1,5 +1,5 @@
 <template>
-  <thead v-bind="{ ...$attrs, class: twMerge('[&_tr]:border-b', props.class) }">
+  <thead v-bind="{ ...$attrs, class: cn('[&_tr]:border-b', props.class) }">
     <slot />
   </thead>
 </template>

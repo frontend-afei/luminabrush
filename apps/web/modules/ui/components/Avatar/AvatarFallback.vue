@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge(
+      class: cn(
         'bg-muted flex h-full w-full items-center justify-center rounded-full text-xs font-bold',
         props.class,
       ),

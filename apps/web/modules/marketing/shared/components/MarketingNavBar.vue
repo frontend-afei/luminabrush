@@ -1,17 +1,18 @@
 <template>
-  <nav class="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg">
-    <MarketingBanner />
+	<nav
+		class="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg transition-[height] duration-200"
+		:class="[isTop ? 'shadow-none' : 'shadow-sm']">
+		<MarketingBanner />
 
-    <div class="container">
-      <div class="flex items-center justify-stretch gap-6 py-8">
-        <div class="flex flex-1 justify-start">
-          <NuxtLinkLocale
-            to="/"
-            class="block hover:no-underline active:no-underline"
-          >
-            <Logo />
-          </NuxtLinkLocale>
-        </div>
+		<div class="container">
+			<div
+				class="flex items-center justify-stretch gap-6 transition-all duration-200"
+				:class="[isTop ? 'py-8' : 'py-4']">
+				<div class="flex flex-1 justify-start">
+					<NuxtLinkLocale to="/" class="block hover:no-underline active:no-underline">
+						<Logo />
+					</NuxtLinkLocale>
+				</div>
 
         <div class="hidden flex-1 items-center justify-center md:flex">
           <NuxtLinkLocale
@@ -84,13 +85,17 @@
 </template>
 
 <script setup lang="ts">
-  import { VisuallyHidden } from "radix-vue";
+	import { useWindowScroll } from '@vueuse/core'
+	import { VisuallyHidden } from 'radix-vue'
 
-  const route = useRoute();
-  const { t } = useTranslations();
-  const { user, loaded: userLoaded } = useUser();
+	const route = useRoute()
+	const { t } = useTranslations()
+	const { y: verticalScrollPosition } = useWindowScroll()
+	const { user, loaded: userLoaded } = useUser()
 
-  const { public: runtimeConfig } = useRuntimeConfig();
+	const isTop = computed(() => verticalScrollPosition.value < 10)
+
+	const { public: runtimeConfig } = useRuntimeConfig()
 
   const hasUser = computed(() => {
     return userLoaded.value && user.value;

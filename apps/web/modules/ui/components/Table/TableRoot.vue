@@ -3,7 +3,7 @@
     <table
       v-bind="{
         ...$attrs,
-        class: twMerge('w-full caption-bottom text-sm', props.class),
+        class: cn('w-full caption-bottom text-sm', props.class),
       }"
     >
       <slot />

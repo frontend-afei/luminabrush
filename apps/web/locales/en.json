@@ -1,5 +1,37 @@
 {
+  "admin": {
+    "menu": {
+      "general": "General",
+      "users": "Users"
+    },
+    "users": {
+      "adminRole": "Admin",
+      "delete": "Delete",
+      "deleteUser": {
+        "deleted": "User has been deleted successfully!",
+        "deleting": "Deleting user...",
+        "notDeleted": "User could not be deleted. Please try again."
+      },
+      "emailVerified": {
+        "verified": "Email verified",
+        "waiting": "Email waiting for verification"
+      },
+      "impersonate": "Impersonate",
+      "impersonation": {
+        "impersonating": "Impersonating as {name}...",
+        "unimpersonating": "Unimpersonating..."
+      },
+      "loading": "Loading users...",
+      "search": "Search for name or email...",
+      "title": "Manage users"
+    }
+  },
   "auth": {
+    "confirmation": {
+      "close": "Close this window",
+      "message": "You can close this window and continue in the window you came from.",
+      "title": "You have been logged in!"
+    },
     "continueWithProvider": "Continue with {provider}",
     "forgotPassword": {
       "backToSignin": "Back to signin",
@@ -18,20 +50,9 @@
       "submit": "Send link",
       "title": "Forgot your password?"
     },
-    "verifyOtp": {
-      "otp": "One time password",
-      "message": "You have mail! Please check your inbox for the one time password we sent you. You can also click the link in the email and this page will redirect you automatically.",
-      "submit": "Continue",
-      "title": "Verify your email",
-      "hints": {
-        "verificationFailed": {
-          "message": "We are sorry, the password you entered is invalid. Please try again.",
-          "title": "Invalid one time password"
-        }
-      },
-      "errors": {
-        "otpTooShort": "The one time password is too short."
-      }
+    "invalidToken": {
+      "message": "The link is either invalid or expired. Please try to log in again.",
+      "title": "Invalid token"
     },
     "login": {
       "createAnAccount": "Create an account",
@@ -85,25 +106,35 @@
       "title": "Create an account"
     },
     "teamInvitation": {
-      "title": "Accept team invitation",
-      "description": "You have been invited to join a team. By logging in or signing up you will automatically accept the invitation and join the team."
+      "description": "You have been invited to join a team. By logging in or signing up you will automatically accept the invitation and join the team.",
+      "title": "Accept team invitation"
     },
-    "confirmation": {
-      "title": "You have been logged in!",
-      "message": "You can close this window and continue in the window you came from.",
-      "close": "Close this window"
-    },
-    "invalidToken": {
-      "title": "Invalid token",
-      "message": "The link is either invalid or expired. Please try to log in again."
+    "verifyOtp": {
+      "errors": {
+        "otpTooShort": "The one time password is too short."
+      },
+      "hints": {
+        "verificationFailed": {
+          "message": "We are sorry, the password you entered is invalid. Please try again.",
+          "title": "Invalid one time password"
+        }
+      },
+      "message": "You have mail! Please check your inbox for the one time password we sent you. You can also click the link in the email and this page will redirect you automatically.",
+      "otp": "One time password",
+      "submit": "Continue",
+      "title": "Verify your email"
     }
   },
   "blog": {
+    "backLabel": "Back to blog",
     "description": "Read the latest news from our company",
-    "title": "My awesome blog",
-    "backLabel": "Back to blog"
+    "title": "My awesome blog"
   },
   "common": {
+    "confirmation": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
     "locales": {},
     "menu": {
       "blog": "Blog",
@@ -123,27 +154,36 @@
   },
   "dashboard": {
     "menu": {
+      "admin": "Admin",
+      "aiDemo": "AI Demo",
       "dashboard": "Dashboard",
-      "settings": "Settings",
-      "aiDemo": "AI Demo"
+      "settings": "Settings"
     },
     "sidebar": {
       "createTeam": "Create a new team"
     },
-    "welcome": "Welcome {name}!",
-    "subtitle": "See the latest stats of your awesome business."
+    "subtitle": "See the latest stats of your awesome business.",
+    "userMenu": {
+      "accountSettings": "Account settings",
+      "colorMode": "Color mode",
+      "documentation": "Documentation",
+      "language": "Language",
+      "logout": "Logout",
+      "unimpersonate": "Unimpersonate"
+    },
+    "welcome": "Welcome {name}!"
   },
   "newsletter": {
     "email": "Email",
     "hints": {
+      "error": {
+        "input": "Please enter a valid email address.",
+        "submission": "We are sorry, but we were unable to subscribe you to our newsletter. Please try again later.",
+        "title": "Error"
+      },
       "success": {
         "message": "Thank you for subscribing to our newsletter. We will keep you posted.",
         "title": "Subscribed"
-      },
-      "error": {
-        "title": "Error",
-        "input": "Please enter a valid email address.",
-        "submission": "We are sorry, but we were unable to subscribe you to our newsletter. Please try again later."
       }
     },
     "submit": "Subscribe",
@@ -161,6 +201,10 @@
   },
   "settings": {
     "account": {
+      "avatar": {
+        "description": "To change your avatar click the picture on the right side of this block and select a file from your computer to upload.",
+        "title": "Your avatar"
+      },
       "changeEmail": {
         "description": "Enter a new email and click save to update it.",
         "note": "You will need to verify your new email address before you can sign in again.",
@@ -174,63 +218,22 @@
         "note": "Please enter at least 8 characters.",
         "title": "Your password"
       },
-      "title": "Account",
-      "avatar": {
-        "title": "Your avatar",
-        "description": "To change your avatar click the picture on the right side of this block and select a file from your computer to upload."
-      }
+      "deleteAccount": {
+        "confirmation": "Are you sure you want to delete your account?",
+        "description": "Permanently delete your account. Once you delete your account, there is no going back. Please be certain.",
+        "submit": "Delete account",
+        "title": "Delete account"
+      },
+      "title": "Account"
     },
     "billing": {
-      "subscription": {
-        "cancel": "Cancel your subscription",
-        "currentPlan": "Your current plan",
-        "currentSubscription": "Your current subscription",
-        "endsOn": "Your subscription ends on {nextPaymentDate}",
-        "freePlan": {
-          "title": "Free"
-        },
-        "month": "month",
-        "monthly": "Monthly",
-        "nextPayment": "The next payment will be on {nextPaymentDate}",
-        "pauseSubscription": "Pause your subscription",
-        "resumeSubscription": "Resume your subscription",
-        "status": {
-          "active": "Active",
-          "canceled": "Canceled",
-          "expired": "Expired",
-          "trialing": "Trialing",
-          "paused": "Paused",
-          "incomplete": "Incomplete",
-          "unpaid": "Unpaid",
-          "past_due": "Past due"
-        },
-        "subscribe": "Subscribe",
-        "switchToPlan": "Switch to this plan",
-        "updateBillingDetails": "Update billing details",
-        "upgradePlan": "Upgrade your plan",
-        "year": "year",
-        "yearly": "Yearly",
-        "yourSubscription": "Your are subscribed to {plan} ({price}/{interval})",
-        "resume": "Resume subscription"
-      },
-      "title": "Billing",
       "cancelSubscription": {
         "notifications": {
-          "success": {
-            "title": "Subscription was canceled"
-          },
           "error": {
             "title": "Could not cancel subscription"
-          }
-        }
-      },
-      "resumeSubscription": {
-        "notifications": {
-          "success": {
-            "title": "Subscription was resumed"
           },
-          "error": {
-            "title": "Could not resume subscription"
+          "success": {
+            "title": "Subscription was canceled"
           }
         }
       },
@@ -243,32 +246,94 @@
         }
       },
       "pauseSubscription": {
+        "label": "Pause subscription",
         "notifications": {
-          "success": {
-            "title": "The subscription was paused."
-          },
           "error": {
             "title": "Could not pause the subscription. Please try again."
+          },
+          "success": {
+            "title": "The subscription was paused."
           }
+        }
+      },
+      "resumeSubscription": {
+        "notifications": {
+          "error": {
+            "title": "Could not resume subscription"
+          },
+          "success": {
+            "title": "Subscription was resumed"
+          }
+        }
+      },
+      "subscription": {
+        "cancel": "Cancel your subscription",
+        "currentPlan": "Your current plan",
+        "currentSubscription": "Your current subscription",
+        "endsOn": "Your subscription ends on {nextPaymentDate}",
+        "freePlan": {
+          "title": "Free"
         },
-        "label": "Pause subscription"
-      }
+        "month": "month",
+        "monthly": "Monthly",
+        "nextPayment": "The next payment will be on {nextPaymentDate}",
+        "pauseSubscription": "Pause your subscription",
+        "resume": "Resume subscription",
+        "resumeSubscription": "Resume your subscription",
+        "status": {
+          "active": "Active",
+          "canceled": "Canceled",
+          "expired": "Expired",
+          "incomplete": "Incomplete",
+          "past_due": "Past due",
+          "paused": "Paused",
+          "trialing": "Trialing",
+          "unpaid": "Unpaid"
+        },
+        "subscribe": "Subscribe",
+        "switchToPlan": "Switch to this plan",
+        "updateBillingDetails": "Update billing details",
+        "upgradePlan": "Upgrade your plan",
+        "year": "year",
+        "yearly": "Yearly",
+        "yourSubscription": "Your are subscribed to {plan} ({price}/{interval})"
+      },
+      "title": "Billing"
     },
     "cropImage": {
       "save": "Save"
     },
+    "menu": {
+      "account": {
+        "general": "General",
+        "title": "Account"
+      },
+      "team": {
+        "billing": "Billing",
+        "general": "General",
+        "members": "Members",
+        "title": "Team"
+      }
+    },
     "notifications": {
+      "accountDeleted": "Your account has been deleted.",
+      "accountNotDeleted": "We were unable to delete your account. Please try again later.",
+      "avatarNotUpdated": "We were unable to update your avatar. Please try again.",
+      "avatarUpdated": "Your avatar has been updated.",
       "emailUpdated": "Your email has been updated.",
+      "nameUpdateFailed": "Could not update your name. Please try again later.",
       "nameUpdated": "Your name has been updated.",
-      "passwordUpdated": "Your password has been updated.",
       "passwordNotUpdated": "We were unable to update your password. Please try again.",
+      "passwordUpdated": "Your password has been updated.",
+      "teamDeleted": "Your team has been deleted.",
       "teamNameNotUpdated": "We were unable to update your team name. Please try again later.",
       "teamNameUpdated": "Your team name has been updated.",
-      "nameUpdateFailed": "Could not update your name. Please try again later.",
-      "avatarUpdated": "Your avatar has been updated.",
-      "avatarNotUpdated": "We were unable to update your avatar. Please try again."
+      "teamNotDeleted": "We were unable to delete your team. Please try again later."
     },
     "save": "Save",
+    "sections": {
+      "team": "Team"
+    },
     "subtitle": "Manage your settings",
     "team": {
       "changeName": {
@@ -276,91 +341,82 @@
         "teamUrl": "Your team url will be {url}.",
         "title": "Team name"
       },
+      "deleteTeam": {
+        "confirmation": "Are you sure you want to delete your team?",
+        "description": "Permanently delete your team. Once you delete your team, there is no going back. Please be certain.",
+        "submit": "Delete team",
+        "title": "Delete team"
+      },
       "members": {
+        "activeMembers": "Active members",
+        "invitations": {
+          "email": "Email",
+          "empty": "You have not invited any members yet.",
+          "revoke": "Revoke invitation"
+        },
         "invite": "Invite a new member",
         "inviteMember": {
           "email": "Email",
-          "role": "Role",
-          "submit": "Invite",
-          "title": "Invite new member",
           "notifications": {
             "error": {
-              "title": "Could not invite member",
-              "description": "We were unable to invite the member. Please try again later."
+              "description": "We were unable to invite the member. Please try again later.",
+              "title": "Could not invite member"
             },
             "success": {
-              "title": "Member invited",
-              "description": "The member has been invited."
+              "description": "The member has been invited.",
+              "title": "Member invited"
             }
-          }
+          },
+          "role": "Role",
+          "submit": "Invite",
+          "title": "Invite new member"
         },
-        "activeMembers": "Active members",
-        "pendingInvitations": "Pending invitations",
-        "invitations": {
-          "email": "Email",
-          "revoke": "Revoke invitation",
-          "empty": "You have not invited any members yet."
-        },
-        "removeMember": "Remove member",
-        "roles": {
-          "member": "Member",
-          "owner": "Owner"
-        },
-        "title": "Members",
         "notifications": {
           "removeMember": {
-            "success": {
-              "description": "The member has been successfully removed from your team."
-            },
             "error": {
               "description": "Could not remove the member from your team. Please try again."
             },
             "loading": {
               "description": "Removing member from team..."
+            },
+            "success": {
+              "description": "The member has been successfully removed from your team."
             }
           },
           "revokeInvitation": {
-            "success": {
-              "description": "The invitation has been revoked."
-            },
             "error": {
               "description": "The invitation could not be revoked. Please try again later."
             },
             "loading": {
               "description": "Revoking invitation..."
+            },
+            "success": {
+              "description": "The invitation has been revoked."
             }
           },
           "updateMembership": {
-            "success": {
-              "description": "Membership was updated successfully"
-            },
             "error": {
               "description": "Could not update team membership. Please try again."
             },
             "loading": {
               "description": "Updating membership..."
+            },
+            "success": {
+              "description": "Membership was updated successfully"
             }
           }
-        }
+        },
+        "pendingInvitations": "Pending invitations",
+        "removeMember": "Remove member",
+        "roles": {
+          "member": "Member",
+          "owner": "Owner"
+        },
+        "title": "Members"
       },
       "subtitle": "Manage your team settings and members",
       "title": "Team"
     },
-    "title": "Settings",
-    "sections": {
-      "team": "Team"
-    },
-    "menu": {
-      "team": {
-        "title": "Team",
-        "general": "General",
-        "members": "Members",
-        "billing": "Billing"
-      },
-      "account": {
-        "title": "Account",
-        "general": "General"
-      }
-    }
+    "title": "Settings"
   }
 }

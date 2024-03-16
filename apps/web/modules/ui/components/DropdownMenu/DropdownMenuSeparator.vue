@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge('bg-border -mx-1 my-1 h-px', props.class),
+      class: cn('bg-border -mx-1 my-1 h-px', props.class),
     }"
   >
     <slot />

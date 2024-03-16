@@ -1,8 +1,10 @@
 <template>
-  <nav class="border-b py-24">
+  <nav
+    class="to-primary/10 border-b bg-gradient-to-b from-transparent py-8 pb-20"
+  >
     <div class="container text-center">
       <h1 class="mx-auto max-w-3xl text-5xl font-bold lg:text-7xl">
-        Your revolutionary Nuxt 3 SaaS
+        Your revolutionary <span class="text-primary">Nuxt 3</span> SaaS
       </h1>
 
       <p class="mt-5 text-lg opacity-75">
@@ -17,15 +19,15 @@
         <Button variant="outline" size="lg">Documentation</Button>
       </div>
 
-      <div class="mt-32 px-8 text-center">
+      <div class="mt-12 px-8 text-center">
         <h5
-          class="text-muted-foreground/50 text-xs font-semibold uppercase tracking-wider"
+          class="text-foreground/50 text-xs font-semibold uppercase tracking-wider"
         >
           Built & shipped with these awesome tools
         </h5>
 
         <div
-          class="text-muted-foreground/50 mt-4 flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:gap-8"
+          class="text-foreground/50 mt-4 flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:gap-8"
         >
           <!-- Supastarter Logo -->
           <div class="aspect-[631/236] h-10 w-auto">

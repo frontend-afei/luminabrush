@@ -6,7 +6,7 @@
       v-bind="{
         ...$attrs,
         ...props,
-        class: twMerge(sheetVariants({ side: props.side, class: props.class })),
+        class: cn(sheetVariants({ side: props.side, class: props.class })),
       }"
     >
       <slot />

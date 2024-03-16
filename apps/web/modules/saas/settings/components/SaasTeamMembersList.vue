@@ -39,7 +39,7 @@
                 <DropdownMenuContent>
                   <DropdownMenuItem
                     :disabled="row.isCreator"
-                    class="text-error"
+                    class="text-destructive"
                     @click="() => handleRemoveMember({ membershipId: row.id })"
                   >
                     <Icon

@@ -1,15 +1,14 @@
 import { TRPCError } from "@trpc/server";
 import { lucia } from "auth";
+import { setCookie } from "h3";
 import { protectedProcedure } from "../../trpc";
 
 export const logout = protectedProcedure.mutation(
-  async ({ ctx: { sessionId, event } }) => {
+  async ({ ctx: { session, event } }) => {
     try {
-      if (!sessionId) {
-        return;
-      }
-      await lucia.invalidateSession(sessionId);
+      await lucia.invalidateSession(session.id);
       const sessionCookie = lucia.createBlankSessionCookie();
+
       if (event) {
         setCookie(
           event,

@@ -3,7 +3,7 @@
     v-bind="{
       ...$attrs,
       ...props,
-      class: twMerge(
+      class: cn(
         'text-lg font-semibold leading-none tracking-tight',
         props.class,
       ),
