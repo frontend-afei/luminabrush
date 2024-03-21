@@ -10,9 +10,9 @@ const getSupabaseAdminClient = () => {
     return supabaseClient;
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
+  const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL as string;
   if (!supabaseUrl) {
-    console.error("Missing env variable NEXT_PUBLIC_SUPABASE_URL");
+    console.error("Missing env variable NUXT_PUBLIC_SUPABASE_URL");
   }
 
   const supabaseServiceRoleKey = process.env
