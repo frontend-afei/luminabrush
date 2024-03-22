@@ -1,15 +1,15 @@
-import { $fetch } from "ofetch";
 import { GitHub, OAuth2RequestError, generateState } from "arctic";
 import { db } from "database";
 import {
   getRequestURL,
   parseCookies,
+  sendRedirect,
   setCookie,
+  setResponseStatus,
   type EventHandlerRequest,
   type H3Event,
-  sendRedirect,
-  setResponseStatus,
 } from "h3";
+import { $fetch } from "ofetch";
 import { lucia } from "../lib/lucia";
 
 export const githubAuth = new GitHub(
@@ -82,8 +82,9 @@ export async function githubCallbackRouteHandler(
       },
     );
 
-    githubUser.email =
-      githubUser.email ?? emails.find((email) => email.primary)?.email;
+    githubUser.email = (
+      githubUser.email ?? emails.find((email) => email.primary)?.email
+    ).toLowerCase();
 
     const existingUser = await db.user.findFirst({
       where: {
@@ -97,7 +98,7 @@ export async function githubCallbackRouteHandler(
             },
           },
           {
-            email: githubUser.email,
+            email: githubUser.email.toLowerCase(),
           },
         ],
       },
@@ -139,7 +140,7 @@ export async function githubCallbackRouteHandler(
 
     const newUser = await db.user.create({
       data: {
-        email: githubUser.email,
+        email: githubUser.email.toLowerCase(),
         name: githubUser.name ?? githubUser.login,
         avatarUrl: githubUser.avatar_url,
         emailVerified: true,

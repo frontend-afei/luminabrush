@@ -1,4 +1,3 @@
-import { $fetch } from "ofetch";
 import {
   Google,
   OAuth2RequestError,
@@ -9,12 +8,13 @@ import { db } from "database";
 import {
   getRequestURL,
   parseCookies,
+  sendRedirect,
   setCookie,
+  setResponseStatus,
   type EventHandlerRequest,
   type H3Event,
-  sendRedirect,
-  setResponseStatus,
 } from "h3";
+import { $fetch } from "ofetch";
 import { getBaseUrl } from "utils";
 import { lucia } from "../lib/lucia";
 
@@ -107,7 +107,7 @@ export async function googleCallbackRouteHandler(
             },
           },
           {
-            email: googleUser.email,
+            email: googleUser.email.toLowerCase(),
           },
         ],
       },
@@ -148,7 +148,7 @@ export async function googleCallbackRouteHandler(
 
     const newUser = await db.user.create({
       data: {
-        email: googleUser.email,
+        email: googleUser.email.toLowerCase(),
         emailVerified: !!googleUser,
         name: googleUser.name,
         avatarUrl: googleUser.picture,
