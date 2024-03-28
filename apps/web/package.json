@@ -41,7 +41,7 @@
     "nuxt-simple-robots": "^3.1.9",
     "radix-vue": "^1.5.3",
     "tailwind-merge": "^2.2.2",
-    "trpc-nuxt": "^0.10.20",
+    "trpc-nuxt": "^0.10.21",
     "ufo": "^1.5.3",
     "vee-validate": "^4.12.6",
     "zod": "^3.22.4"
