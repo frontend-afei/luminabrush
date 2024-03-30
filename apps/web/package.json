@@ -12,7 +12,7 @@
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
-    "@tanstack/vue-table": "^8.15.0",
+    "@tanstack/vue-table": "^8.15.3",
     "api": "workspace:*",
     "auth": "workspace:*",
     "cropperjs": "^1.6.1",
