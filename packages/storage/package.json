@@ -5,7 +5,7 @@
     "@supabase/supabase-js": "^2.41.1"
   },
   "devDependencies": {
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.3",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },
