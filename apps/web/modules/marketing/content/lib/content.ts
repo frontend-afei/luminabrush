@@ -136,7 +136,7 @@ export function sanitizeContentPath(
   { dir, extension }: { dir: string; extension: string },
 ) {
   return path
-    .replace(`${dir}/`, "")
+    .replace(new RegExp(`${dir}(\\/){0,1}`), "")
     .replace(new RegExp(`(\\.[a-zA-Z\-]{2,5}){0,1}\\.${extension}`), "")
     .replace(/(index|meta)$/, "")
     .replace(/^\//, "")

@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-24 pt-12" v-if="page">
+  <div class="pb-16" v-if="page">
     <div class="container">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-[200px_auto]">
         <div>
