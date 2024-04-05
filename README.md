@@ -3,7 +3,7 @@
 
 # supastarter – Nuxt 3
 
-- [📖 &nbsp;Docs — Getting Started](https://docs.supastarter.dev/2.0/nuxt/getting-started)
+- [📖 &nbsp;Docs — Getting Started](https://docs.supastarter.dev/nuxt/getting-started)
 - [🌐 &nbsp;Discord Community](https://discord.gg/GAuQq56ZTe)
 
 supastarter is the ultimate starter kit for production-ready, scalable SaaS applications.
@@ -22,4 +22,4 @@ The goal of it is to provide a scalable and production-ready template that can b
 
 ## Documentation
 
-You can find the extensive documentation [here](https://docs.supastarter.dev).
+You can find the extensive documentation [here](https://docs.supastarter.dev/nuxt/getting-started).
