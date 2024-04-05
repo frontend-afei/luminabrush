@@ -17,7 +17,7 @@
           </p>
 
           <div class="flex flex-col gap-6 lg:flex-row-reverse mt-6">
-            <MarketingContentTableOfContents v-if="toc" :items="toc" />
+            <MarketingContentTableOfContents v-if="toc.length" :items="toc" />
 
             <div class="flex-1">
               <ContentRendererMarkdown
