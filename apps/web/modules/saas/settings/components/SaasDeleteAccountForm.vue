@@ -41,7 +41,7 @@
   >
     <AlertDialogContent>
       <AlertDialogHeader>
-        <AlertDialogTitle className="text-destructive">
+        <AlertDialogTitle class="text-destructive">
           {{ t("settings.account.deleteAccount.title") }}
         </AlertDialogTitle>
         <AlertDialogDescription>

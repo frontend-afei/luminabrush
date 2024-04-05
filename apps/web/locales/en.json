@@ -139,6 +139,7 @@
     "menu": {
       "blog": "Blog",
       "dashboard": "Dashboard",
+      "docs": "Docs",
       "login": "Login",
       "pricing": "Pricing"
     }

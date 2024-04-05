@@ -1,14 +1,20 @@
 <template>
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-    <Toaster />
-    <NuxtLoadingIndicator />
-  </div>
+  <ConfigProvider :use-id="useIdFunction">
+    <div>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+      <Toaster />
+      <NuxtLoadingIndicator />
+    </div>
+  </ConfigProvider>
 </template>
 
 <script setup lang="ts">
+  import { ConfigProvider } from "radix-vue";
+
+  const useIdFunction = () => useId();
+
   const titleTemplateDefault = "supastarter.nuxt - Application";
   const titleDivider = "|";
 

@@ -1,18 +1,23 @@
 <template>
-	<nav
-		class="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg transition-[height] duration-200"
-		:class="[isTop ? 'shadow-none' : 'shadow-sm']">
-		<MarketingBanner />
+  <nav
+    class="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg transition-[height] duration-200"
+    :class="[isTop ? 'shadow-none' : 'shadow-sm']"
+  >
+    <MarketingBanner />
 
-		<div class="container">
-			<div
-				class="flex items-center justify-stretch gap-6 transition-all duration-200"
-				:class="[isTop ? 'py-8' : 'py-4']">
-				<div class="flex flex-1 justify-start">
-					<NuxtLinkLocale to="/" class="block hover:no-underline active:no-underline">
-						<Logo />
-					</NuxtLinkLocale>
-				</div>
+    <div class="container">
+      <div
+        class="flex items-center justify-stretch gap-6 transition-all duration-200"
+        :class="[isTop ? 'py-8' : 'py-4']"
+      >
+        <div class="flex flex-1 justify-start">
+          <NuxtLinkLocale
+            to="/"
+            class="block hover:no-underline active:no-underline"
+          >
+            <Logo />
+          </NuxtLinkLocale>
+        </div>
 
         <div class="hidden flex-1 items-center justify-center md:flex">
           <NuxtLinkLocale
@@ -85,17 +90,17 @@
 </template>
 
 <script setup lang="ts">
-	import { useWindowScroll } from '@vueuse/core'
-	import { VisuallyHidden } from 'radix-vue'
+  import { useWindowScroll } from "@vueuse/core";
+  import { VisuallyHidden } from "radix-vue";
 
-	const route = useRoute()
-	const { t } = useTranslations()
-	const { y: verticalScrollPosition } = useWindowScroll()
-	const { user, loaded: userLoaded } = useUser()
+  const route = useRoute();
+  const { t } = useTranslations();
+  const { y: verticalScrollPosition } = useWindowScroll();
+  const { user, loaded: userLoaded } = useUser();
 
-	const isTop = computed(() => verticalScrollPosition.value < 10)
+  const isTop = computed(() => verticalScrollPosition.value < 10);
 
-	const { public: runtimeConfig } = useRuntimeConfig()
+  const { public: runtimeConfig } = useRuntimeConfig();
 
   const hasUser = computed(() => {
     return userLoaded.value && user.value;
@@ -122,6 +127,10 @@
     {
       label: t("common.menu.blog"),
       to: "/blog",
+    },
+    {
+      label: t("common.menu.docs"),
+      to: "/docs",
     },
   ]);
 </script>

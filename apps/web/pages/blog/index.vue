@@ -28,13 +28,33 @@
     title: t("blog.title"),
   });
 
-  const route = useRoute("blog-slug");
-  const { routeBasePath } = useRouteBasePath({ path: route.path });
+  const { locale, defaultLocale } = useI18n();
 
-  const { data: posts } = await useAsyncData("blog", () => {
-    return queryContent<MarketingBlogPageFields>(routeBasePath.value)
-      .where({ draft: { $not: true } })
-      .sort({ date: -1 })
-      .find();
-  });
+  const { data: posts } = await useAsyncData(
+    "blog",
+    async () => {
+      const localeExtensionPattern = /(\.[a-zA-Z\\-]{2,5})+\.md$/;
+      const results = await queryContent<MarketingBlogPageFields>("blog")
+        .where({
+          $and: [
+            { draft: { $not: true } },
+            locale.value === defaultLocale
+              ? { _file: { $not: { $match: localeExtensionPattern } } }
+              : {
+                  _file: { $match: localeExtensionPattern },
+                },
+          ],
+        })
+        .sort({ date: -1 })
+        .find();
+
+      return results.map((post) => ({
+        ...post,
+        _path: post._path?.replace(/(\.[a-zA-Z\\-]{2,5})$/, ""),
+      }));
+    },
+    {
+      watch: [locale],
+    },
+  );
 </script>

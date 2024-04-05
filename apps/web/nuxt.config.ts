@@ -37,6 +37,8 @@ export default defineNuxtConfig({
       "modules/shared/utils/**",
       "modules/ui/lib/**",
       "modules/ui/composables/**",
+      "modules/marketing/shared/util/**",
+      "modules/marketing/content/**",
     ],
   },
 
@@ -46,7 +48,7 @@ export default defineNuxtConfig({
     { path: "@/modules/marketing/shared/components", pathPrefix: false },
     { path: "@/modules/marketing/home/components", pathPrefix: false },
     { path: "@/modules/marketing/blog/components", pathPrefix: false },
-    { path: "@/modules/marketing/legal/components", pathPrefix: false },
+    { path: "@/modules/marketing/content/components", pathPrefix: false },
     { path: "@/modules/marketing/pricing/components", pathPrefix: false },
     { path: "@/modules/saas/admin/components", pathPrefix: false },
     { path: "@/modules/saas/auth/components", pathPrefix: false },

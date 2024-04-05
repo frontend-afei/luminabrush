@@ -12,6 +12,7 @@
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
+    "@internationalized/date": "^3.5.2",
     "@tanstack/vue-table": "^8.15.3",
     "api": "workspace:*",
     "auth": "workspace:*",

@@ -49,7 +49,7 @@
   >
     <AlertDialogContent>
       <AlertDialogHeader>
-        <AlertDialogTitle className="text-destructive">
+        <AlertDialogTitle class="text-destructive">
           {{ t("settings.team.deleteTeam.title") }}
         </AlertDialogTitle>
         <AlertDialogDescription>

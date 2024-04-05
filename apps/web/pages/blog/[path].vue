@@ -62,7 +62,10 @@
         />
       </div>
 
-      <MarketingPostContent :post="post" />
+      <ContentRendererMarkdown
+        :value="post"
+        class="prose dark:prose-invert mx-auto mt-6 max-w-2xl"
+      />
     </div>
   </ContentRenderer>
 </template>
@@ -75,19 +78,43 @@
     layout: "marketing",
   });
 
-  const route = useRoute("blog-slug");
+  const route = useRoute("blog-path");
   const runtimeConfig = useRuntimeConfig();
-  const { routeBasePath } = useRouteBasePath({ path: route.path });
   const { t } = useTranslations();
   const { formatDate } = useLocaleDate();
+  const { locale, defaultLocale } = useI18n();
 
-  const { data: post } = await useAsyncData(route.path, () => {
-    return queryContent<MarketingBlogPageFields>(routeBasePath.value)
-      .where({ draft: { $not: true } })
-      .findOne();
-  });
+  const { data: post } = await useAsyncData(
+    route.path,
+    async () => {
+      const localeExtensionPattern = /(\.[a-zA-Z\\-]{2,5})+\.md$/;
+      try {
+        return await queryContent<MarketingBlogPageFields>(
+          `blog/${route.params.path}`,
+        )
+          .where({
+            $and: [
+              { draft: { $not: true } },
+              locale.value === defaultLocale
+                ? { _file: { $not: { $match: localeExtensionPattern } } }
+                : {
+                    _file: { $match: localeExtensionPattern },
+                  },
+            ],
+          })
+          .findOne();
+      } catch {
+        await navigateTo("/blog");
+        return null;
+      }
+    },
+    {
+      watch: [locale],
+    },
+  );
   if (!post.value) {
-    throw createError({ statusCode: 404 });
+    await navigateTo("/blog");
+    throw new Error("Post not found");
   }
 
   // SEO
