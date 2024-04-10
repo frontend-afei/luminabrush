@@ -18,7 +18,7 @@
   const mobileMenuOpen = ref(false);
 
   const isMenuItemActive = (to: string) => {
-    return route.fullPath === to;
+    return route.fullPath.startsWith(to);
   };
 
   watch(

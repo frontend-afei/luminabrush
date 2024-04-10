@@ -39,7 +39,7 @@
         </p>
       </div>
 
-      <div class="mx-auto max-w-4xl">
+      <div class="mx-auto max-w-2xl">
         <MarketingFaqSection :items="faqItems" />
       </div>
     </div>
