@@ -48,6 +48,8 @@ export default defineNuxtConfig({
     { path: "@/modules/marketing/shared/components", pathPrefix: false },
     { path: "@/modules/marketing/home/components", pathPrefix: false },
     { path: "@/modules/marketing/blog/components", pathPrefix: false },
+    { path: "@/modules/marketing/faq/components", pathPrefix: false },
+    { path: "@/modules/marketing/changelog/components", pathPrefix: false },
     { path: "@/modules/marketing/content/components", pathPrefix: false },
     { path: "@/modules/marketing/pricing/components", pathPrefix: false },
     { path: "@/modules/saas/admin/components", pathPrefix: false },
@@ -127,7 +129,7 @@ export default defineNuxtConfig({
   googleFonts: {
     display: "swap",
     families: {
-      "Plus Jakarta Sans": [400, 500, 600, 700, 800],
+      "DM Sans": [400, 500, 600, 700, 800],
     },
   },
 

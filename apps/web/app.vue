@@ -5,7 +5,7 @@
         <NuxtPage />
       </NuxtLayout>
       <Toaster />
-      <NuxtLoadingIndicator />
+      <NuxtLoadingIndicator color="var(--colors-primary)" />
     </div>
   </ConfigProvider>
 </template>

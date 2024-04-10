@@ -25,6 +25,7 @@
             :key="menuItem.to"
             :to="menuItem.to"
             class="block px-3 py-2 text-lg"
+            :class="[isMenuItemActive(menuItem.to) ? 'font-bold' : '']"
           >
             {{ menuItem.label }}
           </NuxtLinkLocale>
@@ -108,6 +109,10 @@
 
   const mobileMenuOpen = ref(false);
 
+  const isMenuItemActive = (to: string) => {
+    return route.fullPath === to;
+  };
+
   watch(
     () => route.fullPath,
     () => {
@@ -127,6 +132,14 @@
     {
       label: t("common.menu.blog"),
       to: "/blog",
+    },
+    {
+      label: t("common.menu.faq"),
+      to: "/faq",
+    },
+    {
+      label: t("common.menu.changelog"),
+      to: "/changelog",
     },
     {
       label: t("common.menu.docs"),

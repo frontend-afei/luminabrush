@@ -84,7 +84,7 @@ export default {
         sm: "calc(0.75rem - 4px)",
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "sans-serif"],
+        sans: ["DM Sans", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

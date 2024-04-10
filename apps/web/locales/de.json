@@ -1,5 +1,37 @@
 {
+  "admin": {
+    "menu": {
+      "general": "Allgemein",
+      "users": "Benutzer"
+    },
+    "users": {
+      "adminRole": "Administrator",
+      "delete": "Löschen",
+      "deleteUser": {
+        "deleted": "Der Benutzer wurde erfolgreich gelöscht!",
+        "deleting": "Benutzer wird gelöscht...",
+        "notDeleted": "Der Benutzer konnte nicht gelöscht werden. \nBitte versuche es erneut."
+      },
+      "emailVerified": {
+        "verified": "Email verifiziert",
+        "waiting": "E-Mail wartet auf Verifizierung"
+      },
+      "impersonate": "Imitieren",
+      "impersonation": {
+        "impersonating": "Ich gebe mich als {name} aus...",
+        "unimpersonating": "Nicht mehr imitieren..."
+      },
+      "loading": "Benutzer werden geladen...",
+      "search": "Nach Name oder E-Mail suchen...",
+      "title": "Benutzer verwalten"
+    }
+  },
   "auth": {
+    "confirmation": {
+      "close": "Schließe diesen Tab",
+      "message": "Du kannst diesen Tab jetzt schließen und in dem ursprünglichen Tab fortfahren.",
+      "title": "Du wurdest eingeloggt!"
+    },
     "continueWithProvider": "Weiter mit {provider}",
     "forgotPassword": {
       "backToSignin": "Zurück zum Login",
@@ -17,6 +49,10 @@
       "message": "Bitte gib deine E-Mail-Adresse ein und wir senden dir einen Link zum Zurücksetzen deines Passworts.",
       "submit": "Link senden",
       "title": "Hast du dein Passwort vergessen?"
+    },
+    "invalidToken": {
+      "message": "Der Link ist entweder ungültig oder abgelaufen. \nBitte versuche es erneut, dich anzumelden.",
+      "title": "Ungültiger Token"
     },
     "login": {
       "createAnAccount": "Ein Konto erstellen",
@@ -87,27 +123,29 @@
       "otp": "Einmaliges Passwort",
       "submit": "Weitermachen",
       "title": "Bestätige deine E-Mail"
-    },
-    "confirmation": {
-      "close": "Schließe diesen Tab",
-      "message": "Du kannst diesen Tab jetzt schließen und in dem ursprünglichen Tab fortfahren.",
-      "title": "Du wurdest eingeloggt!"
-    },
-    "invalidToken": {
-      "message": "Der Link ist entweder ungültig oder abgelaufen. \nBitte versuche es erneut, dich anzumelden.",
-      "title": "Ungültiger Token"
     }
   },
   "blog": {
+    "backLabel": "Zurück zum Blog",
     "description": "In diesem Blog schreibe ich über alles mögliche.",
-    "title": "Mein toller Blog",
-    "backLabel": "Zurück zum Blog"
+    "title": "Mein toller Blog"
+  },
+  "changelog": {
+    "description": "Bleibe über die neuesten Änderungen in unserem Produkt auf dem Laufenden.",
+    "title": "Changelog"
   },
   "common": {
+    "confirmation": {
+      "cancel": "Abbrechen",
+      "confirm": "Bestätigen"
+    },
     "locales": {},
     "menu": {
       "blog": "Blog",
+      "changelog": "Changelog",
       "dashboard": "Dashboard",
+      "docs": "Dokumentation",
+      "faq": "FAQ",
       "login": "Anmelden",
       "pricing": "Preise"
     }
@@ -123,27 +161,40 @@
   },
   "dashboard": {
     "menu": {
+      "admin": "Administrator",
+      "aiDemo": "AI-Demo",
       "dashboard": "Dashboard",
-      "settings": "Einstellungen",
-      "aiDemo": "AI-Demo"
+      "settings": "Einstellungen"
     },
     "sidebar": {
       "createTeam": "Erstelle ein neues Team"
     },
     "subtitle": "Sieh dir die neuesten Statistiken deines großartigen Unternehmens an.",
+    "userMenu": {
+      "accountSettings": "Account-Einstellungen",
+      "colorMode": "Farbmodus",
+      "documentation": "Dokumentation",
+      "language": "Sprache",
+      "logout": "Ausloggen",
+      "unimpersonate": "Nicht mehr imitieren"
+    },
     "welcome": "Willkommen {name}!"
+  },
+  "faq": {
+    "description": "Hast du irgendwelche Fragen? \nWir sind für dich da.",
+    "title": "Häufig gestellte Fragen"
   },
   "newsletter": {
     "email": "Email",
     "hints": {
+      "error": {
+        "input": "Bitte gib eine gültige E-Mail-Adresse ein.",
+        "submission": "Es tut uns leid, aber wir konnten dich nicht für unseren Newsletter anmelden. \nBitte versuche es später noch einmal.",
+        "title": "Fehler"
+      },
       "success": {
         "message": "Danke, dass du unseren Newsletter abonniert hast. \nWir werden dich auf dem Laufenden halten.",
         "title": "Erfolgreich angemeldet!"
-      },
-      "error": {
-        "title": "Fehler",
-        "input": "Bitte gib eine gültige E-Mail-Adresse ein.",
-        "submission": "Es tut uns leid, aber wir konnten dich nicht für unseren Newsletter anmelden. \nBitte versuche es später noch einmal."
       }
     },
     "submit": "Abonnieren",
@@ -161,6 +212,10 @@
   },
   "settings": {
     "account": {
+      "avatar": {
+        "description": "Um deinen Avatar zu ändern, klicke auf das Bild auf der rechten Seite dieses Blocks und wähle eine Datei von deinem Computer zum Hochladen aus.",
+        "title": "Dein Avatar"
+      },
       "changeEmail": {
         "description": "Gib eine neue E-Mail ein und klicke auf Speichern.",
         "note": "Du wirst deine neue E-Mail bestätigen müssen, bevor sie aktiviert wird.",
@@ -174,42 +229,15 @@
         "note": "Bitte gib mindestens 8 Zeichen ein.",
         "title": "Dein Passwort"
       },
+      "deleteAccount": {
+        "confirmation": "Bist du sicher, dass du dein Konto löschen möchten?",
+        "description": "Lösche dein Konto dauerhaft. \nSobald du dein Konto gelöscht haben, gibt es kein Zurück mehr. \nBitte sei dir sicher.",
+        "submit": "Konto löschen",
+        "title": "Konto löschen"
+      },
       "title": "Account"
     },
     "billing": {
-      "subscription": {
-        "cancel": "Kündigen",
-        "currentPlan": "Dein aktueller Plan",
-        "currentSubscription": "Dein aktuelles Abonnement",
-        "endsOn": "Dein Abonnement endet am {nextPaymentDate}",
-        "freePlan": {
-          "title": "Free"
-        },
-        "month": "Monat",
-        "monthly": "monatlich",
-        "nextPayment": "Deine nächste Zahlung ist am {nextPaymentDate} fällig",
-        "pauseSubscription": "Abonnement pausieren",
-        "resumeSubscription": "Abonnement fortsetzen",
-        "status": {
-          "active": "Aktiv",
-          "canceled": "Gekündigt",
-          "expired": "Ausgelaufen",
-          "paused": "Pausiert",
-          "incomplete": "Unvollständig",
-          "past_due": "Überfällig",
-          "trialing": "Testversion",
-          "unpaid": "Unbezahlt"
-        },
-        "subscribe": "Abonnieren",
-        "switchToPlan": "Zu diesem Plan wechseln",
-        "updateBillingDetails": "Zahlungsdetails aktualisieren",
-        "upgradePlan": "Upgrade deinen Plan",
-        "year": "Jahr",
-        "yearly": "jährlich",
-        "yourSubscription": "Du hast den Plan {plan} ({price}/{interval}) abonniert.",
-        "resume": "Abonnement fortsetzen"
-      },
-      "title": "Zahlung",
       "cancelSubscription": {
         "notifications": {
           "error": {
@@ -217,16 +245,6 @@
           },
           "success": {
             "title": "Das Abonnement wurde gekündigt"
-          }
-        }
-      },
-      "resumeSubscription": {
-        "notifications": {
-          "error": {
-            "title": "Das Abonnement konnte nicht fortgesetzt werden"
-          },
-          "success": {
-            "title": "Das Abonnement wurde wieder aufgenommen"
           }
         }
       },
@@ -248,18 +266,85 @@
             "title": "Das Abonnement wurde pausiert."
           }
         }
+      },
+      "resumeSubscription": {
+        "notifications": {
+          "error": {
+            "title": "Das Abonnement konnte nicht fortgesetzt werden"
+          },
+          "success": {
+            "title": "Das Abonnement wurde wieder aufgenommen"
+          }
+        }
+      },
+      "subscription": {
+        "cancel": "Kündigen",
+        "currentPlan": "Dein aktueller Plan",
+        "currentSubscription": "Dein aktuelles Abonnement",
+        "endsOn": "Dein Abonnement endet am {nextPaymentDate}",
+        "freePlan": {
+          "title": "Free"
+        },
+        "month": "Monat",
+        "monthly": "monatlich",
+        "nextPayment": "Deine nächste Zahlung ist am {nextPaymentDate} fällig",
+        "pauseSubscription": "Abonnement pausieren",
+        "resume": "Abonnement fortsetzen",
+        "resumeSubscription": "Abonnement fortsetzen",
+        "status": {
+          "active": "Aktiv",
+          "canceled": "Gekündigt",
+          "expired": "Ausgelaufen",
+          "incomplete": "Unvollständig",
+          "past_due": "Überfällig",
+          "paused": "Pausiert",
+          "trialing": "Testversion",
+          "unpaid": "Unbezahlt"
+        },
+        "subscribe": "Abonnieren",
+        "switchToPlan": "Zu diesem Plan wechseln",
+        "updateBillingDetails": "Zahlungsdetails aktualisieren",
+        "upgradePlan": "Upgrade deinen Plan",
+        "year": "Jahr",
+        "yearly": "jährlich",
+        "yourSubscription": "Du hast den Plan {plan} ({price}/{interval}) abonniert."
+      },
+      "title": "Zahlung"
+    },
+    "cropImage": {
+      "save": "Speichern"
+    },
+    "menu": {
+      "account": {
+        "general": "Allgemein",
+        "title": "Konto"
+      },
+      "team": {
+        "billing": "Abrechnung",
+        "general": "Allgemein",
+        "members": "Mitglieder",
+        "title": "Team"
       }
     },
     "notifications": {
+      "accountDeleted": "Dein Account wurde gelöscht.",
+      "accountNotDeleted": "Wir konnten dein Konto nicht löschen. \nBitte versuche es später noch einmal.",
+      "avatarNotUpdated": "Wir konnten deinen Avatar nicht aktualisieren. \nBitte versuche es erneut.",
+      "avatarUpdated": "Dein Avatar wurde aktualisiert.",
       "emailUpdated": "Deine E-Mail wurde geändert.",
+      "nameUpdateFailed": "Dein Name konnte nicht aktualisiert werden. \nBitte versuche es später noch einmal.",
       "nameUpdated": "Dein Name wurde geändert.",
-      "passwordUpdated": "Dein Passwort wurde aktualisiert.",
       "passwordNotUpdated": "Wir konnten dein Passwort nicht aktualisieren. \nBitte versuche es erneut.",
+      "passwordUpdated": "Dein Passwort wurde aktualisiert.",
+      "teamDeleted": "Dein Team wurde gelöscht.",
       "teamNameNotUpdated": "Wir konnten deinen Teamnamen nicht aktualisieren. \nBitte versuche es später noch einmal.",
       "teamNameUpdated": "Dein Teamname wurde aktualisiert.",
-      "nameUpdateFailed": "Dein Name konnte nicht aktualisiert werden. \nBitte versuche es später noch einmal."
+      "teamNotDeleted": "Wir konnten dein Team nicht löschen. \nBitte versuche es später noch einmal."
     },
     "save": "Speichern",
+    "sections": {
+      "team": "Team"
+    },
     "subtitle": "Verwalte deinen Account und deine Anwendungseinstellungen.",
     "team": {
       "changeName": {
@@ -267,13 +352,22 @@
         "teamUrl": "Deine Team-URL lautet {url}.",
         "title": "Teamname"
       },
+      "deleteTeam": {
+        "confirmation": "Bist du sicher, dass du dein Team löschen möchten?",
+        "description": "Lösche dein Team dauerhaft. \nSobald du dein Team gelöscht haben, gibt es kein Zurück mehr. \nBitte sei dir sicher.",
+        "submit": "Team löschen",
+        "title": "Team löschen"
+      },
       "members": {
+        "activeMembers": "Aktive Mitglieder",
+        "invitations": {
+          "email": "Email",
+          "empty": "Du hast noch keine Mitglieder eingeladen.",
+          "revoke": "Einladung widerrufen"
+        },
         "invite": "Lade ein neues Mitglied ein",
         "inviteMember": {
           "email": "Email",
-          "role": "Rolle",
-          "submit": "Einladen",
-          "title": "Neues Mitglied einladen",
           "notifications": {
             "error": {
               "description": "Wir konnten das Mitglied nicht einladen. \nBitte versuche es später noch einmal.",
@@ -283,21 +377,11 @@
               "description": "Das Mitglied wurde eingeladen.",
               "title": "Mitglied eingeladen"
             }
-          }
+          },
+          "role": "Rolle",
+          "submit": "Einladen",
+          "title": "Neues Mitglied einladen"
         },
-        "removeMember": "Mitglied entfernen",
-        "roles": {
-          "member": "Mitglied",
-          "owner": "Eigentümer"
-        },
-        "title": "Mitglieder",
-        "activeMembers": "Aktive Mitglieder",
-        "invitations": {
-          "email": "Email",
-          "empty": "Du hast noch keine Mitglieder eingeladen.",
-          "revoke": "Einladung widerrufen"
-        },
-        "pendingInvitations": "Ausstehende Einladungen",
         "notifications": {
           "removeMember": {
             "error": {
@@ -332,26 +416,18 @@
               "description": "Die Mitgliedschaft wurde erfolgreich aktualisiert"
             }
           }
-        }
+        },
+        "pendingInvitations": "Ausstehende Einladungen",
+        "removeMember": "Mitglied entfernen",
+        "roles": {
+          "member": "Mitglied",
+          "owner": "Eigentümer"
+        },
+        "title": "Mitglieder"
       },
       "subtitle": "Verwalte deine Teameinstellungen und Mitglieder",
       "title": "Team"
     },
-    "title": "Einstellungen",
-    "menu": {
-      "account": {
-        "general": "Allgemein",
-        "title": "Konto"
-      },
-      "team": {
-        "billing": "Abrechnung",
-        "general": "Allgemein",
-        "members": "Mitglieder",
-        "title": "Team"
-      }
-    },
-    "sections": {
-      "team": "Team"
-    }
+    "title": "Einstellungen"
   }
 }

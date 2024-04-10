@@ -35,6 +35,9 @@ importers:
       cropperjs:
         specifier: ^1.6.1
         version: 1.6.1
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       mail:
         specifier: workspace:*
         version: link:../../packages/mail
@@ -6747,6 +6750,10 @@ packages:
     dependencies:
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.0.0
+    dev: false
+
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: false
 
   /db0@0.1.4:

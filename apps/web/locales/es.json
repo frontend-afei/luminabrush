@@ -1,5 +1,37 @@
 {
+  "admin": {
+    "menu": {
+      "general": "General",
+      "users": "Usuarios"
+    },
+    "users": {
+      "adminRole": "Administración",
+      "delete": "Borrar",
+      "deleteUser": {
+        "deleted": "¡El usuario ha sido eliminado exitosamente!",
+        "deleting": "Eliminando usuario...",
+        "notDeleted": "No se pudo eliminar el usuario. \nInténtalo de nuevo."
+      },
+      "emailVerified": {
+        "verified": "Correo Electrónico Verificado",
+        "waiting": "Correo electrónico esperando verificación"
+      },
+      "impersonate": "Personificar",
+      "impersonation": {
+        "impersonating": "Haciéndose pasar por {nombre}....",
+        "unimpersonating": "Desimplantando..."
+      },
+      "loading": "Cargando usuarios...",
+      "search": "Buscar nombre o correo electrónico...",
+      "title": "Administrar usuarios"
+    }
+  },
   "auth": {
+    "confirmation": {
+      "close": "Cierra esta ventana",
+      "message": "Puede cerrar esta ventana y continuar en la ventana de donde vino.",
+      "title": "¡Has iniciado sesión!"
+    },
     "continueWithProvider": "Continuar con {provider}",
     "forgotPassword": {
       "backToSignin": "Volver al inicio de sesión",
@@ -17,6 +49,10 @@
       "message": "Ingrese su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña.",
       "submit": "Enviar enlace",
       "title": "¿Olvidaste tu contraseña?"
+    },
+    "invalidToken": {
+      "message": "El enlace no es válido o ha caducado. \nIntente iniciar sesión nuevamente.",
+      "title": "Simbolo no valido"
     },
     "login": {
       "createAnAccount": "Crea una cuenta",
@@ -86,26 +122,28 @@
       "otp": "Contraseña de un solo uso",
       "submit": "Continuar",
       "title": "Verifique su correo electrónico"
-    },
-    "confirmation": {
-      "close": "Cierra esta ventana",
-      "message": "Puede cerrar esta ventana y continuar en la ventana de donde vino.",
-      "title": "¡Has iniciado sesión!"
-    },
-    "invalidToken": {
-      "message": "El enlace no es válido o ha caducado. \nIntente iniciar sesión nuevamente.",
-      "title": "Simbolo no valido"
     }
   },
   "blog": {
+    "backLabel": "Volver al blog",
     "description": "Lea las últimas noticias de nuestra empresa.",
-    "title": "mi blog genial",
-    "backLabel": "Volver al blog"
+    "title": "mi blog genial"
+  },
+  "changelog": {
+    "description": "Manténgase actualizado con los últimos cambios en nuestro producto.",
+    "title": "Registro de cambios"
   },
   "common": {
+    "confirmation": {
+      "cancel": "Cancelar",
+      "confirm": "Confirmar"
+    },
     "menu": {
       "blog": "Blog",
+      "changelog": "Registro de cambios",
       "dashboard": "Panel",
+      "docs": "Documentos",
+      "faq": "Preguntas más frecuentes",
       "login": "Acceso",
       "pricing": "Precios"
     }
@@ -121,27 +159,40 @@
   },
   "dashboard": {
     "menu": {
+      "admin": "Administración",
+      "aiDemo": "Demostración de IA",
       "dashboard": "Panel",
-      "settings": "Ajustes",
-      "aiDemo": "Demostración de IA"
+      "settings": "Ajustes"
     },
     "sidebar": {
       "createTeam": "Crear un nuevo equipo"
     },
     "subtitle": "Vea las últimas estadísticas de su increíble negocio.",
+    "userMenu": {
+      "accountSettings": "Configuraciones de la cuenta",
+      "colorMode": "Modo de color",
+      "documentation": "Documentación",
+      "language": "Idioma",
+      "logout": "Cerrar sesión",
+      "unimpersonate": "no suplantar"
+    },
     "welcome": "¡Bienvenido {name}!"
+  },
+  "faq": {
+    "description": "¿Tiene usted alguna pregunta? \nTe tenemos cubierto.",
+    "title": "Preguntas frecuentes"
   },
   "newsletter": {
     "email": "Correo electrónico",
     "hints": {
+      "error": {
+        "input": "Por favor ingrese un correo electrónico válido.",
+        "submission": "Lo sentimos, pero no pudimos suscribirlo a nuestro boletín. \nPor favor, inténtelo de nuevo más tarde.",
+        "title": "Error"
+      },
       "success": {
         "message": "Gracias por suscribirse a nuestro boletín. \nLos mantendremos informados.",
         "title": "suscrito"
-      },
-      "error": {
-        "title": "Error",
-        "input": "Por favor ingrese un correo electrónico válido.",
-        "submission": "Lo sentimos, pero no pudimos suscribirlo a nuestro boletín. \nPor favor, inténtelo de nuevo más tarde."
       }
     },
     "submit": "Suscribir",
@@ -159,6 +210,10 @@
   },
   "settings": {
     "account": {
+      "avatar": {
+        "description": "Para cambiar su avatar, haga clic en la imagen en el lado derecho de este bloque y seleccione un archivo de su computadora para cargarlo.",
+        "title": "Tu avatar"
+      },
       "changeEmail": {
         "description": "Ingrese un nuevo correo electrónico y haga clic en guardar para actualizarlo.",
         "note": "Deberá verificar su nueva dirección de correo electrónico antes de poder iniciar sesión nuevamente.",
@@ -172,42 +227,15 @@
         "note": "Por favor ingrese al menos 8 caracteres.",
         "title": "Tu contraseña"
       },
+      "deleteAccount": {
+        "confirmation": "¿Estás seguro de que quieres eliminar tu cuenta?",
+        "description": "Elimina permanentemente tu cuenta. \nUna vez que eliminas tu cuenta, no hay vuelta atrás. \nPor favor esté seguro.",
+        "submit": "Borrar cuenta",
+        "title": "Borrar cuenta"
+      },
       "title": "Cuenta"
     },
     "billing": {
-      "subscription": {
-        "cancel": "Cancela tu suscripción",
-        "currentPlan": "tu plan actual",
-        "currentSubscription": "Tu suscripción actual",
-        "endsOn": "Su suscripción finaliza el {nextPaymentDate}",
-        "freePlan": {
-          "title": "Gratis"
-        },
-        "month": "mes",
-        "monthly": "Mensual",
-        "nextPayment": "El próximo pago será el {nextPaymentDate}",
-        "pauseSubscription": "Pausar tu suscripción",
-        "resumeSubscription": "Reanuda tu suscripción",
-        "status": {
-          "active": "Activo",
-          "expired": "Venció",
-          "paused": "en pausa",
-          "canceled": "Cancelado",
-          "incomplete": "Incompleto",
-          "past_due": "Vencido",
-          "trialing": "Ensayo",
-          "unpaid": "No pagado"
-        },
-        "subscribe": "Suscribir",
-        "switchToPlan": "Cambiar a este plan",
-        "updateBillingDetails": "Actualizar detalles de facturación",
-        "upgradePlan": "Actualiza tu plan",
-        "year": "año",
-        "yearly": "Anual",
-        "yourSubscription": "Estás suscrito a {plan} ({price}/{interval})",
-        "resume": "Reanudar suscripción"
-      },
-      "title": "Facturación",
       "cancelSubscription": {
         "notifications": {
           "error": {
@@ -215,16 +243,6 @@
           },
           "success": {
             "title": "La suscripción fue cancelada"
-          }
-        }
-      },
-      "resumeSubscription": {
-        "notifications": {
-          "error": {
-            "title": "No se pudo reanudar la suscripción"
-          },
-          "success": {
-            "title": "Se reanudó la suscripción."
           }
         }
       },
@@ -246,18 +264,85 @@
             "title": "La suscripción fue pausada."
           }
         }
+      },
+      "resumeSubscription": {
+        "notifications": {
+          "error": {
+            "title": "No se pudo reanudar la suscripción"
+          },
+          "success": {
+            "title": "Se reanudó la suscripción."
+          }
+        }
+      },
+      "subscription": {
+        "cancel": "Cancela tu suscripción",
+        "currentPlan": "tu plan actual",
+        "currentSubscription": "Tu suscripción actual",
+        "endsOn": "Su suscripción finaliza el {nextPaymentDate}",
+        "freePlan": {
+          "title": "Gratis"
+        },
+        "month": "mes",
+        "monthly": "Mensual",
+        "nextPayment": "El próximo pago será el {nextPaymentDate}",
+        "pauseSubscription": "Pausar tu suscripción",
+        "resume": "Reanudar suscripción",
+        "resumeSubscription": "Reanuda tu suscripción",
+        "status": {
+          "active": "Activo",
+          "canceled": "Cancelado",
+          "expired": "Venció",
+          "incomplete": "Incompleto",
+          "past_due": "Vencido",
+          "paused": "en pausa",
+          "trialing": "Ensayo",
+          "unpaid": "No pagado"
+        },
+        "subscribe": "Suscribir",
+        "switchToPlan": "Cambiar a este plan",
+        "updateBillingDetails": "Actualizar detalles de facturación",
+        "upgradePlan": "Actualiza tu plan",
+        "year": "año",
+        "yearly": "Anual",
+        "yourSubscription": "Estás suscrito a {plan} ({price}/{interval})"
+      },
+      "title": "Facturación"
+    },
+    "cropImage": {
+      "save": "Ahorrar"
+    },
+    "menu": {
+      "account": {
+        "general": "General",
+        "title": "Cuenta"
+      },
+      "team": {
+        "billing": "Facturación",
+        "general": "General",
+        "members": "Miembros",
+        "title": "Equipo"
       }
     },
     "notifications": {
+      "accountDeleted": "Tu cuenta ha sido eliminada.",
+      "accountNotDeleted": "No pudimos eliminar su cuenta. \nPor favor, inténtelo de nuevo más tarde.",
+      "avatarNotUpdated": "No pudimos actualizar tu avatar. \nInténtalo de nuevo.",
+      "avatarUpdated": "Tu avatar ha sido actualizado.",
       "emailUpdated": "Su correo electrónico ha sido actualizado.",
+      "nameUpdateFailed": "No se pudo actualizar su nombre. \nPor favor, inténtelo de nuevo más tarde.",
       "nameUpdated": "Su nombre ha sido actualizado.",
-      "passwordUpdated": "Su contraseña ha sido actualizada.",
       "passwordNotUpdated": "No pudimos actualizar su contraseña. \nInténtalo de nuevo.",
+      "passwordUpdated": "Su contraseña ha sido actualizada.",
+      "teamDeleted": "Tu equipo ha sido eliminado.",
       "teamNameNotUpdated": "No pudimos actualizar el nombre de su equipo. \nPor favor, inténtelo de nuevo más tarde.",
       "teamNameUpdated": "El nombre de tu equipo ha sido actualizado.",
-      "nameUpdateFailed": "No se pudo actualizar su nombre. \nPor favor, inténtelo de nuevo más tarde."
+      "teamNotDeleted": "No pudimos eliminar tu equipo. \nPor favor, inténtelo de nuevo más tarde."
     },
     "save": "Ahorrar",
+    "sections": {
+      "team": "Equipo"
+    },
     "subtitle": "Administra tu configuración",
     "team": {
       "changeName": {
@@ -265,13 +350,22 @@
         "teamUrl": "La URL de su equipo será {url}.",
         "title": "Nombre del equipo"
       },
+      "deleteTeam": {
+        "confirmation": "¿Estás seguro de que quieres eliminar tu equipo?",
+        "description": "Elimina permanentemente tu equipo. \nUna vez que eliminas tu equipo, no hay vuelta atrás. \nPor favor esté seguro.",
+        "submit": "Eliminar equipo",
+        "title": "Eliminar equipo"
+      },
       "members": {
+        "activeMembers": "Miembros activos",
+        "invitations": {
+          "email": "Correo electrónico",
+          "empty": "Aún no has invitado a ningún miembro.",
+          "revoke": "Revocar invitación"
+        },
         "invite": "Invitar a un nuevo miembro",
         "inviteMember": {
           "email": "Correo electrónico",
-          "role": "Role",
-          "submit": "Invitar",
-          "title": "Invitar nuevo miembro",
           "notifications": {
             "error": {
               "description": "No pudimos invitar al miembro. \nPor favor, inténtelo de nuevo más tarde.",
@@ -281,21 +375,11 @@
               "description": "El miembro ha sido invitado.",
               "title": "Miembro invitado"
             }
-          }
+          },
+          "role": "Role",
+          "submit": "Invitar",
+          "title": "Invitar nuevo miembro"
         },
-        "removeMember": "Eliminar miembro",
-        "roles": {
-          "member": "Miembro",
-          "owner": "Dueño"
-        },
-        "title": "Miembros",
-        "activeMembers": "Miembros activos",
-        "invitations": {
-          "email": "Correo electrónico",
-          "empty": "Aún no has invitado a ningún miembro.",
-          "revoke": "Revocar invitación"
-        },
-        "pendingInvitations": "Invitaciones pendientes",
         "notifications": {
           "removeMember": {
             "error": {
@@ -330,26 +414,18 @@
               "description": "La membresía se actualizó exitosamente"
             }
           }
-        }
+        },
+        "pendingInvitations": "Invitaciones pendientes",
+        "removeMember": "Eliminar miembro",
+        "roles": {
+          "member": "Miembro",
+          "owner": "Dueño"
+        },
+        "title": "Miembros"
       },
       "subtitle": "Administre la configuración y los miembros de su equipo",
       "title": "Equipo"
     },
-    "title": "Ajustes",
-    "menu": {
-      "account": {
-        "general": "General",
-        "title": "Cuenta"
-      },
-      "team": {
-        "billing": "Facturación",
-        "general": "General",
-        "members": "Miembros",
-        "title": "Equipo"
-      }
-    },
-    "sections": {
-      "team": "Equipo"
-    }
+    "title": "Ajustes"
   }
 }

@@ -5,12 +5,17 @@ module.exports = {
     "antfu/top-level-function": "off",
     "sort-imports": "off",
     "vue/attributes-order": "off",
-    "vue/component-tags-order": "off",
     "vue/attribute-hyphenation": "off",
     "vue/v-on-event-hyphenation": "off",
     "vue/define-macros-order": "off",
     "vue/sort-imports": "off",
     "import/order": "off",
+    "vue/component-tags-order": [
+      "error",
+      {
+        order: [["script", "template"], "style"],
+      },
+    ],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
   },
 

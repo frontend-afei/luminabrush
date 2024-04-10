@@ -130,6 +130,10 @@
     "description": "Read the latest news from our company",
     "title": "My awesome blog"
   },
+  "changelog": {
+    "description": "Stay up to date with the latest changes in our product.",
+    "title": "Changelog"
+  },
   "common": {
     "confirmation": {
       "cancel": "Cancel",
@@ -138,8 +142,10 @@
     "locales": {},
     "menu": {
       "blog": "Blog",
+      "changelog": "Changelog",
       "dashboard": "Dashboard",
       "docs": "Docs",
+      "faq": "FAQ",
       "login": "Login",
       "pricing": "Pricing"
     }
@@ -173,6 +179,10 @@
       "unimpersonate": "Unimpersonate"
     },
     "welcome": "Welcome {name}!"
+  },
+  "faq": {
+    "description": "Do you have any questions? We have got you covered.",
+    "title": "Frequently asked questions"
   },
   "newsletter": {
     "email": "Email",
