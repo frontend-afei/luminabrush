@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { AlertTriangleIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
 
   const runtimeConfig = useRuntimeConfig();
@@ -124,7 +125,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.login.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-4">
+    <p class="mb-6 mt-4 text-muted-foreground">
       {{ $t("auth.login.subtitle") }}
     </p>
 
@@ -144,7 +145,7 @@
       <SaasSigninModeSwitch class="w-full" v-model="signinMode" />
 
       <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
+        <AlertTriangleIcon class="size-4" />
         <template #title>{{ serverError.title }}</template>
         <template #description>{{ serverError.message }}</template>
       </Alert>

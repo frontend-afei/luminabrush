@@ -39,7 +39,7 @@
 
     <Card class="mt-8">
       <div
-        class="text-muted-foreground flex h-64 items-center justify-center p-8"
+        class="flex h-64 items-center justify-center p-8 text-muted-foreground"
       >
         Place your content here...
       </div>

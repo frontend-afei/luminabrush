@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { ChevronsUpDownIcon } from "lucide-vue-next";
   import {
     SelectIcon,
     SelectTrigger,
@@ -24,7 +25,7 @@
   >
     <slot />
     <SelectIcon asChild>
-      <Icon name="select" class="h-4 w-4 opacity-50" />
+      <ChevronsUpDownIcon class="size-4 opacity-50" />
     </SelectIcon>
   </SelectTrigger>
 </template>

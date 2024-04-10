@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { ApiOutput } from "api";
+  import { MoreVerticalIcon, UndoIcon } from "lucide-vue-next";
 
   const props = defineProps<{
     invitations: ApiOutput["team"]["invitations"];
@@ -72,7 +73,7 @@
               <DropdownMenuRoot>
                 <DropdownMenuTrigger asChild>
                   <Button size="icon" variant="ghost">
-                    <Icon name="more" />
+                    <MoreVerticalIcon class="size-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -83,7 +84,7 @@
                       () => handleRevokeInvitation({ invitationId: row.id })
                     "
                   >
-                    <Icon name="undo" class="mr-2 h-4 w-4" />
+                    <UndoIcon class="mr-2 size-4" />
                     {{ $t("settings.team.members.invitations.revoke") }}
                   </DropdownMenuItem>
                 </DropdownMenuContent>

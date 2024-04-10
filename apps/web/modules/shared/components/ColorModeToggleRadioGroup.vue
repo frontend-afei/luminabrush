@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-  import type { IconName } from "@/modules/ui/components/Icon.vue";
+  import { HardDriveIcon, MoonIcon, SunIcon } from "lucide-vue-next";
 
   const colorModeOptions: {
     value: string;
     label: string;
-    icon: IconName;
+    icon: Component;
   }[] = [
     {
       value: "system",
       label: "System",
-      icon: "system",
+      icon: HardDriveIcon,
     },
     {
       value: "light",
       label: "Light",
-      icon: "lightMode",
+      icon: SunIcon,
     },
     {
       value: "dark",
       label: "Dark",
-      icon: "darkMode",
+      icon: MoonIcon,
     },
   ];
 </script>
@@ -31,7 +31,7 @@
       :key="option.value"
       :value="option.value"
     >
-      <Icon :name="option.icon" class="mr-2 h-4 w-4 opacity-50" />
+      <component :is="option.icon" class="mr-2 size-4 opacity-50" />
       {{ option.label }}
     </DropdownMenuRadioItem>
   </DropdownMenuRadioGroup>

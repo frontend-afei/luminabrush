@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="to-primary/10 border-b bg-gradient-to-b from-transparent py-8 pb-20"
+    class="border-b bg-gradient-to-b from-transparent to-primary/10 py-8 pb-20"
   >
     <div class="container text-center">
       <h1 class="mx-auto max-w-3xl text-5xl font-bold lg:text-7xl">
@@ -21,13 +21,13 @@
 
       <div class="mt-12 px-8 text-center">
         <h5
-          class="text-foreground/50 text-xs font-semibold uppercase tracking-wider"
+          class="text-xs font-semibold uppercase tracking-wider text-foreground/50"
         >
           Built & shipped with these awesome tools
         </h5>
 
         <div
-          class="text-foreground/50 mt-4 flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:gap-8"
+          class="mt-4 flex flex-col-reverse items-center justify-center gap-4 text-foreground/50 md:flex-row md:gap-8"
         >
           <!-- Supastarter Logo -->
           <div class="aspect-[631/236] h-10 w-auto">

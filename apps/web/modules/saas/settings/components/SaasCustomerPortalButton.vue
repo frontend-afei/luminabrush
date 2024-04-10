@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { CreditCardIcon } from "lucide-vue-next";
+
   const props = defineProps<{
     subscriptionId: string;
   }>();
@@ -44,7 +46,7 @@
     @click="createCustomerPortal"
     :loading="mutationPending"
   >
-    <Icon name="creditCard" class="mr-2 h-4 w-4" />
+    <CreditCardIcon class="mr-2 size-4" />
     {{ $t("settings.billing.createCustomerPortal.label") }}
   </Button>
 </template>

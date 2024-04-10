@@ -1,19 +1,24 @@
 <script setup lang="ts">
-  import type { IconName } from "../Icon.vue";
+  import {
+    AlertCircleIcon,
+    BellIcon,
+    CheckIcon,
+    LoaderIcon,
+  } from "lucide-vue-next";
   import type { ToastVariantProps } from "./ToastRoot.vue";
 
   const { state: toasts, dismiss } = useToast();
 
   const variantIcons = computed<
-    Record<NonNullable<ToastVariantProps["variant"]>, IconName>
+    Record<NonNullable<ToastVariantProps["variant"]>, Component>
   >(() => ({
-    default: "notification",
-    loading: "spinner",
-    success: "check",
-    error: "error",
+    default: BellIcon,
+    loading: LoaderIcon,
+    success: CheckIcon,
+    error: AlertCircleIcon,
   }));
 
-  const getToastIconName = ({ toast }: { toast: Toast }): any => {
+  const getToastIcon = ({ toast }: { toast: Toast }): any => {
     return toast.icon ?? toast.variant != null
       ? variantIcons.value[toast.variant!]
       : undefined;
@@ -29,10 +34,10 @@
       @update:open="() => dismiss(toast.id)"
     >
       <div class="flex items-center gap-3">
-        <Icon
-          v-if="getToastIconName({ toast })"
-          :name="getToastIconName({ toast })"
-          class="h-6 w-6 shrink-0 opacity-50"
+        <component
+          v-if="getToastIcon({ toast })"
+          :is="getToastIcon({ toast })"
+          class="size-6 shrink-0 opacity-50"
           :class="toast.variant === 'loading' ? 'animate-spin' : ''"
         />
 

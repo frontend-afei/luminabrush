@@ -1,5 +1,11 @@
 <script setup lang="ts">
-  import type { IconName } from "@/modules/ui/components/Icon.vue";
+  import {
+    ChevronRightIcon,
+    GridIcon,
+    SettingsIcon,
+    UserCogIcon,
+    Wand2Icon,
+  } from "lucide-vue-next";
 
   const route = useRoute();
   const { t } = useTranslations();
@@ -12,7 +18,7 @@
   type MenuItem = {
     label: string;
     to: string;
-    icon: IconName;
+    icon: Component;
   };
 
   const menuItems = computed<MenuItem[]>(() => {
@@ -22,24 +28,24 @@
     return [
       {
         label: t("dashboard.menu.dashboard"),
-        icon: "grid",
+        icon: GridIcon,
         to: "/app/dashboard",
       },
       {
         label: t("dashboard.menu.aiDemo"),
-        icon: "magic",
+        icon: Wand2Icon,
         to: "/app/ai-demo",
       },
       {
         label: t("dashboard.menu.settings"),
-        icon: "settings",
+        icon: SettingsIcon,
         to: "/app/settings",
       },
       ...(isAdmin.value
         ? ([
             {
               label: t("dashboard.menu.admin"),
-              icon: "admin",
+              icon: UserCogIcon,
               to: `/app/admin`,
             },
           ] satisfies MenuItem[])
@@ -53,7 +59,7 @@
 </script>
 
 <template>
-  <nav class="bg-muted w-full border-b">
+  <nav class="w-full border-b bg-muted">
     <div class="container max-w-6xl py-4">
       <div class="flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-3">
@@ -62,7 +68,7 @@
           </NuxtLinkLocale>
 
           <span class="hidden opacity-30 lg:block">
-            <Icon name="chevronRight" class="h-4 w-4" />
+            <ChevronRightIcon class="size-4" />
           </span>
 
           <SaasTeamSelect />
@@ -86,9 +92,9 @@
                 : 'border-transparent'
             "
           >
-            <Icon
-              :name="menuItem.icon"
-              class="h-4 w-4 shrink-0"
+            <component
+              :is="menuItem.icon"
+              class="size-4 shrink-0"
               :class="isActiveMenuItem(menuItem.to) ? 'text-primary' : ''"
             />
             <span>{{ menuItem.label }}</span>

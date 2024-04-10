@@ -34,7 +34,7 @@
       <span
         v-for="tag of post.tags"
         :key="tag"
-        class="text-primary text-xs font-semibold uppercase tracking-wider"
+        class="text-xs font-semibold uppercase tracking-wider text-primary"
       >
         #{{ tag }}
       </span>
@@ -51,7 +51,7 @@
       <div v-if="post.authorName" class="flex items-center">
         <div
           v-if="post.authorImage"
-          class="relative mr-2 h-8 w-8 overflow-hidden rounded-full"
+          class="relative mr-2 size-8 overflow-hidden rounded-full"
         >
           <NuxtImg
             :src="post.authorImage"

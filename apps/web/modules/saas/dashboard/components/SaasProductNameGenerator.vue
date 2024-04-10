@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { Wand2Icon } from "lucide-vue-next";
+
   const { apiCaller } = useApiCaller();
 
   const { z, toTypedSchema, useForm } = formUtils;
@@ -47,7 +49,7 @@
       </FormItem>
 
       <Button class="mt-4 w-full" :loading="pending && status !== 'idle'">
-        <Icon name="magic" class="mr-2 h-4 w-4" />
+        <Wand2Icon class="mr-2 size-4" />
         Generate product names
       </Button>
     </form>
@@ -56,7 +58,7 @@
       <li
         v-for="(name, key) of data"
         :key="key"
-        class="bg-muted rounded-md border p-4"
+        class="rounded-md border bg-muted p-4"
       >
         {{ name }}
       </li>

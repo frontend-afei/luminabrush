@@ -11,8 +11,9 @@ export const useRouteSearchQuery = ({
   const searchQuery = computed({
     get: () => {
       const routeVal = route.query[name];
-      if (routeVal) 
-return String(routeVal);
+      if (routeVal) {
+        return String(routeVal);
+      }
 
       return defaultValue;
     },

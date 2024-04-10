@@ -71,7 +71,7 @@
           <div v-if="post.authorName" class="flex items-center">
             <div
               v-if="post.authorImage"
-              class="relative mr-2 h-8 w-8 overflow-hidden rounded-full"
+              class="relative mr-2 size-8 overflow-hidden rounded-full"
             >
               <NuxtImg
                 :src="post.authorImage"
@@ -97,7 +97,7 @@
             <span
               v-for="tag of post.tags"
               :key="tag"
-              class="text-primary text-xs font-semibold uppercase tracking-wider"
+              class="text-xs font-semibold uppercase tracking-wider text-primary"
             >
               #{{ tag }}
             </span>
@@ -115,13 +115,13 @@
           sizes="100vw md:50vw lg:1200px"
           width="1920"
           height="1080"
-          class="h-full w-full object-cover object-center"
+          class="size-full object-cover object-center"
         />
       </div>
 
       <ContentRendererMarkdown
         :value="post"
-        class="prose dark:prose-invert mx-auto mt-6 max-w-2xl"
+        class="prose mx-auto mt-6 max-w-2xl dark:prose-invert"
       />
     </div>
   </ContentRenderer>

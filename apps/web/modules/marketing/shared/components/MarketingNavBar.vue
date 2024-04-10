@@ -58,7 +58,7 @@
 
 <template>
   <nav
-    class="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg transition-[height] duration-200"
+    class="fixed left-0 top-0 z-20 w-full bg-background/80 backdrop-blur-lg transition-[height] duration-200"
     :class="[isTop ? 'shadow-none' : 'shadow-sm']"
   >
     <MarketingBanner />
@@ -96,7 +96,7 @@
           <SheetRoot v-model:open="mobileMenuOpen">
             <SheetTrigger asChild>
               <Button class="md:hidden" size="icon" variant="outline">
-                <Icon name="menu" />
+                <MenuIcon class="size-4" />
               </Button>
             </SheetTrigger>
             <SheetContent class="w-[250px]" side="right">

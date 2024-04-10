@@ -33,7 +33,7 @@
   <Card>
     <CardHeader class="pb-2">
       <template #title>
-        <div class="text-muted-foreground text-sm">{{ title }}</div>
+        <div class="text-sm text-muted-foreground">{{ title }}</div>
       </template>
     </CardHeader>
     <CardContent>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { XIcon } from "lucide-vue-next";
   import {
     DialogClose,
     DialogContent,
@@ -6,7 +7,7 @@
   } from "radix-vue";
 
   const sheetVariants = cva(
-    "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+    "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out",
     {
       variants: {
         side: {
@@ -55,9 +56,9 @@
       <slot />
 
       <DialogClose
-        class="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none"
+        class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
       >
-        <Icon name="close" class="h-4 w-4" />
+        <XIcon class="size-4" />
         <span class="sr-only">Close</span>
       </DialogClose>
     </DialogContent>

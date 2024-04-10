@@ -1,5 +1,6 @@
 module.exports = {
-  extends: ["@antfu", "turbo", "prettier"],
+  extends: ["@antfu", "turbo", "prettier", "plugin:tailwindcss/recommended"],
+  plugins: ["tailwindcss"],
   rules: {
     "n/prefer-global/process": "off",
     "antfu/top-level-function": "off",
@@ -16,6 +17,7 @@ module.exports = {
         order: ["script", "template", "style"],
       },
     ],
+    "vue/no-empty-component-block": "error",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
   },
 

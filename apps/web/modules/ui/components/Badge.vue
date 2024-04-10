@@ -1,6 +1,6 @@
 <script setup lang="ts">
   const badgeVariants = cva(
-    "inline-block rounded-full px-3 py-1 text-xs uppercase font-semibold leading-tight",
+    "inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase leading-tight",
     {
       variants: {
         status: {

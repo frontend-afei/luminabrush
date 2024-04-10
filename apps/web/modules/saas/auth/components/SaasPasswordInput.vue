@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { EyeIcon, EyeOffIcon } from "lucide-vue-next";
   import type { BaseInputBinds, GenericObject } from "vee-validate";
   import type { InputHTMLAttributes } from "vue";
 
@@ -30,9 +31,9 @@
     <button
       type="button"
       @click="showPassword = !showPassword"
-      class="text-primary absolute inset-y-0 right-0 flex items-center pr-4 text-xl"
+      class="absolute inset-y-0 right-0 flex items-center pr-4 text-xl text-primary"
     >
-      <Icon :name="showPassword ? 'hide' : 'show'" class="h-4 w-4" />
+      <component :is="showPassword ? EyeOffIcon : EyeIcon" class="size-4" />
     </button>
   </div>
 </template>

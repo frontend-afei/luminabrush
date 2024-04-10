@@ -21,7 +21,7 @@
   <PaginationLast v-bind="delegatedProps">
     <Button :class="cn('h-10 w-10 p-0', props.class)" variant="outline">
       <slot>
-        <ChevronsRight class="h-4 w-4" />
+        <ChevronsRight class="size-4" />
       </slot>
     </Button>
   </PaginationLast>

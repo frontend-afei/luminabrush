@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { XIcon } from "lucide-vue-next";
   import { ToastClose, type ToastCloseProps } from "radix-vue";
 
   type Props = ToastCloseProps & {
@@ -18,6 +19,6 @@
       ),
     }"
   >
-    <Icon name="close" class="h-4 w-4" />
+    <XIcon class="size-4" />
   </ToastClose>
 </template>

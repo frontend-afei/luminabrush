@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { UndoIcon } from "lucide-vue-next";
+</script>
 
 <template>
   <div class="flex h-screen flex-col items-center justify-center">
@@ -7,7 +9,7 @@
 
     <Button asChild class="mt-4">
       <NuxtLink href="/">
-        <Icon name="undo" class="mr-2 h-4 w-4" /> Go to homepage
+        <UndoIcon class="mr-2 size-4" /> Go to homepage
       </NuxtLink>
     </Button>
   </div>

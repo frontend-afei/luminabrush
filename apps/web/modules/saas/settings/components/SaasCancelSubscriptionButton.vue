@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { XIcon } from "lucide-vue-next";
+
   const props = defineProps<{
     subscriptionId: string;
   }>();
@@ -48,7 +50,7 @@
     @click="cancelSubscription"
     :loading="mutationPending"
   >
-    <Icon name="close" class="mr-2 h-4 w-4" />
+    <XIcon class="mr-2 size-4" />
     {{ $t("settings.billing.subscription.cancel") }}
   </Button>
 </template>

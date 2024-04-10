@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <div class="bg-muted min-h-screen">
+  <div class="min-h-screen bg-muted">
     <SaasNavBar />
 
     <main>

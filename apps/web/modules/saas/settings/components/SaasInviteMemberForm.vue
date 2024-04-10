@@ -91,7 +91,7 @@
       </CardHeader>
 
       <CardContent>
-        <div class="@md:flex-row flex flex-col gap-2">
+        <div class="flex flex-col gap-2 @md:flex-row">
           <FormItem class="flex-1">
             <FormLabel for="email" required>
               {{ $t("settings.team.members.inviteMember.email") }}

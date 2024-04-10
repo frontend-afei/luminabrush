@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import type { ApiOutput } from "api";
+  import { MoreVerticalIcon, SquareUserIcon, TrashIcon } from "lucide-vue-next";
 
   const { user } = defineProps<{
     user: ApiOutput["admin"]["users"]["users"][number];
@@ -54,19 +55,19 @@
     <DropdownMenuRoot>
       <DropdownMenuTrigger asChild>
         <Button size="icon" variant="ghost">
-          <Icon name="more" class="h-4 w-4" />
+          <MoreVerticalIcon class="size-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem @click="impersonateUser()">
-          <Icon name="impersonate" class="mr-2 h-4 w-4" />
+          <SquareUserIcon class="mr-2 size-4" />
           {{ $t("admin.users.impersonate") }}
         </DropdownMenuItem>
         <DropdownMenuItem @click="deleteUser()">
           <span
-            class="text-destructive hover:text-destructive flex items-center"
+            class="flex items-center text-destructive hover:text-destructive"
           >
-            <Icon name="delete" class="mr-2 h-4 w-4" />
+            <TrashIcon class="mr-2 size-4" />
             {{ $t("admin.users.delete") }}
           </span>
         </DropdownMenuItem>

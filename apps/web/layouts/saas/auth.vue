@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-muted text-foreground flex min-h-screen place-items-center py-12"
+    class="flex min-h-screen place-items-center bg-muted py-12 text-foreground"
   >
     <div class="container">
       <div class="mx-auto grid w-full max-w-md gap-6">

@@ -14,7 +14,7 @@
     </SaasPageHeader>
 
     <div
-      class="bg-card text-foreground mx-auto max-w-3xl rounded-lg border p-8"
+      class="mx-auto max-w-3xl rounded-lg border bg-card p-8 text-foreground"
     >
       <div>
         <p class="mb-4">

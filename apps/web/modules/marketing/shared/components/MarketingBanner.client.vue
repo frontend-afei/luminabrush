@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { XIcon } from "lucide-vue-next";
+
   const BANNER_HIDDEN_STORAGE_KEY = "banner-hidden";
 
   const showBanner = ref(false);
@@ -18,13 +20,13 @@
 <template>
   <div
     v-if="showBanner"
-    class="bg-primary/10 text-foreground relative inset-0 bottom-auto px-8 py-3 text-center text-sm data-[state='open']:block data-[state='closed']:hidden"
+    class="relative inset-0 bottom-auto bg-primary/10 px-8 py-3 text-center text-sm text-foreground data-[state='open']:block data-[state='closed']:hidden"
   >
     <div>
       <strong>New:</strong> In this banner you can show your awesome new feature
     </div>
     <Button variant="link" @click="hideBanner()" class="absolute right-1 top-1">
-      <Icon name="close" />
+      <XIcon class="size-4" />
     </Button>
   </div>
 </template>

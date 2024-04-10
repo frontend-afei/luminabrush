@@ -100,7 +100,7 @@
     </template>
 
     <div class="flex items-center gap-2">
-      <h4 class="text-primary text-lg font-bold">
+      <h4 class="text-lg font-bold text-primary">
         <span>{{ subscriptionPlan.name }}</span>
         <small class="font-normal">
           ({{ n(subscriptionVariant.price / 100, "currency") }}/{{
@@ -116,7 +116,7 @@
 
     <p
       v-if="props.currentSubscription?.nextPaymentDate"
-      class="text-muted-foreground mt-1"
+      class="mt-1 text-muted-foreground"
     >
       {{ nextPaymentLabel }}
     </p>

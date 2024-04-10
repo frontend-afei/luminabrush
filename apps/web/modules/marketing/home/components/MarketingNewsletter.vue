@@ -1,4 +1,10 @@
 <script setup lang="ts">
+  import {
+    AlertCircleIcon,
+    CheckCircleIcon,
+    type KeyIcon,
+  } from "lucide-vue-next";
+
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
 
@@ -53,7 +59,7 @@
   <section class="border-t py-24">
     <div class="container">
       <div class="mb-12 text-center">
-        <Icon name="key" class="text-primary mx-auto mb-3 h-12 w-12" />
+        <KeyIcon class="mx-auto mb-3 size-12 text-primary" />
         <h1 class="text-3xl font-bold lg:text-4xl">
           {{ $t("newsletter.title") }}
         </h1>
@@ -62,7 +68,7 @@
 
       <div class="mx-auto max-w-lg">
         <Alert v-if="isSubmitSuccessful === true" variant="success">
-          <Icon name="success" class="h-4 w-4" />
+          <CheckCircleIcon class="size-4" />
           <template #title>
             {{ $t("newsletter.hints.success.title") }}
           </template>
@@ -87,7 +93,7 @@
           </form>
 
           <Alert v-if="errors.email" variant="error" class="mt-6 text-sm">
-            <Icon name="error" class="h-4 w-4" />
+            <AlertCircleIcon class="size-4" />
             <template #title>
               {{ $t("newsletter.hints.error.title") }}
             </template>

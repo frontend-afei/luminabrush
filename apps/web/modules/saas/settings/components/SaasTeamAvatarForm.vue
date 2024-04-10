@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useFileDialog } from "@vueuse/core";
+  import { LoaderIcon } from "lucide-vue-next";
   import { v4 as uuid } from "uuid";
 
   const uploading = ref(false);
@@ -98,9 +99,9 @@
 
         <div
           v-if="uploading"
-          class="bg-card/90 absolute inset-0 z-20 flex items-center justify-center"
+          class="absolute inset-0 z-20 flex items-center justify-center bg-card/90"
         >
-          <Icon name="spinner" class="text-primary h-6 w-6 animate-spin" />
+          <LoaderIcon class="size-6 animate-spin text-primary" />
         </div>
       </div>
     </div>

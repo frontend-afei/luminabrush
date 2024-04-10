@@ -1,9 +1,10 @@
 <script setup lang="ts">
+  import { LoaderIcon } from "lucide-vue-next";
   import { Slot } from "radix-vue";
   import type { ButtonHTMLAttributes } from "vue";
 
   const buttonVariants = cva(
-    "focus-visible:ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
     {
       variants: {
         variant: {
@@ -20,7 +21,7 @@
           default: "h-9 rounded-lg px-4 py-2",
           sm: "h-8 rounded-md px-3 text-sm",
           lg: "h-10 rounded-xl px-8 text-base",
-          icon: "h-9 w-9 rounded-lg",
+          icon: "size-9 rounded-lg",
         },
       },
       defaultVariants: {
@@ -64,7 +65,7 @@
     "
     :disabled="props.disabled || props.loading"
   >
-    <Icon v-if="props.loading" name="spinner" class="h-4 w-4 animate-spin" />
+    <LoaderIcon v-if="props.loading" class="size-4 animate-spin" />
     <slot v-else />
   </component>
 </template>

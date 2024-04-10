@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { CheckIcon } from "lucide-vue-next";
   import {
     DropdownMenuCheckboxItem,
     DropdownMenuItemIndicator,
@@ -22,9 +23,9 @@
       ),
     }"
   >
-    <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+    <span class="absolute left-2 flex size-3.5 items-center justify-center">
       <DropdownMenuItemIndicator>
-        <Icon name="check" class="h-4 w-4" />
+        <CheckIcon class="size-4" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />
