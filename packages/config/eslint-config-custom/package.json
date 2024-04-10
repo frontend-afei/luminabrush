@@ -4,7 +4,7 @@
   "main": "index.js",
   "private": true,
   "devDependencies": {
-    "typescript": "^5.4.4",
+    "typescript": "^5.4.5",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-turbo": "latest",
