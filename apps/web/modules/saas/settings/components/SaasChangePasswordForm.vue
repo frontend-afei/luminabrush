@@ -1,21 +1,3 @@
-<template>
-  <SaasActionBlock
-    @submit="onSubmit"
-    :isSubmitting="isSubmitting"
-    :isSubmitDisabled="isSubmitDisabled"
-  >
-    <template #title>{{ t("settings.account.changePassword.title") }}</template>
-    <div>
-      <SaasPasswordInput
-        :fieldData="password"
-        id="password"
-        autocomplete="new-password"
-        required
-      />
-    </div>
-  </SaasActionBlock>
-</template>
-
 <script setup lang="ts">
   const { t } = useTranslations();
   const { apiCaller } = useApiCaller();
@@ -63,3 +45,23 @@
     }
   });
 </script>
+
+<template>
+  <SaasActionBlock
+    @submit="onSubmit"
+    :isSubmitting="isSubmitting"
+    :isSubmitDisabled="isSubmitDisabled"
+  >
+    <template #title>{{
+      $t("settings.account.changePassword.title")
+    }}</template>
+    <div>
+      <SaasPasswordInput
+        :fieldData="password"
+        id="password"
+        autocomplete="new-password"
+        required
+      />
+    </div>
+  </SaasActionBlock>
+</template>

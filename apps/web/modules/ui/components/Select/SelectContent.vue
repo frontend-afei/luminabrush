@@ -1,3 +1,24 @@
+<script setup lang="ts">
+  import {
+    SelectContent,
+    SelectPortal,
+    SelectViewport,
+    type SelectContentProps,
+  } from "radix-vue";
+
+  defineOptions({
+    inheritAttrs: false,
+  });
+
+  type Props = SelectContentProps & {
+    class?: ClassProp;
+    position: SelectContentProps["position"];
+  };
+  const props = withDefaults(defineProps<Props>(), {
+    position: "popper",
+  });
+</script>
+
 <template>
   <SelectPortal>
     <SelectContent
@@ -29,24 +50,3 @@
     </SelectContent>
   </SelectPortal>
 </template>
-
-<script setup lang="ts">
-  import {
-    SelectContent,
-    SelectPortal,
-    SelectViewport,
-    type SelectContentProps,
-  } from "radix-vue";
-
-  defineOptions({
-    inheritAttrs: false,
-  });
-
-  type Props = SelectContentProps & {
-    class?: ClassProp;
-    position: SelectContentProps["position"];
-  };
-  const props = withDefaults(defineProps<Props>(), {
-    position: "popper",
-  });
-</script>

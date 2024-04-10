@@ -1,7 +1,3 @@
-<template>
-  <SaasLoadingWrapper />
-</template>
-
 <script setup lang="ts">
   const route = useRoute("team-invitation");
   const localePath = useLocalePath();
@@ -17,3 +13,7 @@
 
   navigateTo(redirectPath.value);
 </script>
+
+<template>
+  <SaasLoadingWrapper />
+</template>

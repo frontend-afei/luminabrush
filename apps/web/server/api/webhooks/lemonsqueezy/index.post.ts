@@ -1,5 +1,6 @@
 import { createAdminApiCaller } from "api/modules/trpc";
 import type { SubscriptionStatusType } from "database";
+import { Buffer } from "node:buffer";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 export default defineEventHandler(async (event) => {

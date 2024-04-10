@@ -1,3 +1,15 @@
+<script setup lang="ts">
+  const colors = {
+    mutedForeground: "#64748b",
+  };
+
+  const props = defineProps<{
+    name: string;
+    otp: string;
+    url: string;
+  }>();
+</script>
+
 <template>
   <Wrapper>
     <EText>
@@ -37,15 +49,3 @@
     </EText>
   </Wrapper>
 </template>
-
-<script setup lang="ts">
-  const colors = {
-    mutedForeground: "#64748b",
-  };
-
-  const props = defineProps<{
-    name: string;
-    otp: string;
-    url: string;
-  }>();
-</script>

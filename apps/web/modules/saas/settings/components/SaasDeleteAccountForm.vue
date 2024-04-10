@@ -31,8 +31,8 @@
     @submit="showConfirmation = true"
     :submit-label="t('settings.account.deleteAccount.submit')"
   >
-    <template #title>{{ t("settings.account.deleteAccount.title") }}</template>
-    <p>{{ t("settings.account.deleteAccount.description") }}</p>
+    <template #title>{{ $t("settings.account.deleteAccount.title") }}</template>
+    <p>{{ $t("settings.account.deleteAccount.description") }}</p>
   </SaasActionBlock>
 
   <AlertDialog
@@ -42,15 +42,15 @@
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle class="text-destructive">
-          {{ t("settings.account.deleteAccount.title") }}
+          {{ $t("settings.account.deleteAccount.title") }}
         </AlertDialogTitle>
         <AlertDialogDescription>
-          {{ t("settings.account.deleteAccount.confirmation") }}
+          {{ $t("settings.account.deleteAccount.confirmation") }}
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
         <Button variant="outline" @click="showConfirmation = false">
-          {{ t("common.confirmation.cancel") }}
+          {{ $t("common.confirmation.cancel") }}
         </Button>
         <Button
           variant="error"
@@ -60,7 +60,7 @@
             showConfirmation = false;
           "
         >
-          {{ t("settings.account.deleteAccount.submit") }}
+          {{ $t("settings.account.deleteAccount.submit") }}
         </Button>
       </AlertDialogFooter>
     </AlertDialogContent>

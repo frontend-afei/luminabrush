@@ -1,88 +1,3 @@
-<template>
-  <div>
-    <h1 class="text-3xl font-bold">{{ t("auth.login.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-4">
-      {{ t("auth.login.subtitle") }}
-    </p>
-
-    <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
-
-    <div class="flex flex-col items-stretch gap-3">
-      <SaasSocialSigninButton
-        v-for="providerId of runtimeConfig.public.auth.oAuthProviders"
-        :key="providerId"
-        :provider="providerId"
-      />
-    </div>
-
-    <hr class="my-8" />
-
-    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <SaasSigninModeSwitch class="w-full" v-model="signinMode" />
-
-      <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
-      </Alert>
-
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ t("auth.login.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="text"
-          id="email"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
-
-      <div v-if="signinMode === 'password'">
-        <div>
-          <FormItem>
-            <FormLabel for="password" required>
-              {{ t("auth.signup.password") }}
-            </FormLabel>
-            <SaasPasswordInput
-              :fieldData="password"
-              id="password"
-              autocomplete="current-password"
-              required
-            />
-          </FormItem>
-
-          <div class="mt-1 text-right text-sm">
-            <NuxtLinkLocale to="/auth/forgot-password">
-              {{ t("auth.login.forgotPassword") }}
-            </NuxtLinkLocale>
-          </div>
-        </div>
-      </div>
-
-      <Button class="w-full" type="submit" :loading="isSubmitting">
-        {{
-          signinMode === "password"
-            ? t("auth.login.submit")
-            : t("auth.login.sendMagicLink")
-        }}
-      </Button>
-
-      <p>
-        <span class="text-muted-foreground">
-          {{ t("auth.login.dontHaveAnAccount") }}&nbsp;</span
-        >
-        <NuxtLinkLocale
-          :to="`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
-        >
-          {{ t("auth.login.createAnAccount") }} &rarr;
-        </NuxtLinkLocale>
-      </p>
-    </form>
-  </div>
-</template>
-
 <script setup lang="ts">
   import { joinURL } from "ufo";
 
@@ -205,3 +120,88 @@
     }
   });
 </script>
+
+<template>
+  <div>
+    <h1 class="text-3xl font-bold">{{ $t("auth.login.title") }}</h1>
+    <p class="text-muted-foreground mb-6 mt-4">
+      {{ $t("auth.login.subtitle") }}
+    </p>
+
+    <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
+
+    <div class="flex flex-col items-stretch gap-3">
+      <SaasSocialSigninButton
+        v-for="providerId of runtimeConfig.public.auth.oAuthProviders"
+        :key="providerId"
+        :provider="providerId"
+      />
+    </div>
+
+    <hr class="my-8" />
+
+    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
+      <SaasSigninModeSwitch class="w-full" v-model="signinMode" />
+
+      <Alert v-if="serverError" variant="error">
+        <Icon name="warning" class="h-4 w-4" />
+        <template #title>{{ serverError.title }}</template>
+        <template #description>{{ serverError.message }}</template>
+      </Alert>
+
+      <FormItem>
+        <FormLabel for="email" required>
+          {{ $t("auth.login.email") }}
+        </FormLabel>
+        <Input
+          v-bind="email"
+          type="text"
+          id="email"
+          required
+          autocomplete="name"
+        />
+      </FormItem>
+
+      <div v-if="signinMode === 'password'">
+        <div>
+          <FormItem>
+            <FormLabel for="password" required>
+              {{ $t("auth.signup.password") }}
+            </FormLabel>
+            <SaasPasswordInput
+              :fieldData="password"
+              id="password"
+              autocomplete="current-password"
+              required
+            />
+          </FormItem>
+
+          <div class="mt-1 text-right text-sm">
+            <NuxtLinkLocale to="/auth/forgot-password">
+              {{ $t("auth.login.forgotPassword") }}
+            </NuxtLinkLocale>
+          </div>
+        </div>
+      </div>
+
+      <Button class="w-full" type="submit" :loading="isSubmitting">
+        {{
+          signinMode === "password"
+            ? t("auth.login.submit")
+            : t("auth.login.sendMagicLink")
+        }}
+      </Button>
+
+      <p>
+        <span class="text-muted-foreground">
+          {{ $t("auth.login.dontHaveAnAccount") }}&nbsp;</span
+        >
+        <NuxtLinkLocale
+          :to="`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
+        >
+          {{ $t("auth.login.createAnAccount") }} &rarr;
+        </NuxtLinkLocale>
+      </p>
+    </form>
+  </div>
+</template>

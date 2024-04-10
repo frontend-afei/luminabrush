@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { AvatarRoot, type AvatarRootProps } from "radix-vue";
+
+  type Props = AvatarRootProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <AvatarRoot
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </AvatarRoot>
 </template>
-
-<script setup lang="ts">
-  import { AvatarRoot, type AvatarRootProps } from "radix-vue";
-
-  type Props = AvatarRootProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

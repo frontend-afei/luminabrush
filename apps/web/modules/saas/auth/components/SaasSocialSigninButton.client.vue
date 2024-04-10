@@ -1,21 +1,6 @@
-<template>
-  <Button asChild variant="outline" type="button">
-    <a :href="providerPath">
-      <Icon
-        v-if="providerData.icon"
-        :name="providerData.icon"
-        class="mr-2 h-4 w-4 opacity-70"
-      />
-      {{ t("auth.continueWithProvider", { provider: providerData.name }) }}
-    </a>
-  </Button>
-</template>
-
 <script setup lang="ts">
-  import { joinURL } from "ufo";
   import type { IconName } from "@/modules/ui/components/Icon.vue";
-
-  const { t } = useTranslations();
+  import { joinURL } from "ufo";
 
   const providers: { [key: string]: { name: string; icon: IconName } } = {
     google: {
@@ -48,3 +33,16 @@
     return joinURL(`/api/oauth/${props.provider}`);
   });
 </script>
+
+<template>
+  <Button asChild variant="outline" type="button">
+    <a :href="providerPath">
+      <Icon
+        v-if="providerData.icon"
+        :name="providerData.icon"
+        class="mr-2 h-4 w-4 opacity-70"
+      />
+      {{ $t("auth.continueWithProvider", { provider: providerData.name }) }}
+    </a>
+  </Button>
+</template>

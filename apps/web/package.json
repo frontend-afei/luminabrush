@@ -7,8 +7,7 @@
     "dev": "nuxt dev --dotenv ../../.env.local",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
+    "lint": "eslint \"**/*.{vue,ts}\"",
     "typecheck": "nuxi typecheck",
     "shadcn-vue": "pnpm dlx shadcn-vue@latest"
   },
@@ -39,6 +38,7 @@
     "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "database": "workspace:*",
+    "eslint-config-custom": "*",
     "lucide-vue-next": "^0.365.0",
     "nuxt": "3.11.2",
     "nuxt-simple-robots": "^3.1.9",

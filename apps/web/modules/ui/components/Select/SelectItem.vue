@@ -1,3 +1,17 @@
+<script setup lang="ts">
+  import {
+    SelectItem,
+    SelectItemIndicator,
+    SelectItemText,
+    type SelectItemProps,
+  } from "radix-vue";
+
+  type Props = SelectItemProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <SelectItem
     v-bind="{
@@ -17,17 +31,3 @@
     <SelectItemText><slot /></SelectItemText>
   </SelectItem>
 </template>
-
-<script setup lang="ts">
-  import {
-    SelectItem,
-    SelectItemIndicator,
-    SelectItemText,
-    type SelectItemProps,
-  } from "radix-vue";
-
-  type Props = SelectItemProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

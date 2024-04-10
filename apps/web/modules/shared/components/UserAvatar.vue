@@ -1,12 +1,3 @@
-<template>
-  <AvatarRoot>
-    <AvatarImage v-if="props.avatarUrl" :src="props.avatarUrl" />
-    <AvatarFallback class="bg-primary/10 text-primary">
-      {{ initials }}
-    </AvatarFallback>
-  </AvatarRoot>
-</template>
-
 <script setup lang="ts">
   const props = defineProps<{
     name: string;
@@ -20,3 +11,12 @@
       .join("");
   });
 </script>
+
+<template>
+  <AvatarRoot>
+    <AvatarImage v-if="props.avatarUrl" :src="props.avatarUrl" />
+    <AvatarFallback class="bg-primary/10 text-primary">
+      {{ initials }}
+    </AvatarFallback>
+  </AvatarRoot>
+</template>

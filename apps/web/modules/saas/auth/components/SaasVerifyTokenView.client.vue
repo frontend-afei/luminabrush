@@ -1,26 +1,3 @@
-<template>
-  <div v-if="loading" class="flex items-center justify-center py-8">
-    <Icon name="spinner" class="h-8 w-8 animate-spin" />
-  </div>
-
-  <div v-else>
-    <h1 class="text-3xl font-bold">
-      {{
-        tokenVerified
-          ? t("auth.confirmation.title")
-          : t("auth.invalidToken.title")
-      }}
-    </h1>
-    <p class="text-muted-foreground mb-4 mt-2">
-      {{
-        tokenVerified
-          ? t("auth.confirmation.message")
-          : t("auth.invalidToken.message")
-      }}
-    </p>
-  </div>
-</template>
-
 <script setup lang="ts">
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
@@ -50,3 +27,26 @@
     }
   });
 </script>
+
+<template>
+  <div v-if="loading" class="flex items-center justify-center py-8">
+    <Icon name="spinner" class="h-8 w-8 animate-spin" />
+  </div>
+
+  <div v-else>
+    <h1 class="text-3xl font-bold">
+      {{
+        tokenVerified
+          ? t("auth.confirmation.title")
+          : t("auth.invalidToken.title")
+      }}
+    </h1>
+    <p class="text-muted-foreground mb-4 mt-2">
+      {{
+        tokenVerified
+          ? t("auth.confirmation.message")
+          : t("auth.invalidToken.message")
+      }}
+    </p>
+  </div>
+</template>

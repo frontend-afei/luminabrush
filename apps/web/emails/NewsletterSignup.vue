@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  const colors = {
+    card: "#ffffff",
+  };
+</script>
+
 <template>
   <Wrapper>
     <ESection :style="{ backgroundColor: colors.card, padding: '32px' }">
@@ -8,9 +14,3 @@
     </ESection>
   </Wrapper>
 </template>
-
-<script setup lang="ts">
-  const colors = {
-    card: "#ffffff",
-  };
-</script>

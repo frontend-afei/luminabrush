@@ -1,14 +1,3 @@
-<template>
-  <Button
-    variant="default"
-    @click="createCustomerPortal"
-    :loading="mutationPending"
-  >
-    <Icon name="creditCard" class="mr-2 h-4 w-4" />
-    {{ t("settings.billing.createCustomerPortal.label") }}
-  </Button>
-</template>
-
 <script setup lang="ts">
   const props = defineProps<{
     subscriptionId: string;
@@ -48,3 +37,14 @@
     }
   };
 </script>
+
+<template>
+  <Button
+    variant="default"
+    @click="createCustomerPortal"
+    :loading="mutationPending"
+  >
+    <Icon name="creditCard" class="mr-2 h-4 w-4" />
+    {{ $t("settings.billing.createCustomerPortal.label") }}
+  </Button>
+</template>

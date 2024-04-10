@@ -1,3 +1,18 @@
+<script setup lang="ts">
+  const props = defineProps<{
+    href: string;
+  }>();
+
+  defineOptions({
+    inheritAttrs: false,
+  });
+
+  const colors = {
+    primary: "#10b981",
+    primaryForeground: "#ffffff",
+  };
+</script>
+
 <template>
   <ERow>
     <EButton
@@ -17,18 +32,3 @@
     </EButton>
   </ERow>
 </template>
-
-<script setup lang="ts">
-  const props = defineProps<{
-    href: string;
-  }>();
-
-  defineOptions({
-    inheritAttrs: false,
-  });
-
-  const colors = {
-    primary: "#10b981",
-    primaryForeground: "#ffffff",
-  };
-</script>

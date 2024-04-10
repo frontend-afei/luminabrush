@@ -1,3 +1,15 @@
+<script setup lang="ts">
+  import {
+    DropdownMenuSubContent,
+    type DropdownMenuSubContentProps,
+  } from "radix-vue";
+
+  type Props = DropdownMenuSubContentProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DropdownMenuSubContent
     v-bind="{
@@ -12,15 +24,3 @@
     <slot />
   </DropdownMenuSubContent>
 </template>
-
-<script setup lang="ts">
-  import {
-    DropdownMenuSubContent,
-    type DropdownMenuSubContentProps,
-  } from "radix-vue";
-
-  type Props = DropdownMenuSubContentProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

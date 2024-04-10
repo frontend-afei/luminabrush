@@ -4,8 +4,6 @@
   defineProps<{
     user: ApiOutput["admin"]["users"]["users"][number];
   }>();
-
-  const { t } = useTranslations();
 </script>
 
 <template>

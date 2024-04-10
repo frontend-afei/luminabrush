@@ -1,20 +1,3 @@
-<template>
-  <div role="alert" :class="cn(alertVariants({ variant, class: props.class }))">
-    <slot />
-
-    <h5
-      v-if="$slots.title"
-      class="mb-1 font-medium leading-none tracking-tight"
-    >
-      <slot name="title" />
-    </h5>
-
-    <div v-if="$slots.description" class="text-sm [&_p]:leading-relaxed">
-      <slot name="description" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
   const alertVariants = cva(
     "relative w-full rounded-lg border p-6 [&>svg~*]:pl-8 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-6 [&>svg]:top-6 [&>svg]:text-foreground",
@@ -46,3 +29,20 @@
     variant: "default",
   });
 </script>
+
+<template>
+  <div role="alert" :class="cn(alertVariants({ variant, class: props.class }))">
+    <slot />
+
+    <h5
+      v-if="$slots.title"
+      class="mb-1 font-medium leading-none tracking-tight"
+    >
+      <slot name="title" />
+    </h5>
+
+    <div v-if="$slots.description" class="text-sm [&_p]:leading-relaxed">
+      <slot name="description" />
+    </div>
+  </div>
+</template>

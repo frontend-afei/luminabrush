@@ -1,71 +1,3 @@
-<template>
-  <div class="rounded-md border">
-    <TableRoot>
-      <TableBody v-if="props.memberships.length">
-        <TableRow v-for="row of props.memberships" :key="row.id">
-          <!-- User Details -->
-          <TableCell>
-            <div v-if="row.user" class="flex items-center gap-2">
-              <UserAvatar
-                :name="row.user.name ?? row.user.email"
-                :avatarUrl="row.user.avatarUrl"
-              />
-              <div>
-                <strong class="block">{{ row.user.name }}</strong>
-                <small class="text-muted-foreground">
-                  {{ row.user.email }}
-                </small>
-              </div>
-            </div>
-          </TableCell>
-
-          <!-- Actions -->
-          <TableCell>
-            <div class="flex flex-row justify-end gap-2">
-              <SaasTeamRoleSelect
-                :modelValue="row.role"
-                @update:modelValue="
-                  (val) => handleUpdateRole({ membershipId: row.id, role: val })
-                "
-                :disabled="teamRole !== 'OWNER' || row.isCreator"
-              />
-
-              <DropdownMenuRoot>
-                <DropdownMenuTrigger asChild>
-                  <Button size="icon" variant="ghost">
-                    <Icon name="more" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem
-                    :disabled="row.isCreator"
-                    class="text-destructive"
-                    @click="() => handleRemoveMember({ membershipId: row.id })"
-                  >
-                    <Icon
-                      :name="row.user?.id === user?.id ? 'logout' : 'delete'"
-                      class="mr-2 h-4 w-4"
-                    />
-                    {{ t("settings.team.members.removeMember") }}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenuRoot>
-            </div>
-          </TableCell>
-        </TableRow>
-      </TableBody>
-
-      <TableBody v-else>
-        <TableRow>
-          <TableCell colspan="2" class="h-24 text-center">
-            No results.
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </TableRoot>
-  </div>
-</template>
-
 <script setup lang="ts">
   import type { ApiOutput } from "api";
   import type { TeamMemberRoleType } from "database";
@@ -164,3 +96,71 @@
     }
   };
 </script>
+
+<template>
+  <div class="rounded-md border">
+    <TableRoot>
+      <TableBody v-if="props.memberships.length">
+        <TableRow v-for="row of props.memberships" :key="row.id">
+          <!-- User Details -->
+          <TableCell>
+            <div v-if="row.user" class="flex items-center gap-2">
+              <UserAvatar
+                :name="row.user.name ?? row.user.email"
+                :avatarUrl="row.user.avatarUrl"
+              />
+              <div>
+                <strong class="block">{{ row.user.name }}</strong>
+                <small class="text-muted-foreground">
+                  {{ row.user.email }}
+                </small>
+              </div>
+            </div>
+          </TableCell>
+
+          <!-- Actions -->
+          <TableCell>
+            <div class="flex flex-row justify-end gap-2">
+              <SaasTeamRoleSelect
+                :modelValue="row.role"
+                @update:modelValue="
+                  (val) => handleUpdateRole({ membershipId: row.id, role: val })
+                "
+                :disabled="teamRole !== 'OWNER' || row.isCreator"
+              />
+
+              <DropdownMenuRoot>
+                <DropdownMenuTrigger asChild>
+                  <Button size="icon" variant="ghost">
+                    <Icon name="more" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem
+                    :disabled="row.isCreator"
+                    class="text-destructive"
+                    @click="() => handleRemoveMember({ membershipId: row.id })"
+                  >
+                    <Icon
+                      :name="row.user?.id === user?.id ? 'logout' : 'delete'"
+                      class="mr-2 h-4 w-4"
+                    />
+                    {{ $t("settings.team.members.removeMember") }}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenuRoot>
+            </div>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+
+      <TableBody v-else>
+        <TableRow>
+          <TableCell colspan="2" class="h-24 text-center">
+            No results.
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </TableRoot>
+  </div>
+</template>

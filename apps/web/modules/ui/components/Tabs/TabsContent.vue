@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { TabsContent, type TabsContentProps } from "radix-vue";
+
+  type Props = TabsContentProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <TabsContent
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </TabsContent>
 </template>
-
-<script setup lang="ts">
-  import { TabsContent, type TabsContentProps } from "radix-vue";
-
-  type Props = TabsContentProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

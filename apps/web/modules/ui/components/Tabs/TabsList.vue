@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { TabsList, type TabsListProps } from "radix-vue";
+
+  type Props = TabsListProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <TabsList
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </TabsList>
 </template>
-
-<script setup lang="ts">
-  import { TabsList, type TabsListProps } from "radix-vue";
-
-  type Props = TabsListProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

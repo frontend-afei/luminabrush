@@ -1,7 +1,3 @@
-<template>
-  <SaasOtpForm />
-</template>
-
 <script setup lang="ts">
   const { t } = useTranslations();
 
@@ -13,3 +9,7 @@
     title: t("auth.verifyOtp.title"),
   });
 </script>
+
+<template>
+  <SaasOtpForm />
+</template>

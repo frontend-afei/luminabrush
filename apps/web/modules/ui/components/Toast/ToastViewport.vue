@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { ToastViewport, type ToastViewportProps } from "radix-vue";
+
+  type Props = ToastViewportProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <ToastViewport
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </ToastViewport>
 </template>
-
-<script setup lang="ts">
-  import { ToastViewport, type ToastViewportProps } from "radix-vue";
-
-  type Props = ToastViewportProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

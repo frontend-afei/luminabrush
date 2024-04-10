@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { TabsTrigger, type TabsTriggerProps } from "radix-vue";
+
+  type Props = TabsTriggerProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <TabsTrigger
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </TabsTrigger>
 </template>
-
-<script setup lang="ts">
-  import { TabsTrigger, type TabsTriggerProps } from "radix-vue";
-
-  type Props = TabsTriggerProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

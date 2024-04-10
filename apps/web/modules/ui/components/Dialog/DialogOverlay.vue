@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { DialogOverlay, type DialogOverlayProps } from "radix-vue";
+
+  type Props = DialogOverlayProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DialogOverlay
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </DialogOverlay>
 </template>
-
-<script setup lang="ts">
-  import { DialogOverlay, type DialogOverlayProps } from "radix-vue";
-
-  type Props = DialogOverlayProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

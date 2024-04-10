@@ -1,18 +1,3 @@
-<template>
-  <SaasActionBlock>
-    <template #title>
-      {{ t("settings.billing.subscription.upgradePlan") }}
-    </template>
-
-    <PricingTable
-      :plans="props.plans"
-      :activePlanId="props.activePlanId"
-      :onSelectPlan="handleSelectPlan"
-      class="md:-mt-12"
-    />
-  </SaasActionBlock>
-</template>
-
 <script setup lang="ts">
   import type { ApiOutput } from "api";
 
@@ -24,7 +9,6 @@
     activePlanId?: string;
   }>();
 
-  const { t } = useTranslations();
   const { apiCaller } = useApiCaller();
 
   const handleSelectPlan = async (planId: string, variantId: string) => {
@@ -46,3 +30,18 @@
     } catch (error) {}
   };
 </script>
+
+<template>
+  <SaasActionBlock>
+    <template #title>
+      {{ $t("settings.billing.subscription.upgradePlan") }}
+    </template>
+
+    <PricingTable
+      :plans="props.plans"
+      :activePlanId="props.activePlanId"
+      :onSelectPlan="handleSelectPlan"
+      class="md:-mt-12"
+    />
+  </SaasActionBlock>
+</template>

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  const props = defineProps<{
+    class?: ClassProp;
+  }>();
+</script>
+
 <template>
   <td
     v-bind="{
@@ -8,9 +14,3 @@
     <slot />
   </td>
 </template>
-
-<script setup lang="ts">
-  const props = defineProps<{
-    class?: ClassProp;
-  }>();
-</script>

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  definePageMeta({
+    layout: "saas-app",
+  });
+</script>
+
 <template>
   <div class="container max-w-6xl py-8">
     <SaasPageHeader>
@@ -19,9 +25,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-  definePageMeta({
-    layout: "saas-app",
-  });
-</script>

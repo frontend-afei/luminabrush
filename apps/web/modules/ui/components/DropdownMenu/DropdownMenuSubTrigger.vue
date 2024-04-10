@@ -1,3 +1,16 @@
+<script setup lang="ts">
+  import {
+    DropdownMenuSubTrigger,
+    type DropdownMenuSubTriggerProps,
+  } from "radix-vue";
+
+  type Props = DropdownMenuSubTriggerProps & {
+    inset?: boolean;
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DropdownMenuSubTrigger
     v-bind="{
@@ -14,16 +27,3 @@
     <Icon name="chevronRight" class="ml-auto h-4 w-4" />
   </DropdownMenuSubTrigger>
 </template>
-
-<script setup lang="ts">
-  import {
-    DropdownMenuSubTrigger,
-    type DropdownMenuSubTriggerProps,
-  } from "radix-vue";
-
-  type Props = DropdownMenuSubTriggerProps & {
-    inset?: boolean;
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

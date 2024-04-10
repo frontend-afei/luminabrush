@@ -1,53 +1,3 @@
-<template>
-  <SaasActionBlock v-if="subscriptionPlan && subscriptionVariant">
-    <template #title>
-      {{ t("settings.billing.subscription.currentSubscription") }}
-    </template>
-
-    <div class="flex items-center gap-2">
-      <h4 class="text-primary text-lg font-bold">
-        <span>{{ subscriptionPlan.name }}</span>
-        <small class="font-normal">
-          ({{ n(subscriptionVariant.price / 100, "currency") }}/{{
-            t(`settings.billing.subscription.${subscriptionVariant.interval}`)
-          }})
-        </small>
-      </h4>
-      <SaasSubscriptionStatusBadge
-        v-if="props.currentSubscription?.status"
-        :status="props.currentSubscription.status"
-      />
-    </div>
-
-    <p
-      v-if="props.currentSubscription?.nextPaymentDate"
-      class="text-muted-foreground mt-1"
-    >
-      {{ nextPaymentLabel }}
-    </p>
-
-    <div
-      v-if="props.currentSubscription"
-      class="-mx-6 -mb-6 mt-6 flex justify-end border-t px-6 py-3"
-    >
-      <div class="flex w-full flex-col justify-between gap-3 md:flex-row">
-        <div>
-          <SaasCustomerPortalButton
-            :subscriptionId="props.currentSubscription.id"
-          />
-        </div>
-
-        <div class="flex flex-col gap-3 md:flex-row">
-          <SaasCancelSubscriptionButton
-            v-if="subscriptionIsRunning"
-            :subscriptionId="props.currentSubscription.id"
-          />
-        </div>
-      </div>
-    </div>
-  </SaasActionBlock>
-</template>
-
 <script setup lang="ts">
   import type { ApiOutput } from "api";
 
@@ -142,3 +92,53 @@
         });
   });
 </script>
+
+<template>
+  <SaasActionBlock v-if="subscriptionPlan && subscriptionVariant">
+    <template #title>
+      {{ $t("settings.billing.subscription.currentSubscription") }}
+    </template>
+
+    <div class="flex items-center gap-2">
+      <h4 class="text-primary text-lg font-bold">
+        <span>{{ subscriptionPlan.name }}</span>
+        <small class="font-normal">
+          ({{ n(subscriptionVariant.price / 100, "currency") }}/{{
+            t(`settings.billing.subscription.${subscriptionVariant.interval}`)
+          }})
+        </small>
+      </h4>
+      <SaasSubscriptionStatusBadge
+        v-if="props.currentSubscription?.status"
+        :status="props.currentSubscription.status"
+      />
+    </div>
+
+    <p
+      v-if="props.currentSubscription?.nextPaymentDate"
+      class="text-muted-foreground mt-1"
+    >
+      {{ nextPaymentLabel }}
+    </p>
+
+    <div
+      v-if="props.currentSubscription"
+      class="-mx-6 -mb-6 mt-6 flex justify-end border-t px-6 py-3"
+    >
+      <div class="flex w-full flex-col justify-between gap-3 md:flex-row">
+        <div>
+          <SaasCustomerPortalButton
+            :subscriptionId="props.currentSubscription.id"
+          />
+        </div>
+
+        <div class="flex flex-col gap-3 md:flex-row">
+          <SaasCancelSubscriptionButton
+            v-if="subscriptionIsRunning"
+            :subscriptionId="props.currentSubscription.id"
+          />
+        </div>
+      </div>
+    </div>
+  </SaasActionBlock>
+</template>

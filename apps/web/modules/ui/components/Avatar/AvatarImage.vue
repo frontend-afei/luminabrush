@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { AvatarImage, type AvatarImageProps } from "radix-vue";
+
+  type Props = AvatarImageProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <AvatarImage
     v-bind="{
@@ -9,12 +18,3 @@
     <slot />
   </AvatarImage>
 </template>
-
-<script setup lang="ts">
-  import { AvatarImage, type AvatarImageProps } from "radix-vue";
-
-  type Props = AvatarImageProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

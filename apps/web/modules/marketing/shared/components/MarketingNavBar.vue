@@ -1,3 +1,61 @@
+<script setup lang="ts">
+  import { useWindowScroll } from "@vueuse/core";
+  import { VisuallyHidden } from "radix-vue";
+
+  const route = useRoute();
+  const { t } = useTranslations();
+  const { y: verticalScrollPosition } = useWindowScroll();
+  const { user, loaded: userLoaded } = useUser();
+
+  const isTop = computed(() => verticalScrollPosition.value < 10);
+
+  const { public: runtimeConfig } = useRuntimeConfig();
+
+  const hasUser = computed(() => {
+    return userLoaded.value && user.value;
+  });
+
+  const mobileMenuOpen = ref(false);
+
+  const isMenuItemActive = (to: string) => {
+    return route.fullPath === to;
+  };
+
+  watch(
+    () => route.fullPath,
+    () => {
+      mobileMenuOpen.value = false;
+    },
+  );
+
+  type MenuItem = {
+    label: string;
+    to: string;
+  };
+  const menuItems = computed<MenuItem[]>(() => [
+    {
+      label: t("common.menu.pricing"),
+      to: "/pricing",
+    },
+    {
+      label: t("common.menu.blog"),
+      to: "/blog",
+    },
+    {
+      label: t("common.menu.faq"),
+      to: "/faq",
+    },
+    {
+      label: t("common.menu.changelog"),
+      to: "/changelog",
+    },
+    {
+      label: t("common.menu.docs"),
+      to: "/docs",
+    },
+  ]);
+</script>
+
 <template>
   <nav
     class="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg transition-[height] duration-200"
@@ -89,61 +147,3 @@
     </div>
   </nav>
 </template>
-
-<script setup lang="ts">
-  import { useWindowScroll } from "@vueuse/core";
-  import { VisuallyHidden } from "radix-vue";
-
-  const route = useRoute();
-  const { t } = useTranslations();
-  const { y: verticalScrollPosition } = useWindowScroll();
-  const { user, loaded: userLoaded } = useUser();
-
-  const isTop = computed(() => verticalScrollPosition.value < 10);
-
-  const { public: runtimeConfig } = useRuntimeConfig();
-
-  const hasUser = computed(() => {
-    return userLoaded.value && user.value;
-  });
-
-  const mobileMenuOpen = ref(false);
-
-  const isMenuItemActive = (to: string) => {
-    return route.fullPath === to;
-  };
-
-  watch(
-    () => route.fullPath,
-    () => {
-      mobileMenuOpen.value = false;
-    },
-  );
-
-  type MenuItem = {
-    label: string;
-    to: string;
-  };
-  const menuItems = computed<MenuItem[]>(() => [
-    {
-      label: t("common.menu.pricing"),
-      to: "/pricing",
-    },
-    {
-      label: t("common.menu.blog"),
-      to: "/blog",
-    },
-    {
-      label: t("common.menu.faq"),
-      to: "/faq",
-    },
-    {
-      label: t("common.menu.changelog"),
-      to: "/changelog",
-    },
-    {
-      label: t("common.menu.docs"),
-      to: "/docs",
-    },
-  ]);
-</script>

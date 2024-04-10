@@ -1,44 +1,3 @@
-<template>
-  <div v-if="variant" class="rounded-xl border p-6">
-    <div class="flex h-full flex-col justify-between gap-4">
-      <div>
-        <h3 class="mb-4 text-2xl font-bold">{{ props.plan.name }}</h3>
-        <div
-          v-if="props.plan.description"
-          class="prose text-muted-foreground mb-2"
-          v-html="props.plan.description"
-        />
-        <ul
-          v-if="props.plan.features?.length"
-          class="text-muted-foreground grid list-disc gap-2 pl-4"
-        >
-          <li v-for="(feature, key) of plan.features" :key="key">
-            {{ feature }}
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <strong class="text-primary text-2xl font-bold">
-          {{ n(variant.price / 100, "currency") }}
-          <span class="text-sm font-normal opacity-70">
-            / {{ props.labels[interval] }}
-          </span>
-        </strong>
-
-        <Button
-          :disabled="isActivePlan"
-          :loading="planSelectionPending"
-          @click="handleSelectPlan"
-          class="mt-4 w-full"
-        >
-          {{ selectPlanLabel }}
-        </Button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
   import type { ApiOutput } from "api";
 
@@ -99,3 +58,44 @@
     }
   };
 </script>
+
+<template>
+  <div v-if="variant" class="rounded-xl border p-6">
+    <div class="flex h-full flex-col justify-between gap-4">
+      <div>
+        <h3 class="mb-4 text-2xl font-bold">{{ props.plan.name }}</h3>
+        <div
+          v-if="props.plan.description"
+          class="prose text-muted-foreground mb-2"
+          v-html="props.plan.description"
+        />
+        <ul
+          v-if="props.plan.features?.length"
+          class="text-muted-foreground grid list-disc gap-2 pl-4"
+        >
+          <li v-for="(feature, key) of plan.features" :key="key">
+            {{ feature }}
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <strong class="text-primary text-2xl font-bold">
+          {{ n(variant.price / 100, "currency") }}
+          <span class="text-sm font-normal opacity-70">
+            / {{ props.labels[interval] }}
+          </span>
+        </strong>
+
+        <Button
+          :disabled="isActivePlan"
+          :loading="planSelectionPending"
+          @click="handleSelectPlan"
+          class="mt-4 w-full"
+        >
+          {{ selectPlanLabel }}
+        </Button>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,16 +1,3 @@
-<template>
-  <form @submit.prevent="onSubmit">
-    <FormItem>
-      <FormLabel for="name" required> {{ t("createTeam.name") }} </FormLabel>
-      <Input v-bind="name" type="text" id="name" required />
-    </FormItem>
-
-    <Button class="mt-4 w-full" type="submit" :loading="isSubmitting">
-      {{ t("createTeam.submit") }}
-    </Button>
-  </form>
-</template>
-
 <script setup lang="ts">
   import type { ApiOutput } from "api";
 
@@ -64,3 +51,16 @@
     }
   });
 </script>
+
+<template>
+  <form @submit.prevent="onSubmit">
+    <FormItem>
+      <FormLabel for="name" required> {{ $t("createTeam.name") }} </FormLabel>
+      <Input v-bind="name" type="text" id="name" required />
+    </FormItem>
+
+    <Button class="mt-4 w-full" type="submit" :loading="isSubmitting">
+      {{ $t("createTeam.submit") }}
+    </Button>
+  </form>
+</template>

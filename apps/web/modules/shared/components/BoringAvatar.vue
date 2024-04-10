@@ -1,11 +1,3 @@
-<template>
-  <img
-    :style="{ width: `${props.size}px`, height: `${props.size}px` }"
-    :src="boringAvatarUrl"
-    alt="Avatar"
-  />
-</template>
-
 <script setup lang="ts">
   const props = withDefaults(
     defineProps<{
@@ -34,3 +26,11 @@
     return `https://source.boringavatars.com/marble/${props.size}/${props.name}?colors=${colorList}`;
   });
 </script>
+
+<template>
+  <img
+    :style="{ width: `${props.size}px`, height: `${props.size}px` }"
+    :src="boringAvatarUrl"
+    alt="Avatar"
+  />
+</template>

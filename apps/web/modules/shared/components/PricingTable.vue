@@ -1,34 +1,3 @@
-<template>
-  <div :class="cn(props.class, '@container')">
-    <div class="flex justify-end">
-      <TabsRoot v-model="interval" class="mb-4">
-        <TabsList>
-          <TabsTrigger value="month">{{ labels.monthly }}</TabsTrigger>
-          <TabsTrigger value="year">{{ labels.yearly }}</TabsTrigger>
-        </TabsList>
-      </TabsRoot>
-    </div>
-
-    <div class="@md:grid-cols-3 grid gap-4">
-      <PricingTableItem
-        v-for="plan of sortedAndFilteredPlans"
-        :onSelectPlan="props.onSelectPlan"
-        :key="plan.id"
-        :plan="plan"
-        :interval="interval"
-        :labels="{
-          month: labels.month,
-          year: labels.year,
-          currentPlan: labels.currentPlan,
-          switchToPlan: labels.switchToPlan,
-          subscribe: labels.subscribe,
-        }"
-        :activePlanId="props.activePlanId"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
   import type {
     SubscriptionInterval,
@@ -85,3 +54,34 @@
       });
   });
 </script>
+
+<template>
+  <div :class="cn(props.class, '@container')">
+    <div class="flex justify-end">
+      <TabsRoot v-model="interval" class="mb-4">
+        <TabsList>
+          <TabsTrigger value="month">{{ labels.monthly }}</TabsTrigger>
+          <TabsTrigger value="year">{{ labels.yearly }}</TabsTrigger>
+        </TabsList>
+      </TabsRoot>
+    </div>
+
+    <div class="@md:grid-cols-3 grid gap-4">
+      <PricingTableItem
+        v-for="plan of sortedAndFilteredPlans"
+        :onSelectPlan="props.onSelectPlan"
+        :key="plan.id"
+        :plan="plan"
+        :interval="interval"
+        :labels="{
+          month: labels.month,
+          year: labels.year,
+          currentPlan: labels.currentPlan,
+          switchToPlan: labels.switchToPlan,
+          subscribe: labels.subscribe,
+        }"
+        :activePlanId="props.activePlanId"
+      />
+    </div>
+  </div>
+</template>

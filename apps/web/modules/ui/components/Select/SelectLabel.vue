@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { SelectLabel, type SelectLabelProps } from "radix-vue";
+
+  type Props = SelectLabelProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <SelectLabel
     v-bind="{
@@ -7,12 +16,3 @@
     }"
   />
 </template>
-
-<script setup lang="ts">
-  import { SelectLabel, type SelectLabelProps } from "radix-vue";
-
-  type Props = SelectLabelProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

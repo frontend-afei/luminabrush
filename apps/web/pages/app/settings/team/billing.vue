@@ -1,21 +1,3 @@
-<template>
-  <div v-if="!pending" class="grid gap-6">
-    <SaasSubscriptionOverview
-      v-if="data?.plans"
-      :plans="data.plans"
-      :currentSubscription="data.teamSubscription"
-    />
-
-    <SaasUpgradePlan
-      v-if="data?.plans"
-      :plans="data.plans"
-      :activePlanId="data.teamSubscription?.planId"
-      :teamId="data.team.id"
-    />
-  </div>
-  <SaasLoadingSpinner v-else />
-</template>
-
 <script setup lang="ts">
   definePageMeta({
     layout: "saas-app",
@@ -61,3 +43,21 @@
     }
   });
 </script>
+
+<template>
+  <div v-if="!pending" class="grid gap-6">
+    <SaasSubscriptionOverview
+      v-if="data?.plans"
+      :plans="data.plans"
+      :currentSubscription="data.teamSubscription"
+    />
+
+    <SaasUpgradePlan
+      v-if="data?.plans"
+      :plans="data.plans"
+      :activePlanId="data.teamSubscription?.planId"
+      :teamId="data.team.id"
+    />
+  </div>
+  <SaasLoadingSpinner v-else />
+</template>

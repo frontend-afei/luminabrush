@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { ToastDescription, type ToastDescriptionProps } from "radix-vue";
+
+  type Props = ToastDescriptionProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <ToastDescription
     v-bind="{
@@ -9,12 +18,3 @@
     <slot />
   </ToastDescription>
 </template>
-
-<script setup lang="ts">
-  import { ToastDescription, type ToastDescriptionProps } from "radix-vue";
-
-  type Props = ToastDescriptionProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

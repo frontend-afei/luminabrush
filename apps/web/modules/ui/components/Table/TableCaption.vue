@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  const props = defineProps<{
+    class?: ClassProp;
+  }>();
+</script>
+
 <template>
   <caption
     v-bind="{
@@ -8,9 +14,3 @@
     <slot />
   </caption>
 </template>
-
-<script setup lang="ts">
-  const props = defineProps<{
-    class?: ClassProp;
-  }>();
-</script>

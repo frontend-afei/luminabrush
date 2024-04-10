@@ -1,3 +1,10 @@
+<script setup lang="ts">
+  defineProps<{
+    item: ContentStructureItem;
+    activePath: string;
+  }>();
+</script>
+
 <template>
   <NuxtLink
     v-if="item.isPage"
@@ -20,10 +27,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-  defineProps<{
-    item: ContentStructureItem;
-    activePath: string;
-  }>();
-</script>

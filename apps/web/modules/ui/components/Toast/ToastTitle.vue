@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { ToastTitle, type ToastTitleProps } from "radix-vue";
+
+  type Props = ToastTitleProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <ToastTitle
     v-bind="{
@@ -9,12 +18,3 @@
     <slot />
   </ToastTitle>
 </template>
-
-<script setup lang="ts">
-  import { ToastTitle, type ToastTitleProps } from "radix-vue";
-
-  type Props = ToastTitleProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

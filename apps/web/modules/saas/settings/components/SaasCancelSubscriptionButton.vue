@@ -1,14 +1,3 @@
-<template>
-  <Button
-    variant="outline"
-    @click="cancelSubscription"
-    :loading="mutationPending"
-  >
-    <Icon name="close" class="mr-2 h-4 w-4" />
-    {{ t("settings.billing.subscription.cancel") }}
-  </Button>
-</template>
-
 <script setup lang="ts">
   const props = defineProps<{
     subscriptionId: string;
@@ -52,3 +41,14 @@
     }
   };
 </script>
+
+<template>
+  <Button
+    variant="outline"
+    @click="cancelSubscription"
+    :loading="mutationPending"
+  >
+    <Icon name="close" class="mr-2 h-4 w-4" />
+    {{ $t("settings.billing.subscription.cancel") }}
+  </Button>
+</template>

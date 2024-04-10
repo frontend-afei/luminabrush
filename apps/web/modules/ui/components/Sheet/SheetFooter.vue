@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  const props = defineProps<{
+    class?: ClassProp;
+  }>();
+</script>
+
 <template>
   <div
     :class="
@@ -10,9 +16,3 @@
     <slot />
   </div>
 </template>
-
-<script setup lang="ts">
-  const props = defineProps<{
-    class?: ClassProp;
-  }>();
-</script>

@@ -1,24 +1,3 @@
-<template>
-  <SelectRoot
-    :modelValue="props.modelValue"
-    @update:modelValue="emit('update:modelValue', $event as TeamMemberRoleType)"
-    :disabled="$props.disabled"
-  >
-    <SelectTrigger class="w-[180px]">
-      <SelectValue />
-    </SelectTrigger>
-    <SelectContent>
-      <SelectItem
-        v-for="option of roleOptions"
-        :key="option.value"
-        :value="option.value"
-      >
-        {{ option.label }}
-      </SelectItem>
-    </SelectContent>
-  </SelectRoot>
-</template>
-
 <script setup lang="ts">
   import type { TeamMemberRoleType } from "database";
 
@@ -46,3 +25,24 @@
     ],
   );
 </script>
+
+<template>
+  <SelectRoot
+    :modelValue="props.modelValue"
+    @update:modelValue="emit('update:modelValue', $event as TeamMemberRoleType)"
+    :disabled="$props.disabled"
+  >
+    <SelectTrigger class="w-[180px]">
+      <SelectValue />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem
+        v-for="option of roleOptions"
+        :key="option.value"
+        :value="option.value"
+      >
+        {{ option.label }}
+      </SelectItem>
+    </SelectContent>
+  </SelectRoot>
+</template>

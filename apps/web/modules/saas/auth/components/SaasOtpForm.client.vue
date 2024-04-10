@@ -1,39 +1,3 @@
-<template>
-  <div>
-    <h1 class="text-3xl font-bold">{{ t("auth.verifyOtp.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
-      {{ t("auth.verifyOtp.message") }}
-    </p>
-
-    <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
-
-    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
-      </Alert>
-
-      <FormItem>
-        <FormLabel for="code" required>
-          {{ t("auth.verifyOtp.otp") }}
-        </FormLabel>
-        <Input
-          v-bind="code"
-          type="text"
-          id="code"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
-
-      <Button :loading="isSubmitting" type="submit">
-        {{ t("auth.verifyOtp.submit") }} &rarr;
-      </Button>
-    </form>
-  </div>
-</template>
-
 <script setup lang="ts">
   import type { UserOneTimePasswordTypeType } from "database";
 
@@ -132,3 +96,39 @@
     }
   });
 </script>
+
+<template>
+  <div>
+    <h1 class="text-3xl font-bold">{{ $t("auth.verifyOtp.title") }}</h1>
+    <p class="text-muted-foreground mb-6 mt-2">
+      {{ $t("auth.verifyOtp.message") }}
+    </p>
+
+    <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
+
+    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
+      <Alert v-if="serverError" variant="error">
+        <Icon name="warning" class="h-4 w-4" />
+        <template #title>{{ serverError.title }}</template>
+        <template #description>{{ serverError.message }}</template>
+      </Alert>
+
+      <FormItem>
+        <FormLabel for="code" required>
+          {{ $t("auth.verifyOtp.otp") }}
+        </FormLabel>
+        <Input
+          v-bind="code"
+          type="text"
+          id="code"
+          required
+          autocomplete="name"
+        />
+      </FormItem>
+
+      <Button :loading="isSubmitting" type="submit">
+        {{ $t("auth.verifyOtp.submit") }} &rarr;
+      </Button>
+    </form>
+  </div>
+</template>

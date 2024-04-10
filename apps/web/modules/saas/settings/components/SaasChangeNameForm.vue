@@ -1,16 +1,3 @@
-<template>
-  <SaasActionBlock
-    @submit="onSubmit"
-    :isSubmitting="isSubmitting"
-    :isSubmitDisabled="isSubmitDisabled"
-  >
-    <template #title>{{ t("settings.account.changeName.title") }}</template>
-    <div>
-      <Input v-bind="name" type="text" id="name" required autocomplete="name" />
-    </div>
-  </SaasActionBlock>
-</template>
-
 <script setup lang="ts">
   const props = defineProps<{
     initialValue: string;
@@ -66,3 +53,16 @@
     }
   });
 </script>
+
+<template>
+  <SaasActionBlock
+    @submit="onSubmit"
+    :isSubmitting="isSubmitting"
+    :isSubmitDisabled="isSubmitDisabled"
+  >
+    <template #title>{{ $t("settings.account.changeName.title") }}</template>
+    <div>
+      <Input v-bind="name" type="text" id="name" required autocomplete="name" />
+    </div>
+  </SaasActionBlock>
+</template>

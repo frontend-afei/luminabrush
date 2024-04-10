@@ -1,25 +1,3 @@
-<template>
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogContent
-      v-bind="{
-        ...$attrs,
-        ...props,
-        class: classNames,
-      }"
-    >
-      <slot />
-
-      <DialogClose
-        class="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none"
-      >
-        <Icon name="close" class="h-4 w-4" />
-        <span class="sr-only">Close</span>
-      </DialogClose>
-    </DialogContent>
-  </DialogPortal>
-</template>
-
 <script setup lang="ts">
   import {
     DialogClose,
@@ -45,3 +23,25 @@
     );
   });
 </script>
+
+<template>
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogContent
+      v-bind="{
+        ...$attrs,
+        ...props,
+        class: classNames,
+      }"
+    >
+      <slot />
+
+      <DialogClose
+        class="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none"
+      >
+        <Icon name="close" class="h-4 w-4" />
+        <span class="sr-only">Close</span>
+      </DialogClose>
+    </DialogContent>
+  </DialogPortal>
+</template>

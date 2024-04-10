@@ -1,3 +1,20 @@
+<script setup lang="ts">
+  const route = useRoute();
+
+  export type SaasSettingsMenuItemGroup = {
+    title: string;
+    avatar: "team" | "user";
+    items: { title: string; to: string }[];
+  };
+  const props = defineProps<{
+    menuItemGroup: SaasSettingsMenuItemGroup;
+  }>();
+
+  const isActiveMenuItem = (href: string | null) => {
+    return href && route.path.includes(href);
+  };
+</script>
+
 <template>
   <div>
     <div class="flex items-center justify-start gap-2">
@@ -18,20 +35,3 @@
     </ul>
   </div>
 </template>
-
-<script setup lang="ts">
-  const route = useRoute();
-
-  export type SaasSettingsMenuItemGroup = {
-    title: string;
-    avatar: "team" | "user";
-    items: { title: string; to: string }[];
-  };
-  const props = defineProps<{
-    menuItemGroup: SaasSettingsMenuItemGroup;
-  }>();
-
-  const isActiveMenuItem = (href: string | null) => {
-    return href && route.path.includes(href);
-  };
-</script>

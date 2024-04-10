@@ -1,9 +1,3 @@
-<template>
-  <Badge :status="badgeColors[props.status]">{{
-    badgeLabels[props.status]
-  }}</Badge>
-</template>
-
 <script setup lang="ts">
   import type { SubscriptionStatusType } from "database";
   import type { BadgeProps } from "@/modules/ui/components/Badge.vue";
@@ -38,3 +32,9 @@
     UNPAID: "error",
   }));
 </script>
+
+<template>
+  <Badge :status="badgeColors[props.status]">{{
+    badgeLabels[props.status]
+  }}</Badge>
+</template>

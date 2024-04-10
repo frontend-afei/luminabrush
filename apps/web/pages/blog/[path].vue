@@ -1,10 +1,67 @@
+<script lang="ts" setup>
+  import type { MarketingBlogPageFields } from "@/modules/marketing/blog/types";
+  import { joinURL } from "ufo";
+
+  definePageMeta({
+    layout: "marketing",
+  });
+
+  const route = useRoute("blog-path");
+  const runtimeConfig = useRuntimeConfig();
+  const { formatDate } = useLocaleDate();
+  const { locale, defaultLocale } = useI18n();
+
+  const { data: post } = await useAsyncData(
+    route.path,
+    async () => {
+      const localeExtensionPattern = /(\.[a-zA-Z\\-]{2,5})+\.md$/;
+      try {
+        return await queryContent<MarketingBlogPageFields>(
+          `blog/${route.params.path}`,
+        )
+          .where({
+            $and: [
+              { draft: { $not: true } },
+              locale.value === defaultLocale
+                ? { _file: { $not: { $match: localeExtensionPattern } } }
+                : {
+                    _file: { $match: localeExtensionPattern },
+                  },
+            ],
+          })
+          .findOne();
+      } catch {
+        await navigateTo("/blog");
+        return null;
+      }
+    },
+    {
+      watch: [locale],
+    },
+  );
+  if (!post.value) {
+    await navigateTo("/blog");
+    throw new Error("Post not found");
+  }
+
+  // SEO
+  useContentHead(post.value);
+
+  // Override the `ogImage` field. It is already set by `useContentHead` above, but without the base url.
+  useSeoMeta({
+    ogImage: post.value.image?.src
+      ? joinURL(runtimeConfig.public.siteUrl, post.value.image.src)
+      : undefined,
+  });
+</script>
+
 <template>
   <ContentRenderer v-if="post" :value="post">
     <div class="container max-w-6xl pb-24">
       <div class="mx-auto max-w-2xl">
         <div class="mb-12">
           <NuxtLinkLocale to="/blog">
-            &larr; {{ t("blog.backLabel") }}
+            &larr; {{ $t("blog.backLabel") }}
           </NuxtLinkLocale>
         </div>
 
@@ -69,61 +126,3 @@
     </div>
   </ContentRenderer>
 </template>
-
-<script lang="ts" setup>
-  import type { MarketingBlogPageFields } from "@/modules/marketing/blog/types";
-  import { joinURL } from "ufo";
-
-  definePageMeta({
-    layout: "marketing",
-  });
-
-  const route = useRoute("blog-path");
-  const runtimeConfig = useRuntimeConfig();
-  const { t } = useTranslations();
-  const { formatDate } = useLocaleDate();
-  const { locale, defaultLocale } = useI18n();
-
-  const { data: post } = await useAsyncData(
-    route.path,
-    async () => {
-      const localeExtensionPattern = /(\.[a-zA-Z\\-]{2,5})+\.md$/;
-      try {
-        return await queryContent<MarketingBlogPageFields>(
-          `blog/${route.params.path}`,
-        )
-          .where({
-            $and: [
-              { draft: { $not: true } },
-              locale.value === defaultLocale
-                ? { _file: { $not: { $match: localeExtensionPattern } } }
-                : {
-                    _file: { $match: localeExtensionPattern },
-                  },
-            ],
-          })
-          .findOne();
-      } catch {
-        await navigateTo("/blog");
-        return null;
-      }
-    },
-    {
-      watch: [locale],
-    },
-  );
-  if (!post.value) {
-    await navigateTo("/blog");
-    throw new Error("Post not found");
-  }
-
-  // SEO
-  useContentHead(post.value);
-
-  // Override the `ogImage` field. It is already set by `useContentHead` above, but without the base url.
-  useSeoMeta({
-    ogImage: post.value.image?.src
-      ? joinURL(runtimeConfig.public.siteUrl, post.value.image.src)
-      : undefined,
-  });
-</script>

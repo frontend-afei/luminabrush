@@ -1,47 +1,3 @@
-<template>
-  <SaasActionBlock>
-    <template #title>
-      {{ $t("settings.account.avatar.title") }}
-    </template>
-
-    <div class="flex items-center gap-4">
-      <div class="flex-1">
-        <p>{{ $t("settings.account.avatar.description") }}</p>
-      </div>
-
-      <div
-        ref="dropZoneRef"
-        class="relative cursor-pointer rounded-full"
-        @click="openFileDialog()"
-      >
-        <TeamAvatar
-          class="size-24 cursor-pointer text-xl"
-          :avatarUrl="currentTeam?.avatarUrl"
-          :name="currentTeam?.name ?? ''"
-        />
-
-        <div
-          v-if="uploading"
-          class="bg-card/90 absolute inset-0 z-20 flex items-center justify-center"
-        >
-          <Icon name="spinner" class="text-primary h-6 w-6 animate-spin" />
-        </div>
-      </div>
-    </div>
-
-    <SaasCropImageDialog
-      :open="cropDialogOpen"
-      :image="image"
-      @open-change="(open: boolean) => (cropDialogOpen = open)"
-      @save="
-        (imageData: Blob | null) => (
-          onCrop(imageData), (cropDialogOpen = false)
-        )
-      "
-    />
-  </SaasActionBlock>
-</template>
-
 <script setup lang="ts">
   import { useFileDialog } from "@vueuse/core";
   import { v4 as uuid } from "uuid";
@@ -117,3 +73,47 @@
     }
   };
 </script>
+
+<template>
+  <SaasActionBlock>
+    <template #title>
+      {{ $t("settings.account.avatar.title") }}
+    </template>
+
+    <div class="flex items-center gap-4">
+      <div class="flex-1">
+        <p>{{ $t("settings.account.avatar.description") }}</p>
+      </div>
+
+      <div
+        ref="dropZoneRef"
+        class="relative cursor-pointer rounded-full"
+        @click="openFileDialog()"
+      >
+        <TeamAvatar
+          class="size-24 cursor-pointer text-xl"
+          :avatarUrl="currentTeam?.avatarUrl"
+          :name="currentTeam?.name ?? ''"
+        />
+
+        <div
+          v-if="uploading"
+          class="bg-card/90 absolute inset-0 z-20 flex items-center justify-center"
+        >
+          <Icon name="spinner" class="text-primary h-6 w-6 animate-spin" />
+        </div>
+      </div>
+    </div>
+
+    <SaasCropImageDialog
+      :open="cropDialogOpen"
+      :image="image"
+      @open-change="(open: boolean) => (cropDialogOpen = open)"
+      @save="
+        (imageData: Blob | null) => (
+          onCrop(imageData), (cropDialogOpen = false)
+        )
+      "
+    />
+  </SaasActionBlock>
+</template>

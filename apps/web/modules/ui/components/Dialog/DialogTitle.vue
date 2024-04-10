@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { DialogTitle, type DialogTitleProps } from "radix-vue";
+
+  type Props = DialogTitleProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DialogTitle
     v-bind="{
@@ -12,12 +21,3 @@
     <slot />
   </DialogTitle>
 </template>
-
-<script setup lang="ts">
-  import { DialogTitle, type DialogTitleProps } from "radix-vue";
-
-  type Props = DialogTitleProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

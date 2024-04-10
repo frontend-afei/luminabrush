@@ -1,3 +1,10 @@
+<script setup lang="ts">
+  const props = defineProps<{
+    for: string;
+    required?: boolean;
+  }>();
+</script>
+
 <template>
   <label
     :for="props.for"
@@ -6,10 +13,3 @@
     <slot />{{ props.required ? " *" : "" }}
   </label>
 </template>
-
-<script setup lang="ts">
-  const props = defineProps<{
-    for: string;
-    required?: boolean;
-  }>();
-</script>

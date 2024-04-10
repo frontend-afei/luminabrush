@@ -1,41 +1,3 @@
-<template>
-  <div>
-    <h1 class="text-3xl font-bold">{{ t("auth.forgotPassword.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
-      {{ t("auth.forgotPassword.message") }}
-      <NuxtLinkLocale to="/auth/login" class="text-gray-700">
-        {{ t("auth.forgotPassword.backToSignin") }} &rarr;
-      </NuxtLinkLocale>
-    </p>
-
-    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
-      </Alert>
-
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ t("auth.forgotPassword.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="email"
-          id="email"
-          required
-          autocomplete="email"
-        />
-      </FormItem>
-
-      <Button :loading="isSubmitting" type="submit">
-        <Icon name="submit" class="mr-2 h-4 w-4" />
-        {{ t("auth.forgotPassword.submit") }} &rarr;
-      </Button>
-    </form>
-  </div>
-</template>
-
 <script setup lang="ts">
   import { joinURL } from "ufo";
 
@@ -94,3 +56,41 @@
     }
   });
 </script>
+
+<template>
+  <div>
+    <h1 class="text-3xl font-bold">{{ $t("auth.forgotPassword.title") }}</h1>
+    <p class="text-muted-foreground mb-6 mt-2">
+      {{ $t("auth.forgotPassword.message") }}
+      <NuxtLinkLocale to="/auth/login" class="text-gray-700">
+        {{ $t("auth.forgotPassword.backToSignin") }} &rarr;
+      </NuxtLinkLocale>
+    </p>
+
+    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
+      <Alert v-if="serverError" variant="error">
+        <Icon name="warning" class="h-4 w-4" />
+        <template #title>{{ serverError.title }}</template>
+        <template #description>{{ serverError.message }}</template>
+      </Alert>
+
+      <FormItem>
+        <FormLabel for="email" required>
+          {{ $t("auth.forgotPassword.email") }}
+        </FormLabel>
+        <Input
+          v-bind="email"
+          type="email"
+          id="email"
+          required
+          autocomplete="email"
+        />
+      </FormItem>
+
+      <Button :loading="isSubmitting" type="submit">
+        <Icon name="submit" class="mr-2 h-4 w-4" />
+        {{ $t("auth.forgotPassword.submit") }} &rarr;
+      </Button>
+    </form>
+  </div>
+</template>

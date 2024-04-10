@@ -1,3 +1,16 @@
+<script setup lang="ts">
+  import {
+    DropdownMenuItemIndicator,
+    DropdownMenuRadioItem,
+    type DropdownMenuRadioItemProps,
+  } from "radix-vue";
+
+  type Props = DropdownMenuRadioItemProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DropdownMenuRadioItem
     v-bind="{
@@ -17,16 +30,3 @@
     <slot />
   </DropdownMenuRadioItem>
 </template>
-
-<script setup lang="ts">
-  import {
-    DropdownMenuItemIndicator,
-    DropdownMenuRadioItem,
-    type DropdownMenuRadioItemProps,
-  } from "radix-vue";
-
-  type Props = DropdownMenuRadioItemProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

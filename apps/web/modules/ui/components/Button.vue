@@ -1,22 +1,3 @@
-<template>
-  <component
-    :is="props.asChild ? Slot : 'button'"
-    :class="
-      cn(
-        buttonVariants({
-          variant: props.variant,
-          size: props.size,
-          class: props.class,
-        }),
-      )
-    "
-    :disabled="props.disabled || props.loading"
-  >
-    <Icon v-if="props.loading" name="spinner" class="h-4 w-4 animate-spin" />
-    <slot v-else />
-  </component>
-</template>
-
 <script setup lang="ts">
   import { Slot } from "radix-vue";
   import type { ButtonHTMLAttributes } from "vue";
@@ -68,3 +49,22 @@
     size: "default",
   });
 </script>
+
+<template>
+  <component
+    :is="props.asChild ? Slot : 'button'"
+    :class="
+      cn(
+        buttonVariants({
+          variant: props.variant,
+          size: props.size,
+          class: props.class,
+        }),
+      )
+    "
+    :disabled="props.disabled || props.loading"
+  >
+    <Icon v-if="props.loading" name="spinner" class="h-4 w-4 animate-spin" />
+    <slot v-else />
+  </component>
+</template>

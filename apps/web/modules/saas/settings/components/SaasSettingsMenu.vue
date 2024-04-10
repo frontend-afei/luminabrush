@@ -1,3 +1,21 @@
+<script setup lang="ts">
+  import type { SaasSettingsMenuItemGroup } from "./SaasSettingsMenuGroup.vue";
+
+  const props = defineProps<{
+    menuItems: SaasSettingsMenuItemGroup[];
+  }>();
+
+  const { user, teamMemberships } = useUser();
+
+  const currentTeamId = useCurrentTeamIdCookie();
+
+  const activeTeam = computed(() => {
+    return teamMemberships.value.find((membership) => {
+      return membership.team.id === currentTeamId.value;
+    })?.team;
+  });
+</script>
+
 <template>
   <div class="space-y-8" v-if="activeTeam && user">
     <SaasSettingsMenuGroup
@@ -21,21 +39,3 @@
     </SaasSettingsMenuGroup>
   </div>
 </template>
-
-<script setup lang="ts">
-  import type { SaasSettingsMenuItemGroup } from "./SaasSettingsMenuGroup.vue";
-
-  const props = defineProps<{
-    menuItems: SaasSettingsMenuItemGroup[];
-  }>();
-
-  const { user, teamMemberships } = useUser();
-
-  const currentTeamId = useCurrentTeamIdCookie();
-
-  const activeTeam = computed(() => {
-    return teamMemberships.value.find((membership) => {
-      return membership.team.id === currentTeamId.value;
-    })?.team;
-  });
-</script>

@@ -1,7 +1,3 @@
-<template>
-  <component :is="icon" />
-</template>
-
 <script setup lang="tsx">
   import {
     AlertCircle,
@@ -148,3 +144,7 @@
 
   const icon = computed(() => icons[props.name]);
 </script>
+
+<template>
+  <component :is="icon" />
+</template>

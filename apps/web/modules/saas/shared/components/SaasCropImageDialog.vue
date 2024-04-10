@@ -1,31 +1,3 @@
-<template>
-  <DialogRoot
-    :open="open"
-    @update:open="(value: boolean) => emit('openChange', value)"
-  >
-    <DialogContent>
-      <DialogDescription class="sr-only"></DialogDescription>
-      <DialogHeader>
-        <DialogTitle></DialogTitle>
-      </DialogHeader>
-      <div class="aspect-square">
-        <img
-          v-if="image && imageSrc"
-          ref="imageRef"
-          :src="imageSrc"
-          style="width: 100%"
-          @load="onImageLoaded()"
-        />
-      </div>
-      <DialogFooter>
-        <Button size="sm" @click="saveCroppedImageData()">{{
-          $t("settings.cropImage.save")
-        }}</Button>
-      </DialogFooter>
-    </DialogContent>
-  </DialogRoot>
-</template>
-
 <script setup lang="ts">
   import Cropper from "cropperjs";
   import "cropperjs/dist/cropper.css";
@@ -77,3 +49,31 @@
     () => props.image && URL.createObjectURL(props.image),
   );
 </script>
+
+<template>
+  <DialogRoot
+    :open="open"
+    @update:open="(value: boolean) => emit('openChange', value)"
+  >
+    <DialogContent>
+      <DialogDescription class="sr-only"></DialogDescription>
+      <DialogHeader>
+        <DialogTitle></DialogTitle>
+      </DialogHeader>
+      <div class="aspect-square">
+        <img
+          v-if="image && imageSrc"
+          ref="imageRef"
+          :src="imageSrc"
+          style="width: 100%"
+          @load="onImageLoaded()"
+        />
+      </div>
+      <DialogFooter>
+        <Button size="sm" @click="saveCroppedImageData()">{{
+          $t("settings.cropImage.save")
+        }}</Button>
+      </DialogFooter>
+    </DialogContent>
+  </DialogRoot>
+</template>

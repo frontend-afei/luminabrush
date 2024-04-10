@@ -1,79 +1,3 @@
-<template>
-  <div>
-    <h1 class="text-3xl font-bold">{{ t("auth.signup.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
-      {{ t("auth.signup.message") }}
-    </p>
-
-    <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
-
-    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
-      </Alert>
-
-      <FormItem>
-        <FormLabel for="name" required> {{ t("auth.signup.name") }} </FormLabel>
-        <Input
-          v-bind="name"
-          type="text"
-          id="name"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
-
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ t("auth.signup.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="email"
-          id="email"
-          required
-          autocomplete="email"
-        />
-      </FormItem>
-
-      <div>
-        <FormItem>
-          <FormLabel for="password" required>
-            {{ t("auth.signup.password") }}
-          </FormLabel>
-          <SaasPasswordInput
-            :fieldData="password"
-            id="password"
-            autocomplete="new-password"
-            required
-          />
-        </FormItem>
-
-        <p class="mt-1 text-xs italic opacity-50">
-          {{ t("auth.signup.passwordHint") }}
-        </p>
-      </div>
-
-      <Button :loading="isSubmitting" type="submit">
-        {{ t("auth.signup.submit") }} &rarr;
-      </Button>
-
-      <p>
-        <span class="text-muted-foreground">
-          {{ t("auth.signup.alreadyHaveAccount") }}&nbsp;</span
-        >
-        <NuxtLinkLocale
-          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
-        >
-          {{ t("auth.signup.signIn") }} &rarr;
-        </NuxtLinkLocale>
-      </p>
-    </form>
-  </div>
-</template>
-
 <script setup lang="ts">
   import { joinURL } from "ufo";
 
@@ -169,3 +93,81 @@
     }
   });
 </script>
+
+<template>
+  <div>
+    <h1 class="text-3xl font-bold">{{ $t("auth.signup.title") }}</h1>
+    <p class="text-muted-foreground mb-6 mt-2">
+      {{ $t("auth.signup.message") }}
+    </p>
+
+    <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
+
+    <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
+      <Alert v-if="serverError" variant="error">
+        <Icon name="warning" class="h-4 w-4" />
+        <template #title>{{ serverError.title }}</template>
+        <template #description>{{ serverError.message }}</template>
+      </Alert>
+
+      <FormItem>
+        <FormLabel for="name" required>
+          {{ $t("auth.signup.name") }}
+        </FormLabel>
+        <Input
+          v-bind="name"
+          type="text"
+          id="name"
+          required
+          autocomplete="name"
+        />
+      </FormItem>
+
+      <FormItem>
+        <FormLabel for="email" required>
+          {{ $t("auth.signup.email") }}
+        </FormLabel>
+        <Input
+          v-bind="email"
+          type="email"
+          id="email"
+          required
+          autocomplete="email"
+        />
+      </FormItem>
+
+      <div>
+        <FormItem>
+          <FormLabel for="password" required>
+            {{ $t("auth.signup.password") }}
+          </FormLabel>
+          <SaasPasswordInput
+            :fieldData="password"
+            id="password"
+            autocomplete="new-password"
+            required
+          />
+        </FormItem>
+
+        <p class="mt-1 text-xs italic opacity-50">
+          {{ $t("auth.signup.passwordHint") }}
+        </p>
+      </div>
+
+      <Button :loading="isSubmitting" type="submit">
+        {{ $t("auth.signup.submit") }} &rarr;
+      </Button>
+
+      <p>
+        <span class="text-muted-foreground">
+          {{ $t("auth.signup.alreadyHaveAccount") }}&nbsp;</span
+        >
+        <NuxtLinkLocale
+          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
+        >
+          {{ $t("auth.signup.signIn") }} &rarr;
+        </NuxtLinkLocale>
+      </p>
+    </form>
+  </div>
+</template>

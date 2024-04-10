@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { ToastClose, type ToastCloseProps } from "radix-vue";
+
+  type Props = ToastCloseProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <ToastClose
     v-bind="{
@@ -12,12 +21,3 @@
     <Icon name="close" class="h-4 w-4" />
   </ToastClose>
 </template>
-
-<script setup lang="ts">
-  import { ToastClose, type ToastCloseProps } from "radix-vue";
-
-  type Props = ToastCloseProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

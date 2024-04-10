@@ -1,16 +1,3 @@
-<template>
-  <div v-if="page" class="container max-w-6xl pb-16">
-    <div class="mx-auto max-w-2xl">
-      <h1 class="text-4xl font-bold text-center">{{ page.title }}</h1>
-    </div>
-
-    <ContentRendererMarkdown
-      :value="page"
-      class="prose dark:prose-invert mx-auto mt-6 max-w-2xl"
-    />
-  </div>
-</template>
-
 <script lang="ts" setup>
   definePageMeta({
     layout: "marketing",
@@ -57,3 +44,16 @@
   // SEO
   useContentHead(page.value);
 </script>
+
+<template>
+  <div v-if="page" class="container max-w-6xl pb-16">
+    <div class="mx-auto max-w-2xl">
+      <h1 class="text-4xl font-bold text-center">{{ page.title }}</h1>
+    </div>
+
+    <ContentRendererMarkdown
+      :value="page"
+      class="prose dark:prose-invert mx-auto mt-6 max-w-2xl"
+    />
+  </div>
+</template>

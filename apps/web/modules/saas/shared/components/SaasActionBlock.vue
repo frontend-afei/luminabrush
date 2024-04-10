@@ -1,3 +1,22 @@
+<script setup lang="ts">
+  const emit = defineEmits<{
+    submit: [];
+  }>();
+
+  const props = defineProps<{
+    isSubmitDisabled?: boolean;
+    isSubmitting?: boolean;
+    submitLabel?: string;
+    danger?: boolean;
+  }>();
+
+  const { t } = useTranslations();
+
+  const hasSubmitEventListener = computed(
+    () => !!getCurrentInstance()?.vnode.props?.onSubmit,
+  );
+</script>
+
 <template>
   <Card :class="{ 'border-destructive/50 border': danger }">
     <form @submit.prevent="emit('submit')">
@@ -25,22 +44,3 @@
     </form>
   </Card>
 </template>
-
-<script setup lang="ts">
-  const emit = defineEmits<{
-    submit: [];
-  }>();
-
-  const props = defineProps<{
-    isSubmitDisabled?: boolean;
-    isSubmitting?: boolean;
-    submitLabel?: string;
-    danger?: boolean;
-  }>();
-
-  const { t } = useTranslations();
-
-  const hasSubmitEventListener = computed(
-    () => !!getCurrentInstance()?.vnode.props?.onSubmit,
-  );
-</script>

@@ -1,7 +1,3 @@
-<template>
-  <SaasLoginForm />
-</template>
-
 <script setup lang="ts">
   const { t } = useTranslations();
 
@@ -13,3 +9,7 @@
     title: t("auth.login.title"),
   });
 </script>
+
+<template>
+  <SaasLoginForm />
+</template>

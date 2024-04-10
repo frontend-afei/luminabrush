@@ -1,17 +1,3 @@
-<template>
-  <div class="w-full max-w-64 self-start rounded-lg border p-4">
-    <h3 class="mb-2 text-base font-semibold">On this page</h3>
-    <nav class="list-none space-y-2">
-      <MarketingContentTableOfContentsItem
-        v-for="item of items"
-        :key="item.id"
-        :item="item"
-        @select-item="scrollToSection"
-      />
-    </nav>
-  </div>
-</template>
-
 <script setup lang="ts">
   defineProps<{
     items: TableOfContentsItem[];
@@ -34,3 +20,17 @@
     }
   });
 </script>
+
+<template>
+  <div class="w-full max-w-64 self-start rounded-lg border p-4">
+    <h3 class="mb-2 text-base font-semibold">On this page</h3>
+    <nav class="list-none space-y-2">
+      <MarketingContentTableOfContentsItem
+        v-for="item of items"
+        :key="item.id"
+        :item="item"
+        @select-item="scrollToSection"
+      />
+    </nav>
+  </div>
+</template>

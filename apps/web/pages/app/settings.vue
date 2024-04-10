@@ -1,18 +1,3 @@
-<template>
-  <div class="container max-w-6xl py-8">
-    <div class="align-start flex flex-col gap-8 md:flex-row">
-      <div class="w-full md:max-w-[200px]">
-        <SaasSettingsMenu :menuItems="menuItems" />
-      </div>
-
-      <div class="flex-1">
-        <!-- Nested route -->
-        <NuxtPage />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
   import type { SaasSettingsMenuItemGroup } from "@/modules/saas/settings/components/SaasSettingsMenuGroup.vue";
 
@@ -51,3 +36,18 @@
     ];
   });
 </script>
+
+<template>
+  <div class="container max-w-6xl py-8">
+    <div class="align-start flex flex-col gap-8 md:flex-row">
+      <div class="w-full md:max-w-[200px]">
+        <SaasSettingsMenu :menuItems="menuItems" />
+      </div>
+
+      <div class="flex-1">
+        <!-- Nested route -->
+        <NuxtPage />
+      </div>
+    </div>
+  </div>
+</template>

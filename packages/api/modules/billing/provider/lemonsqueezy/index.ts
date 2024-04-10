@@ -58,7 +58,7 @@ export const getAllPlans: GetAllPlans = async function () {
               interval: String(variant.attributes.interval),
               interval_count: Number(variant.attributes.interval_count),
               // we have to do some parsing here because the API (sometimes) returns the price as a string
-              price: parseFloat(String(variant.attributes.price)),
+              price: Number.parseFloat(String(variant.attributes.price)),
               currency,
             })),
         };
@@ -82,7 +82,7 @@ export const createCheckoutLink: CreateCheckoutLink = async function ({
     {
       productOptions: {
         redirectUrl,
-        enabledVariants: [parseInt(variantId)],
+        enabledVariants: [Number.parseInt(variantId)],
       },
       checkoutData: {
         email,

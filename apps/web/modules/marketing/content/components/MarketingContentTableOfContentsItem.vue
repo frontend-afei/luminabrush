@@ -1,3 +1,13 @@
+<script setup lang="ts">
+  defineProps<{
+    item: TableOfContentsItem;
+  }>();
+
+  defineEmits<{
+    selectItem: [string];
+  }>();
+</script>
+
 <template>
   <a
     :key="item.id"
@@ -16,13 +26,3 @@
     @select-item="($event) => $emit('selectItem', $event)"
   />
 </template>
-
-<script setup lang="ts">
-  defineProps<{
-    item: TableOfContentsItem;
-  }>();
-
-  defineEmits<{
-    selectItem: [string];
-  }>();
-</script>

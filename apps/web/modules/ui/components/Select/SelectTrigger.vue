@@ -1,3 +1,16 @@
+<script setup lang="ts">
+  import {
+    SelectIcon,
+    SelectTrigger,
+    type SelectTriggerProps,
+  } from "radix-vue";
+
+  type Props = SelectTriggerProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <SelectTrigger
     v-bind="{
@@ -15,16 +28,3 @@
     </SelectIcon>
   </SelectTrigger>
 </template>
-
-<script setup lang="ts">
-  import {
-    SelectIcon,
-    SelectTrigger,
-    type SelectTriggerProps,
-  } from "radix-vue";
-
-  type Props = SelectTriggerProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

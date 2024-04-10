@@ -1,3 +1,21 @@
+<script setup lang="ts">
+  const localePath = useLocalePath();
+  const { teamMemberships, currentTeam } = useUser();
+  const { switchTeam } = useSwitchTeam();
+  const { createTeamDialogOpen } = useDashboardState();
+  const runtimeConfig = useRuntimeConfig();
+
+  const activeTeamIdModel = computed({
+    get: () => currentTeam.value?.id,
+    set: async (newValue) => {
+      if (newValue) {
+        switchTeam(newValue);
+        await navigateTo(localePath(runtimeConfig.public.auth.redirectPath));
+      }
+    },
+  });
+</script>
+
 <template>
   <DropdownMenuRoot v-if="currentTeam">
     <DropdownMenuTrigger
@@ -38,7 +56,7 @@
       <DropdownMenuGroup>
         <DropdownMenuItem @click="() => (createTeamDialogOpen = true)">
           <Icon name="plus" class="mr-2 h-4 w-4" />
-          {{ t("dashboard.sidebar.createTeam") }}
+          {{ $t("dashboard.sidebar.createTeam") }}
         </DropdownMenuItem>
       </DropdownMenuGroup>
     </DropdownMenuContent>
@@ -46,22 +64,3 @@
 
   <SaasCreateTeamDialog @success="(newTeamId) => switchTeam(newTeamId)" />
 </template>
-
-<script setup lang="ts">
-  const { t } = useTranslations();
-  const localePath = useLocalePath();
-  const { teamMemberships, currentTeam } = useUser();
-  const { switchTeam } = useSwitchTeam();
-  const { createTeamDialogOpen } = useDashboardState();
-  const runtimeConfig = useRuntimeConfig();
-
-  const activeTeamIdModel = computed({
-    get: () => currentTeam.value?.id,
-    set: async (newValue) => {
-      if (newValue) {
-        switchTeam(newValue);
-        await navigateTo(localePath(runtimeConfig.public.auth.redirectPath));
-      }
-    },
-  });
-</script>

@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { SelectSeparator, type SelectSeparatorProps } from "radix-vue";
+
+  type Props = SelectSeparatorProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <SelectSeparator
     v-bind="{
@@ -7,12 +16,3 @@
     }"
   />
 </template>
-
-<script setup lang="ts">
-  import { SelectSeparator, type SelectSeparatorProps } from "radix-vue";
-
-  type Props = SelectSeparatorProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

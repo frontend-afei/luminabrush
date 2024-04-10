@@ -1,16 +1,3 @@
-<template>
-  <div v-if="!pending && currentTeam" class="grid grid-cols-1 gap-6">
-    <template v-if="data">
-      <SaasInviteMemberForm :teamId="currentTeam.id" @success="refresh" />
-      <SaasTeamMembersBlock
-        :memberships="data.memberships"
-        :invitations="data.invitations"
-      />
-    </template>
-  </div>
-  <SaasLoadingSpinner v-else />
-</template>
-
 <script setup lang="ts">
   definePageMeta({
     layout: "saas-app",
@@ -51,3 +38,16 @@
     }
   });
 </script>
+
+<template>
+  <div v-if="!pending && currentTeam" class="grid grid-cols-1 gap-6">
+    <template v-if="data">
+      <SaasInviteMemberForm :teamId="currentTeam.id" @success="refresh" />
+      <SaasTeamMembersBlock
+        :memberships="data.memberships"
+        :invitations="data.invitations"
+      />
+    </template>
+  </div>
+  <SaasLoadingSpinner v-else />
+</template>

@@ -1,7 +1,3 @@
-<template>
-  <SaasForgotPasswordForm />
-</template>
-
 <script setup lang="ts">
   const { t } = useTranslations();
 
@@ -13,3 +9,7 @@
     title: t("auth.forgotPassword.title"),
   });
 </script>
+
+<template>
+  <SaasForgotPasswordForm />
+</template>

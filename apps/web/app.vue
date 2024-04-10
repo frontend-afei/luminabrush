@@ -1,15 +1,3 @@
-<template>
-  <ConfigProvider :use-id="useIdFunction">
-    <div>
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-      <Toaster />
-      <NuxtLoadingIndicator color="var(--colors-primary)" />
-    </div>
-  </ConfigProvider>
-</template>
-
 <script setup lang="ts">
   import { ConfigProvider } from "radix-vue";
 
@@ -42,3 +30,15 @@
     meta: [...(i18nHead.value.meta || [])],
   });
 </script>
+
+<template>
+  <ConfigProvider :use-id="useIdFunction">
+    <div>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+      <Toaster />
+      <NuxtLoadingIndicator color="var(--colors-primary)" />
+    </div>
+  </ConfigProvider>
+</template>

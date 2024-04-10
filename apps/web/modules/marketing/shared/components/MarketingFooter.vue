@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
   <footer class="bg-muted text-muted-foreground py-12">
     <div class="container grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -23,5 +25,3 @@
     </div>
   </footer>
 </template>
-
-<script setup lang="ts"></script>

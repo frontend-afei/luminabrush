@@ -1,3 +1,12 @@
+<script setup lang="ts">
+  import { DialogDescription, type DialogDescriptionProps } from "radix-vue";
+
+  type Props = DialogDescriptionProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DialogDescription
     v-bind="{
@@ -9,12 +18,3 @@
     <slot />
   </DialogDescription>
 </template>
-
-<script setup lang="ts">
-  import { DialogDescription, type DialogDescriptionProps } from "radix-vue";
-
-  type Props = DialogDescriptionProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

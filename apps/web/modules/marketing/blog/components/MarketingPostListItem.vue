@@ -1,3 +1,17 @@
+<script setup lang="ts">
+  import type { MarketingBlogPageFields } from "@/modules/marketing/blog/types";
+
+  const props = defineProps<{
+    post: MarketingBlogPageFields;
+  }>();
+
+  const { formatDate } = useLocaleDate();
+
+  const pagePath = computed(() => {
+    return props.post._path || "";
+  });
+</script>
+
 <template>
   <div class="rounded-2xl border p-6">
     <div
@@ -59,17 +73,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-  import type { MarketingBlogPageFields } from "@/modules/marketing/blog/types";
-
-  const props = defineProps<{
-    post: MarketingBlogPageFields;
-  }>();
-
-  const { formatDate } = useLocaleDate();
-
-  const pagePath = computed(() => {
-    return props.post._path || "";
-  });
-</script>

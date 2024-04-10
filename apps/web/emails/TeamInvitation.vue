@@ -1,3 +1,14 @@
+<script setup lang="ts">
+  const colors = {
+    mutedForeground: "#64748b",
+  };
+
+  const props = defineProps<{
+    url: string;
+    teamName: string;
+  }>();
+</script>
+
 <template>
   <Wrapper>
     <EHeading>
@@ -28,14 +39,3 @@
     </EText>
   </Wrapper>
 </template>
-
-<script setup lang="ts">
-  const colors = {
-    mutedForeground: "#64748b",
-  };
-
-  const props = defineProps<{
-    url: string;
-    teamName: string;
-  }>();
-</script>

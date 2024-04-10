@@ -1,3 +1,13 @@
+<script setup lang="ts">
+  const props = defineProps<{
+    class?: ClassProp;
+  }>();
+
+  defineOptions({
+    inheritAttrs: false,
+  });
+</script>
+
 <template>
   <div class="w-full overflow-auto">
     <table
@@ -10,13 +20,3 @@
     </table>
   </div>
 </template>
-
-<script setup lang="ts">
-  const props = defineProps<{
-    class?: ClassProp;
-  }>();
-
-  defineOptions({
-    inheritAttrs: false,
-  });
-</script>

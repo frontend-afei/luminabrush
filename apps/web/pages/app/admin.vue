@@ -1,17 +1,3 @@
-<template>
-	<div class="container max-w-6xl py-8">
-		<div class="align-start flex flex-col gap-8 md:flex-row">
-			<div class="w-full md:max-w-[200px]">
-				<SaasAdminMenu :items="menuItems" />
-			</div>
-
-			<div class="flex-1">
-				<NuxtPage />
-			</div>
-		</div>
-	</div>
-</template>
-
 <script setup lang="ts">
 	const { t } = useTranslations()
 	const { user } = useUser()
@@ -30,3 +16,17 @@
 		]
 	})
 </script>
+
+<template>
+	<div class="container max-w-6xl py-8">
+		<div class="align-start flex flex-col gap-8 md:flex-row">
+			<div class="w-full md:max-w-[200px]">
+				<SaasAdminMenu :items="menuItems" />
+			</div>
+
+			<div class="flex-1">
+				<NuxtPage />
+			</div>
+		</div>
+	</div>
+</template>

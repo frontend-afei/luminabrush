@@ -1,3 +1,18 @@
+<script setup lang="ts">
+  const props = withDefaults(
+    defineProps<{
+      withLabel?: boolean;
+    }>(),
+    {
+      withLabel: true,
+    },
+  );
+
+  const colors = {
+    primary: "#10b981",
+  };
+</script>
+
 <template>
   <span :style="{ color: colors.primary, fontWeight: 600, lineHeight: 1 }">
     <svg
@@ -40,18 +55,3 @@
     >
   </span>
 </template>
-
-<script setup lang="ts">
-  const props = withDefaults(
-    defineProps<{
-      withLabel?: boolean;
-    }>(),
-    {
-      withLabel: true,
-    },
-  );
-
-  const colors = {
-    primary: "#10b981",
-  };
-</script>

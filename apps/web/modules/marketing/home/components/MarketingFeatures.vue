@@ -1,3 +1,8 @@
+<script setup lang="ts">
+  const heroImage = ref("/images/hero.svg");
+  const heroDarkImage = ref("/images/hero-dark.svg");
+</script>
+
 <template>
   <section class="bg-card text-card-foreground py-24">
     <div class="container">
@@ -121,8 +126,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-  const heroImage = ref("/images/hero.svg");
-  const heroDarkImage = ref("/images/hero-dark.svg");
-</script>

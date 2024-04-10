@@ -1,3 +1,16 @@
+<script setup lang="ts">
+  import {
+    DropdownMenuCheckboxItem,
+    DropdownMenuItemIndicator,
+    type DropdownMenuCheckboxItemProps,
+  } from "radix-vue";
+
+  type Props = DropdownMenuCheckboxItemProps & {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <DropdownMenuCheckboxItem
     v-bind="{
@@ -17,16 +30,3 @@
     <slot />
   </DropdownMenuCheckboxItem>
 </template>
-
-<script setup lang="ts">
-  import {
-    DropdownMenuCheckboxItem,
-    DropdownMenuItemIndicator,
-    type DropdownMenuCheckboxItemProps,
-  } from "radix-vue";
-
-  type Props = DropdownMenuCheckboxItemProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

@@ -1,11 +1,3 @@
-<template>
-  <span
-    :class="cn(badgeVariants({ status: props.status, class: props.class }))"
-  >
-    <slot />
-  </span>
-</template>
-
 <script setup lang="ts">
   const badgeVariants = cva(
     "inline-block rounded-full px-3 py-1 text-xs uppercase font-semibold leading-tight",
@@ -35,3 +27,11 @@
     status: "info",
   });
 </script>
+
+<template>
+  <span
+    :class="cn(badgeVariants({ status: props.status, class: props.class }))"
+  >
+    <slot />
+  </span>
+</template>

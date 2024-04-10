@@ -1,3 +1,17 @@
+<script setup lang="ts">
+  import {
+    DropdownMenuContent,
+    type DropdownMenuContentProps,
+  } from "radix-vue";
+
+  type Props = DropdownMenuContentProps & {
+    class?: ClassProp;
+  };
+  const props = withDefaults(defineProps<Props>(), {
+    sideOffset: 4,
+  });
+</script>
+
 <template>
   <DropdownMenuPortal>
     <DropdownMenuContent
@@ -15,17 +29,3 @@
     </DropdownMenuContent>
   </DropdownMenuPortal>
 </template>
-
-<script setup lang="ts">
-  import {
-    DropdownMenuContent,
-    type DropdownMenuContentProps,
-  } from "radix-vue";
-
-  type Props = DropdownMenuContentProps & {
-    class?: ClassProp;
-  };
-  const props = withDefaults(defineProps<Props>(), {
-    sideOffset: 4,
-  });
-</script>

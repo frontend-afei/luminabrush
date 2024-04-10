@@ -1,12 +1,3 @@
-<template>
-  <div v-if="user" class="grid gap-6">
-    <SaasUserAvatarForm />
-    <SaasChangeNameForm :initialValue="user.name || ''" />
-    <SaasChangePasswordForm />
-    <SaasDeleteAccountForm />
-  </div>
-</template>
-
 <script setup lang="ts">
   definePageMeta({
     layout: "saas-app",
@@ -26,3 +17,12 @@
     }
   });
 </script>
+
+<template>
+  <div v-if="user" class="grid gap-6">
+    <SaasUserAvatarForm />
+    <SaasChangeNameForm :initialValue="user.name || ''" />
+    <SaasChangePasswordForm />
+    <SaasDeleteAccountForm />
+  </div>
+</template>

@@ -1,13 +1,3 @@
-<template>
-  <div class="bg-muted min-h-screen">
-    <SaasNavBar />
-
-    <main>
-      <slot />
-    </main>
-  </div>
-</template>
-
 <script setup lang="ts">
   const { user, reloadUser } = useUser();
 
@@ -50,3 +40,13 @@
 
   currentTeamId.value = currentTeamMembership.team.id;
 </script>
+
+<template>
+  <div class="bg-muted min-h-screen">
+    <SaasNavBar />
+
+    <main>
+      <slot />
+    </main>
+  </div>
+</template>

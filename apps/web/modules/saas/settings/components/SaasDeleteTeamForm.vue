@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   const { t } = useTranslations();
   const { toast } = useToast();
-  const router = useRouter();
   const showConfirmation = ref(false);
   const { apiCaller } = useApiCaller();
   const { currentTeam } = useUser();
@@ -39,8 +38,8 @@
     @submit="showConfirmation = true"
     :submit-label="t('settings.team.deleteTeam.submit')"
   >
-    <template #title>{{ t("settings.team.deleteTeam.title") }}</template>
-    <p>{{ t("settings.team.deleteTeam.description") }}</p>
+    <template #title>{{ $t("settings.team.deleteTeam.title") }}</template>
+    <p>{{ $t("settings.team.deleteTeam.description") }}</p>
   </SaasActionBlock>
 
   <AlertDialog
@@ -50,15 +49,15 @@
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle class="text-destructive">
-          {{ t("settings.team.deleteTeam.title") }}
+          {{ $t("settings.team.deleteTeam.title") }}
         </AlertDialogTitle>
         <AlertDialogDescription>
-          {{ t("settings.team.deleteTeam.confirmation") }}
+          {{ $t("settings.team.deleteTeam.confirmation") }}
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
         <Button variant="outline" @click="showConfirmation = false">
-          {{ t("common.confirmation.cancel") }}
+          {{ $t("common.confirmation.cancel") }}
         </Button>
         <Button
           variant="error"
@@ -68,7 +67,7 @@
             showConfirmation = false;
           "
         >
-          {{ t("settings.team.deleteTeam.submit") }}
+          {{ $t("settings.team.deleteTeam.submit") }}
         </Button>
       </AlertDialogFooter>
     </AlertDialogContent>

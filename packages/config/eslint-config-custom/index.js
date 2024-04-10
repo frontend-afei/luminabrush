@@ -13,7 +13,7 @@ module.exports = {
     "vue/component-tags-order": [
       "error",
       {
-        order: [["script", "template"], "style"],
+        order: ["script", "template", "style"],
       },
     ],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],

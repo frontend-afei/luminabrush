@@ -60,14 +60,14 @@
       <DropdownMenuContent>
         <DropdownMenuItem @click="impersonateUser()">
           <Icon name="impersonate" class="mr-2 h-4 w-4" />
-          {{ t("admin.users.impersonate") }}
+          {{ $t("admin.users.impersonate") }}
         </DropdownMenuItem>
         <DropdownMenuItem @click="deleteUser()">
           <span
             class="text-destructive hover:text-destructive flex items-center"
           >
             <Icon name="delete" class="mr-2 h-4 w-4" />
-            {{ t("admin.users.delete") }}
+            {{ $t("admin.users.delete") }}
           </span>
         </DropdownMenuItem>
       </DropdownMenuContent>

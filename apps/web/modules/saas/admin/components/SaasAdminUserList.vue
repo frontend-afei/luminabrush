@@ -83,7 +83,7 @@
 
 <template>
   <div class="bg-card rounded-lg p-6 shadow-sm">
-    <h2 class="mb-4 text-2xl font-semibold">{{ t("admin.users.title") }}</h2>
+    <h2 class="mb-4 text-2xl font-semibold">{{ $t("admin.users.title") }}</h2>
     <Input
       type="search"
       :placeholder="t('admin.users.search')"
@@ -119,7 +119,7 @@
                   name="spinner"
                   class="text-primary mr-2 h-4 w-4 animate-spin"
                 />
-                {{ t("admin.users.loading") }}
+                {{ $t("admin.users.loading") }}
               </div>
 
               <p v-else>No results.</p>

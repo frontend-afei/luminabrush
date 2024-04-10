@@ -1,43 +1,3 @@
-<template>
-  <Card v-if="teamRole === 'OWNER'">
-    <form @submit.prevent="onSubmit" class="@container">
-      <CardHeader>
-        <template #title>{{
-          t("settings.team.members.inviteMember.title")
-        }}</template>
-      </CardHeader>
-
-      <CardContent>
-        <div class="@md:flex-row flex flex-col gap-2">
-          <FormItem class="flex-1">
-            <FormLabel for="email" required>
-              {{ t("settings.team.members.inviteMember.email") }}
-            </FormLabel>
-            <Input v-bind="email" type="email" id="email" required />
-          </FormItem>
-
-          <FormItem>
-            <FormLabel for="role" required>
-              {{ t("settings.team.members.inviteMember.role") }}
-            </FormLabel>
-            <SaasTeamRoleSelect v-model="roleValue" />
-          </FormItem>
-        </div>
-
-        <div class="mt-6 flex justify-end border-t pt-3">
-          <Button
-            type="submit"
-            :disabled="isSubmitDisabled"
-            :loading="isSubmitting"
-          >
-            {{ t("settings.team.members.inviteMember.submit") }}
-          </Button>
-        </div>
-      </CardContent>
-    </form>
-  </Card>
-</template>
-
 <script setup lang="ts">
   import type { TeamMemberRoleType } from "database";
 
@@ -120,3 +80,43 @@
     }
   });
 </script>
+
+<template>
+  <Card v-if="teamRole === 'OWNER'">
+    <form @submit.prevent="onSubmit" class="@container">
+      <CardHeader>
+        <template #title>{{
+          t("settings.team.members.inviteMember.title")
+        }}</template>
+      </CardHeader>
+
+      <CardContent>
+        <div class="@md:flex-row flex flex-col gap-2">
+          <FormItem class="flex-1">
+            <FormLabel for="email" required>
+              {{ $t("settings.team.members.inviteMember.email") }}
+            </FormLabel>
+            <Input v-bind="email" type="email" id="email" required />
+          </FormItem>
+
+          <FormItem>
+            <FormLabel for="role" required>
+              {{ $t("settings.team.members.inviteMember.role") }}
+            </FormLabel>
+            <SaasTeamRoleSelect v-model="roleValue" />
+          </FormItem>
+        </div>
+
+        <div class="mt-6 flex justify-end border-t pt-3">
+          <Button
+            type="submit"
+            :disabled="isSubmitDisabled"
+            :loading="isSubmitting"
+          >
+            {{ $t("settings.team.members.inviteMember.submit") }}
+          </Button>
+        </div>
+      </CardContent>
+    </form>
+  </Card>
+</template>

@@ -1,3 +1,10 @@
+<script setup lang="ts">
+  type Props = {
+    class?: ClassProp;
+  };
+  const props = defineProps<Props>();
+</script>
+
 <template>
   <span
     v-bind="{
@@ -7,10 +14,3 @@
     }"
   />
 </template>
-
-<script setup lang="ts">
-  type Props = {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
-</script>

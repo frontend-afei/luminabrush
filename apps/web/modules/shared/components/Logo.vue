@@ -1,3 +1,14 @@
+<script setup lang="ts">
+  const props = withDefaults(
+    defineProps<{
+      withLabel?: boolean;
+    }>(),
+    {
+      withLabel: true,
+    },
+  );
+</script>
+
 <template>
   <span class="text-primary flex items-center font-semibold leading-none">
     <svg class="h-10 w-10" viewBox="0 0 734 635">
@@ -21,14 +32,3 @@
     <span v-if="props.withLabel" class="ml-3 text-lg">acme</span>
   </span>
 </template>
-
-<script setup lang="ts">
-  const props = withDefaults(
-    defineProps<{
-      withLabel?: boolean;
-    }>(),
-    {
-      withLabel: true,
-    },
-  );
-</script>

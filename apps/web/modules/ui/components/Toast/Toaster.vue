@@ -1,3 +1,25 @@
+<script setup lang="ts">
+  import type { IconName } from "../Icon.vue";
+  import type { ToastVariantProps } from "./ToastRoot.vue";
+
+  const { state: toasts, dismiss } = useToast();
+
+  const variantIcons = computed<
+    Record<NonNullable<ToastVariantProps["variant"]>, IconName>
+  >(() => ({
+    default: "notification",
+    loading: "spinner",
+    success: "check",
+    error: "error",
+  }));
+
+  const getToastIconName = ({ toast }: { toast: Toast }): any => {
+    return toast.icon ?? toast.variant != null
+      ? variantIcons.value[toast.variant!]
+      : undefined;
+  };
+</script>
+
 <template>
   <ToastProvider>
     <ToastRoot
@@ -28,25 +50,3 @@
     <ToastViewport />
   </ToastProvider>
 </template>
-
-<script setup lang="ts">
-  import type { IconName } from "../Icon.vue";
-  import type { ToastVariantProps } from "./ToastRoot.vue";
-
-  const { state: toasts, dismiss } = useToast();
-
-  const variantIcons = computed<
-    Record<NonNullable<ToastVariantProps["variant"]>, IconName>
-  >(() => ({
-    default: "notification",
-    loading: "spinner",
-    success: "check",
-    error: "error",
-  }));
-
-  const getToastIconName = ({ toast }: { toast: Toast }): any => {
-    return toast.icon ?? toast.variant != null
-      ? variantIcons.value[toast.variant!]
-      : undefined;
-  };
-</script>

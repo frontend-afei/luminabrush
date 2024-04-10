@@ -1,55 +1,3 @@
-<template>
-  <div class="rounded-md border">
-    <TableRoot>
-      <TableBody v-if="props.invitations.length">
-        <TableRow v-for="row of props.invitations" :key="row.id">
-          <!-- User Details -->
-          <TableCell>
-            <div>
-              {{ row.email }}
-            </div>
-          </TableCell>
-
-          <!-- Actions -->
-          <TableCell>
-            <div class="flex flex-row justify-end gap-2">
-              <SaasTeamRoleSelect :modelValue="row.role" disabled />
-
-              <DropdownMenuRoot>
-                <DropdownMenuTrigger asChild>
-                  <Button size="icon" variant="ghost">
-                    <Icon name="more" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem
-                    :disabled="teamRole !== 'OWNER'"
-                    class="text-destructive"
-                    @click="
-                      () => handleRevokeInvitation({ invitationId: row.id })
-                    "
-                  >
-                    <Icon name="undo" class="mr-2 h-4 w-4" />
-                    {{ t("settings.team.members.invitations.revoke") }}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenuRoot>
-            </div>
-          </TableCell>
-        </TableRow>
-      </TableBody>
-
-      <TableBody v-else>
-        <TableRow>
-          <TableCell colspan="2" class="h-24 text-center">
-            {{ t("settings.team.members.invitations.empty") }}
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </TableRoot>
-  </div>
-</template>
-
 <script setup lang="ts">
   import type { ApiOutput } from "api";
 
@@ -103,3 +51,55 @@
     }
   };
 </script>
+
+<template>
+  <div class="rounded-md border">
+    <TableRoot>
+      <TableBody v-if="props.invitations.length">
+        <TableRow v-for="row of props.invitations" :key="row.id">
+          <!-- User Details -->
+          <TableCell>
+            <div>
+              {{ row.email }}
+            </div>
+          </TableCell>
+
+          <!-- Actions -->
+          <TableCell>
+            <div class="flex flex-row justify-end gap-2">
+              <SaasTeamRoleSelect :modelValue="row.role" disabled />
+
+              <DropdownMenuRoot>
+                <DropdownMenuTrigger asChild>
+                  <Button size="icon" variant="ghost">
+                    <Icon name="more" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem
+                    :disabled="teamRole !== 'OWNER'"
+                    class="text-destructive"
+                    @click="
+                      () => handleRevokeInvitation({ invitationId: row.id })
+                    "
+                  >
+                    <Icon name="undo" class="mr-2 h-4 w-4" />
+                    {{ $t("settings.team.members.invitations.revoke") }}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenuRoot>
+            </div>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+
+      <TableBody v-else>
+        <TableRow>
+          <TableCell colspan="2" class="h-24 text-center">
+            {{ $t("settings.team.members.invitations.empty") }}
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </TableRoot>
+  </div>
+</template>
