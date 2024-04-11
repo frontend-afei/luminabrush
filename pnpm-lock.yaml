@@ -67,8 +67,8 @@ importers:
         specifier: 1.5.0
         version: 1.5.0(rollup@4.13.2)
       '@nuxtjs/color-mode':
-        specifier: ^3.3.3
-        version: 3.3.3(rollup@4.13.2)
+        specifier: ^3.4.0
+        version: 3.4.0(rollup@4.13.2)
       '@nuxtjs/google-fonts':
         specifier: ^3.2.0
         version: 3.2.0(rollup@4.13.2)
@@ -2911,7 +2911,7 @@ packages:
       '@nuxt/devtools': 1.1.5(@unocss/reset@0.58.8)(floating-vue@5.2.2)(nuxt@3.11.2)(rollup@4.13.2)(unocss@0.58.8)(vite@5.2.8)(vue@3.4.21)
       '@nuxt/devtools-kit': 1.1.5(nuxt@3.11.2)(rollup@4.13.2)(vite@5.2.8)
       '@nuxt/kit': 3.11.2(rollup@4.13.2)
-      '@nuxtjs/color-mode': 3.3.3(rollup@4.13.2)
+      '@nuxtjs/color-mode': 3.4.0(rollup@4.13.2)
       '@unocss/core': 0.58.8
       '@unocss/nuxt': 0.58.8(postcss@8.4.38)(rollup@4.13.2)(vite@5.2.8)(webpack@5.91.0)
       '@unocss/preset-attributify': 0.58.8
@@ -3255,11 +3255,13 @@ packages:
       - vue-tsc
     dev: true
 
-  /@nuxtjs/color-mode@3.3.3(rollup@4.13.2):
-    resolution: {integrity: sha512-t6QM/tj1d/53xQ9JznNVIaqIfQWhjHRzNt5VqTxNeAJWG0HCdiHVezkUTMahPUgUbEJnBrtCoquUYwpyFhNF+Q==}
+  /@nuxtjs/color-mode@3.4.0(rollup@4.13.2):
+    resolution: {integrity: sha512-rS51nG3zW8ksOwNubIP3BPQ+vBL0r2M6td1kkB/VaR1e1uVtNfWlBPfZjb604bgNCE2AeRNqaI0CrxkfnQ6h6Q==}
     dependencies:
-      '@nuxt/kit': 3.11.1(rollup@4.13.2)
+      '@nuxt/kit': 3.11.2(rollup@4.13.2)
       pathe: 1.1.2
+      pkg-types: 1.0.3
+      semver: 7.6.0
     transitivePeerDependencies:
       - rollup
       - supports-color
