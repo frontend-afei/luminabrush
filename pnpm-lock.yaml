@@ -97,8 +97,8 @@ importers:
         specifier: '*'
         version: link:../../packages/config/eslint-config-custom
       lucide-vue-next:
-        specifier: ^0.366.0
-        version: 0.366.0(vue@3.4.21)
+        specifier: ^0.368.0
+        version: 0.368.0(vue@3.4.21)
       nuxt:
         specifier: 3.11.2
         version: 3.11.2(@unocss/reset@0.58.8)(floating-vue@5.2.2)(rollup@4.13.2)(unocss@0.58.8)(vite@5.2.8)
@@ -9433,8 +9433,8 @@ packages:
       oslo: 1.0.1
     dev: false
 
-  /lucide-vue-next@0.366.0(vue@3.4.21):
-    resolution: {integrity: sha512-hlbfcFpoFNXMaPnyzGPD5rQVqmqgH85+0EELRq7d2ru5G3MG6bwzw7qansrss/0vX6zkG7TutGonR2WJYbeaTw==}
+  /lucide-vue-next@0.368.0(vue@3.4.21):
+    resolution: {integrity: sha512-ZP5p4ndnPsI858xLFN5Jsz2OrG4e2XPV5T5R7MHOUL4HHg1nHOMWncJBclbX3/1wQP+1AiwqcNARbr0ZoNuGNg==}
     peerDependencies:
       vue: '>=3.0.1'
     dependencies:
