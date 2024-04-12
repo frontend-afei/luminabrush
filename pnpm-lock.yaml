@@ -145,8 +145,8 @@ importers:
         specifier: workspace:*
         version: link:../storage
       stripe:
-        specifier: ^14.24.0
-        version: 14.24.0
+        specifier: ^15.1.0
+        version: 15.1.0
       tsconfig:
         specifier: workspace:*
         version: link:../config/tsconfig
@@ -4569,6 +4569,7 @@ packages:
     resolution: {integrity: sha512-E+Fa9z3wSQpzgYQdYmme5X3OTuejnnTx88A6p6vkkJosR3KBz+HpE3kqNm98VE6cfLFcISx7zW7MsJkH6KwbTw==}
     dependencies:
       undici-types: 5.26.5
+    dev: true
 
   /@types/node@20.12.6:
     resolution: {integrity: sha512-3KurE8taB8GCvZBPngVbp0lk5CKi8M9f9k1rsADh0Evdz5SzJ+Q+Hx9uHoFGsLnLnd1xmkDQr2hVhlA0Mn0lKQ==}
@@ -12642,11 +12643,11 @@ packages:
       js-tokens: 9.0.0
     dev: true
 
-  /stripe@14.24.0:
-    resolution: {integrity: sha512-r0JWz2quThXsFbp1pevkAAoDk4sw3kFMQEc2qvxMFUOhw/SFGqtAGz4vQgP/fMWzO28ljBNEiz68KqRx0JS3dw==}
+  /stripe@15.1.0:
+    resolution: {integrity: sha512-yMsP9VWsQKkmR14E7MhtFDYKCoYCnhG/tLtiMnNiSiVisDezU2OKJ2T9myufYKl922H85nvCgaczyBLovaJTVA==}
     engines: {node: '>=12.*'}
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.6
       qs: 6.12.0
     dev: false
 
