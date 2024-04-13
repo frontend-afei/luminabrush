@@ -32,9 +32,7 @@
 <template>
   <Card>
     <CardHeader class="pb-2">
-      <template #title>
-        <div class="text-sm text-muted-foreground">{{ title }}</div>
-      </template>
+      <div class="text-sm text-muted-foreground">{{ title }}</div>
     </CardHeader>
     <CardContent>
       <div class="flex items-center justify-between">

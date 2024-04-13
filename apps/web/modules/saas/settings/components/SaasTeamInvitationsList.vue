@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import type { ApiOutput } from "api";
   import { MoreVerticalIcon, UndoIcon } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     invitations: ApiOutput["team"]["invitations"];
@@ -55,7 +56,7 @@
 
 <template>
   <div class="rounded-md border">
-    <TableRoot>
+    <Table>
       <TableBody v-if="props.invitations.length">
         <TableRow v-for="row of props.invitations" :key="row.id">
           <!-- User Details -->
@@ -101,6 +102,6 @@
           </TableCell>
         </TableRow>
       </TableBody>
-    </TableRoot>
+    </Table>
   </div>
 </template>

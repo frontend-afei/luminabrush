@@ -2,6 +2,7 @@
   import type { ApiOutput } from "api";
   import type { TeamMemberRoleType } from "database";
   import { LogOutIcon, TrashIcon } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     memberships: ApiOutput["team"]["memberships"];
@@ -100,7 +101,7 @@
 
 <template>
   <div class="rounded-md border">
-    <TableRoot>
+    <Table>
       <TableBody v-if="props.memberships.length">
         <TableRow v-for="row of props.memberships" :key="row.id">
           <!-- User Details -->
@@ -162,6 +163,6 @@
           </TableCell>
         </TableRow>
       </TableBody>
-    </TableRoot>
+    </Table>
   </div>
 </template>

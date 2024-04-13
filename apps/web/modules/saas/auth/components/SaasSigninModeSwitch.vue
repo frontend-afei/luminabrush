@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <TabsRoot
+  <Tabs
     :modelValue="props.modelValue"
     @update:modelValue="emit('update:modelValue', $event as ActiveMode)"
   >
@@ -39,5 +39,5 @@
         {{ mode.label }}
       </TabsTrigger>
     </TabsList>
-  </TabsRoot>
+  </Tabs>
 </template>

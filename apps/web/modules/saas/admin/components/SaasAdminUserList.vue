@@ -93,7 +93,7 @@
     />
 
     <div class="rounded-md border">
-      <TableRoot class="w-full">
+      <Table class="w-full">
         <TableBody>
           <template v-if="users?.length > 0">
             <TableRow v-for="row in table.getRowModel().rows" :key="row.id">
@@ -124,7 +124,7 @@
             </TableCell>
           </TableRow>
         </TableBody>
-      </TableRoot>
+      </Table>
     </div>
 
     <!-- <Pagination

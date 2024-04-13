@@ -2,6 +2,7 @@
   import { useFileDialog } from "@vueuse/core";
   import { LoaderIcon } from "lucide-vue-next";
   import { v4 as uuid } from "uuid";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const uploading = ref(false);
   const image = ref<File | null>(null);

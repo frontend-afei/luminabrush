@@ -3,6 +3,7 @@
   import type { ApiOutput } from "api";
   import { useForm } from "vee-validate";
   import { z } from "zod";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();

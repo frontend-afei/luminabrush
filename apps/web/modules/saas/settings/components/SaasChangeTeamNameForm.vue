@@ -2,6 +2,7 @@
   import { toTypedSchema } from "@vee-validate/zod";
   import { useForm } from "vee-validate";
   import { z } from "zod";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     initialValue: string;

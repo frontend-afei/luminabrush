@@ -36,7 +36,6 @@ export default defineNuxtConfig({
       "modules/shared/composables/**",
       "modules/shared/utils/**",
       "modules/ui/lib/**",
-      "modules/ui/composables/**",
       "modules/marketing/shared/util/**",
       "modules/marketing/content/**",
     ],

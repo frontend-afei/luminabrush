@@ -51,7 +51,7 @@
 </script>
 
 <template>
-  <DialogRoot
+  <Dialog
     :open="open"
     @update:open="(value: boolean) => emit('openChange', value)"
   >
@@ -75,5 +75,5 @@
         }}</Button>
       </DialogFooter>
     </DialogContent>
-  </DialogRoot>
+  </Dialog>
 </template>

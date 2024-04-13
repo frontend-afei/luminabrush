@@ -3,6 +3,7 @@
   import type { TeamMemberRoleType } from "database";
   import { useForm } from "vee-validate";
   import { z } from "zod";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     teamId: string;
@@ -86,9 +87,9 @@
   <Card v-if="teamRole === 'OWNER'">
     <form @submit.prevent="onSubmit" class="@container">
       <CardHeader>
-        <template #title>{{
-          t("settings.team.members.inviteMember.title")
-        }}</template>
+        <CardTitle>
+          {{ t("settings.team.members.inviteMember.title") }}
+        </CardTitle>
       </CardHeader>
 
       <CardContent>

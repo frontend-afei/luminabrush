@@ -1,6 +1,7 @@
 <script setup lang="ts">
   const { apiCaller } = useApiCaller();
   const localePath = useLocalePath();
+  const { reloadUser } = useUser();
 
   const totalSteps = 2;
   const { searchQuery: step } = useRouteSearchQuery({
@@ -18,6 +19,8 @@
       await apiCaller.auth.update.mutate({
         onboardingComplete: true,
       });
+
+      await reloadUser();
 
       navigateTo(localePath(`/app/dashboard`), {
         replace: true,

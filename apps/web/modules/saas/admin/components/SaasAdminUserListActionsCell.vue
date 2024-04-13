@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import type { ApiOutput } from "api";
   import { MoreVerticalIcon, SquareUserIcon, TrashIcon } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const { user } = defineProps<{
     user: ApiOutput["admin"]["users"]["users"][number];

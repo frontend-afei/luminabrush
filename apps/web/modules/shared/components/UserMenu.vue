@@ -1,5 +1,11 @@
 <script setup lang="ts">
-  import { LanguagesIcon, SettingsIcon, UserMinusIcon } from "lucide-vue-next";
+  import {
+    LanguagesIcon,
+    LogOutIcon,
+    SettingsIcon,
+    UserMinusIcon,
+  } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const { user, logout } = useUser();
   const { t } = useTranslations();

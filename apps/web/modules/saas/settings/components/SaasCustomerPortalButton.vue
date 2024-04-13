@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { CreditCardIcon } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     subscriptionId: string;

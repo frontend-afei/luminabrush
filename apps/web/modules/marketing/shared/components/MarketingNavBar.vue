@@ -94,7 +94,7 @@
           <ColorModeToggle />
           <LocaleSwitch />
 
-          <SheetRoot v-model:open="mobileMenuOpen">
+          <Sheet v-model:open="mobileMenuOpen">
             <SheetTrigger asChild>
               <Button class="md:hidden" size="icon" variant="outline">
                 <MenuIcon class="size-4" />
@@ -132,7 +132,7 @@
                 </NuxtLinkLocale>
               </div>
             </SheetContent>
-          </SheetRoot>
+          </Sheet>
 
           <Button class="hidden md:block" asChild variant="ghost">
             <NuxtLinkLocale

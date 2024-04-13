@@ -58,12 +58,12 @@
 <template>
   <div :class="cn(props.class, '@container')">
     <div class="flex justify-end">
-      <TabsRoot v-model="interval" class="mb-4">
+      <Tabs v-model="interval" class="mb-4">
         <TabsList>
           <TabsTrigger value="month">{{ labels.monthly }}</TabsTrigger>
           <TabsTrigger value="year">{{ labels.yearly }}</TabsTrigger>
         </TabsList>
-      </TabsRoot>
+      </Tabs>
     </div>
 
     <div class="grid gap-4 @md:grid-cols-3">

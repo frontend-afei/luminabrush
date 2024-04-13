@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <DialogRoot
+  <Dialog
     :open="createTeamDialogOpen"
     @update:open="(newVal) => (createTeamDialogOpen = newVal)"
   >
@@ -30,5 +30,5 @@
         @success="(newTeam) => handleCreateTeamSuccess(newTeam.id)"
       />
     </DialogContent>
-  </DialogRoot>
+  </Dialog>
 </template>

@@ -4,17 +4,19 @@
   import { useForm } from "vee-validate";
   import { z } from "zod";
 
-  defineEmits<{
+  const emit = defineEmits<{
     complete: [];
     back: [];
   }>();
 
   const { apiCaller } = useApiCaller();
-  const localePath = useLocalePath();
+  const { t } = useTranslations();
+
+  const createTeamMutation = apiCaller.team.create.useMutation();
 
   const formSchema = toTypedSchema(
     z.object({
-      name: z.string().min(1, "Name is required"),
+      teamName: z.string().min(1, "Name is required"),
     }),
   );
 
@@ -23,13 +25,45 @@
   const { isSubmitting, handleSubmit } = useForm({
     validationSchema: formSchema,
     initialValues: {
-      name: "",
+      teamName: "",
     },
+  });
+
+  const onSubmit = handleSubmit(async ({ teamName }) => {
+    serverError.value = null;
+
+    try {
+      await createTeamMutation.mutate({
+        name: teamName,
+      });
+
+      emit("complete");
+    } catch (e) {
+      serverError.value = t("onboarding.notifications.teamSetupFailed");
+    }
   });
 </script>
 
 <template>
-  <form>
+  <form @submit="onSubmit" class="space-y-8">
+    <div class="space-y-4">
+      <h3 className="mb-4 text-xl font-bold">
+        {{ $t("onboarding.team.title") }}
+      </h3>
+
+      <FormField v-slot="{ componentField }" name="teamName">
+        <FormItem>
+          <FormLabel for="teamName" required>
+            {{ $t("onboarding.team.name") }}
+          </FormLabel>
+          <FormControl>
+            <Input v-bind="componentField" autocomplete="company" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
+    </div>
+
     <div class="flex gap-2">
       <Button
         type="button"

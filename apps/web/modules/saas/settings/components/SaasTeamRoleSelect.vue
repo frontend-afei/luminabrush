@@ -27,7 +27,7 @@
 </script>
 
 <template>
-  <SelectRoot
+  <Select
     :modelValue="props.modelValue"
     @update:modelValue="emit('update:modelValue', $event as TeamMemberRoleType)"
     :disabled="$props.disabled"
@@ -44,5 +44,5 @@
         {{ option.label }}
       </SelectItem>
     </SelectContent>
-  </SelectRoot>
+  </Select>
 </template>
