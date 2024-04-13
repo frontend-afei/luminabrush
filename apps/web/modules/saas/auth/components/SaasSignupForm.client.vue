@@ -1,19 +1,19 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
   import { AlertTriangleIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
   const localePath = useLocalePath();
 
-  const { z, toTypedSchema, useForm } = formUtils;
-
   const formSchema = toTypedSchema(
     z.object({
       email: z.string().email(),
       password: z.string().min(8),
-      name: z.string().min(2),
     }),
   );
 
@@ -42,25 +42,19 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { defineInputBinds, handleSubmit, setFieldValue, isSubmitting } =
-    useForm({
-      validationSchema: formSchema,
-      initialValues: {
-        email: "",
-        password: "",
-        name: "",
-      },
-    });
+  const { handleSubmit, setFieldValue, isSubmitting } = useForm({
+    validationSchema: formSchema,
+    initialValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   watchEffect(() => {
     if (emailParam.value) {
       setFieldValue("email", emailParam.value);
     }
   });
-
-  const email = defineInputBinds("email");
-  const password = defineInputBinds("password");
-  const name = defineInputBinds("name");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -69,7 +63,6 @@
       await apiCaller.auth.signup.mutate({
         email: values.email,
         password: values.password,
-        name: values.name,
         callbackUrl: joinURL(runtimeConfig.public.siteUrl, "/auth/verify"),
       });
 
@@ -110,19 +103,6 @@
         <template #title>{{ serverError.title }}</template>
         <template #description>{{ serverError.message }}</template>
       </Alert>
-
-      <FormItem>
-        <FormLabel for="name" required>
-          {{ $t("auth.signup.name") }}
-        </FormLabel>
-        <Input
-          v-bind="name"
-          type="text"
-          id="name"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
 
       <FormItem>
         <FormLabel for="email" required>

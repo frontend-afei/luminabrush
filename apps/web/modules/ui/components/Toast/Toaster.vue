@@ -1,57 +1,37 @@
 <script setup lang="ts">
+  import { isVNode } from "vue";
+  import { useToast } from "./use-toast";
   import {
-    AlertCircleIcon,
-    BellIcon,
-    CheckIcon,
-    LoaderIcon,
-  } from "lucide-vue-next";
-  import type { ToastVariantProps } from "./ToastRoot.vue";
+    Toast,
+    ToastClose,
+    ToastDescription,
+    ToastProvider,
+    ToastTitle,
+    ToastViewport,
+  } from ".";
 
-  const { state: toasts, dismiss } = useToast();
-
-  const variantIcons = computed<
-    Record<NonNullable<ToastVariantProps["variant"]>, Component>
-  >(() => ({
-    default: BellIcon,
-    loading: LoaderIcon,
-    success: CheckIcon,
-    error: AlertCircleIcon,
-  }));
-
-  const getToastIcon = ({ toast }: { toast: Toast }): any => {
-    return toast.icon ?? toast.variant != null
-      ? variantIcons.value[toast.variant!]
-      : undefined;
-  };
+  const { toasts } = useToast();
 </script>
 
 <template>
   <ToastProvider>
-    <ToastRoot
-      v-for="toast of toasts"
-      :key="toast.id"
-      v-bind="{ id: toast.id, variant: toast.variant }"
-      @update:open="() => dismiss(toast.id)"
-    >
-      <div class="flex items-center gap-3">
-        <component
-          v-if="getToastIcon({ toast })"
-          :is="getToastIcon({ toast })"
-          class="size-6 shrink-0 opacity-50"
-          :class="toast.variant === 'loading' ? 'animate-spin' : ''"
-        />
-
-        <div class="grid gap-1">
-          <ToastTitle v-if="toast.title">{{ toast.title }}</ToastTitle>
-          <ToastDescription v-if="toast.description">{{
-            toast.description
-          }}</ToastDescription>
-        </div>
+    <Toast v-for="toast in toasts" :key="toast.id" v-bind="toast">
+      <div class="grid gap-1">
+        <ToastTitle v-if="toast.title">
+          {{ toast.title }}
+        </ToastTitle>
+        <template v-if="toast.description">
+          <ToastDescription v-if="isVNode(toast.description)">
+            <component :is="toast.description" />
+          </ToastDescription>
+          <ToastDescription v-else>
+            {{ toast.description }}
+          </ToastDescription>
+        </template>
+        <ToastClose />
       </div>
-
-      <ToastClose />
-    </ToastRoot>
-
+      <component :is="toast.action" />
+    </Toast>
     <ToastViewport />
   </ToastProvider>
 </template>

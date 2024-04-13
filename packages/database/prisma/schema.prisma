@@ -28,6 +28,7 @@ model User {
   name               String?
   avatarUrl          String?
   hashedPassword     String?
+  onboardingComplete Boolean                 @default(false)
   oauthAccounts      UserOauthAccount[]
   sessions           UserSession[]
   memberships        TeamMembership[]

@@ -1,18 +1,17 @@
 <script setup lang="ts">
+  import type { HTMLAttributes } from "vue";
   import { SelectLabel, type SelectLabelProps } from "radix-vue";
+  import { cn } from "@/modules/ui/lib/utils";
 
-  type Props = SelectLabelProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
+  const props = defineProps<
+    SelectLabelProps & { class?: HTMLAttributes["class"] }
+  >();
 </script>
 
 <template>
   <SelectLabel
-    v-bind="{
-      ...$attrs,
-      ...props,
-      class: cn('px-2 py-1.5 text-sm font-semibold', props.class),
-    }"
-  />
+    :class="cn('py-1.5 pl-8 pr-2 text-sm font-semibold', props.class)"
+  >
+    <slot />
+  </SelectLabel>
 </template>

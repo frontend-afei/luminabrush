@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import type { SubscriptionStatusType } from "database";
-  import type { BadgeProps } from "@/modules/ui/components/Badge.vue";
 
   const props = defineProps<{
     status: SubscriptionStatusType;
@@ -20,7 +19,7 @@
   }));
 
   const badgeColors = computed<
-    Record<SubscriptionStatusType, BadgeProps["status"]>
+    Record<SubscriptionStatusType, BadgeProps["variant"]>
   >(() => ({
     ACTIVE: "success",
     CANCELED: "error",
@@ -34,7 +33,7 @@
 </script>
 
 <template>
-  <Badge :status="badgeColors[props.status]">{{
+  <Badge :variant="badgeColors[props.status]">{{
     badgeLabels[props.status]
   }}</Badge>
 </template>

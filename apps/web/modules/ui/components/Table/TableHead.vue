@@ -1,18 +1,20 @@
 <script setup lang="ts">
+  import type { HTMLAttributes } from "vue";
+  import { cn } from "@/modules/ui/lib/utils";
+
   const props = defineProps<{
-    class?: ClassProp;
+    class?: HTMLAttributes["class"];
   }>();
 </script>
 
 <template>
   <th
-    v-bind="{
-      ...$attrs,
-      class: cn(
-        'text-muted-foreground h-12 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0',
+    :class="
+      cn(
+        'h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
         props.class,
-      ),
-    }"
+      )
+    "
   >
     <slot />
   </th>

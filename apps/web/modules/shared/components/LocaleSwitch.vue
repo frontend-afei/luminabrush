@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <DropdownMenuRoot>
+  <DropdownMenu>
     <DropdownMenuTrigger asChild>
       <Button variant="ghost" size="icon">
         <LanguagesIcon class="size-4" />
@@ -13,5 +13,5 @@
     <DropdownMenuContent>
       <LocaleSwitchRadioGroup />
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 </template>

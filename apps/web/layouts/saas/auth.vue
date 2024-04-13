@@ -1,24 +1,24 @@
 <template>
   <div
-    class="flex min-h-screen place-items-center bg-muted py-12 text-foreground"
+    class="flex min-h-screen flex-col items-center justify-between gap-8 bg-card py-8 text-foreground"
   >
     <div class="container">
-      <div class="mx-auto grid w-full max-w-md gap-6">
-        <div class="flex items-center justify-between">
-          <NuxtLinkLocale to="/" class="block">
-            <Logo />
-          </NuxtLinkLocale>
+      <div class="flex items-center justify-between">
+        <NuxtLinkLocale to="/" class="block">
+          <Logo />
+        </NuxtLinkLocale>
 
-          <div class="flex items-center justify-end gap-2">
-            <LocaleSwitch />
-            <ColorModeToggle />
-          </div>
+        <div class="flex items-center justify-end gap-2">
+          <LocaleSwitch />
+          <ColorModeToggle />
         </div>
-
-        <Card class="p-8">
-          <slot />
-        </Card>
       </div>
     </div>
+
+    <div class="container max-w-md">
+      <slot />
+    </div>
+
+    <SaasFooter />
   </div>
 </template>

@@ -52,7 +52,7 @@
 
 <template>
   <div class="flex flex-row justify-end gap-2">
-    <DropdownMenuRoot>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="icon" variant="ghost">
           <MoreVerticalIcon class="size-4" />
@@ -72,6 +72,6 @@
           </span>
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenuRoot>
+    </DropdownMenu>
   </div>
 </template>

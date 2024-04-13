@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useWindowScroll } from "@vueuse/core";
+  import { MenuIcon } from "lucide-vue-next";
   import { VisuallyHidden } from "radix-vue";
 
   const route = useRoute();
@@ -111,6 +112,7 @@
                   :key="menuItem.to"
                   :to="menuItem.to"
                   class="block px-3 py-2 text-lg"
+                  :class="[isMenuItemActive(menuItem.to) ? 'font-bold' : '']"
                 >
                   {{ menuItem.label }}
                 </NuxtLinkLocale>

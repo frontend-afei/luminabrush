@@ -1,15 +1,17 @@
 <script setup lang="ts">
+  import type { HTMLAttributes } from "vue";
+  import { cn } from "@/modules/ui/lib/utils";
+
   const props = defineProps<{
-    class?: ClassProp;
+    class?: HTMLAttributes["class"];
   }>();
 </script>
 
 <template>
   <tfoot
-    v-bind="{
-      ...$attrs,
-      class: cn('bg-primary text-primary-foreground font-medium', props.class),
-    }"
+    :class="
+      cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', props.class)
+    "
   >
     <slot />
   </tfoot>

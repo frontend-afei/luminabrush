@@ -20,7 +20,7 @@
 </script>
 
 <template>
-  <DropdownMenuRoot v-if="user">
+  <DropdownMenu v-if="user">
     <DropdownMenuTrigger asChild>
       <button
         class="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -91,5 +91,5 @@
         {{ $t("dashboard.userMenu.logout") }}
       </DropdownMenuItem>
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 </template>

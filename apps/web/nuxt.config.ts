@@ -43,7 +43,6 @@ export default defineNuxtConfig({
   },
 
   components: [
-    { path: "@/modules/ui/components", pathPrefix: false },
     { path: "@/modules/shared/components", pathPrefix: false },
     { path: "@/modules/marketing/shared/components", pathPrefix: false },
     { path: "@/modules/marketing/home/components", pathPrefix: false },
@@ -55,6 +54,7 @@ export default defineNuxtConfig({
     { path: "@/modules/saas/admin/components", pathPrefix: false },
     { path: "@/modules/saas/auth/components", pathPrefix: false },
     { path: "@/modules/saas/dashboard/components", pathPrefix: false },
+    { path: "@/modules/saas/onboarding/components", pathPrefix: false },
     { path: "@/modules/saas/settings/components", pathPrefix: false },
     { path: "@/modules/saas/shared/components", pathPrefix: false },
   ],
@@ -81,7 +81,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "./modules/ui/lib/radixModule.ts",
+    // "./modules/ui/lib/module.ts",
     "@nuxtjs/i18n", // configured here and in i18n.config.ts
     "@nuxtjs/tailwindcss", // configured in tailwind.config.ts
     "@nuxtjs/google-fonts",
@@ -90,6 +90,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-simple-robots",
     "@vue-email/nuxt",
+    "shadcn-nuxt",
   ],
 
   // @nuxtjs/i18n
@@ -156,6 +157,11 @@ export default defineNuxtConfig({
   // nuxt-simple-robots -> nuxt-site-config
   site: {
     url: baseUrl,
+  },
+
+  shadcn: {
+    prefix: "",
+    componentDir: "./modules/ui/components",
   },
 
   // nuxt-simple-robots

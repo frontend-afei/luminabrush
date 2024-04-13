@@ -1,34 +1,46 @@
 <script setup lang="ts">
-  import { CheckIcon } from "lucide-vue-next";
+  import { type HTMLAttributes, computed } from "vue";
   import {
     SelectItem,
     SelectItemIndicator,
-    SelectItemText,
     type SelectItemProps,
+    SelectItemText,
+    useForwardProps,
   } from "radix-vue";
+  import { Check } from "lucide-vue-next";
+  import { cn } from "@/modules/ui/lib/utils";
 
-  type Props = SelectItemProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
+  const props = defineProps<
+    SelectItemProps & { class?: HTMLAttributes["class"] }
+  >();
+
+  const delegatedProps = computed(() => {
+    const { class: _, ...delegated } = props;
+
+    return delegated;
+  });
+
+  const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
   <SelectItem
-    v-bind="{
-      ...$attrs,
-      ...props,
-      class: cn(
-        'focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+    v-bind="forwardedProps"
+    :class="
+      cn(
+        'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         props.class,
-      ),
-    }"
+      )
+    "
   >
-    <span class="absolute right-2 flex size-3.5 items-center justify-center">
+    <span class="absolute left-2 flex size-3.5 items-center justify-center">
       <SelectItemIndicator>
-        <CheckIcon class="size-4" />
+        <Check class="size-4" />
       </SelectItemIndicator>
     </span>
-    <SelectItemText><slot /></SelectItemText>
+
+    <SelectItemText>
+      <slot />
+    </SelectItemText>
   </SelectItem>
 </template>

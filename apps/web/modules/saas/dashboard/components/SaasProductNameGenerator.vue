@@ -1,9 +1,10 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
   import { Wand2Icon } from "lucide-vue-next";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const { apiCaller } = useApiCaller();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({

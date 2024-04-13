@@ -1,14 +1,11 @@
 <script setup lang="ts">
-  import {
-    AlertCircleIcon,
-    CheckCircleIcon,
-    type KeyIcon,
-  } from "lucide-vue-next";
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { AlertCircleIcon, CheckCircleIcon, KeyIcon } from "lucide-vue-next";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({

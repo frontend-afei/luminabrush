@@ -1,7 +1,6 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
     "source.fixAll.eslint": true
   },
   "tailwindCSS.experimental.classRegex": [

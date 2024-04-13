@@ -70,7 +70,7 @@
             <div class="flex flex-row justify-end gap-2">
               <SaasTeamRoleSelect :modelValue="row.role" disabled />
 
-              <DropdownMenuRoot>
+              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button size="icon" variant="ghost">
                     <MoreVerticalIcon class="size-4" />
@@ -88,7 +88,7 @@
                     {{ $t("settings.team.members.invitations.revoke") }}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
-              </DropdownMenuRoot>
+              </DropdownMenu>
             </div>
           </TableCell>
         </TableRow>

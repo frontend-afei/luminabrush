@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <DropdownMenuRoot v-if="currentTeam">
+  <DropdownMenu v-if="currentTeam">
     <DropdownMenuTrigger
       class="-ml-2 flex w-full items-center justify-between rounded-md p-2 text-left outline-none focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-ring"
     >
@@ -62,7 +62,7 @@
         </DropdownMenuItem>
       </DropdownMenuGroup>
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 
   <SaasCreateTeamDialog @success="(newTeamId) => switchTeam(newTeamId)" />
 </template>

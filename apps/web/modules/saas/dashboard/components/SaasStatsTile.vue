@@ -45,7 +45,7 @@
 
         <Badge
           v-if="props.trend"
-          :status="props.trend > 0 ? 'success' : 'error'"
+          :variant="props.trend > 0 ? 'success' : 'error'"
         >
           {{ formattedTrend }}
         </Badge>

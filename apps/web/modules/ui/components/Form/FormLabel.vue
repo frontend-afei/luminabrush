@@ -1,15 +1,18 @@
-<script setup lang="ts">
-  const props = defineProps<{
-    for: string;
-    required?: boolean;
-  }>();
+<script lang="ts" setup>
+  import type { HTMLAttributes } from "vue";
+  import type { LabelProps } from "radix-vue";
+  import { useFormField } from "./useFormField";
+
+  const props = defineProps<LabelProps & { class?: HTMLAttributes["class"] }>();
+
+  const { error, formItemId } = useFormField();
 </script>
 
 <template>
-  <label
-    :for="props.for"
-    class="mb-2 block text-sm font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  <Label
+    :class="cn(error && 'text-destructive', props.class)"
+    :for="formItemId"
   >
-    <slot />{{ props.required ? " *" : "" }}
-  </label>
+    <slot />
+  </Label>
 </template>

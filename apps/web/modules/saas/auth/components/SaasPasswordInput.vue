@@ -1,15 +1,13 @@
 <script setup lang="ts">
   import { EyeIcon, EyeOffIcon } from "lucide-vue-next";
-  import type { BaseInputBinds, GenericObject } from "vee-validate";
+  import type { ComponentFieldBindingObject } from "vee-validate";
   import type { InputHTMLAttributes } from "vue";
 
   /** @see https://github.com/vuejs/core/issues/8286#issuecomment-1545659320 */
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface HTMLAttributes extends /* @vue-ignore */ InputHTMLAttributes {}
 
-  type Props = HTMLAttributes & {
-    fieldData: BaseInputBinds<string | undefined> & GenericObject;
-  };
+  type Props = HTMLAttributes & ComponentFieldBindingObject;
 
   const props = defineProps<Props>();
 
@@ -23,7 +21,7 @@
 <template>
   <div class="relative">
     <Input
-      v-bind="{ ...$attrs, ...props.fieldData }"
+      v-bind="{ ...$attrs, ...props }"
       :type="showPassword ? 'text' : 'password'"
       class="pr-10"
     />

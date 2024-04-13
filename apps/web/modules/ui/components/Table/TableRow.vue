@@ -1,18 +1,20 @@
 <script setup lang="ts">
+  import type { HTMLAttributes } from "vue";
+  import { cn } from "@/modules/ui/lib/utils";
+
   const props = defineProps<{
-    class?: ClassProp;
+    class?: HTMLAttributes["class"];
   }>();
 </script>
 
 <template>
   <tr
-    v-bind="{
-      ...$attrs,
-      class: cn(
-        'hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors',
+    :class="
+      cn(
+        'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',
         props.class,
-      ),
-    }"
+      )
+    "
   >
     <slot />
   </tr>

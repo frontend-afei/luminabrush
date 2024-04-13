@@ -1,7 +1,9 @@
 <script setup lang="ts">
-  import { ChevronsRight } from "lucide-vue-next";
+  import { type HTMLAttributes, computed } from "vue";
   import { PaginationLast, type PaginationLastProps } from "radix-vue";
-  import { type HTMLAttributes } from "vue";
+  import { ChevronsRight } from "lucide-vue-next";
+  import { Button } from "@/modules/ui/components/button";
+  import { cn } from "@/modules/ui/lib/utils";
 
   const props = withDefaults(
     defineProps<PaginationLastProps & { class?: HTMLAttributes["class"] }>(),
@@ -19,7 +21,7 @@
 
 <template>
   <PaginationLast v-bind="delegatedProps">
-    <Button :class="cn('h-10 w-10 p-0', props.class)" variant="outline">
+    <Button :class="cn('w-10 h-10 p-0', props.class)" variant="outline">
       <slot>
         <ChevronsRight class="size-4" />
       </slot>

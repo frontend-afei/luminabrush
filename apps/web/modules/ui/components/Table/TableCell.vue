@@ -1,15 +1,15 @@
 <script setup lang="ts">
+  import type { HTMLAttributes } from "vue";
+  import { cn } from "@/modules/ui/lib/utils";
+
   const props = defineProps<{
-    class?: ClassProp;
+    class?: HTMLAttributes["class"];
   }>();
 </script>
 
 <template>
   <td
-    v-bind="{
-      ...$attrs,
-      class: cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', props.class),
-    }"
+    :class="cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', props.class)"
   >
     <slot />
   </td>

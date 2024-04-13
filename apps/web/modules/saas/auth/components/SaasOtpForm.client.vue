@@ -1,14 +1,15 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
   import type { UserOneTimePasswordTypeType } from "database";
   import { AlertTriangleIcon } from "lucide-vue-next";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
   const localePath = useLocalePath();
   const { user, loaded } = useUser();
   const runtimeConfig = useRuntimeConfig();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({
@@ -69,14 +70,12 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting } = useForm({
     validationSchema: formSchema,
     initialValues: {
       code: "",
     },
   });
-
-  const code = defineInputBinds("code");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -114,18 +113,20 @@
         <template #description>{{ serverError.message }}</template>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="code" required>
-          {{ $t("auth.verifyOtp.otp") }}
-        </FormLabel>
-        <Input
-          v-bind="code"
-          type="text"
-          id="code"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="code">
+        <FormItem>
+          <FormLabel for="code" required>
+            {{ $t("auth.verifyOtp.otp") }}
+          </FormLabel>
+          <FormControl>
+            <Input
+              v-bind="componentField"
+              type="text"
+              autocomplete="one-time-code"
+            />
+          </FormControl>
+        </FormItem>
+      </FormField>
 
       <Button :loading="isSubmitting" type="submit">
         {{ $t("auth.verifyOtp.submit") }} &rarr;

@@ -19,7 +19,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:push": "turbo db:push",
     "db:generate": "turbo db:generate",
-    "db:studio": "pnpm --filter database run db:studio"
+    "db:studio": "pnpm --filter database run db:studio",
+    "shadcn-vue": "pnpm dlx shadcn-vue@latest"
   },
   "dependencies": {
     "eslint": "^8.50.0",

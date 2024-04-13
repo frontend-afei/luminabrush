@@ -130,7 +130,7 @@
                 :disabled="teamRole !== 'OWNER' || row.isCreator"
               />
 
-              <DropdownMenuRoot>
+              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button size="icon" variant="ghost">
                     <MoreVerticalIcon class="size-4" />
@@ -149,7 +149,7 @@
                     {{ $t("settings.team.members.removeMember") }}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
-              </DropdownMenuRoot>
+              </DropdownMenu>
             </div>
           </TableCell>
         </TableRow>

@@ -15,17 +15,15 @@ export const signup = publicProcedure
         .max(255)
         .transform((v) => v.toLowerCase()),
       password: z.string().min(8).max(255),
-      name: z.string().min(1).max(255),
       callbackUrl: z.string(),
     }),
   )
-  .mutation(async ({ input: { email, password, name, callbackUrl } }) => {
+  .mutation(async ({ input: { email, password, callbackUrl } }) => {
     try {
       const hashedPassword = await hashPassword(password);
       const user = await db.user.create({
         data: {
           email,
-          name,
           role: UserRoleSchema.Values.USER,
           hashedPassword,
         },

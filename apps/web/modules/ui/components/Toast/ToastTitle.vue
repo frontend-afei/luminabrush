@@ -1,19 +1,23 @@
 <script setup lang="ts">
+  import { type HTMLAttributes, computed } from "vue";
   import { ToastTitle, type ToastTitleProps } from "radix-vue";
+  import { cn } from "@/modules/ui/lib/utils";
 
-  type Props = ToastTitleProps & {
-    class?: ClassProp;
-  };
-  const props = defineProps<Props>();
+  const props = defineProps<
+    ToastTitleProps & { class?: HTMLAttributes["class"] }
+  >();
+
+  const delegatedProps = computed(() => {
+    const { class: _, ...delegated } = props;
+
+    return delegated;
+  });
 </script>
 
 <template>
   <ToastTitle
-    v-bind="{
-      ...$attrs,
-      ...props,
-      class: cn('text-sm font-semibold [&+div]:text-xs', props.class),
-    }"
+    v-bind="delegatedProps"
+    :class="cn('text-sm font-semibold', props.class)"
   >
     <slot />
   </ToastTitle>

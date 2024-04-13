@@ -34,6 +34,7 @@ export const lucia = new Lucia(adapter, {
       name: data.name ?? data.email,
       role: data.role,
       avatarUrl: data.avatarUrl,
+      onboardingComplete: data.onboardingComplete,
     };
   },
   getSessionAttributes: (databaseSession) => {
