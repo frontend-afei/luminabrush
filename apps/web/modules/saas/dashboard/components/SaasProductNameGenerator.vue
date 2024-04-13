@@ -12,7 +12,7 @@
     }),
   );
 
-  const { defineInputBinds, handleSubmit, values } = useForm({
+  const { handleSubmit, values } = useForm({
     validationSchema: formSchema,
     initialValues: {
       topic: "",
@@ -22,8 +22,6 @@
   const topicValue = computed(() => {
     return values.topic || "";
   });
-
-  const topic = defineInputBinds("topic");
 
   const { data, pending, refresh, status } = useAsyncData(
     () => {
@@ -43,11 +41,15 @@
 
 <template>
   <div>
-    <form @submit.prevent="onSubmit">
-      <FormItem>
-        <FormLabel for="topic"> Topic </FormLabel>
-        <Input v-bind="topic" type="text" id="topic" required />
-      </FormItem>
+    <form @submit="onSubmit">
+      <FormField v-slot="{ componentField }" name="topic">
+        <FormItem>
+          <FormControl>
+            <Input v-bind="componentField" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
 
       <Button class="mt-4 w-full" :loading="pending && status !== 'idle'">
         <Wand2Icon class="mr-2 size-4" />

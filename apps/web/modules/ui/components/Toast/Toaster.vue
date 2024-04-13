@@ -35,7 +35,7 @@
   <ToastProvider>
     <Toast v-for="toast in toasts" :key="toast.id" v-bind="toast">
       <div class="grid gap-1">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <component
             :is="getToastVariantIcon(toast.variant ?? 'default')"
             class="size-6 shrink-0 opacity-50"

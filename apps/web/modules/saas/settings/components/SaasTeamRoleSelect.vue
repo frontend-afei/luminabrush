@@ -1,10 +1,12 @@
 <script setup lang="ts">
   import type { TeamMemberRoleType } from "database";
+  import type { ComponentFieldBindingObject } from "vee-validate";
 
-  const props = defineProps<{
-    modelValue: TeamMemberRoleType | undefined;
-    disabled?: boolean;
-  }>();
+  const props = defineProps<
+    {
+      disabled?: boolean;
+    } & ComponentFieldBindingObject
+  >();
 
   const emit = defineEmits<{
     "update:modelValue": [value: TeamMemberRoleType];

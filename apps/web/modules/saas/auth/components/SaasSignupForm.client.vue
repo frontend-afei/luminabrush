@@ -42,7 +42,12 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { handleSubmit, setFieldValue, isSubmitting } = useForm({
+  const {
+    handleSubmit,
+    setFieldValue,
+    isSubmitting,
+    values: formValues,
+  } = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
@@ -104,36 +109,33 @@
         <template #description>{{ serverError.message }}</template>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ $t("auth.signup.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="email"
-          id="email"
-          required
-          autocomplete="email"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="email">
+        <FormItem>
+          <FormLabel for="name" required>
+            {{ $t("auth.signup.email") }}
+          </FormLabel>
+          <FormControl>
+            <Input v-bind="componentField" autocomplete="email" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
 
-      <div>
+      <FormField v-slot="{ componentField }" name="password">
         <FormItem>
           <FormLabel for="password" required>
             {{ $t("auth.signup.password") }}
           </FormLabel>
-          <SaasPasswordInput
-            :fieldData="password"
-            id="password"
-            autocomplete="new-password"
-            required
-          />
+          <FormControl>
+            <SaasPasswordInput
+              v-bind="componentField"
+              autocomplete="new-password"
+              required
+            />
+          </FormControl>
+          <FormMessage />
         </FormItem>
-
-        <p class="mt-1 text-xs italic opacity-50">
-          {{ $t("auth.signup.passwordHint") }}
-        </p>
-      </div>
+      </FormField>
 
       <Button :loading="isSubmitting" type="submit">
         {{ $t("auth.signup.submit") }} &rarr;
@@ -144,7 +146,7 @@
           {{ $t("auth.signup.alreadyHaveAccount") }}&nbsp;</span
         >
         <NuxtLinkLocale
-          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
+          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${formValues.email}` : ''}`"
         >
           {{ $t("auth.signup.signIn") }} &rarr;
         </NuxtLinkLocale>

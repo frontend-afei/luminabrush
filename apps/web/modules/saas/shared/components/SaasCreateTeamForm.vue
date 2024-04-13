@@ -24,14 +24,12 @@
     }),
   );
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting } = useForm({
     validationSchema: formSchema,
     initialValues: {
       name: props.defaultName,
     },
   });
-
-  const name = defineInputBinds("name");
 
   const onSubmit = handleSubmit(async (values) => {
     try {
@@ -55,11 +53,18 @@
 </script>
 
 <template>
-  <form @submit.prevent="onSubmit">
-    <FormItem>
-      <FormLabel for="name" required> {{ $t("createTeam.name") }} </FormLabel>
-      <Input v-bind="name" type="text" id="name" required />
-    </FormItem>
+  <form @submit="onSubmit">
+    <FormField v-slot="{ componentField }" name="name">
+      <FormItem>
+        <FormLabel for="name" required>
+          {{ $t("createTeam.name") }}
+        </FormLabel>
+        <FormControl>
+          <Input v-bind="componentField" autocomplete="company" />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    </FormField>
 
     <Button class="mt-4 w-full" type="submit" :loading="isSubmitting">
       {{ $t("createTeam.submit") }}

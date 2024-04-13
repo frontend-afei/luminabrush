@@ -22,14 +22,12 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting } = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
     },
   });
-
-  const email = defineInputBinds("email");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -76,18 +74,17 @@
         <template #description>{{ serverError.message }}</template>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ $t("auth.forgotPassword.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="email"
-          id="email"
-          required
-          autocomplete="email"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="email">
+        <FormItem>
+          <FormLabel for="name" required>
+            {{ $t("auth.forgotPassword.email") }}
+          </FormLabel>
+          <FormControl>
+            <Input v-bind="componentField" autocomplete="email" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
 
       <Button :loading="isSubmitting" type="submit">
         <SendIcon class="mr-2 size-4" />

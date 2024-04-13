@@ -30,25 +30,12 @@
     }),
   );
 
-  const {
-    defineInputBinds,
-    handleSubmit,
-    isSubmitting,
-    useFieldModel,
-    resetForm,
-  } = useForm({
+  const { handleSubmit, isSubmitting, meta, resetForm } = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
       role: "MEMBER",
     },
-  });
-
-  const email = defineInputBinds("email");
-  const roleValue = useFieldModel("role");
-
-  const isSubmitDisabled = computed(() => {
-    return !email.value;
   });
 
   const onSubmit = handleSubmit(async (values) => {
@@ -85,7 +72,7 @@
 
 <template>
   <Card v-if="teamRole === 'OWNER'">
-    <form @submit.prevent="onSubmit" class="@container">
+    <form @submit="onSubmit" class="@container">
       <CardHeader>
         <CardTitle>
           {{ t("settings.team.members.inviteMember.title") }}
@@ -94,25 +81,32 @@
 
       <CardContent>
         <div class="flex flex-col gap-2 @md:flex-row">
-          <FormItem class="flex-1">
-            <FormLabel for="email" required>
-              {{ $t("settings.team.members.inviteMember.email") }}
-            </FormLabel>
-            <Input v-bind="email" type="email" id="email" required />
-          </FormItem>
+          <FormField v-slot="{ componentField }" name="email">
+            <FormItem>
+              <FormLabel for="name" required>
+                {{ $t("settings.team.members.inviteMember.email") }}
+              </FormLabel>
+              <FormControl>
+                <Input v-bind="componentField" autocomplete="email" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
 
-          <FormItem>
-            <FormLabel for="role" required>
-              {{ $t("settings.team.members.inviteMember.role") }}
-            </FormLabel>
-            <SaasTeamRoleSelect v-model="roleValue" />
-          </FormItem>
+          <FormField v-slot="{ componentField }" name="role">
+            <FormItem>
+              <FormLabel for="role" required>
+                {{ $t("settings.team.members.inviteMember.role") }}
+              </FormLabel>
+              <SaasTeamRoleSelect v-bind="componentField" />
+            </FormItem>
+          </FormField>
         </div>
 
         <div class="mt-6 flex justify-end border-t pt-3">
           <Button
             type="submit"
-            :disabled="isSubmitDisabled"
+            :disabled="!meta.dirty || !meta.valid"
             :loading="isSubmitting"
           >
             {{ $t("settings.team.members.inviteMember.submit") }}
