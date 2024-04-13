@@ -70,8 +70,8 @@
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
         <AlertTriangleIcon class="size-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
+        <AlertTitle>{{ serverError.title }}</AlertTitle>
+        <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="email">

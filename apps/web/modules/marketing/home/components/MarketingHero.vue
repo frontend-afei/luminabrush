@@ -27,7 +27,7 @@
         </h5>
 
         <div
-          class="mt-4 flex flex-col-reverse items-center justify-center gap-4 text-foreground/50 md:flex-row md:gap-8"
+          class="mt-4 flex flex-col-reverse items-center justify-center gap-4 text-primary/50 md:flex-row md:gap-8"
         >
           <!-- Supastarter Logo -->
           <div class="aspect-[631/236] h-10 w-auto">

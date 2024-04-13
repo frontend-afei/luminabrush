@@ -13,6 +13,7 @@
 
   if (!user.value.onboardingComplete) {
     await navigateTo(localePath("/onboarding"));
+    throw new Error("Onboarding not complete");
   }
 
   const teamMemberships = user.value.teamMemberships ?? [];

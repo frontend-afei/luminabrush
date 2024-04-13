@@ -66,12 +66,10 @@
       <div class="mx-auto max-w-lg">
         <Alert v-if="isSubmitSuccessful === true" variant="success">
           <CheckCircleIcon class="size-4" />
-          <template #title>
-            {{ $t("newsletter.hints.success.title") }}
-          </template>
-          <template #description>
-            {{ $t("newsletter.hints.success.message") }}
-          </template>
+          <AlertTitle>{{ $t("newsletter.hints.success.title") }}</AlertTitle>
+          <AlertDescription>{{
+            $t("newsletter.hints.success.message")
+          }}</AlertDescription>
         </Alert>
 
         <template v-else>
@@ -91,12 +89,8 @@
 
           <Alert v-if="errors.email" variant="error" class="mt-6 text-sm">
             <AlertCircleIcon class="size-4" />
-            <template #title>
-              {{ $t("newsletter.hints.error.title") }}
-            </template>
-            <template #description>
-              {{ errors.email }}
-            </template>
+            <AlertTitle>{{ $t("newsletter.hints.error.title") }}</AlertTitle>
+            <AlertDescription>{{ errors.email }}</AlertDescription>
           </Alert>
         </template>
       </div>

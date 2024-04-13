@@ -10,6 +10,8 @@ export const alertVariants = cva(
     variants: {
       variant: {
         default: "bg-background text-foreground",
+        success:
+          "border-success/50 text-success dark:border-success [&>svg]:text-success",
         error:
           "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
       },

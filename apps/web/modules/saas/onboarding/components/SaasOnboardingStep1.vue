@@ -3,6 +3,7 @@
   import { ArrowRightIcon } from "lucide-vue-next";
   import { useForm } from "vee-validate";
   import { z } from "zod";
+  import { useToast } from "~/modules/ui/components/toast";
 
   const emit = defineEmits<{
     complete: [];
@@ -11,6 +12,7 @@
   const { apiCaller } = useApiCaller();
   const { user } = useUser();
   const { t } = useTranslations();
+  const { toast } = useToast();
 
   const updateUserMutation = apiCaller.auth.update.useMutation();
 
@@ -42,6 +44,13 @@
       serverError.value = t("onboarding.notifications.accountSetupFailed");
     }
   });
+
+  const onAvatarUploadError = () => {
+    toast({
+      variant: "error",
+      title: t("settings.notifications.avatarNotUpdated"),
+    });
+  };
 </script>
 
 <template>
@@ -59,7 +68,7 @@
         </FormItem>
       </FormField>
 
-      <!-- <FormField v-slot="{ componentField }" name="name">
+      <FormField name="avatar">
         <FormItem class="flex items-center gap-4">
           <div>
             <FormLabel for="name" required>
@@ -69,9 +78,9 @@
               {{ $t("onboarding.account.avatarDescription") }}
             </FormDescription>
           </div>
-          <div></div>
+          <SaasUserAvatarUpload @error="onAvatarUploadError()" />
         </FormItem>
-      </FormField> -->
+      </FormField>
 
       <Button type="submit" :loading="isSubmitting">
         {{ $t("onboarding.continue") }}
