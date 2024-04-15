@@ -12,7 +12,7 @@
     "eslint-config-custom": "workspace:*",
     "mail": "workspace:*",
     "storage": "workspace:*",
-    "stripe": "^14.24.0",
+    "stripe": "^15.1.0",
     "tsconfig": "workspace:*",
     "utils": "workspace:*"
   },
