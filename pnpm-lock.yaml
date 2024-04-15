@@ -24,8 +24,8 @@ importers:
         specifier: ^3.5.2
         version: 3.5.2
       '@tanstack/vue-table':
-        specifier: ^8.15.3
-        version: 8.15.3(vue@3.4.21)
+        specifier: ^8.16.0
+        version: 8.16.0(vue@3.4.21)
       api:
         specifier: workspace:*
         version: link:../../packages/api
@@ -4431,8 +4431,8 @@ packages:
       tailwindcss: 3.4.3
     dev: true
 
-  /@tanstack/table-core@8.15.3:
-    resolution: {integrity: sha512-wOgV0HfEvuMOv8RlqdR9MdNNqq0uyvQtP39QOvGlggHvIObOE4exS+D5LGO8LZ3LUXxId2IlUKcHDHaGujWhUg==}
+  /@tanstack/table-core@8.16.0:
+    resolution: {integrity: sha512-dCG8vQGk4js5v88/k83tTedWOwjGnIyONrKpHpfmSJB8jwFHl8GSu1sBBxbtACVAPtAQgwNxl0rw1d3RqRM1Tg==}
     engines: {node: '>=12'}
     dev: false
 
@@ -4440,13 +4440,13 @@ packages:
     resolution: {integrity: sha512-nO0d4vRzsmpBQCJYyClNHPPoUMI4nXNfrm6IcCRL33ncWMoNVpURh9YebEHPw8KrtsP2VSJIHE4gf4XFGk1OGg==}
     dev: true
 
-  /@tanstack/vue-table@8.15.3(vue@3.4.21):
-    resolution: {integrity: sha512-QkPS/MIUmPLAGDZw1KQA3xdJ+rwAcyftemvMQicvyJIahSPtPDy+umsWvXUSd0fOANmq+dVoLsKp5CjUJQa9Vg==}
+  /@tanstack/vue-table@8.16.0(vue@3.4.21):
+    resolution: {integrity: sha512-CsmX3sEjR1BMlNk9nBYlrnWlAOJR34pirbmpgLN0UZs7N1Z66U+nEqaqNm4FnvkEnauODuHWVbFv3QZuoJ0BXw==}
     engines: {node: '>=12'}
     peerDependencies:
       vue: '>=3.2'
     dependencies:
-      '@tanstack/table-core': 8.15.3
+      '@tanstack/table-core': 8.16.0
       vue: 3.4.21(typescript@5.4.5)
     dev: false
 
@@ -4456,7 +4456,7 @@ packages:
       vue: ^2.7.0 || ^3.0.0
     dependencies:
       '@tanstack/virtual-core': 3.2.1
-      vue: 3.4.21(typescript@5.4.4)
+      vue: 3.4.21(typescript@5.4.5)
     dev: true
 
   /@trpc/client@10.45.2(@trpc/server@10.45.2):
@@ -4584,7 +4584,6 @@ packages:
     resolution: {integrity: sha512-3KurE8taB8GCvZBPngVbp0lk5CKi8M9f9k1rsADh0Evdz5SzJ+Q+Hx9uHoFGsLnLnd1xmkDQr2hVhlA0Mn0lKQ==}
     dependencies:
       undici-types: 5.26.5
-    dev: true
 
   /@types/node@20.12.7:
     resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
