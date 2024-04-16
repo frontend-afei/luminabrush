@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import type { ApiOutput } from "api";
+  import { MoreVerticalIcon, UndoIcon } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     invitations: ApiOutput["team"]["invitations"];
@@ -54,7 +56,7 @@
 
 <template>
   <div class="rounded-md border">
-    <TableRoot>
+    <Table>
       <TableBody v-if="props.invitations.length">
         <TableRow v-for="row of props.invitations" :key="row.id">
           <!-- User Details -->
@@ -69,10 +71,10 @@
             <div class="flex flex-row justify-end gap-2">
               <SaasTeamRoleSelect :modelValue="row.role" disabled />
 
-              <DropdownMenuRoot>
+              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button size="icon" variant="ghost">
-                    <Icon name="more" />
+                    <MoreVerticalIcon class="size-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -83,11 +85,11 @@
                       () => handleRevokeInvitation({ invitationId: row.id })
                     "
                   >
-                    <Icon name="undo" class="mr-2 h-4 w-4" />
+                    <UndoIcon class="mr-2 size-4" />
                     {{ $t("settings.team.members.invitations.revoke") }}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
-              </DropdownMenuRoot>
+              </DropdownMenu>
             </div>
           </TableCell>
         </TableRow>
@@ -100,6 +102,6 @@
           </TableCell>
         </TableRow>
       </TableBody>
-    </TableRoot>
+    </Table>
   </div>
 </template>

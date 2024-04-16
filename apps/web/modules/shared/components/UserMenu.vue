@@ -1,4 +1,12 @@
 <script setup lang="ts">
+  import {
+    LanguagesIcon,
+    LogOutIcon,
+    SettingsIcon,
+    UserMinusIcon,
+  } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
+
   const { user, logout } = useUser();
   const { t } = useTranslations();
   const { toast, dismiss: dismissToast } = useToast();
@@ -18,10 +26,10 @@
 </script>
 
 <template>
-  <DropdownMenuRoot v-if="user">
+  <DropdownMenu v-if="user">
     <DropdownMenuTrigger asChild>
       <button
-        class="focus-visible:ring-primary rounded-full outline-none focus-visible:ring-2"
+        class="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
         <UserAvatar :name="user.name ?? ''" :avatarUrl="user.avatarUrl" />
       </button>
@@ -57,7 +65,7 @@
       <!-- Locale selection -->
       <DropdownMenuSub>
         <DropdownMenuSubTrigger>
-          <Icon name="language" class="h-4 w-4" />
+          <LanguagesIcon class="size-4" />
 
           <div class="ml-2">
             {{ $t("dashboard.userMenu.language") }}
@@ -74,20 +82,20 @@
 
       <DropdownMenuItem asChild>
         <NuxtLinkLocale to="/app/settings/account/general">
-          <Icon name="settings" class="mr-2 h-4 w-4" />
+          <SettingsIcon class="mr-2 size-4" />
           {{ $t("dashboard.userMenu.accountSettings") }}
         </NuxtLinkLocale>
       </DropdownMenuItem>
 
       <DropdownMenuItem v-if="user.impersonatedBy" @click="unimpersonate()">
-        <Icon name="unimpersonate" class="mr-2 h-4 w-4" />
+        <UserMinusIcon class="mr-2 size-4" />
         {{ $t("dashboard.userMenu.unimpersonate") }}
       </DropdownMenuItem>
 
       <DropdownMenuItem @click="logout">
-        <Icon name="logout" class="mr-2 h-4 w-4" />
+        <LogOutIcon class="mr-2 size-4" />
         {{ $t("dashboard.userMenu.logout") }}
       </DropdownMenuItem>
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 </template>

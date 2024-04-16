@@ -1,12 +1,14 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { AlertTriangleIcon, SendIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const { apiCaller } = useApiCaller();
   const runtimeConfig = useRuntimeConfig();
   const { t } = useTranslations();
   const localePath = useLocalePath();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({
@@ -20,14 +22,12 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting } = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
     },
   });
-
-  const email = defineInputBinds("email");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -60,7 +60,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.forgotPassword.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
+    <p class="mb-6 mt-2 text-muted-foreground">
       {{ $t("auth.forgotPassword.message") }}
       <NuxtLinkLocale to="/auth/login" class="text-gray-700">
         {{ $t("auth.forgotPassword.backToSignin") }} &rarr;
@@ -69,26 +69,25 @@
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
+        <AlertTriangleIcon class="size-4" />
+        <AlertTitle>{{ serverError.title }}</AlertTitle>
+        <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ $t("auth.forgotPassword.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="email"
-          id="email"
-          required
-          autocomplete="email"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="email">
+        <FormItem>
+          <FormLabel for="name" required>
+            {{ $t("auth.forgotPassword.email") }}
+          </FormLabel>
+          <FormControl>
+            <Input v-bind="componentField" autocomplete="email" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
 
       <Button :loading="isSubmitting" type="submit">
-        <Icon name="submit" class="mr-2 h-4 w-4" />
+        <SendIcon class="mr-2 size-4" />
         {{ $t("auth.forgotPassword.submit") }} &rarr;
       </Button>
     </form>

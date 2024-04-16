@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { CheckIcon, ClockIcon } from "lucide-vue-next";
+
   defineProps<{
     verified?: boolean;
   }>();
@@ -17,8 +19,7 @@
         }}
       </TooltipContent>
       <TooltipTrigger as="span" :class="$attrs.class">
-        <Icon v-if="verified" name="check" class="h-3 w-3" />
-        <Icon v-else name="clock" class="h-3 w-3" />
+        <component :is="verified ? CheckIcon : ClockIcon" class="size-3" />
       </TooltipTrigger>
     </Tooltip>
   </TooltipProvider>

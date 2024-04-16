@@ -12,6 +12,7 @@
   } from "@tanstack/vue-table";
   import { useDebounce } from "@vueuse/core";
   import type { ApiOutput } from "api";
+  import { LoaderIcon } from "lucide-vue-next";
   import SaasAdminUserListActionsCell from "./SaasAdminUserListActionsCell.vue";
   import SaasAdminUserListInfoCell from "./SaasAdminUserListInfoCell.vue";
 
@@ -82,7 +83,7 @@
 </script>
 
 <template>
-  <div class="bg-card rounded-lg p-6 shadow-sm">
+  <div class="rounded-lg bg-card p-6 shadow-sm">
     <h2 class="mb-4 text-2xl font-semibold">{{ $t("admin.users.title") }}</h2>
     <Input
       type="search"
@@ -92,7 +93,7 @@
     />
 
     <div class="rounded-md border">
-      <TableRoot class="w-full">
+      <Table class="w-full">
         <TableBody>
           <template v-if="users?.length > 0">
             <TableRow v-for="row in table.getRowModel().rows" :key="row.id">
@@ -115,10 +116,7 @@
                 v-if="pending"
                 class="flex h-full items-center justify-center"
               >
-                <Icon
-                  name="spinner"
-                  class="text-primary mr-2 h-4 w-4 animate-spin"
-                />
+                <LoaderIcon class="mr-2 size-4 animate-spin text-primary" />
                 {{ $t("admin.users.loading") }}
               </div>
 
@@ -126,7 +124,7 @@
             </TableCell>
           </TableRow>
         </TableBody>
-      </TableRoot>
+      </Table>
     </div>
 
     <!-- <Pagination

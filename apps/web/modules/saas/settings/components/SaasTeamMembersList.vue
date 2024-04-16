@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import type { ApiOutput } from "api";
   import type { TeamMemberRoleType } from "database";
+  import { LogOutIcon, TrashIcon } from "lucide-vue-next";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
     memberships: ApiOutput["team"]["memberships"];
@@ -99,7 +101,7 @@
 
 <template>
   <div class="rounded-md border">
-    <TableRoot>
+    <Table>
       <TableBody v-if="props.memberships.length">
         <TableRow v-for="row of props.memberships" :key="row.id">
           <!-- User Details -->
@@ -129,10 +131,10 @@
                 :disabled="teamRole !== 'OWNER' || row.isCreator"
               />
 
-              <DropdownMenuRoot>
+              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button size="icon" variant="ghost">
-                    <Icon name="more" />
+                    <MoreVerticalIcon class="size-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -141,14 +143,14 @@
                     class="text-destructive"
                     @click="() => handleRemoveMember({ membershipId: row.id })"
                   >
-                    <Icon
-                      :name="row.user?.id === user?.id ? 'logout' : 'delete'"
-                      class="mr-2 h-4 w-4"
+                    <component
+                      :is="row.user?.id === user?.id ? LogOutIcon : TrashIcon"
+                      class="mr-2 size-4"
                     />
                     {{ $t("settings.team.members.removeMember") }}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
-              </DropdownMenuRoot>
+              </DropdownMenu>
             </div>
           </TableCell>
         </TableRow>
@@ -161,6 +163,6 @@
           </TableCell>
         </TableRow>
       </TableBody>
-    </TableRoot>
+    </Table>
   </div>
 </template>

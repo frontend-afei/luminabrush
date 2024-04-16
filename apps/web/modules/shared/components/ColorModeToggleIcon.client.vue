@@ -1,8 +1,12 @@
 <script setup lang="ts">
+  import { MoonIcon, SunIcon } from "lucide-vue-next";
+
   const { value: resolvedValue } = useColorMode();
 </script>
 
 <template>
-  <Icon v-if="resolvedValue === 'light'" name="lightMode" class="h-4 w-4" />
-  <Icon v-else name="darkMode" class="h-4 w-4" />
+  <component
+    :is="resolvedValue === 'light' ? SunIcon : MoonIcon"
+    class="size-4"
+  />
 </template>

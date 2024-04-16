@@ -1,10 +1,12 @@
 <script setup lang="ts">
   import type { TeamMemberRoleType } from "database";
+  import type { ComponentFieldBindingObject } from "vee-validate";
 
-  const props = defineProps<{
-    modelValue: TeamMemberRoleType | undefined;
-    disabled?: boolean;
-  }>();
+  const props = defineProps<
+    {
+      disabled?: boolean;
+    } & ComponentFieldBindingObject
+  >();
 
   const emit = defineEmits<{
     "update:modelValue": [value: TeamMemberRoleType];
@@ -27,7 +29,7 @@
 </script>
 
 <template>
-  <SelectRoot
+  <Select
     :modelValue="props.modelValue"
     @update:modelValue="emit('update:modelValue', $event as TeamMemberRoleType)"
     :disabled="$props.disabled"
@@ -44,5 +46,5 @@
         {{ option.label }}
       </SelectItem>
     </SelectContent>
-  </SelectRoot>
+  </Select>
 </template>

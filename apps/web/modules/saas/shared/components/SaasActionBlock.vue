@@ -18,10 +18,12 @@
 </script>
 
 <template>
-  <Card :class="{ 'border-destructive/50 border': danger }">
+  <Card :class="{ 'border border-destructive/50': danger }">
     <form @submit.prevent="emit('submit')">
       <CardHeader :class="{ 'text-destructive': danger }">
-        <template #title><slot name="title" /></template>
+        <CardTitle>
+          <slot name="title" />
+        </CardTitle>
       </CardHeader>
 
       <CardContent>

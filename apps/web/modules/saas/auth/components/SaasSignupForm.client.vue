@@ -1,18 +1,19 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { AlertTriangleIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
   const localePath = useLocalePath();
 
-  const { z, toTypedSchema, useForm } = formUtils;
-
   const formSchema = toTypedSchema(
     z.object({
       email: z.string().email(),
       password: z.string().min(8),
-      name: z.string().min(2),
     }),
   );
 
@@ -41,25 +42,24 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { defineInputBinds, handleSubmit, setFieldValue, isSubmitting } =
-    useForm({
-      validationSchema: formSchema,
-      initialValues: {
-        email: "",
-        password: "",
-        name: "",
-      },
-    });
+  const {
+    handleSubmit,
+    setFieldValue,
+    isSubmitting,
+    values: formValues,
+  } = useForm({
+    validationSchema: formSchema,
+    initialValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   watchEffect(() => {
     if (emailParam.value) {
       setFieldValue("email", emailParam.value);
     }
   });
-
-  const email = defineInputBinds("email");
-  const password = defineInputBinds("password");
-  const name = defineInputBinds("name");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -68,7 +68,6 @@
       await apiCaller.auth.signup.mutate({
         email: values.email,
         password: values.password,
-        name: values.name,
         callbackUrl: joinURL(runtimeConfig.public.siteUrl, "/auth/verify"),
       });
 
@@ -97,7 +96,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.signup.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
+    <p class="mb-6 mt-2 text-muted-foreground">
       {{ $t("auth.signup.message") }}
     </p>
 
@@ -105,54 +104,38 @@
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
+        <AlertTriangleIcon class="size-4" />
+        <AlertTitle>{{ serverError.title }}</AlertTitle>
+        <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="name" required>
-          {{ $t("auth.signup.name") }}
-        </FormLabel>
-        <Input
-          v-bind="name"
-          type="text"
-          id="name"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="email">
+        <FormItem>
+          <FormLabel for="name" required>
+            {{ $t("auth.signup.email") }}
+          </FormLabel>
+          <FormControl>
+            <Input v-bind="componentField" autocomplete="email" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
 
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ $t("auth.signup.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="email"
-          id="email"
-          required
-          autocomplete="email"
-        />
-      </FormItem>
-
-      <div>
+      <FormField v-slot="{ componentField }" name="password">
         <FormItem>
           <FormLabel for="password" required>
             {{ $t("auth.signup.password") }}
           </FormLabel>
-          <SaasPasswordInput
-            :fieldData="password"
-            id="password"
-            autocomplete="new-password"
-            required
-          />
+          <FormControl>
+            <SaasPasswordInput
+              v-bind="componentField"
+              autocomplete="new-password"
+              required
+            />
+          </FormControl>
+          <FormMessage />
         </FormItem>
-
-        <p class="mt-1 text-xs italic opacity-50">
-          {{ $t("auth.signup.passwordHint") }}
-        </p>
-      </div>
+      </FormField>
 
       <Button :loading="isSubmitting" type="submit">
         {{ $t("auth.signup.submit") }} &rarr;
@@ -163,7 +146,7 @@
           {{ $t("auth.signup.alreadyHaveAccount") }}&nbsp;</span
         >
         <NuxtLinkLocale
-          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
+          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${formValues.email}` : ''}`"
         >
           {{ $t("auth.signup.signIn") }} &rarr;
         </NuxtLinkLocale>

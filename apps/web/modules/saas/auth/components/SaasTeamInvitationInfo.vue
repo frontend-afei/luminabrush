@@ -1,9 +1,9 @@
 <template>
-  <Alert variant="primary">
-    <Icon name="invitation" class="h-4 w-4" />
-    <template #title>{{ $t("auth.teamInvitation.title") }}</template>
-    <template #description?>
-      {{ $t("auth.teamInvitation.description") }}
-    </template>
+  <Alert>
+    <MailCheckIcon class="size-4" />
+    <AlertTitle>{{ $t("auth.teamInvitation.title") }}</AlertTitle>
+    <AlertDescription>{{
+      $t("auth.teamInvitation.description")
+    }}</AlertDescription>
   </Alert>
 </template>

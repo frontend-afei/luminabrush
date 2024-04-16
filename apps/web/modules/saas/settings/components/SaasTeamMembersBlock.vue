@@ -14,7 +14,7 @@
     <template #title>
       {{ $t("settings.team.members.title") }}
     </template>
-    <TabsRoot v-model="activeTab">
+    <Tabs v-model="activeTab">
       <TabsList class="mb-4">
         <TabsTrigger value="members">
           {{ $t("settings.team.members.activeMembers") }}
@@ -30,6 +30,6 @@
       <TabsContent value="invitations">
         <SaasTeamInvitationsList :invitations="props.invitations" />
       </TabsContent>
-    </TabsRoot>
+    </Tabs>
   </SaasActionBlock>
 </template>

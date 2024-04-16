@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <MarketingNavBar />
   <main class="min-h-screen pt-32">

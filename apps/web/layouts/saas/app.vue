@@ -11,21 +11,9 @@
     throw new Error("User not found");
   }
 
-  const { apiCaller } = useApiCaller();
-
-  // if user has no team memberships, we create a team for them
-  if (!user.value.teamMemberships?.length) {
-    try {
-      const name = user.value.name || user.value.email.split("@")[0];
-      await apiCaller.team.create.mutate({
-        name,
-      });
-
-      await reloadUser();
-    } catch (e) {
-      console.error(e);
-      await navigateTo(localePath("/"));
-    }
+  if (!user.value.onboardingComplete) {
+    await navigateTo(localePath("/onboarding"));
+    throw new Error("Onboarding not complete");
   }
 
   const teamMemberships = user.value.teamMemberships ?? [];
@@ -42,11 +30,13 @@
 </script>
 
 <template>
-  <div class="bg-muted min-h-screen">
+  <div class="min-h-screen bg-muted">
     <SaasNavBar />
 
     <main>
       <slot />
     </main>
+
+    <SaasFooter />
   </div>
 </template>

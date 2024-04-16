@@ -124,11 +124,11 @@
 
         <div class="flex-1 pb-8">
           <h1 class="text-4xl font-bold">{{ page.title }}</h1>
-          <p v-if="page.subtitle" class="text-foreground/60 mt-3 text-2xl">
+          <p v-if="page.subtitle" class="mt-3 text-2xl text-foreground/60">
             {{ page.subtitle }}
           </p>
 
-          <div class="flex flex-col gap-6 lg:flex-row-reverse mt-6">
+          <div class="mt-6 flex flex-col gap-6 lg:flex-row-reverse">
             <MarketingContentTableOfContents v-if="toc.length" :items="toc" />
 
             <div class="flex-1">

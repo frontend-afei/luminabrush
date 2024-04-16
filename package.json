@@ -19,11 +19,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:push": "turbo db:push",
     "db:generate": "turbo db:generate",
-    "db:studio": "pnpm --filter database run db:studio"
+    "db:studio": "pnpm --filter database run db:studio",
+    "shadcn-vue": "pnpm dlx shadcn-vue@latest"
   },
-  "devDependencies": {
+  "dependencies": {
+    "eslint": "^8.50.0",
     "eslint-config-custom": "workspace:*",
-    "prettier-plugin-tailwindcss": "^0.5.13",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10"

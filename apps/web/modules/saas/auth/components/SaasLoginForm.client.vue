@@ -1,13 +1,15 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { AlertTriangleIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
   const localePath = useLocalePath();
   const { user, loaded } = useUser({ initialUser: null });
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({
@@ -53,11 +55,11 @@
   const serverError = ref<null | ServerErrorType>(null);
 
   const {
-    defineInputBinds,
+    isSubmitting,
+    values: formValues,
     resetForm,
     handleSubmit,
     setFieldValue,
-    isSubmitting,
   } = useForm({
     validationSchema: formSchema,
     initialValues: {
@@ -77,9 +79,6 @@
       setFieldValue("email", emailParam.value);
     }
   });
-
-  const email = defineInputBinds("email");
-  const password = defineInputBinds("password");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -124,7 +123,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.login.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-4">
+    <p class="mb-6 mt-4 text-muted-foreground">
       {{ $t("auth.login.subtitle") }}
     </p>
 
@@ -144,45 +143,48 @@
       <SaasSigninModeSwitch class="w-full" v-model="signinMode" />
 
       <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
+        <AlertTriangleIcon class="size-4" />
+        <AlertTitle>{{ serverError.title }}</AlertTitle>
+        <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="email" required>
-          {{ $t("auth.login.email") }}
-        </FormLabel>
-        <Input
-          v-bind="email"
-          type="text"
-          id="email"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="email">
+        <FormItem>
+          <FormLabel for="email" required>
+            {{ $t("auth.login.email") }}
+          </FormLabel>
+          <Input
+            v-bind="componentField"
+            type="text"
+            id="email"
+            required
+            autocomplete="name"
+          />
+        </FormItem>
+      </FormField>
 
-      <div v-if="signinMode === 'password'">
-        <div>
-          <FormItem>
-            <FormLabel for="password" required>
-              {{ $t("auth.signup.password") }}
-            </FormLabel>
-            <SaasPasswordInput
-              :fieldData="password"
-              id="password"
-              autocomplete="current-password"
-              required
-            />
-          </FormItem>
-
-          <div class="mt-1 text-right text-sm">
+      <FormField
+        v-if="signinMode === 'password'"
+        v-slot="{ componentField }"
+        name="password"
+      >
+        <FormItem>
+          <FormLabel for="password" required>
+            {{ $t("auth.login.password") }}
+          </FormLabel>
+          <SaasPasswordInput
+            v-bind="componentField"
+            id="password"
+            autocomplete="current-password"
+            required
+          />
+          <FormDescription class="text-right">
             <NuxtLinkLocale to="/auth/forgot-password">
               {{ $t("auth.login.forgotPassword") }}
             </NuxtLinkLocale>
-          </div>
-        </div>
-      </div>
+          </FormDescription>
+        </FormItem>
+      </FormField>
 
       <Button class="w-full" type="submit" :loading="isSubmitting">
         {{
@@ -197,7 +199,7 @@
           {{ $t("auth.login.dontHaveAnAccount") }}&nbsp;</span
         >
         <NuxtLinkLocale
-          :to="`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${email.value}` : ''}`"
+          :to="`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${formValues.email}` : ''}`"
         >
           {{ $t("auth.login.createAnAccount") }} &rarr;
         </NuxtLinkLocale>

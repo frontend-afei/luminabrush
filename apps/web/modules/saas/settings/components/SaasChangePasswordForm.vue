@@ -1,9 +1,12 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
+  import { useToast } from "@/modules/ui/components/toast";
+
   const { t } = useTranslations();
   const { apiCaller } = useApiCaller();
   const { toast } = useToast();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({

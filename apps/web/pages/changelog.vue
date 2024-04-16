@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { ChangelogItem } from "~/modules/marketing/changelog/types";
+  import type { ChangelogItem } from "@/modules/marketing/changelog/types";
 
   definePageMeta({
     layout: "marketing",

@@ -32,9 +32,7 @@
 <template>
   <Card>
     <CardHeader class="pb-2">
-      <template #title>
-        <div class="text-muted-foreground text-sm">{{ title }}</div>
-      </template>
+      <div class="text-sm text-muted-foreground">{{ title }}</div>
     </CardHeader>
     <CardContent>
       <div class="flex items-center justify-between">
@@ -45,7 +43,7 @@
 
         <Badge
           v-if="props.trend"
-          :status="props.trend > 0 ? 'success' : 'error'"
+          :variant="props.trend > 0 ? 'success' : 'error'"
         >
           {{ formattedTrend }}
         </Badge>

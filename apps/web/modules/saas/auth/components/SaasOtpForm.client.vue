@@ -1,13 +1,15 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
   import type { UserOneTimePasswordTypeType } from "database";
+  import { AlertTriangleIcon } from "lucide-vue-next";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
   const localePath = useLocalePath();
   const { user, loaded } = useUser();
   const runtimeConfig = useRuntimeConfig();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({
@@ -68,14 +70,12 @@
   };
   const serverError = ref<null | ServerErrorType>(null);
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting } = useForm({
     validationSchema: formSchema,
     initialValues: {
       code: "",
     },
   });
-
-  const code = defineInputBinds("code");
 
   const onSubmit = handleSubmit(async (values) => {
     serverError.value = null;
@@ -100,7 +100,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.verifyOtp.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
+    <p class="mb-6 mt-2 text-muted-foreground">
       {{ $t("auth.verifyOtp.message") }}
     </p>
 
@@ -108,23 +108,25 @@
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
-        <Icon name="warning" class="h-4 w-4" />
-        <template #title>{{ serverError.title }}</template>
-        <template #description>{{ serverError.message }}</template>
+        <AlertTriangleIcon class="size-4" />
+        <AlertTitle>{{ serverError.title }}</AlertTitle>
+        <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
 
-      <FormItem>
-        <FormLabel for="code" required>
-          {{ $t("auth.verifyOtp.otp") }}
-        </FormLabel>
-        <Input
-          v-bind="code"
-          type="text"
-          id="code"
-          required
-          autocomplete="name"
-        />
-      </FormItem>
+      <FormField v-slot="{ componentField }" name="code">
+        <FormItem>
+          <FormLabel for="code" required>
+            {{ $t("auth.verifyOtp.otp") }}
+          </FormLabel>
+          <FormControl>
+            <Input
+              v-bind="componentField"
+              type="text"
+              autocomplete="one-time-code"
+            />
+          </FormControl>
+        </FormItem>
+      </FormField>
 
       <Button :loading="isSubmitting" type="submit">
         {{ $t("auth.verifyOtp.submit") }} &rarr;

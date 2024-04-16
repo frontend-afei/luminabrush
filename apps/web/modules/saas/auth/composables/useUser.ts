@@ -1,5 +1,5 @@
-import type { ApiOutput } from "api/modules/trpc/router";
 import { useBroadcastChannel } from "@vueuse/core";
+import type { ApiOutput } from "api/modules/trpc/router";
 
 type User = ApiOutput["auth"]["user"];
 type AuthEvent = {
@@ -45,6 +45,15 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
     const userRes = await apiCaller.auth.user.query();
     user.value = userRes;
     loaded.value = !!userRes;
+  };
+
+  const updateUser = (info: Partial<User>) => {
+    if (user.value) {
+      user.value = {
+        ...user.value,
+        ...info,
+      };
+    }
   };
 
   onMounted(async () => {
@@ -100,6 +109,7 @@ export const useUser = ({ initialUser }: { initialUser?: User } = {}) => {
   return {
     user,
     loaded,
+    updateUser,
     teamMemberships,
     logout,
     reloadUser,

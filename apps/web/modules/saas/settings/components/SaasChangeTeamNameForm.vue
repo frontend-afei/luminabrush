@@ -1,4 +1,9 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
+  import { useToast } from "@/modules/ui/components/toast";
+
   const props = defineProps<{
     initialValue: string;
     teamId: string;
@@ -8,8 +13,6 @@
   const { apiCaller } = useApiCaller();
   const { toast } = useToast();
   const { reloadUser } = useUser();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({

@@ -1,8 +1,11 @@
 <script setup lang="ts">
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { AlertCircleIcon, CheckCircleIcon, KeyIcon } from "lucide-vue-next";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
+
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
-
-  const { z, toTypedSchema, useForm } = formUtils;
 
   const formSchema = toTypedSchema(
     z.object({
@@ -53,7 +56,7 @@
   <section class="border-t py-24">
     <div class="container">
       <div class="mb-12 text-center">
-        <Icon name="key" class="text-primary mx-auto mb-3 h-12 w-12" />
+        <KeyIcon class="mx-auto mb-3 size-12 text-primary" />
         <h1 class="text-3xl font-bold lg:text-4xl">
           {{ $t("newsletter.title") }}
         </h1>
@@ -62,13 +65,11 @@
 
       <div class="mx-auto max-w-lg">
         <Alert v-if="isSubmitSuccessful === true" variant="success">
-          <Icon name="success" class="h-4 w-4" />
-          <template #title>
-            {{ $t("newsletter.hints.success.title") }}
-          </template>
-          <template #description>
-            {{ $t("newsletter.hints.success.message") }}
-          </template>
+          <CheckCircleIcon class="size-4" />
+          <AlertTitle>{{ $t("newsletter.hints.success.title") }}</AlertTitle>
+          <AlertDescription>{{
+            $t("newsletter.hints.success.message")
+          }}</AlertDescription>
         </Alert>
 
         <template v-else>
@@ -87,13 +88,9 @@
           </form>
 
           <Alert v-if="errors.email" variant="error" class="mt-6 text-sm">
-            <Icon name="error" class="h-4 w-4" />
-            <template #title>
-              {{ $t("newsletter.hints.error.title") }}
-            </template>
-            <template #description>
-              {{ errors.email }}
-            </template>
+            <AlertCircleIcon class="size-4" />
+            <AlertTitle>{{ $t("newsletter.hints.error.title") }}</AlertTitle>
+            <AlertDescription>{{ errors.email }}</AlertDescription>
           </Alert>
         </template>
       </div>

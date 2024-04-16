@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { FAQ } from "~/modules/marketing/faq/types";
+  import type { FAQ } from "@/modules/marketing/faq/types";
 
   definePageMeta({
     layout: "marketing",

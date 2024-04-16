@@ -1,5 +1,5 @@
 <template>
-  <DropdownMenuRoot>
+  <DropdownMenu>
     <DropdownMenuTrigger asChild>
       <Button variant="ghost" size="icon">
         <ColorModeToggleIcon />
@@ -9,5 +9,5 @@
     <DropdownMenuContent>
       <ColorModeToggleRadioGroup />
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 </template>

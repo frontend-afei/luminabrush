@@ -48,12 +48,12 @@
 <template>
   <div v-if="page" class="container max-w-6xl pb-16">
     <div class="mx-auto max-w-2xl">
-      <h1 class="text-4xl font-bold text-center">{{ page.title }}</h1>
+      <h1 class="text-center text-4xl font-bold">{{ page.title }}</h1>
     </div>
 
     <ContentRendererMarkdown
       :value="page"
-      class="prose dark:prose-invert mx-auto mt-6 max-w-2xl"
+      class="prose mx-auto mt-6 max-w-2xl dark:prose-invert"
     />
   </div>
 </template>

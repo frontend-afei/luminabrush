@@ -1,13 +1,17 @@
+<script setup lang="ts">
+  import { LanguagesIcon } from "lucide-vue-next";
+</script>
+
 <template>
-  <DropdownMenuRoot>
+  <DropdownMenu>
     <DropdownMenuTrigger asChild>
       <Button variant="ghost" size="icon">
-        <Icon name="language" class="h-4 w-4" />
+        <LanguagesIcon class="size-4" />
       </Button>
     </DropdownMenuTrigger>
 
     <DropdownMenuContent>
       <LocaleSwitchRadioGroup />
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 </template>

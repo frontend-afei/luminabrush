@@ -66,12 +66,12 @@
         <h3 class="mb-4 text-2xl font-bold">{{ props.plan.name }}</h3>
         <div
           v-if="props.plan.description"
-          class="prose text-muted-foreground mb-2"
+          class="prose mb-2 text-muted-foreground"
           v-html="props.plan.description"
         />
         <ul
           v-if="props.plan.features?.length"
-          class="text-muted-foreground grid list-disc gap-2 pl-4"
+          class="grid list-disc gap-2 pl-4 text-muted-foreground"
         >
           <li v-for="(feature, key) of plan.features" :key="key">
             {{ feature }}
@@ -80,7 +80,7 @@
       </div>
 
       <div>
-        <strong class="text-primary text-2xl font-bold">
+        <strong class="text-2xl font-bold text-primary">
           {{ n(variant.price / 100, "currency") }}
           <span class="text-sm font-normal opacity-70">
             / {{ props.labels[interval] }}

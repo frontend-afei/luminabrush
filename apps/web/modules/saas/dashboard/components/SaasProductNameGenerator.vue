@@ -1,7 +1,10 @@
 <script setup lang="ts">
-  const { apiCaller } = useApiCaller();
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { Wand2Icon } from "lucide-vue-next";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
 
-  const { z, toTypedSchema, useForm } = formUtils;
+  const { apiCaller } = useApiCaller();
 
   const formSchema = toTypedSchema(
     z.object({
@@ -9,7 +12,7 @@
     }),
   );
 
-  const { defineInputBinds, handleSubmit, values } = useForm({
+  const { handleSubmit, values } = useForm({
     validationSchema: formSchema,
     initialValues: {
       topic: "",
@@ -19,8 +22,6 @@
   const topicValue = computed(() => {
     return values.topic || "";
   });
-
-  const topic = defineInputBinds("topic");
 
   const { data, pending, refresh, status } = useAsyncData(
     () => {
@@ -40,14 +41,18 @@
 
 <template>
   <div>
-    <form @submit.prevent="onSubmit">
-      <FormItem>
-        <FormLabel for="topic"> Topic </FormLabel>
-        <Input v-bind="topic" type="text" id="topic" required />
-      </FormItem>
+    <form @submit="onSubmit">
+      <FormField v-slot="{ componentField }" name="topic">
+        <FormItem>
+          <FormControl>
+            <Input v-bind="componentField" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
 
       <Button class="mt-4 w-full" :loading="pending && status !== 'idle'">
-        <Icon name="magic" class="mr-2 h-4 w-4" />
+        <Wand2Icon class="mr-2 size-4" />
         Generate product names
       </Button>
     </form>
@@ -56,7 +61,7 @@
       <li
         v-for="(name, key) of data"
         :key="key"
-        class="bg-muted rounded-md border p-4"
+        class="rounded-md border bg-muted p-4"
       >
         {{ name }}
       </li>

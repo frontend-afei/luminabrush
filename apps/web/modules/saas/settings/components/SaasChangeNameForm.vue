@@ -1,14 +1,13 @@
 <script setup lang="ts">
-  const props = defineProps<{
-    initialValue: string;
-  }>();
+  import { toTypedSchema } from "@vee-validate/zod";
+  import { useForm } from "vee-validate";
+  import { z } from "zod";
+  import { useToast } from "@/modules/ui/components/toast";
 
   const { t } = useTranslations();
   const { apiCaller } = useApiCaller();
   const { toast } = useToast();
-  const { reloadUser } = useUser();
-
-  const { z, toTypedSchema, useForm } = formUtils;
+  const { user, reloadUser } = useUser();
 
   const formSchema = toTypedSchema(
     z.object({
@@ -16,26 +15,16 @@
     }),
   );
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting, meta, resetForm } = useForm({
     validationSchema: formSchema,
     initialValues: {
-      name: props.initialValue || "",
+      name: user.value?.name || "",
     },
-  });
-
-  const name = defineInputBinds("name");
-
-  const isSubmitDisabled = computed(() => {
-    return (
-      !name.value.value ||
-      name.value.value.length < 3 ||
-      name.value.value === props.initialValue
-    );
   });
 
   const onSubmit = handleSubmit(async (values) => {
     try {
-      await apiCaller.auth.changeName.mutate({
+      await apiCaller.auth.update.mutate({
         name: values.name,
       });
 
@@ -45,6 +34,12 @@
       });
 
       await reloadUser();
+
+      resetForm({
+        values: {
+          name: user.value?.name || "",
+        },
+      });
     } catch (error) {
       toast({
         variant: "error",
@@ -58,11 +53,17 @@
   <SaasActionBlock
     @submit="onSubmit"
     :isSubmitting="isSubmitting"
-    :isSubmitDisabled="isSubmitDisabled"
+    :isSubmitDisabled="!meta.dirty || !meta.valid"
   >
     <template #title>{{ $t("settings.account.changeName.title") }}</template>
-    <div>
-      <Input v-bind="name" type="text" id="name" required autocomplete="name" />
-    </div>
+
+    <FormField v-slot="{ componentField }" name="name">
+      <FormItem>
+        <FormControl>
+          <Input v-bind="componentField" autocomplete="name" />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    </FormField>
   </SaasActionBlock>
 </template>

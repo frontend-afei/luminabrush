@@ -19,6 +19,7 @@
     "cropperjs": "^1.6.1",
     "date-fns": "^3.6.0",
     "mail": "workspace:*",
+    "shadcn-nuxt": "^0.10.2",
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
     "utils": "workspace:*",

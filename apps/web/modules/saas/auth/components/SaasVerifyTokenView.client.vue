@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { LoaderIcon } from "lucide-vue-next";
+
   const { apiCaller } = useApiCaller();
   const { t } = useTranslations();
   const { reloadUser } = useUser({ initialUser: null });
@@ -30,7 +32,7 @@
 
 <template>
   <div v-if="loading" class="flex items-center justify-center py-8">
-    <Icon name="spinner" class="h-8 w-8 animate-spin" />
+    <LoaderIcon class="size-8 animate-spin" />
   </div>
 
   <div v-else>
@@ -41,7 +43,7 @@
           : t("auth.invalidToken.title")
       }}
     </h1>
-    <p class="text-muted-foreground mb-4 mt-2">
+    <p class="mb-4 mt-2 text-muted-foreground">
       {{
         tokenVerified
           ? t("auth.confirmation.message")

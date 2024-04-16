@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { useToast } from "@/modules/ui/components/toast";
+
   const { t } = useTranslations();
   const { toast } = useToast();
   const router = useRouter();

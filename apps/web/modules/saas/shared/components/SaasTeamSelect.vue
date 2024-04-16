@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { ChevronsUpDownIcon, PlusIcon } from "lucide-vue-next";
+
   const localePath = useLocalePath();
   const { teamMemberships, currentTeam } = useUser();
   const { switchTeam } = useSwitchTeam();
@@ -17,9 +19,9 @@
 </script>
 
 <template>
-  <DropdownMenuRoot v-if="currentTeam">
+  <DropdownMenu v-if="currentTeam">
     <DropdownMenuTrigger
-      class="focus-visible:ring-ring focus-visible:border-primary -ml-2 flex w-full items-center justify-between rounded-md px-2 py-2 text-left outline-none focus-visible:ring-1"
+      class="-ml-2 flex w-full items-center justify-between rounded-md p-2 text-left outline-none focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-ring"
     >
       <div class="flex items-center justify-start gap-2 text-sm">
         <span class="hidden lg:block">
@@ -30,7 +32,7 @@
           />
         </span>
         <span class="block flex-1 truncate">{{ currentTeam.name }}</span>
-        <Icon name="select" class="block h-4 w-4 opacity-50" />
+        <ChevronsUpDownIcon class="block size-4 opacity-50" />
       </div>
     </DropdownMenuTrigger>
     <DropdownMenuContent class="w-full">
@@ -55,12 +57,12 @@
 
       <DropdownMenuGroup>
         <DropdownMenuItem @click="() => (createTeamDialogOpen = true)">
-          <Icon name="plus" class="mr-2 h-4 w-4" />
+          <PlusIcon class="mr-2 size-4" />
           {{ $t("dashboard.sidebar.createTeam") }}
         </DropdownMenuItem>
       </DropdownMenuGroup>
     </DropdownMenuContent>
-  </DropdownMenuRoot>
+  </DropdownMenu>
 
   <SaasCreateTeamDialog @success="(newTeamId) => switchTeam(newTeamId)" />
 </template>

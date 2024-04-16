@@ -1,22 +1,34 @@
-import { z } from "zod";
 import { db } from "database";
+import { z } from "zod";
 import { protectedProcedure } from "../../trpc";
+import { getUserAvatarUrl } from "../lib/avatar-url";
 
 export const update = protectedProcedure
   .input(
     z.object({
       name: z.string().min(1).optional(),
       avatarUrl: z.string().min(1).optional(),
+      onboardingComplete: z.boolean().optional(),
     }),
   )
-  .mutation(async ({ ctx: { user }, input: { name, avatarUrl } }) => {
-    await db.user.update({
+  .mutation(async ({ ctx: { user }, input }) => {
+    const updatedUser = await db.user.update({
       where: {
         id: user.id,
       },
-      data: {
-        name,
-        avatarUrl,
+      data: input,
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        avatarUrl: true,
+        name: true,
+        onboardingComplete: true,
       },
     });
+
+    return {
+      ...updatedUser,
+      avatarUrl: await getUserAvatarUrl(updatedUser.avatarUrl),
+    };
   });
