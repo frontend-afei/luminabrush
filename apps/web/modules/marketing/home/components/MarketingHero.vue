@@ -15,8 +15,12 @@
       <div
         class="mt-6 flex flex-col items-center justify-center gap-3 md:flex-row"
       >
-        <Button size="lg">Get started &rarr;</Button>
-        <Button variant="outline" size="lg">Documentation</Button>
+        <Button size="lg" as-child>
+          <NuxtLink to="/auth/login">Get started &rarr;</NuxtLink>
+        </Button>
+        <Button variant="outline" size="lg">
+          <NuxtLink to="/docs">Documentation</NuxtLink>
+        </Button>
       </div>
 
       <div class="mt-12 px-8 text-center">
