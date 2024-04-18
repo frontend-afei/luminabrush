@@ -41,6 +41,7 @@ export const signup = publicProcedure
       const url = new URL(callbackUrl);
       url.searchParams.set("token", token);
 
+      // @ts-expect-error - sendEmail is auto-imported
       await sendEmail({
         templateId: "newUser",
         to: email,

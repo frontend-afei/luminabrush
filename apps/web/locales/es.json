@@ -23,7 +23,13 @@
       },
       "loading": "Cargando usuarios...",
       "search": "Buscar nombre o correo electrónico...",
-      "title": "Administrar usuarios"
+      "title": "Administrar usuarios",
+      "resendVerificationMail": {
+        "error": "No se pudo reenviar el correo de verificación. \nInténtalo de nuevo.",
+        "submitting": "Reenviando correo de verificación...",
+        "success": "Se ha enviado el correo de verificación.",
+        "title": "Reenviar correo de verificación"
+      }
     }
   },
   "auth": {
@@ -427,5 +433,26 @@
       "title": "Equipo"
     },
     "title": "Ajustes"
+  },
+  "onboarding": {
+    "account": {
+      "avatar": "Avatar",
+      "avatarDescription": "Haz clic en el círculo o suelta una imagen para cargar tu avatar.",
+      "name": "Nombre",
+      "title": "Completa tu cuenta"
+    },
+    "back": "Atrás",
+    "complete": "Completo",
+    "continue": "Continuar",
+    "message": "Sólo unos pocos pasos rápidos para comenzar.",
+    "notifications": {
+      "accountSetupFailed": "Lo sentimos, pero no pudimos configurar su cuenta. \nPor favor, inténtelo de nuevo más tarde."
+    },
+    "step": "Paso {paso} / {total}",
+    "team": {
+      "name": "Nombre del equipo",
+      "title": "crear un equipo"
+    },
+    "title": "Configurar tu cuenta"
   }
 }

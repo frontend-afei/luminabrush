@@ -23,7 +23,13 @@
       },
       "loading": "Benutzer werden geladen...",
       "search": "Nach Name oder E-Mail suchen...",
-      "title": "Benutzer verwalten"
+      "title": "Benutzer verwalten",
+      "resendVerificationMail": {
+        "error": "Bestätigungsmail konnte nicht erneut gesendet werden. \nBitte versuche es erneut.",
+        "submitting": "Bestätigungsmail wird erneut gesendet...",
+        "success": "Bestätigungsmail wurde gesendet.",
+        "title": "Bestätigungsmail erneut senden"
+      }
     }
   },
   "auth": {
@@ -429,5 +435,26 @@
       "title": "Team"
     },
     "title": "Einstellungen"
+  },
+  "onboarding": {
+    "account": {
+      "avatar": "Avatar",
+      "avatarDescription": "Klicke auf den Kreis oder ziehe ein Bild darauf, um deinen Avatar hochzuladen.",
+      "name": "Name",
+      "title": "Vervollständige dein Konto"
+    },
+    "back": "Zurück",
+    "complete": "Vollständig",
+    "continue": "Weitermachen",
+    "message": "Nur ein paar schnelle Schritte, um das Setup abzuschließen.",
+    "notifications": {
+      "accountSetupFailed": "Es tut uns leid, aber wir konnten dein Konto nicht einrichten. \nBitte versuche es später noch einmal."
+    },
+    "step": "Schritt {step} / {total}",
+    "team": {
+      "name": "Teamname",
+      "title": "Erstelle dein Team"
+    },
+    "title": "Richte dein Konto ein"
   }
 }

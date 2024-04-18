@@ -10,7 +10,7 @@
     type ColumnFiltersState,
     type SortingState,
   } from "@tanstack/vue-table";
-  import { useDebounce } from "@vueuse/core";
+  import { refThrottled } from "@vueuse/core";
   import type { ApiOutput } from "api";
   import { LoaderIcon } from "lucide-vue-next";
   import SaasAdminUserListActionsCell from "./SaasAdminUserListActionsCell.vue";
@@ -23,22 +23,22 @@
   const searchTerm = ref("");
   const sorting = ref<SortingState>([]);
   const columnFilters = ref<ColumnFiltersState>([]);
-  const debouncedSearchTerm = useDebounce(searchTerm, 200);
-
-  watch(searchTerm, () => {
-    currentPage.value = 1;
-  });
+  const throttledSearchTeam = refThrottled(searchTerm, 500);
 
   const { data, pending } = apiCaller.admin.users.useQuery(
-    {
+    () => ({
       limit: itemsPerPage.value,
       offset: (currentPage.value - 1) * itemsPerPage.value,
-      searchTerm: debouncedSearchTerm.value,
-    },
+      searchTerm: throttledSearchTeam.value,
+    }),
     {
-      watch: [debouncedSearchTerm, currentPage, sorting, columnFilters],
+      watch: [throttledSearchTeam, currentPage, sorting, columnFilters],
     },
   );
+
+  watch(data, () => {
+    currentPage.value = 1;
+  });
 
   const columnHelper =
     createColumnHelper<ApiOutput["admin"]["users"]["users"][number]>();
@@ -57,15 +57,11 @@
 
   const table = useVueTable({
     get data() {
-      return users.value;
+      return data.value?.users ?? [];
     },
     get columns() {
       return columns.value;
     },
-    // onSortingChange: (sorting) => {
-    //   sorting.value = sorting;
-    // },
-    // onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -127,13 +123,13 @@
       </Table>
     </div>
 
-    <!-- <Pagination
+    <Pagination
       v-if="users?.length > 0"
       class="mt-4"
       :totalItems="data?.total ?? 0"
       :itemsPerPage="itemsPerPage"
       :currentPage="currentPage"
       onChangeCurrentPage="setCurrentPage"
-    /> -->
+    />
   </div>
 </template>

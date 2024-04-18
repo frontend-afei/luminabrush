@@ -21,6 +21,12 @@
         "impersonating": "Impersonating as {name}...",
         "unimpersonating": "Unimpersonating..."
       },
+      "resendVerificationMail": {
+        "submitting": "Resending verification mail...",
+        "success": "Verification mail has been sent.",
+        "title": "Resend verification mail",
+        "error": "Could not resend verification mail. Please try again."
+      },
       "loading": "Loading users...",
       "search": "Search for name or email...",
       "title": "Manage users"

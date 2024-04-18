@@ -10,9 +10,9 @@
   <div class="flex items-center gap-2">
     <UserAvatar :name="user.name ?? user.email" :avatarUrl="user.avatarUrl" />
     <div class="leading-tight">
-      <strong class="block">{{ user.name }}</strong>
+      <strong class="block">{{ user.name ?? user.email }}</strong>
       <small class="text-muted-foreground">
-        {{ user.email }}
+        <span v-if="!!user.name">{{ user.email }}</span>
         <SaasAdminEmailVerified
           :verified="user.emailVerified"
           class="inline-block align-text-bottom"

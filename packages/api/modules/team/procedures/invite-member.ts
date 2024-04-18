@@ -37,6 +37,7 @@ export const inviteMember = protectedProcedure
         },
       });
 
+      // @ts-expect-error - sendEmail is auto-imported
       await sendEmail({
         templateId: "teamInvitation",
         to: email,

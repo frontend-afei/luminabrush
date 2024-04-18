@@ -40,6 +40,7 @@ export const loginWithEmail = publicProcedure
       const url = new URL(callbackUrl);
       url.searchParams.set("token", token);
 
+      // @ts-expect-error - sendEmail is auto-imported
       await sendEmail({
         templateId: "magicLink",
         to: email,
