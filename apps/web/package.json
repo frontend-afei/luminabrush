@@ -16,7 +16,7 @@
     "@tanstack/vue-table": "^8.16.0",
     "api": "workspace:*",
     "auth": "workspace:*",
-    "cropperjs": "^1.6.1",
+    "cropperjs": "^1.6.2",
     "date-fns": "^3.6.0",
     "mail": "workspace:*",
     "shadcn-nuxt": "^0.10.2",

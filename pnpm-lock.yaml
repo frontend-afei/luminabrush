@@ -33,8 +33,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/auth
       cropperjs:
-        specifier: ^1.6.1
-        version: 1.6.1
+        specifier: ^1.6.2
+        version: 1.6.2
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
@@ -6644,8 +6644,8 @@ packages:
     hasBin: true
     dev: true
 
-  /cropperjs@1.6.1:
-    resolution: {integrity: sha512-F4wsi+XkDHCOMrHMYjrTEE4QBOrsHHN5/2VsVAaRq8P7E5z7xQpT75S+f/9WikmBEailas3+yo+6zPIomW+NOA==}
+  /cropperjs@1.6.2:
+    resolution: {integrity: sha512-nhymn9GdnV3CqiEHJVai54TULFAE3VshJTXSqSJKa8yXAKyBKDWdhHarnlIPrshJ0WMFTGuFvG02YjLXfPiuOA==}
     dev: false
 
   /cross-spawn@7.0.3:
