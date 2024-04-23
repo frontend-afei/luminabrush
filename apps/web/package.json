@@ -43,7 +43,7 @@
     "lucide-vue-next": "^0.372.0",
     "nuxt": "3.11.2",
     "nuxt-simple-robots": "^3.1.9",
-    "radix-vue": "^1.7.0",
+    "radix-vue": "^1.7.1",
     "tailwind-merge": "^2.3.0",
     "trpc-nuxt": "^0.10.21",
     "ufo": "^1.5.3",
