@@ -78,12 +78,12 @@
           </NuxtLinkLocale>
         </div>
 
-        <div class="hidden flex-1 items-center justify-center md:flex">
+        <div class="hidden flex-1 items-center justify-center lg:flex">
           <NuxtLinkLocale
             v-for="menuItem of menuItems"
             :key="menuItem.to"
             :to="menuItem.to"
-            class="block px-3 py-2 text-lg"
+            class="block px-3 py-2 text-lg shrink-0"
             :class="[isMenuItemActive(menuItem.to) ? 'font-bold' : '']"
           >
             {{ menuItem.label }}
@@ -96,7 +96,7 @@
 
           <Sheet v-model:open="mobileMenuOpen">
             <SheetTrigger asChild>
-              <Button class="md:hidden" size="icon" variant="outline">
+              <Button class="lg:hidden" size="icon" variant="outline">
                 <MenuIcon class="size-4" />
               </Button>
             </SheetTrigger>
@@ -134,7 +134,7 @@
             </SheetContent>
           </Sheet>
 
-          <Button class="hidden md:block" asChild variant="ghost">
+          <Button class="hidden lg:block" asChild variant="ghost">
             <NuxtLinkLocale
               :to="hasUser ? runtimeConfig.auth.redirectPath : '/auth/login'"
               :prefetch="!hasUser"
