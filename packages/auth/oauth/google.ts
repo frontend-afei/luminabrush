@@ -1,26 +1,13 @@
-import {
-  Google,
-  OAuth2RequestError,
-  generateCodeVerifier,
-  generateState,
-} from "arctic";
-import { db } from "database";
-import {
-  getRequestURL,
-  parseCookies,
-  sendRedirect,
-  setCookie,
-  setResponseStatus,
-  type EventHandlerRequest,
-  type H3Event,
-} from "h3";
-import { $fetch } from "ofetch";
+import { Google, generateCodeVerifier, generateState } from "arctic";
 import { getBaseUrl } from "utils";
-import { lucia } from "../lib/lucia";
+import {
+  createOauthCallbackHandler,
+  createOauthRedirectHandler,
+} from "../lib/oauth";
 
 export const googleAuth = new Google(
-  process.env.GOOGLE_CLIENT_ID as string,
-  process.env.GOOGLE_CLIENT_SECRET as string,
+  process.env.GOOGLE_CLIENT_ID!,
+  process.env.GOOGLE_CLIENT_SECRET!,
   new URL("/api/oauth/google/callback", getBaseUrl()).toString(),
 );
 
@@ -34,60 +21,29 @@ type GoogleUser = {
   name: string;
 };
 
-export async function googleRouteHandler(event: H3Event<EventHandlerRequest>) {
-  const state = generateState();
-  const codeVerifier = generateCodeVerifier();
+export const googleRouteHandler = createOauthRedirectHandler(
+  GOOGLE_PROIVDER_ID,
+  async () => {
+    const state = generateState();
+    const codeVerifier = generateCodeVerifier();
 
-  const url = await googleAuth.createAuthorizationURL(state, codeVerifier, {
-    scopes: ["profile", "email"],
-  });
+    const url = await googleAuth.createAuthorizationURL(state, codeVerifier, {
+      scopes: ["profile", "email"],
+    });
 
-  setCookie(event, "google_oauth_state", state, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV !== "development",
-    path: "/",
-    maxAge: 60 * 60,
-    sameSite: "lax",
-  });
+    return {
+      state,
+      url,
+      codeVerifier,
+    };
+  },
+);
 
-  setCookie(event, "code_verifier", codeVerifier, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV !== "development",
-    path: "/",
-    maxAge: 60 * 60,
-    sameSite: "lax",
-  });
-
-  return await sendRedirect(event, url.toString());
-}
-
-export async function googleCallbackRouteHandler(
-  event: H3Event<EventHandlerRequest>,
-) {
-  const url = getRequestURL(event);
-  const code = url.searchParams.get("code");
-  const state = url.searchParams.get("state");
-  const cookies = parseCookies(event);
-  const storedState = cookies.google_oauth_state ?? null;
-  const storedCodeVerifier = cookies.code_verifier ?? null;
-
-  if (
-    !code ||
-    !state ||
-    !storedState ||
-    !storedCodeVerifier ||
-    state !== storedState
-  ) {
-    setResponseStatus(event, 400);
-    return null;
-  }
-
-  try {
-    const tokens = await googleAuth.validateAuthorizationCode(
-      code,
-      storedCodeVerifier,
-    );
-    const googleUser = await $fetch<GoogleUser>(
+export const googleCallbackRouteHandler = createOauthCallbackHandler(
+  GOOGLE_PROIVDER_ID,
+  async (code, verifier) => {
+    const tokens = await googleAuth.validateAuthorizationCode(code, verifier!);
+    const googleUserResponse = await fetch(
       "https://openidconnect.googleapis.com/v1/userinfo",
       {
         headers: {
@@ -95,90 +51,13 @@ export async function googleCallbackRouteHandler(
         },
       },
     );
-    const existingUser = await db.user.findFirst({
-      where: {
-        OR: [
-          {
-            oauthAccounts: {
-              some: {
-                providerId: GOOGLE_PROIVDER_ID,
-                providerUserId: googleUser.sub,
-              },
-            },
-          },
-          {
-            email: googleUser.email.toLowerCase(),
-          },
-        ],
-      },
-      select: {
-        id: true,
-        oauthAccounts: {
-          select: {
-            providerId: true,
-          },
-        },
-      },
-    });
+    const googleUser = (await googleUserResponse.json()) as GoogleUser;
 
-    if (existingUser) {
-      if (
-        !existingUser.oauthAccounts.some(
-          (account) => account.providerId === GOOGLE_PROIVDER_ID,
-        )
-      ) {
-        await db.userOauthAccount.create({
-          data: {
-            providerId: GOOGLE_PROIVDER_ID,
-            providerUserId: googleUser.sub,
-            userId: existingUser.id,
-          },
-        });
-      }
-      const session = await lucia.createSession(existingUser.id, {});
-      const sessionCookie = lucia.createSessionCookie(session.id);
-      setCookie(
-        event,
-        sessionCookie.name,
-        sessionCookie.value,
-        sessionCookie.attributes,
-      );
-      return await sendRedirect(event, "/app/dashboard", 302);
-    }
-
-    const newUser = await db.user.create({
-      data: {
-        email: googleUser.email.toLowerCase(),
-        emailVerified: !!googleUser,
-        name: googleUser.name,
-        avatarUrl: googleUser.picture,
-      },
-    });
-
-    await db.userOauthAccount.create({
-      data: {
-        providerId: "google",
-        providerUserId: googleUser.sub,
-        userId: newUser.id,
-      },
-    });
-    const session = await lucia.createSession(newUser.id, {});
-    const sessionCookie = lucia.createSessionCookie(session.id);
-    setCookie(
-      event,
-      sessionCookie.name,
-      sessionCookie.value,
-      sessionCookie.attributes,
-    );
-    return await sendRedirect(event, "/app/dashboard", 302);
-  } catch (e) {
-    console.error(e);
-    if (e instanceof OAuth2RequestError) {
-      setResponseStatus(event, 400);
-      return null;
-    }
-
-    setResponseStatus(event, 500);
-    return null;
-  }
-}
+    return {
+      id: googleUser.sub,
+      email: googleUser.email,
+      name: googleUser.name,
+      avatar: googleUser.picture,
+    };
+  },
+);

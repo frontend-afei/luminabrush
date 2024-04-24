@@ -4,6 +4,7 @@
   import { joinURL } from "ufo";
   import { useForm } from "vee-validate";
   import { z } from "zod";
+  import { oAuthProviders } from "./SaasSocialSigninButton.client.vue";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
@@ -131,7 +132,7 @@
 
     <div class="flex flex-col items-stretch gap-3">
       <SaasSocialSigninButton
-        v-for="providerId of runtimeConfig.public.auth.oAuthProviders"
+        v-for="providerId of Object.keys(oAuthProviders)"
         :key="providerId"
         :provider="providerId"
       />

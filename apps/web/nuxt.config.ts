@@ -22,7 +22,6 @@ export default defineNuxtConfig({
         umamiTrackingId: process.env.NUXT_PUBLIC_UMAMI_TRACKING_ID,
       },
       auth: {
-        oAuthProviders: ["google", "github"],
         redirectPath: "/app/dashboard",
       },
     },
