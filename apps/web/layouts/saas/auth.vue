@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="container max-w-md">
+    <div class="w-full max-w-md">
       <slot />
     </div>
 
