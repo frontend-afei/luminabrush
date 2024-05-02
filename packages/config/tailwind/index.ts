@@ -34,7 +34,7 @@ const lightVariables = {
 
 const darkVariables = {
   colors: {
-    border: "#2f3e57",
+    border: "#3a403d",
     input: "#1e293b",
     ring: "#42a46f",
     background: "#121924",

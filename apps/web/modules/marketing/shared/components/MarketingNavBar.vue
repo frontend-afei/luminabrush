@@ -83,7 +83,7 @@
             v-for="menuItem of menuItems"
             :key="menuItem.to"
             :to="menuItem.to"
-            class="block px-3 py-2 text-lg shrink-0"
+            class="block px-3 py-2 text-base shrink-0 text-foreground/80"
             :class="[isMenuItemActive(menuItem.to) ? 'font-bold' : '']"
           >
             {{ menuItem.label }}
