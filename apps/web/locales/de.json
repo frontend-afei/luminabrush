@@ -188,7 +188,19 @@
   },
   "faq": {
     "description": "Hast du irgendwelche Fragen? \nWir sind für dich da.",
-    "title": "Häufig gestellte Fragen"
+    "title": "Häufig gestellte Fragen",
+    "questions": {
+      "refundPolicy": "Wie lautet die Rückerstattungsrichtlinie?",
+      "cancelSubscription": "Wie kann ich mein Abonnement kündigen?",
+      "changePlan": "Kann ich meinen Tarif ändern?",
+      "freeTrial": "Bieten Sie eine kostenlose Probezeit an?"
+    },
+    "answers": {
+      "refundPolicy": "Wir bieten eine 30-tägige Geld-zurück-Garantie, falls Sie mit unserem Produkt nicht zufrieden sind.",
+      "cancelSubscription": "Sie können Ihr Abonnement auf der Abrechnungsseite kündigen.",
+      "changePlan": "Ja, Sie können Ihren Tarif jederzeit auf der Abrechnungsseite ändern.",
+      "freeTrial": "Ja, wir bieten eine 14-tägige kostenlose Probezeit an."
+    }
   },
   "newsletter": {
     "email": "Email",
