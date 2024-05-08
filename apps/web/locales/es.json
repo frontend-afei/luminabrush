@@ -185,8 +185,20 @@
     "welcome": "¡Bienvenido {name}!"
   },
   "faq": {
-    "description": "¿Tiene usted alguna pregunta? \nTe tenemos cubierto.",
-    "title": "Preguntas frecuentes"
+    "title": "Preguntas frecuentes",
+    "description": "Encuentre respuestas a las preguntas más comunes aquí.",
+    "questions": {
+      "refundPolicy": "¿Cuál es la política de reembolso?",
+      "cancelSubscription": "¿Cómo cancelo mi suscripción?",
+      "changePlan": "¿Puedo cambiar mi plan?",
+      "freeTrial": "¿Ofrecen una prueba gratuita?"
+    },
+    "answers": {
+      "refundPolicy": "Ofrecemos una garantía de devolución de dinero de 30 días si no está satisfecho con nuestro producto.",
+      "cancelSubscription": "Puede cancelar su suscripción visitando la página de facturación.",
+      "changePlan": "Sí, puede cambiar su plan en cualquier momento visitando la página de facturación.",
+      "freeTrial": "Sí, ofrecemos una prueba gratuita de 14 días."
+    }
   },
   "newsletter": {
     "email": "Correo electrónico",

@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { FAQ } from "@/modules/marketing/faq/types";
+  const { t } = useTranslations();
 
   definePageMeta({
     layout: "marketing",
@@ -7,22 +8,20 @@
 
   const faqItems: FAQ[] = [
     {
-      question: "What is the refund policy?",
-      answer:
-        "We offer a 30-day money-back guarantee if you're not happy with our product.",
+      question: t("faq.questions.refundPolicy"),
+      answer: t("faq.answers.refundPolicy"),
     },
     {
-      question: "How do I cancel my subscription?",
-      answer: "You can cancel your subscription by visiting the billing page.",
+      question: t("faq.questions.cancelSubscription"),
+      answer: t("faq.answers.cancelSubscription"),
     },
     {
-      question: "Can I change my plan?",
-      answer:
-        "Yes, you can change your plan at any time by visiting the billing page.",
+      question: t("faq.questions.changePlan"),
+      answer: t("faq.answers.changePlan"),
     },
     {
-      question: "Do you offer a free trial?",
-      answer: "Yes, we offer a 14-day free trial.",
+      question: t("faq.questions.freeTrial"),
+      answer: t("faq.answers.freeTrial"),
     },
   ];
 </script>
