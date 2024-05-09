@@ -17,7 +17,7 @@
     "@prisma/client": "^5.12.1",
     "dotenv-cli": "^7.4.0",
     "prisma": "^5.13.0",
-    "zod": "^3.23.0",
+    "zod": "^3.23.8",
     "zod-prisma-types": "^3.1.6"
   }
 }
