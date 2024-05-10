@@ -158,8 +158,8 @@ importers:
         version: link:../utils
     devDependencies:
       openai:
-        specifier: ^4.38.2
-        version: 4.38.2
+        specifier: ^4.44.0
+        version: 4.44.0
       prisma:
         specifier: ^5.13.0
         version: 5.13.0
@@ -10575,8 +10575,8 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
-  /openai@4.38.2:
-    resolution: {integrity: sha512-M16ehj0D84Gjq5cjvBzXRb5X+UvtWlxPDRAWAWMC0EN+6nHqnULIn5fWWeiexDPup25FeSZYv/ldp8KefcZVJQ==}
+  /openai@4.44.0:
+    resolution: {integrity: sha512-jVpDIJsBAR83rVbIHPuWRr9UkFc5DaH9ev2kt2IQAhKCs73DBRoFOa5SwtqfN7/CcBdIGBdygpmpc0gsFaV+Ow==}
     hasBin: true
     dependencies:
       '@types/node': 18.19.28
