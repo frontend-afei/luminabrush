@@ -148,8 +148,8 @@ importers:
         specifier: workspace:*
         version: link:../storage
       stripe:
-        specifier: ^15.3.0
-        version: 15.3.0
+        specifier: ^15.6.0
+        version: 15.6.0
       tsconfig:
         specifier: workspace:*
         version: link:../config/tsconfig
@@ -12355,8 +12355,8 @@ packages:
       js-tokens: 9.0.0
     dev: true
 
-  /stripe@15.3.0:
-    resolution: {integrity: sha512-5J1NUZaCy0DnFINyxKWR+107BQ7gkhhOwMRp+ckHQP8j7+0HbwE8cN2Vi/qnja3k3sFC2ft6g6hcvM7lmavEAQ==}
+  /stripe@15.6.0:
+    resolution: {integrity: sha512-ARG46eQHMmHspnDpj3QTAH8GyEqtE0nesbzpTtQDT/C9nHvOFYri3mIzHEzArzDcKX7HSleTu2VpYoDZIIH7nA==}
     engines: {node: '>=12.*'}
     dependencies:
       '@types/node': 20.12.7
