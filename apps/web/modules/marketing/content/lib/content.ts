@@ -127,7 +127,9 @@ export function getLocaleFromFilePath(
   filePath: string,
   { extension, defaultLocale }: { extension: string; defaultLocale: string },
 ) {
-  const localePattern = new RegExp(`\\.([a-zA-Z\\-]{2,5})\\.${extension}$`);
+  const localePattern = new RegExp(
+    `\\.([a-zA-Z\\-]{2,5})${extension ? `\\.${extension}` : ""}$`,
+  );
   return filePath.match(localePattern)?.[1] ?? defaultLocale;
 }
 
@@ -137,7 +139,12 @@ export function sanitizeContentPath(
 ) {
   return path
     .replace(new RegExp(`${dir}(\\/){0,1}`), "")
-    .replace(new RegExp(`(\\.[a-zA-Z\-]{2,5}){0,1}\\.${extension}`), "")
+    .replace(
+      new RegExp(
+        `((\\.[a-zA-Z\-]{2,5}){0,1}${extension ? `\\.${extension}` : ""}`,
+      ),
+      "",
+    )
     .replace(/(index|meta)$/, "")
     .replace(/^\//, "")
     .replace(/\/$/, "");

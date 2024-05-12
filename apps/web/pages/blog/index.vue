@@ -16,25 +16,38 @@
   const { data: posts } = await useAsyncData(
     "blog",
     async () => {
-      const localeExtensionPattern = /(\.[a-zA-Z\\-]{2,5})+\.md$/;
       const results = await queryContent<MarketingBlogPageFields>("blog")
         .where({
-          $and: [
-            { draft: { $not: true } },
-            locale.value === defaultLocale
-              ? { _file: { $not: { $match: localeExtensionPattern } } }
-              : {
-                  _file: { $match: localeExtensionPattern },
-                },
-          ],
+          $and: [{ draft: { $not: true } }],
         })
         .sort({ date: -1 })
         .find();
 
-      return results.map((post) => ({
-        ...post,
-        _path: post._path?.replace(/(\.[a-zA-Z\\-]{2,5})$/, ""),
-      }));
+      return results
+        .filter((post) => {
+          const postLocale = getLocaleFromFilePath(post._path ?? "", {
+            defaultLocale,
+            extension: "",
+          });
+
+          const slugWithoutLocale = (
+            (post._path ?? "")?.split("/").pop() ?? ""
+          ).replace(new RegExp(`\\.${postLocale}$`), "");
+
+          return (
+            postLocale === locale.value ||
+            (!results.some((p) =>
+              (p._path ?? "").match(
+                new RegExp(`${slugWithoutLocale}.${locale.value}$`),
+              ),
+            ) &&
+              postLocale === defaultLocale)
+          );
+        })
+        .map((post) => ({
+          ...post,
+          _path: post._path?.replace(/(\.[a-zA-Z\\-]{2,5})$/, ""),
+        }));
     },
     {
       watch: [locale],

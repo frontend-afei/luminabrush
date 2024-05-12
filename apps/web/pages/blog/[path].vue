@@ -9,27 +9,27 @@
   const route = useRoute("blog-path");
   const runtimeConfig = useRuntimeConfig();
   const { formatDate } = useLocaleDate();
-  const { locale, defaultLocale } = useI18n();
+  const { locale } = useI18n();
+  const { path } = route.params;
 
   const { data: post } = await useAsyncData(
     route.path,
     async () => {
-      const localeExtensionPattern = /(\.[a-zA-Z\\-]{2,5})+\.md$/;
+      const postPattern = new RegExp(`${path}(\.${locale.value}){0,1}$`);
+
       try {
-        return await queryContent<MarketingBlogPageFields>(
-          `blog/${route.params.path}`,
-        )
+        const results = await queryContent<MarketingBlogPageFields>("blog")
           .where({
             $and: [
               { draft: { $not: true } },
-              locale.value === defaultLocale
-                ? { _file: { $not: { $match: localeExtensionPattern } } }
-                : {
-                    _file: { $match: localeExtensionPattern },
-                  },
+              { _path: { $match: postPattern } },
             ],
           })
-          .findOne();
+          .find();
+
+        return results.sort(
+          (a, b) => (b._path ?? "").length - (a._path ?? "").length,
+        )[0];
       } catch {
         await navigateTo("/blog");
         return null;
