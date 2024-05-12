@@ -76,8 +76,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(rollup@4.13.2)
       '@nuxtjs/i18n':
-        specifier: 8.3.0
-        version: 8.3.0(rollup@4.13.2)(vue@3.4.21)
+        specifier: 8.3.1
+        version: 8.3.1(rollup@4.13.2)(vue@3.4.21)
       '@nuxtjs/tailwindcss':
         specifier: ^6.12.0
         version: 6.12.0(rollup@4.13.2)
@@ -2936,7 +2936,7 @@ packages:
     dependencies:
       '@nuxt/kit': 3.11.2(rollup@4.13.2)
       pathe: 1.1.2
-      pkg-types: 1.0.3
+      pkg-types: 1.1.0
       semver: 7.6.0
     transitivePeerDependencies:
       - rollup
@@ -2954,8 +2954,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxtjs/i18n@8.3.0(rollup@4.13.2)(vue@3.4.21):
-    resolution: {integrity: sha512-/2g4zYwBwHwIVJitu/i5zP73G4F9xH394Uq0RbfOGc34YxscN+B2kMnuPL8XXM9zThdMVj9ctHInQXXtr62CLg==}
+  /@nuxtjs/i18n@8.3.1(rollup@4.13.2)(vue@3.4.21):
+    resolution: {integrity: sha512-VHnnjFTTep2oC5++61WY06y4c/h943NyHQh1CRUJQvjsdbGSMX3WQjMGk+X05a3pyPFN70aq0YbgtsEoEoTEjQ==}
     engines: {node: ^14.16.0 || >=16.11.0}
     dependencies:
       '@intlify/h3': 0.5.0
@@ -2963,7 +2963,7 @@ packages:
       '@intlify/unplugin-vue-i18n': 3.0.1(rollup@4.13.2)(vue-i18n@9.10.2)
       '@intlify/utils': 0.12.0
       '@miyaneee/rollup-plugin-json5': 1.2.0(rollup@4.13.2)
-      '@nuxt/kit': 3.11.1(rollup@4.13.2)
+      '@nuxt/kit': 3.11.2(rollup@4.13.2)
       '@rollup/plugin-yaml': 4.1.2(rollup@4.13.2)
       '@vue/compiler-sfc': 3.4.21
       debug: 4.3.4
@@ -2971,7 +2971,7 @@ packages:
       estree-walker: 3.0.3
       is-https: 4.0.0
       knitwork: 1.1.0
-      magic-string: 0.30.8
+      magic-string: 0.30.9
       mlly: 1.6.1
       pathe: 1.1.2
       scule: 1.3.0
@@ -9161,13 +9161,6 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       magic-string: 0.30.9
-    dev: true
-
-  /magic-string@0.30.8:
-    resolution: {integrity: sha512-ISQTe55T2ao7XtlAStud6qwYPZjE4GK1S/BeVPus4jrq6JuOnQ00YKQC581RWhR122W7msZV263KzVeLoqidyQ==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
   /magic-string@0.30.9:
