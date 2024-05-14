@@ -3,13 +3,14 @@
     SubscriptionInterval,
     SubscriptionPlan,
   } from "@/modules/shared/components/PricingTableItem.vue";
+  import type { ClassValue } from "class-variance-authority/types";
 
   const props = defineProps<{
     // This is a prop and not an emit, because it's a promise.
     onSelectPlan: (planId: string, variantId: string) => Promise<void> | void;
     plans: SubscriptionPlan[];
     activePlanId?: string;
-    class?: ClassProp;
+    class?: ClassValue;
   }>();
 
   const { localeCurrency } = useLocaleCurrency();
