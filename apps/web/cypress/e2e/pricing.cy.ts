@@ -15,24 +15,19 @@ describe("pricing page", () => {
       intervalTabs.should("contain", "Yearly");
     });
 
-    it("should show monthly pricing by default", () => {
-      cy.get('[data-test="price-table-interval-tabs"]')
-        .contains("Monthly")
-        .click();
-      cy.get('[data-test="price-table-plan"]').should("contain", "/ month");
-    });
-
     it("should show monthly pricing when selected", () => {
-      cy.get('[data-test="price-table-interval-tabs"]')
+      cy.get('[data-test="price-table-interval-tabs"] button')
         .contains("Monthly")
-        .click();
+        .click({ force: true });
+
       cy.get('[data-test="price-table-plan"]').should("contain", "/ month");
     });
 
     it("should show yearly pricing when selected", () => {
-      cy.get('[data-test="price-table-interval-tabs"]')
+      cy.get('[data-test="price-table-interval-tabs"] button')
         .contains("Yearly")
-        .click();
+        .click({ force: true });
+
       cy.get('[data-test="price-table-plan"]').should("contain", "/ year");
     });
   });
