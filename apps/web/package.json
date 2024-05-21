@@ -12,8 +12,8 @@
     "shadcn-vue": "pnpm dlx shadcn-vue@latest"
   },
   "dependencies": {
-    "@internationalized/date": "^3.5.2",
-    "@tanstack/vue-table": "^8.17.0",
+    "@internationalized/date": "^3.5.4",
+    "@tanstack/vue-table": "^8.17.3",
     "api": "workspace:*",
     "auth": "workspace:*",
     "cropperjs": "^1.6.2",

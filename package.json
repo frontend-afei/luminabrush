@@ -23,7 +23,7 @@
     "shadcn-vue": "pnpm dlx shadcn-vue@latest"
   },
   "dependencies": {
-    "eslint": "^9.1.0",
+    "eslint": "^9.3.0",
     "eslint-config-custom": "workspace:*",
     "turbo": "latest"
   },
