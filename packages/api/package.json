@@ -6,13 +6,13 @@
   },
   "main": "./index.ts",
   "dependencies": {
-    "@lemonsqueezy/lemonsqueezy.js": "^2.2.0",
+    "@lemonsqueezy/lemonsqueezy.js": "^3.0.0",
     "auth": "workspace:*",
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "mail": "workspace:*",
     "storage": "workspace:*",
-    "stripe": "^15.6.0",
+    "stripe": "^15.7.0",
     "tsconfig": "workspace:*",
     "utils": "workspace:*"
   },
