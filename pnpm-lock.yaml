@@ -148,8 +148,8 @@ importers:
         specifier: workspace:*
         version: link:../storage
       stripe:
-        specifier: ^15.7.0
-        version: 15.7.0
+        specifier: ^15.8.0
+        version: 15.8.0
       tsconfig:
         specifier: workspace:*
         version: link:../config/tsconfig
@@ -179,8 +179,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(@prisma/client@5.14.0(prisma@5.14.0))(lucia@3.2.0)
       arctic:
-        specifier: ^1.8.1
-        version: 1.8.1
+        specifier: ^1.9.0
+        version: 1.9.0
       database:
         specifier: workspace:*
         version: link:../database
@@ -318,8 +318,8 @@ importers:
         specifier: 3.437.0
         version: 3.437.0
       '@supabase/supabase-js':
-        specifier: ^2.43.2
-        version: 2.43.2
+        specifier: ^2.43.4
+        version: 2.43.4
     devDependencies:
       '@types/node':
         specifier: ^20.12.12
@@ -2025,8 +2025,8 @@ packages:
   '@supabase/storage-js@2.5.5':
     resolution: {integrity: sha512-OpLoDRjFwClwc2cjTJZG8XviTiQH4Ik8sCiMK5v7et0MDu2QlXjCAW3ljxJB5+z/KazdMOTnySi+hysxWUPu3w==}
 
-  '@supabase/supabase-js@2.43.2':
-    resolution: {integrity: sha512-F9CljeJBo5aPucNhrLoMnpEHi5yqNZ0vH0/CL4mGy+/Ggr7FUrYErVJisa1NptViqyhs1HGNzzwjOYG6626h8g==}
+  '@supabase/supabase-js@2.43.4':
+    resolution: {integrity: sha512-/pLPaxiIsn5Vaz3s32HC6O/VNwfeddnzS0bZRpOW0AKcPuXroD8pT9G8mpiBlZfpKsMmq6k7tlhW7Sr1PAQ1lw==}
 
   '@swc/helpers@0.5.11':
     resolution: {integrity: sha512-YNlnKRWF2sVojTpIyzwou9XoTNbzbzONwRhOoniEioF1AtaitTvVZblaQRrAzChWQ1bLYyYSWzM18y4WwgzJ+A==}
@@ -2735,8 +2735,8 @@ packages:
     resolution: {integrity: sha512-ZcbTaIqJOfCc03QwD468Unz/5Ir8ATtvAHsK+FdXbDIbGfihqh9mrvdcYunQzqn4HrvWWaFyaxJhGZagaJJpPQ==}
     engines: {node: '>= 14'}
 
-  arctic@1.8.1:
-    resolution: {integrity: sha512-YmTcSfk8+NDSZt7qWYBX4HrikHZA3EQgmfFYlS4BwtYzPrji2VjAFrCFMElnjp72zmx3J3mz1ldjaXvjxmiW4Q==}
+  arctic@1.9.0:
+    resolution: {integrity: sha512-5llm2EMDM4wYv9q20JG19qnNAzEZj68MTYmZvfyKRivTHZqpR2uYHmN6umcaZjURvaaukwm5W6K1KH++qcdDRg==}
 
   are-we-there-yet@2.0.0:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
@@ -4491,6 +4491,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.3:
     resolution: {integrity: sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw==}
@@ -6616,8 +6617,8 @@ packages:
   strip-literal@2.1.0:
     resolution: {integrity: sha512-Op+UycaUt/8FbN/Z2TWPBLge3jWrP3xj10f3fnYxf052bKuS3EKs1ZQcVGjnEMdsNVAM+plXRdmjrZ/KgG3Skw==}
 
-  stripe@15.7.0:
-    resolution: {integrity: sha512-hTJhh0Gc+l+hj2vuzaFCh0T46l7793W3wg4J9Oyy3Wu+Ofswd0OgTS4XNt7G9XHJAyHpTmNRNbWgGwn73P4j7g==}
+  stripe@15.8.0:
+    resolution: {integrity: sha512-7eEPMgehd1I16cXeP7Rcn/JKkPWIadB9vGIeE+vbCzQXaY5R95AoNmkZx0vmlu1H4QIDs7j1pYIKPRm9Dr4LKg==}
     engines: {node: '>=12.*'}
 
   strnum@1.0.5:
@@ -10056,7 +10057,7 @@ snapshots:
     dependencies:
       '@supabase/node-fetch': 2.6.15
 
-  '@supabase/supabase-js@2.43.2':
+  '@supabase/supabase-js@2.43.4':
     dependencies:
       '@supabase/auth-js': 2.64.2
       '@supabase/functions-js': 2.3.1
@@ -11116,7 +11117,7 @@ snapshots:
       tar-stream: 3.1.7
       zip-stream: 6.0.1
 
-  arctic@1.8.1:
+  arctic@1.9.0:
     dependencies:
       oslo: 1.2.0
 
@@ -15932,7 +15933,7 @@ snapshots:
     dependencies:
       js-tokens: 9.0.0
 
-  stripe@15.7.0:
+  stripe@15.8.0:
     dependencies:
       '@types/node': 20.12.12
       qs: 6.12.1
