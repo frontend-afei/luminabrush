@@ -29,6 +29,10 @@
         fill="currentColor"
       />
     </svg>
-    <span v-if="props.withLabel" class="ml-3 text-lg">acme</span>
+    <span
+      v-if="props.withLabel"
+      class="ml-3 hidden text-lg text-foreground md:block"
+      >acme</span
+    >
   </span>
 </template>

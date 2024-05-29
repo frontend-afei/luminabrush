@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  import type { FAQ } from "@/modules/marketing/faq/types";
+  import type { FAQ } from "../types";
+
   const { t } = useTranslations();
 
   definePageMeta({
@@ -27,20 +28,30 @@
 </script>
 
 <template>
-  <div class="pb-24 pt-12">
-    <div class="container">
+  <section id="faq" class="bg-primary/5 py-16 lg:py-24">
+    <div class="container max-w-3xl">
       <div class="mb-12 text-center">
         <h1 class="text-4xl font-bold lg:text-5xl">
           {{ $t("faq.title") }}
         </h1>
-        <p class="mt-3 text-lg opacity-50">
+        <p class="mt-2 text-lg opacity-50">
           {{ $t("faq.description") }}
         </p>
       </div>
 
-      <div class="mx-auto max-w-2xl">
-        <MarketingFaqSection :items="faqItems" />
-      </div>
+      <Accordion type="single" collapsible class="flex flex-col gap-3">
+        <AccordionItem
+          v-for="(item, i) of faqItems"
+          :key="i"
+          :value="`faq-item-${i}`"
+          class="rounded-xl border bg-card px-6 py-4"
+        >
+          <AccordionTrigger class="py-2 text-lg">
+            {{ item.question }}
+          </AccordionTrigger>
+          <AccordionContent>{{ item.answer }}</AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
-  </div>
+  </section>
 </template>

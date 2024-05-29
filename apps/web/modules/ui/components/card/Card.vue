@@ -10,10 +10,7 @@
 <template>
   <div
     :class="
-      cn(
-        'bg-card/90 text-card-foreground rounded-lg shadow-sm backdrop-blur-md',
-        props.class,
-      )
+      cn('bg-card/75 text-card-foreground rounded-lg border', props.class)
     "
   >
     <slot />

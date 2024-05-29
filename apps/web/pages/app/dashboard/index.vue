@@ -16,7 +16,7 @@
       <template #subtitle>{{ $t("dashboard.subtitle") }}</template>
     </SaasPageHeader>
 
-    <div class="mt-8 grid gap-4 lg:grid-cols-3">
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
       <SaasStatsTile
         title="New clients"
         :value="344"

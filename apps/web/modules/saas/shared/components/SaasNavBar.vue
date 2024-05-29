@@ -59,15 +59,15 @@
 </script>
 
 <template>
-  <nav class="w-full border-b bg-muted">
+  <nav class="w-full border-b">
     <div class="container max-w-6xl py-4">
       <div class="flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <NuxtLinkLocale to="/" class="block">
-            <Logo :withLabel="false" />
+            <Logo />
           </NuxtLinkLocale>
 
-          <span class="hidden opacity-30 lg:block">
+          <span class="hidden opacity-30 md:block">
             <ChevronRightIcon class="size-4" />
           </span>
 
@@ -85,7 +85,7 @@
         <li v-for="menuItem of menuItems" :key="menuItem.to">
           <NuxtLinkLocale
             :to="menuItem.to"
-            class="flex items-center gap-2 border-b-2 px-1 pb-3"
+            class="flex items-center gap-2 border-b-2 px-1 pb-3 text-sm"
             :class="
               isActiveMenuItem(menuItem.to)
                 ? 'border-primary font-bold'

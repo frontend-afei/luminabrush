@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import {
+    ArrowRightIcon,
     CloudIcon,
     PaperclipIcon,
     PhoneIcon,
@@ -7,31 +8,32 @@
     StarIcon,
     UploadIcon,
   } from "lucide-vue-next";
-
-  const heroImage = ref("/images/hero.svg");
-  const heroDarkImage = ref("/images/hero-dark.svg");
 </script>
 
 <template>
-  <section class="bg-card py-24 text-card-foreground">
+  <section class="py-24 text-card-foreground">
     <div class="container">
-      <!-- Section header -->
       <div class="text-center">
         <h1 class="text-4xl font-bold lg:text-5xl">
           Features your clients will love
         </h1>
-        <p class="mt-3 text-lg opacity-70">
+        <p class="mt-3 text-lg text-foreground/60">
           In this section you can showcase the features of your SaaS.
         </p>
       </div>
 
-      <div class="mt-20 grid grid-cols-1 gap-16">
-        <!-- Feature 1 -->
-        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-          <div class="rounded-2xl bg-primary/10 p-12">
-            <img :src="heroImage" class="block dark:hidden" alt="Feature 1" />
-            <img
-              :src="heroDarkImage"
+      <div class="mt-12 grid grid-cols-1 gap-8">
+        <div
+          class="grid items-center gap-8 rounded-2xl border bg-card/50 p-8 lg:grid-cols-2 lg:gap-16"
+        >
+          <div class="overflow-hidden rounded-xl bg-primary/10 p-12">
+            <NuxtImg
+              src="/images/feature-image.svg"
+              class="block dark:hidden"
+              alt="Feature 1"
+            />
+            <NuxtImg
+              src="/images/feature-image-dark.svg"
               class="hidden dark:block"
               alt="Feature 1"
             />
@@ -39,34 +41,41 @@
 
           <div>
             <h3 class="text-3xl font-bold">Feature A</h3>
-            <p class="mt-2 leading-normal opacity-70">
+            <p class="mt-2 leading-normal text-foreground/60">
               This is a brilliant feature. And below you can see some reasons
               why. This is basically just a dummy text.
             </p>
-            <Button class="mt-4 px-0" variant="link" size="sm"
-              >Learn more &rarr;</Button
-            >
+            <Button variant="secondary" size="sm" class="mt-4">
+              Learn more
+              <ArrowRightIcon class="ml-2 size-4" />
+            </Button>
 
             <div class="mt-6 grid grid-cols-2 gap-4">
-              <div class="rounded-xl border bg-card p-4 text-card-foreground">
-                <StarIcon class="size-6 text-3xl text-primary" />
+              <div class="text-card-foreground">
+                <StarIcon class="size-6 text-3xl text-highlight" />
                 <strong class="mt-2 block">Benefit 1</strong>
-                <p class="opacity-70">This is a brilliant benefit.</p>
+                <p class="text-foreground/60">This is a brilliant benefit.</p>
               </div>
-              <div class="rounded-xl border bg-card p-4 text-card-foreground">
-                <PointerIcon class="size-6 text-3xl text-primary" />
+              <div class="text-card-foreground">
+                <PointerIcon class="size-6 text-3xl text-highlight" />
                 <strong class="mt-2 block">Benefit 2</strong>
-                <p class="opacity-70">This is a brilliant benefit.</p>
+                <p class="text-foreground/60">This is a brilliant benefit.</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Feature 2 -->
-        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-          <div class="rounded-2xl bg-primary/10 p-12 lg:order-2">
-            <img :src="heroImage" class="block dark:hidden" alt="Feature 2" />
-            <img
-              :src="heroDarkImage"
+
+        <div
+          class="grid items-center gap-8 rounded-2xl border bg-card/50 p-8 lg:grid-cols-2 lg:gap-16"
+        >
+          <div class="overflow-hidden rounded-xl bg-primary/10 p-12 lg:order-2">
+            <NuxtImg
+              src="/images/feature-image.svg"
+              class="block dark:hidden"
+              alt="Feature 2"
+            />
+            <NuxtImg
+              src="/images/feature-image-dark.svg"
               class="hidden dark:block"
               alt="Feature 2"
             />
@@ -74,34 +83,41 @@
 
           <div class="lg:order-1">
             <h3 class="text-3xl font-bold">Feature B</h3>
-            <p class="mt-2 leading-normal opacity-70">
+            <p class="mt-2 leading-normal text-foreground/60">
               This is a brilliant feature. And below you can see some reasons
               why. This is basically just a dummy text.
             </p>
-            <Button class="mt-4 px-0" variant="link" size="sm"
-              >Learn more &rarr;</Button
-            >
+            <Button variant="secondary" size="sm" class="mt-4">
+              Learn more
+              <ArrowRightIcon class="ml-2 size-4" />
+            </Button>
 
             <div class="mt-6 grid grid-cols-2 gap-4">
-              <div class="rounded-xl border bg-card p-4 text-card-foreground">
-                <UploadIcon class="size-6 text-3xl text-primary" />
+              <div class="text-card-foreground">
+                <UploadIcon class="size-6 text-3xl text-highlight" />
                 <strong class="mt-2 block">Benefit 1</strong>
-                <p class="opacity-70">This is a brilliant benefit.</p>
+                <p class="text-foreground/60">This is a brilliant benefit.</p>
               </div>
-              <div class="rounded-xl border bg-card p-4 text-card-foreground">
-                <CloudIcon class="size-6 text-3xl text-primary" />
+              <div class="text-card-foreground">
+                <CloudIcon class="size-6 text-3xl text-highlight" />
                 <strong class="mt-2 block">Benefit 2</strong>
-                <p class="opacity-70">This is a brilliant benefit.</p>
+                <p class="text-foreground/60">This is a brilliant benefit.</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Feature 3 -->
-        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-          <div class="rounded-2xl bg-primary/10 p-12">
-            <img :src="heroImage" class="block dark:hidden" alt="Feature 3" />
-            <img
-              :src="heroDarkImage"
+
+        <div
+          class="grid items-center gap-8 rounded-2xl border bg-card/50 p-8 lg:grid-cols-2 lg:gap-16"
+        >
+          <div class="overflow-hidden rounded-xl bg-primary/10 p-12">
+            <NuxtImg
+              src="/images/feature-image.svg"
+              class="block dark:hidden"
+              alt="Feature 3"
+            />
+            <NuxtImg
+              src="/images/feature-image-dark.svg"
               class="hidden dark:block"
               alt="Feature 3"
             />
@@ -109,24 +125,25 @@
 
           <div>
             <h3 class="text-3xl font-bold">Feature C</h3>
-            <p class="mt-2 leading-normal opacity-70">
+            <p class="mt-2 leading-normal text-foreground/60">
               This is a brilliant feature. And below you can see some reasons
               why. This is basically just a dummy text.
             </p>
-            <Button class="mt-4 px-0" variant="link" size="sm"
-              >Learn more &rarr;</Button
-            >
+            <Button variant="secondary" size="sm" class="mt-4">
+              Learn more
+              <ArrowRightIcon class="ml-2 size-4" />
+            </Button>
 
             <div class="mt-6 grid grid-cols-2 gap-4">
-              <div class="rounded-xl border bg-card p-4 text-card-foreground">
-                <PhoneIcon class="size-6 text-3xl text-primary" />
+              <div class="text-card-foreground">
+                <PhoneIcon class="size-6 text-3xl text-highlight" />
                 <strong class="mt-2 block">Benefit 1</strong>
-                <p class="opacity-70">This is a brilliant benefit.</p>
+                <p class="text-foreground/60">This is a brilliant benefit.</p>
               </div>
-              <div class="rounded-xl border bg-card p-4 text-card-foreground">
-                <PaperclipIcon class="size-6 text-3xl text-primary" />
+              <div class="text-card-foreground">
+                <PaperclipIcon class="size-6 text-3xl text-highlight" />
                 <strong class="mt-2 block">Benefit 2</strong>
-                <p class="opacity-70">This is a brilliant benefit.</p>
+                <p class="text-foreground/60">This is a brilliant benefit.</p>
               </div>
             </div>
           </div>

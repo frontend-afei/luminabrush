@@ -33,12 +33,12 @@
 
 <template>
   <ConfigProvider :use-id="useIdFunction">
-    <div>
+    <GradientBackgroundWrapper>
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
       <Toaster />
       <NuxtLoadingIndicator color="var(--colors-primary)" />
-    </div>
+    </GradientBackgroundWrapper>
   </ConfigProvider>
 </template>

@@ -128,7 +128,7 @@ export default defineNuxtConfig({
   googleFonts: {
     display: "swap",
     families: {
-      "DM Sans": [400, 500, 600, 700, 800],
+      Poppins: [400, 500, 600, 700],
     },
   },
 

@@ -19,7 +19,7 @@
     v-bind="delegatedProps"
     :class="
       cn(
-        'inline-flex h-10 items-center justify-center rounded-full bg-muted p-1 text-muted-foreground',
+        'text-card-foreground/80 border-b-2 inline-flex items-center justify-center text-sm',
         props.class,
       )
     "

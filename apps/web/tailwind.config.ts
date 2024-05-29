@@ -1,8 +1,8 @@
-import tailwindConfig from "tailwind-config";
+import baseConfig from "tailwind-config";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  presets: [tailwindConfig],
+  presets: [baseConfig],
   darkMode: "class",
   content: [
     "./layouts/**/*.{vue,ts}",

@@ -43,10 +43,6 @@
       to: "/blog",
     },
     {
-      label: t("common.menu.faq"),
-      to: "/faq",
-    },
-    {
       label: t("common.menu.changelog"),
       to: "/changelog",
     },
@@ -59,8 +55,10 @@
 
 <template>
   <nav
-    class="fixed left-0 top-0 z-20 w-full bg-background/80 backdrop-blur-lg transition-[height] duration-200"
-    :class="[isTop ? 'shadow-none' : 'shadow-sm']"
+    class="fixed left-0 top-0 z-20 w-full transition-[height] duration-200"
+    :class="[
+      isTop ? 'shadow-none' : 'bg-background/80 shadow-sm backdrop-blur-lg',
+    ]"
   >
     <MarketingBanner />
 
@@ -83,7 +81,7 @@
             v-for="menuItem of menuItems"
             :key="menuItem.to"
             :to="menuItem.to"
-            class="block px-3 py-2 text-base shrink-0 text-foreground/80"
+            class="block shrink-0 px-3 py-2 text-sm text-foreground/80"
             :class="[isMenuItemActive(menuItem.to) ? 'font-bold' : '']"
           >
             {{ menuItem.label }}
@@ -111,7 +109,7 @@
                   v-for="menuItem of menuItems"
                   :key="menuItem.to"
                   :to="menuItem.to"
-                  class="block px-3 py-2 text-lg"
+                  class="block px-3 py-2 text-sm"
                   :class="[isMenuItemActive(menuItem.to) ? 'font-bold' : '']"
                 >
                   {{ menuItem.label }}
@@ -134,7 +132,7 @@
             </SheetContent>
           </Sheet>
 
-          <Button class="hidden lg:block" asChild variant="ghost">
+          <Button class="hidden lg:flex" asChild variant="secondary">
             <NuxtLinkLocale
               :to="hasUser ? runtimeConfig.auth.redirectPath : '/auth/login'"
               :prefetch="!hasUser"

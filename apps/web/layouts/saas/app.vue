@@ -30,13 +30,11 @@
 </script>
 
 <template>
-  <div class="min-h-screen bg-muted">
-    <SaasNavBar />
+  <SaasNavBar />
 
-    <main>
-      <slot />
-    </main>
+  <main class="min-h-[calc(100vh-12rem)]">
+    <slot />
+  </main>
 
-    <SaasFooter />
-  </div>
+  <SaasFooter />
 </template>

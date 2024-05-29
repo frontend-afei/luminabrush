@@ -4,6 +4,7 @@
   import { joinURL } from "ufo";
   import { useForm } from "vee-validate";
   import { z } from "zod";
+  import { oAuthProviders } from "./SaasSocialSigninButton.client.vue";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
@@ -102,6 +103,16 @@
 
     <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
 
+    <div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
+      <SaasSocialSigninButton
+        v-for="providerId of Object.keys(oAuthProviders)"
+        :key="providerId"
+        :provider="providerId"
+      />
+    </div>
+
+    <hr class="my-8" />
+
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
         <AlertTriangleIcon class="size-4" />
@@ -146,7 +157,11 @@
           {{ $t("auth.signup.alreadyHaveAccount") }}&nbsp;</span
         >
         <NuxtLinkLocale
-          :to="`/auth/login${invitationCode ? `?invitationCode=${invitationCode}&email=${formValues.email}` : ''}`"
+          :to="`/auth/login${
+            invitationCode
+              ? `?invitationCode=${invitationCode}&email=${formValues.email}`
+              : ''
+          }`"
         >
           {{ $t("auth.signup.signIn") }} &rarr;
         </NuxtLinkLocale>

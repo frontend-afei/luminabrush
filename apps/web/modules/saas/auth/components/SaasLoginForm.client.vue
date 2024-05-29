@@ -123,14 +123,14 @@
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold">{{ $t("auth.login.title") }}</h1>
+    <h1 class="text-4xl font-bold">{{ $t("auth.login.title") }}</h1>
     <p class="mb-6 mt-4 text-muted-foreground">
       {{ $t("auth.login.subtitle") }}
     </p>
 
     <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
 
-    <div class="flex flex-col items-stretch gap-3">
+    <div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
       <SaasSocialSigninButton
         v-for="providerId of Object.keys(oAuthProviders)"
         :key="providerId"
@@ -200,7 +200,11 @@
           {{ $t("auth.login.dontHaveAnAccount") }}&nbsp;</span
         >
         <NuxtLinkLocale
-          :to="`/auth/signup${invitationCode ? `?invitationCode=${invitationCode}&email=${formValues.email}` : ''}`"
+          :to="`/auth/signup${
+            invitationCode
+              ? `?invitationCode=${invitationCode}&email=${formValues.email}`
+              : ''
+          }`"
         >
           {{ $t("auth.login.createAnAccount") }} &rarr;
         </NuxtLinkLocale>

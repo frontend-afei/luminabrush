@@ -47,7 +47,7 @@
 <template>
   <form @submit="onSubmit" class="space-y-8">
     <div class="space-y-4">
-      <h3 className="mb-4 text-xl font-bold">
+      <h3 class="mb-4 text-xl font-bold">
         {{ $t("onboarding.team.title") }}
       </h3>
 
