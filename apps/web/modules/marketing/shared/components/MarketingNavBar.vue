@@ -60,8 +60,6 @@
       isTop ? 'shadow-none' : 'bg-background/80 shadow-sm backdrop-blur-lg',
     ]"
   >
-    <MarketingBanner />
-
     <div class="container">
       <div
         class="flex items-center justify-stretch gap-6 transition-all duration-200"
