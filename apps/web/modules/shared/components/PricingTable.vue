@@ -58,7 +58,7 @@
 
 <template>
   <div :class="cn(props.class, '@container')">
-    <div class="flex justify-end">
+    <div class="flex justify-center">
       <Tabs v-model="interval" class="mb-4">
         <TabsList>
           <TabsTrigger value="month">{{ labels.monthly }}</TabsTrigger>

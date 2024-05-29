@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="pb-24 pt-12">
+  <div class="pb-24 pt-40">
     <div class="container">
       <div class="mb-12 text-center">
         <h1 class="text-4xl font-bold lg:text-5xl">

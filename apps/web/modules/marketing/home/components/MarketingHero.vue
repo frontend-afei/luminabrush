@@ -158,12 +158,12 @@
       <NuxtImg
         src="/images/hero-image.png"
         alt="Our application"
-        class="block rounded-xl dark:hidden"
+        class="block w-full rounded-xl dark:hidden"
       />
       <NuxtImg
         src="/images/hero-image-dark.png"
         alt="Our application"
-        class="hidden rounded-xl dark:block"
+        class="hidden w-full rounded-xl dark:block"
       />
     </div>
   </div>
