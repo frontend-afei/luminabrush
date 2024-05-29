@@ -56,13 +56,13 @@
 </script>
 
 <template>
-  <div class="container max-w-6xl pb-24">
+  <div class="container max-w-6xl pb-24 pt-32">
     <div class="mb-12 pt-8 text-center">
       <h1 class="mb-2 text-5xl font-bold">{{ $t("blog.title") }}</h1>
       <p class="text-lg opacity-50">{{ $t("blog.description") }}</p>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-2">
+    <div class="grid gap-8 md:grid-cols-2">
       <MarketingPostListItem
         v-for="post of posts"
         :key="post._id"

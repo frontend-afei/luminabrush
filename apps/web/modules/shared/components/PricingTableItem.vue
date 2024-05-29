@@ -60,7 +60,7 @@
 </script>
 
 <template>
-  <div v-if="variant" class="rounded-xl border p-6">
+  <div v-if="variant" class="rounded-xl bg-card/50 p-6 shadow">
     <div class="flex h-full flex-col justify-between gap-4">
       <div>
         <h3 class="mb-4 text-2xl font-bold">{{ props.plan.name }}</h3>
@@ -80,7 +80,7 @@
       </div>
 
       <div>
-        <strong class="text-2xl font-bold text-primary">
+        <strong class="text-2xl font-bold text-highlight">
           {{ n(variant.price / 100, "currency") }}
           <span class="text-sm font-normal opacity-70">
             / {{ props.labels[interval] }}

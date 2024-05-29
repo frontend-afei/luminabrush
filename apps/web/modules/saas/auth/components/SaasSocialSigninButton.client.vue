@@ -1,4 +1,5 @@
 <script lang="tsx">
+  /* eslint-disable import/first */
   export const oAuthProviders: {
     [key: string]: { name: string; icon: Component };
   } = {
@@ -44,7 +45,7 @@
 </script>
 
 <template>
-  <Button asChild variant="outline" type="button">
+  <Button asChild variant="secondary" type="button">
     <a :href="providerPath">
       <component
         v-if="providerData.icon"

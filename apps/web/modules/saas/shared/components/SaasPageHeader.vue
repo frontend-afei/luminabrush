@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8 border-b pb-4">
+  <div class="mb-8">
     <h2 v-if="$slots.title" class="text-2xl font-bold lg:text-3xl">
       <slot name="title" />
     </h2>

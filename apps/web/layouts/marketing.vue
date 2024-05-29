@@ -1,6 +1,6 @@
 <template>
   <MarketingNavBar />
-  <main class="min-h-screen pt-32">
+  <main class="min-h-screen">
     <slot />
   </main>
   <MarketingFooter />

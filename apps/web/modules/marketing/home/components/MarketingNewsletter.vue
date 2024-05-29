@@ -53,7 +53,7 @@
 </script>
 
 <template>
-  <section class="border-t py-24">
+  <section class="py-24">
     <div class="container">
       <div class="mb-12 text-center">
         <KeyIcon class="mx-auto mb-3 size-12 text-primary" />

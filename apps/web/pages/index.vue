@@ -7,5 +7,6 @@
 <template>
   <MarketingHero />
   <MarketingFeatures />
+  <MarketingFaqSection />
   <MarketingNewsletter />
 </template>
