@@ -69,7 +69,11 @@
           .where({
             _file: {
               $regex: new RegExp(
-                `^${documentationContentDir}\\/${activePath.value ? `(${activePath.value}|${`${activePath.value}/index`})` : "index"}(\\.[a-zA-Z\\-]{2,5}){0,1}\\.md$`,
+                `^${documentationContentDir}\\/${
+                  activePath.value
+                    ? `(${activePath.value}|${`${activePath.value}/index`})`
+                    : "index"
+                }(\\.[a-zA-Z\\-]{2,5}){0,1}\\.md$`,
               ),
             },
           })
@@ -83,8 +87,8 @@
           return aLocale === locale.value
             ? -1
             : bLocale === locale.value
-              ? 1
-              : 0;
+            ? 1
+            : 0;
         })
         .shift();
 
@@ -111,7 +115,7 @@
 </script>
 
 <template>
-  <div class="pb-16" v-if="page">
+  <div class="pb-16 pt-32" v-if="page">
     <div class="container">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-[200px_auto]">
         <div>

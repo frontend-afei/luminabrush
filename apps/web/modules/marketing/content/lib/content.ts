@@ -141,7 +141,7 @@ export function sanitizeContentPath(
     .replace(new RegExp(`${dir}(\\/){0,1}`), "")
     .replace(
       new RegExp(
-        `((\\.[a-zA-Z\-]{2,5}){0,1}${extension ? `\\.${extension}` : ""}`,
+        `(\\.[a-zA-Z\\-]{2,5}){0,1}${extension ? `\\.${extension}` : ""}`,
       ),
       "",
     )
