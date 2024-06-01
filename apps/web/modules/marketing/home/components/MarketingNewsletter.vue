@@ -15,20 +15,13 @@
 
   const isSubmitSuccessful = ref(false);
 
-  const {
-    defineInputBinds,
-    handleSubmit,
-    isSubmitting,
-    errors,
-    setFieldError,
-  } = useForm({
-    validationSchema: formSchema,
-    initialValues: {
-      email: "",
-    },
-  });
-
-  const email = defineInputBinds("email");
+  const { handleSubmit, isSubmitting, errors, setFieldError, submitCount } =
+    useForm({
+      validationSchema: formSchema,
+      initialValues: {
+        email: "",
+      },
+    });
 
   const onSubmit = handleSubmit(
     async (values) => {
@@ -75,19 +68,25 @@
         <template v-else>
           <form @submit.prevent="onSubmit">
             <div class="flex items-start">
-              <Input
-                v-bind="email"
-                type="email"
-                required
-                :placeholder="t('newsletter.email')"
-              />
+              <FormField name="email" v-slot="{ componentField }">
+                <Input
+                  v-bind="componentField"
+                  type="email"
+                  required
+                  :placeholder="t('newsletter.email')"
+                />
+              </FormField>
               <Button type="submit" class="ml-4" :loading="isSubmitting">
                 {{ $t("newsletter.submit") }}
               </Button>
             </div>
           </form>
 
-          <Alert v-if="errors.email" variant="error" class="mt-6 text-sm">
+          <Alert
+            v-if="errors.email && submitCount > 0"
+            variant="error"
+            class="mt-6 text-sm"
+          >
             <AlertCircleIcon class="size-4" />
             <AlertTitle>{{ $t("newsletter.hints.error.title") }}</AlertTitle>
             <AlertDescription>{{ errors.email }}</AlertDescription>
