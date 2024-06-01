@@ -25,7 +25,7 @@
     :class="cn(buttonVariants({ variant, size }), props.class)"
     :disabled="props.disabled || props.loading"
   >
-    <LoaderIcon v-if="props.loading" class="size-4 animate-spin" />
+    <LoaderIcon v-if="props.loading" class="mr-2 size-4 animate-spin" />
     <slot />
   </Primitive>
 </template>
