@@ -14,18 +14,11 @@
     }),
   );
 
-  const { defineInputBinds, handleSubmit, isSubmitting, setFieldValue } =
-    useForm({
-      validationSchema: formSchema,
-      initialValues: {
-        password: "",
-      },
-    });
-
-  const password = defineInputBinds("password");
-
-  const isSubmitDisabled = computed(() => {
-    return !password.value.value || password.value.value.length < 8;
+  const { handleSubmit, isSubmitting, setFieldValue, meta } = useForm({
+    validationSchema: formSchema,
+    initialValues: {
+      password: "",
+    },
   });
 
   const onSubmit = handleSubmit(async (values) => {
@@ -53,18 +46,23 @@
   <SaasActionBlock
     @submit="onSubmit"
     :isSubmitting="isSubmitting"
-    :isSubmitDisabled="isSubmitDisabled"
+    :isSubmitDisabled="!meta.valid || !meta.dirty"
   >
     <template #title>{{
       $t("settings.account.changePassword.title")
     }}</template>
     <div>
-      <SaasPasswordInput
-        :fieldData="password"
-        id="password"
-        autocomplete="new-password"
-        required
-      />
+      <FormField v-slot="{ componentField }" name="password">
+        <FormItem>
+          <SaasPasswordInput
+            v-bind="componentField"
+            type="password"
+            :id="componentField.name"
+            required
+            autocomplete="new-password"
+          />
+        </FormItem>
+      </FormField>
     </div>
   </SaasActionBlock>
 </template>

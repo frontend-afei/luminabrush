@@ -20,21 +20,11 @@
     }),
   );
 
-  const { defineInputBinds, handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting, meta } = useForm({
     validationSchema: formSchema,
     initialValues: {
       name: props.initialValue || "",
     },
-  });
-
-  const name = defineInputBinds("name");
-
-  const isSubmitDisabled = computed(() => {
-    return (
-      !name.value.value ||
-      name.value.value.length < 3 ||
-      name.value.value === props.initialValue
-    );
   });
 
   const onSubmit = handleSubmit(async (values) => {
@@ -63,18 +53,23 @@
   <SaasActionBlock
     @submit="onSubmit"
     :isSubmitting="isSubmitting"
-    :isSubmitDisabled="isSubmitDisabled"
+    :isSubmitDisabled="!meta.valid || !meta.dirty"
   >
     <template #title>{{ $t("settings.team.changeName.title") }}</template>
     <div>
-      <Input
-        v-bind="name"
-        type="text"
-        id="name"
-        required
-        autocomplete="name"
-        class="max-w-sm"
-      />
+      <FormField v-slot="{ componentField }" name="name">
+        <FormItem>
+          <Input
+            v-bind="componentField"
+            type="text"
+            :id="componentField.name"
+            required
+            autocomplete="name"
+            class="max-w-sm"
+          />
+          <FormMessage />
+        </FormItem>
+      </FormField>
     </div>
   </SaasActionBlock>
 </template>
