@@ -1,6 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
   "globalEnv": [
     "NODE_ENV",
     "PORT",
@@ -34,10 +36,16 @@
     "NUXT_PUBLIC_SUPABASE_URL",
     "SUPABASE_SERVICE_ROLE_KEY"
   ],
-  "pipeline": {
+  "tasks": {
     "build": {
-      "dependsOn": ["^db:generate", "^build"],
-      "outputs": ["dist/**", ".output/**"]
+      "dependsOn": [
+        "^db:generate",
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".output/**"
+      ]
     },
     "check-types": {},
     "clean": {
@@ -51,7 +59,9 @@
     },
     "dev": {
       "cache": false,
-      "dependsOn": ["^db:generate"],
+      "dependsOn": [
+        "^db:generate"
+      ],
       "persistent": true
     },
     "lint": {}
