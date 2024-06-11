@@ -24,7 +24,7 @@
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
     "utils": "workspace:*",
-    "uuid": "^9.0.1",
+    "uuid": "^10.0.0",
     "vue-advanced-cropper": "^2.8.8"
   },
   "devDependencies": {
