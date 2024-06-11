@@ -6,7 +6,6 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 25
     groups:
-      production-dependencies:
-        dependency-type: "production"
-      development-dependencies:
-        dependency-type: "development"
+      trpc:
+        patterns:
+          - "@trpc/*"
