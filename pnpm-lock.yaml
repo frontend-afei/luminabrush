@@ -133,8 +133,8 @@ importers:
   packages/api:
     dependencies:
       '@lemonsqueezy/lemonsqueezy.js':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^3.1.1
+        version: 3.1.1
       auth:
         specifier: workspace:*
         version: link:../auth
@@ -1254,8 +1254,8 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@lemonsqueezy/lemonsqueezy.js@3.1.0':
-    resolution: {integrity: sha512-cUlF2ue6nU+2+wbkXycnB4Uvc6VpSb0gtjjpRxf/T1apg67Ppk8zhdN+ule9xsuKsRBoOjyOnty3vtelUaTLAA==}
+  '@lemonsqueezy/lemonsqueezy.js@3.1.1':
+    resolution: {integrity: sha512-jtOLEH1SdrRmXQR+8rPljisTX9pHEIyPZztky+nq26d6UpaDPTiaGVFq5iK/VtJt3A3uWuBhcicS6OaMSz4fKw==}
     engines: {node: '>=20'}
 
   '@lucia-auth/adapter-prisma@4.0.1':
@@ -9012,7 +9012,7 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lemonsqueezy/lemonsqueezy.js@3.1.0': {}
+  '@lemonsqueezy/lemonsqueezy.js@3.1.1': {}
 
   '@lucia-auth/adapter-prisma@4.0.1(@prisma/client@5.14.0(prisma@5.14.0))(lucia@3.2.0)':
     dependencies:
