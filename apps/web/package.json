@@ -37,7 +37,7 @@
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@types/uuid": "^9.0.8",
     "@vee-validate/zod": "^4.12.6",
-    "@vueuse/core": "^10.9.0",
+    "@vueuse/core": "^10.10.1",
     "class-variance-authority": "^0.7.0",
     "eslint": "8.57.0",
     "eslint-config-custom": "*",
