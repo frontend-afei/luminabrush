@@ -6,7 +6,7 @@
   },
   "main": "./index.ts",
   "dependencies": {
-    "@lemonsqueezy/lemonsqueezy.js": "^3.1.1",
+    "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
     "auth": "workspace:*",
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
