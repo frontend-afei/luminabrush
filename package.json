@@ -10,8 +10,8 @@
     "node": ">=v18.16.0"
   },
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "build": "dotenv -c -- turbo build",
+    "dev": "dotenv -c -- turbo dev --concurrency 15",
     "start": "pnpm run dev",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
@@ -19,8 +19,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:push": "turbo db:push",
     "db:generate": "turbo db:generate",
-    "db:studio": "pnpm --filter database run db:studio",
-    "shadcn-vue": "pnpm dlx shadcn-vue@latest"
+    "db:studio": "pnpm --filter database run db:studio"
   },
   "dependencies": {
     "eslint": "^9.3.0",
