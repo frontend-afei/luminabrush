@@ -42,7 +42,7 @@
     "eslint": "8.57.0",
     "eslint-config-custom": "*",
     "lucide-vue-next": "^0.395.0",
-    "nuxt": "3.12.1",
+    "nuxt": "3.12.2",
     "nuxt-simple-robots": "^3.1.9",
     "radix-vue": "^1.8.3",
     "tailwind-merge": "^2.3.0",
