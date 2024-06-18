@@ -12,6 +12,6 @@
   "aliases": {
     "components": "@/modules/ui/components",
     "utils": "@/modules/ui/lib/utils",
-    "ui": "@/modules/ui/components"
+    "ui": "@/web/modules/ui/components"
   }
 }
