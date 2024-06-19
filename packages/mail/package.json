@@ -5,7 +5,7 @@
   "dependencies": {
     "@vue-email/nuxt": "^0.8.19",
     "eslint-config-custom": "workspace:*",
-    "nodemailer": "^6.9.13",
+    "nodemailer": "^6.9.14",
     "tsconfig": "workspace:*",
     "utils": "workspace:*"
   },
