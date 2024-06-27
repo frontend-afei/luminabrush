@@ -14,7 +14,7 @@
     "h3": "^1.12.0",
     "lucia": "^3.2.0",
     "mail": "workspace:*",
-    "oslo": "^1.2.0",
+    "oslo": "^1.2.1",
     "tsconfig": "workspace:*",
     "utils": "workspace:*",
     "zod": "^3.23.8"
