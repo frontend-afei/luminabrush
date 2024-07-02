@@ -34,6 +34,7 @@ const getS3Client = () => {
   s3Client = new S3Client({
     region: "auto",
     endpoint: s3Endpoint,
+    forcePathStyle: true,
     credentials: {
       accessKeyId: s3AccessKeyId,
       secretAccessKey: s3SecretAccessKey,
