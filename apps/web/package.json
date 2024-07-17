@@ -25,7 +25,7 @@
     "shadcn-nuxt": "^0.10.2",
     "tailwind-merge": "^2.3.0",
     "trpc-nuxt": "^0.10.22",
-    "ufo": "^1.5.3",
+    "ufo": "^1.5.4",
     "utils": "workspace:*",
     "uuid": "^10.0.0",
     "vue-advanced-cropper": "^2.8.9",
