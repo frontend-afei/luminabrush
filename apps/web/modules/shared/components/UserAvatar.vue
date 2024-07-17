@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <Avatar>
+  <Avatar class="bg-background">
     <AvatarImage v-if="props.avatarUrl" :src="props.avatarUrl" />
     <AvatarFallback
       class="flex size-full items-center justify-center bg-primary/10 text-primary"
