@@ -1,8 +1,6 @@
 <script setup lang="ts">
-  import { toTypedSchema } from "@vee-validate/zod";
   import type { UserOneTimePasswordTypeType } from "database";
   import { AlertTriangleIcon } from "lucide-vue-next";
-  import { useForm } from "vee-validate";
   import { z } from "zod";
 
   const { apiCaller } = useApiCaller();

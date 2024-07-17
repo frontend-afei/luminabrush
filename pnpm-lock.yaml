@@ -23,55 +23,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.4
         version: 3.5.4
-      '@nuxtjs/seo':
-        specifier: 2.0.0-rc.15
-        version: 2.0.0-rc.15(h3@1.12.0)(magicast@0.3.4)(rollup@4.17.2)(vite@5.3.1(@types/node@20.14.11)(terser@5.31.2))(vue@3.4.29(typescript@5.5.3))
-      '@tanstack/vue-table':
-        specifier: ^8.19.3
-        version: 8.19.3(vue@3.4.29(typescript@5.5.3))
-      api:
-        specifier: workspace:*
-        version: link:../../packages/api
-      auth:
-        specifier: workspace:*
-        version: link:../../packages/auth
-      cropperjs:
-        specifier: ^1.6.2
-        version: 1.6.2
-      database:
-        specifier: workspace:*
-        version: link:../../packages/database
-      date-fns:
-        specifier: ^3.6.0
-        version: 3.6.0
-      mail:
-        specifier: workspace:*
-        version: link:../../packages/mail
-      shadcn-nuxt:
-        specifier: ^0.10.2
-        version: 0.10.4(rollup@4.17.2)
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../../tooling/tailwind-config
-      tsconfig:
-        specifier: workspace:*
-        version: link:../../tooling/typescript
-      utils:
-        specifier: workspace:*
-        version: link:../../packages/utils
-      uuid:
-        specifier: ^10.0.0
-        version: 10.0.0
-      vue-advanced-cropper:
-        specifier: ^2.8.9
-        version: 2.8.9(vue@3.4.29(typescript@5.5.3))
-    devDependencies:
       '@nuxt/content':
         specifier: ^2.13.0
         version: 2.13.0(ioredis@5.4.1)(magicast@0.3.4)(nuxt@3.12.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.14.11)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.17.2)(terser@5.31.2)(typescript@5.5.3)(vite@5.3.1(@types/node@20.14.11)(terser@5.31.2)))(rollup@4.17.2)(vue@3.4.29(typescript@5.5.3))
-      '@nuxt/devtools':
-        specifier: ^1.3.9
-        version: 1.3.9(rollup@4.17.2)(vite@5.3.1(@types/node@20.14.11)(terser@5.31.2))
       '@nuxt/image':
         specifier: 1.7.0
         version: 1.7.0(ioredis@5.4.1)(rollup@4.17.2)
@@ -84,36 +38,57 @@ importers:
       '@nuxtjs/i18n':
         specifier: 8.3.1
         version: 8.3.1(rollup@4.17.2)(vue@3.4.29(typescript@5.5.3))
+      '@nuxtjs/seo':
+        specifier: 2.0.0-rc.15
+        version: 2.0.0-rc.15(h3@1.12.0)(magicast@0.3.4)(rollup@4.17.2)(vite@5.3.1(@types/node@20.14.11)(terser@5.31.2))(vue@3.4.29(typescript@5.5.3))
       '@nuxtjs/tailwindcss':
         specifier: ^6.12.0
         version: 6.12.0(rollup@4.17.2)
-      '@types/uuid':
-        specifier: ^10.0.0
-        version: 10.0.0
+      '@tanstack/vue-table':
+        specifier: ^8.19.3
+        version: 8.19.3(vue@3.4.29(typescript@5.5.3))
+      '@vee-validate/nuxt':
+        specifier: ^4.13.2
+        version: 4.13.2(magicast@0.3.4)(rollup@4.17.2)(vue@3.4.29(typescript@5.5.3))
       '@vee-validate/zod':
         specifier: ^4.13.2
         version: 4.13.2(vue@3.4.29(typescript@5.5.3))
       '@vueuse/core':
         specifier: ^10.11.0
         version: 10.11.0(vue@3.4.29(typescript@5.5.3))
+      api:
+        specifier: workspace:*
+        version: link:../../packages/api
+      auth:
+        specifier: workspace:*
+        version: link:../../packages/auth
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
-      eslint:
-        specifier: 8.57.0
-        version: 8.57.0
-      eslint-config-custom:
-        specifier: '*'
-        version: 0.0.0(eslint@8.57.0)(typescript@5.5.3)
+      cropperjs:
+        specifier: ^1.6.2
+        version: 1.6.2
+      database:
+        specifier: workspace:*
+        version: link:../../packages/database
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       lucide-vue-next:
         specifier: ^0.408.0
         version: 0.408.0(vue@3.4.29(typescript@5.5.3))
+      mail:
+        specifier: workspace:*
+        version: link:../../packages/mail
       nuxt:
         specifier: 3.12.2
         version: 3.12.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.14.11)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.17.2)(terser@5.31.2)(typescript@5.5.3)(vite@5.3.1(@types/node@20.14.11)(terser@5.31.2))
       radix-vue:
         specifier: ^1.9.1
         version: 1.9.1(vue@3.4.29(typescript@5.5.3))
+      shadcn-nuxt:
+        specifier: ^0.10.2
+        version: 0.10.4(rollup@4.17.2)
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
@@ -123,12 +98,37 @@ importers:
       ufo:
         specifier: ^1.5.3
         version: 1.5.3
-      vee-validate:
-        specifier: ^4.13.2
-        version: 4.13.2(vue@3.4.29(typescript@5.5.3))
+      utils:
+        specifier: workspace:*
+        version: link:../../packages/utils
+      uuid:
+        specifier: ^10.0.0
+        version: 10.0.0
+      vue-advanced-cropper:
+        specifier: ^2.8.9
+        version: 2.8.9(vue@3.4.29(typescript@5.5.3))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
+    devDependencies:
+      '@nuxt/devtools':
+        specifier: ^1.3.9
+        version: 1.3.9(rollup@4.17.2)(vite@5.3.1(@types/node@20.14.11)(terser@5.31.2))
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
+      eslint:
+        specifier: 8.57.0
+        version: 8.57.0
+      eslint-config-custom:
+        specifier: '*'
+        version: 0.0.0(eslint@8.57.0)(typescript@5.5.3)
+      tailwind-config:
+        specifier: workspace:*
+        version: link:../../tooling/tailwind-config
+      tsconfig:
+        specifier: workspace:*
+        version: link:../../tooling/typescript
 
   packages/api:
     dependencies:
@@ -2467,6 +2467,9 @@ packages:
   '@unocss/rule-utils@0.61.5':
     resolution: {integrity: sha512-sCHnpCQoj3/ZmCjYo+oW3+4r5Z8kFI2snEL+miU2Uk0SqCgY1k0cUIYivj5L9ghp29p8VjEusX9M01QEZOYK7g==}
     engines: {node: '>=14'}
+
+  '@vee-validate/nuxt@4.13.2':
+    resolution: {integrity: sha512-rpYYO2isCrgHRdJnKRXGPn8aqhyZvCPUJgNubftPum1txbngkO/LNiFsZdFDO7auGprDAQf7axpszRfeKoCGVg==}
 
   '@vee-validate/zod@4.13.2':
     resolution: {integrity: sha512-y1aqelutD6btX2ayZk3w8udClAykptphlGLwu0vlCqY2r9mrJqMn1EKqtcwXAvEom+ceTcHJOwGr2FUA7i+ZEg==}
@@ -10353,6 +10356,17 @@ snapshots:
     dependencies:
       '@unocss/core': 0.61.5
       magic-string: 0.30.10
+
+  '@vee-validate/nuxt@4.13.2(magicast@0.3.4)(rollup@4.17.2)(vue@3.4.29(typescript@5.5.3))':
+    dependencies:
+      '@nuxt/kit': 3.12.3(magicast@0.3.4)(rollup@4.17.2)
+      local-pkg: 0.5.0
+      vee-validate: 4.13.2(vue@3.4.29(typescript@5.5.3))
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - vue
 
   '@vee-validate/zod@4.13.2(vue@3.4.29(typescript@5.5.3))':
     dependencies:

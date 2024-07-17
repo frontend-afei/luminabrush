@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  import { toTypedSchema } from "@vee-validate/zod";
   import { ArrowRightIcon } from "lucide-vue-next";
-  import { useForm } from "vee-validate";
   import { z } from "zod";
   import { useToast } from "~/modules/ui/components/toast";
 

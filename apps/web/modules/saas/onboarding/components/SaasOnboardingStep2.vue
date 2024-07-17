@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  import { toTypedSchema } from "@vee-validate/zod";
   import { ArrowLeftIcon, ArrowRightIcon } from "lucide-vue-next";
-  import { useForm } from "vee-validate";
   import { z } from "zod";
 
   const emit = defineEmits<{

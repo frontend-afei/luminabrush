@@ -88,6 +88,7 @@ export default defineNuxtConfig({
     "@vue-email/nuxt",
     "shadcn-nuxt",
     "@nuxtjs/seo",
+    "@vee-validate/nuxt",
   ],
 
   // @nuxtjs/i18n
@@ -165,5 +166,17 @@ export default defineNuxtConfig({
   // @vue-email/nuxt
   vueEmail: {
     baseUrl,
+  },
+
+  // @vee-validate/nuxt
+  veeValidate: {
+    // disable or enable auto imports
+    autoImports: true,
+    // Use different names for components
+    componentNames: {
+      Form: "Form",
+      Field: "FormField",
+      ErrorMessage: "ErrorMessage",
+    },
   },
 });

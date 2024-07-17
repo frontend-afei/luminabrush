@@ -1,8 +1,6 @@
 <script setup lang="ts">
-  import { toTypedSchema } from "@vee-validate/zod";
   import { AlertTriangleIcon, SendIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
-  import { useForm } from "vee-validate";
   import { z } from "zod";
 
   const { apiCaller } = useApiCaller();
