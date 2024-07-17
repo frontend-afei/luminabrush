@@ -41,7 +41,7 @@
       const path = `/${user.value.id}-${uuid()}.png`;
       const uploadUrl = await getSignedUploadUrlMutation.mutate({
         path,
-        bucket: "avatars",
+        bucket: process.env.NUXT_PUBLIC_S3_AVATARS_BUCKET_NAME as string,
       });
 
       if (!uploadUrl) {

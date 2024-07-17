@@ -32,7 +32,8 @@ export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
             ...membership.team,
             avatarUrl: membership.team.avatarUrl
               ? await getSignedUrl(membership.team.avatarUrl, {
-                  bucket: "avatars",
+                  bucket: process.env
+                    .NUXT_PUBLIC_S3_AVATARS_BUCKET_NAME as string,
                   expiresIn: 360,
                 })
               : null,
