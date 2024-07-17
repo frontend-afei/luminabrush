@@ -89,6 +89,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxtjs/seo",
     "@vee-validate/nuxt",
+    "@vueuse/nuxt",
   ],
 
   // @nuxtjs/i18n

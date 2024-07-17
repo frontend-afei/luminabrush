@@ -1,4 +1,3 @@
-import { useBroadcastChannel } from "@vueuse/core";
 import type { ApiOutput } from "api/modules/trpc/router";
 
 type User = ApiOutput["auth"]["user"];

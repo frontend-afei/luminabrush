@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { useWindowScroll } from "@vueuse/core";
   import { MenuIcon } from "lucide-vue-next";
   import { VisuallyHidden } from "radix-vue";
 
@@ -118,7 +117,7 @@
                     hasUser ? runtimeConfig.auth.redirectPath : '/auth/login'
                   "
                   :prefetch="!hasUser"
-                  class="block px-3 py-2 text-lg"
+                  class="block px-3 py-2 text-sm"
                 >
                   {{
                     hasUser
