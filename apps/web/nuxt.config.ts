@@ -79,16 +79,15 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    // "./modules/ui/lib/module.ts",
     "@nuxtjs/i18n", // configured here and in i18n.config.ts
     "@nuxtjs/tailwindcss", // configured in tailwind.config.ts
     "@nuxtjs/google-fonts",
     "@nuxtjs/color-mode",
     "@nuxt/content",
     "@nuxt/image",
-    "nuxt-simple-robots",
     "@vue-email/nuxt",
     "shadcn-nuxt",
+    "@nuxtjs/seo",
   ],
 
   // @nuxtjs/i18n
@@ -150,11 +149,6 @@ export default defineNuxtConfig({
   // @nuxt/image
   image: {
     domains: ["lh3.googleusercontent.com", "avatars.githubusercontent.com"],
-  },
-
-  // nuxt-simple-robots -> nuxt-site-config
-  site: {
-    url: baseUrl,
   },
 
   shadcn: {
