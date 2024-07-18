@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 
   experimental: {
     typedPages: true,
+    cookieStore: false,
   },
 
   runtimeConfig: {

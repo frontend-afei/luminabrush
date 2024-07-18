@@ -1,5 +1,13 @@
 <script setup lang="ts">
   import { ConfigProvider } from "radix-vue";
+  import { configure } from "vee-validate";
+
+  configure({
+    validateOnBlur: true,
+    validateOnChange: true,
+    validateOnInput: false,
+    validateOnModelUpdate: false,
+  });
 
   const useIdFunction = () => useId();
 

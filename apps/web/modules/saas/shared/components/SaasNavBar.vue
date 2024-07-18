@@ -13,8 +13,6 @@
 
   const isAdmin = computed(() => user.value?.role === "ADMIN");
 
-  const currentTeamId = useCurrentTeamIdCookie();
-
   type MenuItem = {
     label: string;
     to: string;
@@ -22,9 +20,6 @@
   };
 
   const menuItems = computed<MenuItem[]>(() => {
-    if (!currentTeamId.value) {
-      return [];
-    }
     return [
       {
         label: t("dashboard.menu.dashboard"),
@@ -46,7 +41,7 @@
             {
               label: t("dashboard.menu.admin"),
               icon: UserCogIcon,
-              to: `/app/admin`,
+              to: "/app/admin",
             },
           ] satisfies MenuItem[])
         : []),
