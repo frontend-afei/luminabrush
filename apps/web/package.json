@@ -21,7 +21,7 @@
     "date-fns": "^3.6.0",
     "lucide-vue-next": "^0.408.0",
     "mail": "workspace:*",
-    "nuxt": "3.12.2",
+    "nuxt": "3.12.4",
     "radix-vue": "^1.9.1",
     "shadcn-nuxt": "^0.10.2",
     "tailwind-merge": "^2.4.0",
