@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@internationalized/date": "^3.5.4",
+    "@internationalized/date": "^3.5.5",
     "@nuxt/content": "^2.13.1",
     "@nuxt/image": "1.7.0",
     "@nuxtjs/color-mode": "^3.4.2",
