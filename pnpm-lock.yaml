@@ -322,8 +322,8 @@ importers:
         specifier: ^9.0.0
         version: 9.1.0(eslint@8.57.0)
       eslint-config-turbo:
-        specifier: ^2.0.10
-        version: 2.0.10(eslint@8.57.0)
+        specifier: ^2.0.11
+        version: 2.0.11(eslint@8.57.0)
       eslint-plugin-tailwindcss:
         specifier: ^3.17.4
         version: 3.17.4(tailwindcss@3.4.7)
@@ -3826,8 +3826,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-config-turbo@2.0.10:
-    resolution: {integrity: sha512-mMbaj/yQc5P2mY09iwlduZrU+FUvpSn0MdbntyTEE46zKATCoeLWNhOaQacTU6AnZRyfe/mGLVIjOl+9Hm4qBQ==}
+  eslint-config-turbo@2.0.11:
+    resolution: {integrity: sha512-hriQ+OQvKbtE1w7JH+w2X+Lh/9YPgnaNJmjrfhANWStFJTDa1NrJMCm2UaxHbDNKxFsr/mN9TTkVCRiTktIaqw==}
     peerDependencies:
       eslint: '>6.6.0'
 
@@ -3967,8 +3967,8 @@ packages:
     peerDependencies:
       tailwindcss: ^3.4.0
 
-  eslint-plugin-turbo@2.0.10:
-    resolution: {integrity: sha512-6TR1Zu6UNRcvVvD/W+LUDjncGyr3I7oqRjVDvggPGSXs6Hbtk9Oc2GIPQji1JvWy8rzU59fFxrsTEgEKHFKlRA==}
+  eslint-plugin-turbo@2.0.11:
+    resolution: {integrity: sha512-cM2KRlC6zh8Y5pOpiGTkBMp3/V4f4sEebSYcHjotfc4VQziPXuZtf/4Si4pd6l1FpmYfkgE+AReZsRfEfK17bw==}
     peerDependencies:
       eslint: '>6.6.0'
 
@@ -11896,10 +11896,10 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
-  eslint-config-turbo@2.0.10(eslint@8.57.0):
+  eslint-config-turbo@2.0.11(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
-      eslint-plugin-turbo: 2.0.10(eslint@8.57.0)
+      eslint-plugin-turbo: 2.0.11(eslint@8.57.0)
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -12131,7 +12131,7 @@ snapshots:
       postcss: 8.4.38
       tailwindcss: 3.4.7
 
-  eslint-plugin-turbo@2.0.10(eslint@8.57.0):
+  eslint-plugin-turbo@2.0.11(eslint@8.57.0):
     dependencies:
       dotenv: 16.0.3
       eslint: 8.57.0
