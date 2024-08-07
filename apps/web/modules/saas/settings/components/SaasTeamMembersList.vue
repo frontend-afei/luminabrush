@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { ApiOutput } from "api";
   import type { TeamMemberRoleType } from "database";
-  import { LogOutIcon, TrashIcon } from "lucide-vue-next";
+  import { LogOutIcon, TrashIcon, MoreVerticalIcon } from "lucide-vue-next";
   import { useToast } from "@/modules/ui/components/toast";
 
   const props = defineProps<{
