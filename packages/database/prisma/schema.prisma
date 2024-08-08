@@ -61,10 +61,7 @@ model UserVerificationToken {
   id      String   @id @default(cuid())
   userId  String
   user    User     @relation(references: [id], fields: [userId], onDelete: Cascade)
-  token   String
   expires DateTime
-
-  @@index([userId])
 }
 
 enum UserOneTimePasswordType {
@@ -81,8 +78,6 @@ model UserOneTimePassword {
   type       UserOneTimePasswordType
   identifier String
   expires    DateTime
-
-  @@index([userId])
 }
 
 model Team {

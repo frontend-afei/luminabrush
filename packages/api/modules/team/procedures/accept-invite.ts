@@ -11,7 +11,7 @@ export const acceptInvitation = protectedProcedure
   )
   .output(TeamSchema.pick({ name: true }))
   .mutation(async ({ input: { id }, ctx: { user } }) => {
-    const invitation = await db.teamInvitation.findFirst({
+    const invitation = await db.teamInvitation.findUnique({
       where: {
         id,
       },

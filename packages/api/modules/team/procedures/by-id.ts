@@ -11,7 +11,7 @@ export const byId = protectedProcedure
   )
   .output(TeamSchema)
   .query(async ({ input: { id }, ctx: { abilities } }) => {
-    const team = await db.team.findFirst({
+    const team = await db.team.findUnique({
       where: {
         id,
       },

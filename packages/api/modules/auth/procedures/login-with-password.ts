@@ -30,7 +30,7 @@ export const loginWithPassword = publicProcedure
     }),
   )
   .mutation(async ({ input: { email, password }, ctx: { event } }) => {
-    const user = await db.user.findFirst({
+    const user = await db.user.findUnique({
       where: {
         email,
       },

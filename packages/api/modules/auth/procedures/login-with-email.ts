@@ -18,7 +18,7 @@ export const loginWithEmail = publicProcedure
   )
   .mutation(async ({ input: { email, callbackUrl } }) => {
     try {
-      const user = await db.user.findFirst({
+      const user = await db.user.findUnique({
         where: {
           email,
         },

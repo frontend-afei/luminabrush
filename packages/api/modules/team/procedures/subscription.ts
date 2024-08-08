@@ -14,7 +14,7 @@ export const subscription = protectedProcedure
       throw new Error("Unauthorized");
     }
 
-    const subscription = await db.subscription.findFirst({
+    const subscription = await db.subscription.findUnique({
       where: {
         teamId,
       },

@@ -18,7 +18,7 @@ export const invitationById = publicProcedure
     }).nullable(),
   )
   .mutation(async ({ input: { id } }) => {
-    const invitation = await db.teamInvitation.findFirst({
+    const invitation = await db.teamInvitation.findUnique({
       where: {
         id,
       },

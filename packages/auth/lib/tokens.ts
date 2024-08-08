@@ -22,21 +22,18 @@ export const generateVerificationToken = async ({
       );
     });
     if (reusableStoredToken) {
-      return reusableStoredToken.token;
+      return reusableStoredToken.id;
     }
   }
 
-  const token = generateRandomString(63, alphabet("0-9", "A-Z"));
-
-  await db.userVerificationToken.create({
+  const { id } = await db.userVerificationToken.create({
     data: {
-      token,
       expires: new Date(new Date().getTime() + expireDuration),
       userId,
     },
   });
 
-  return token;
+  return id;
 };
 
 export const validateVerificationToken = async ({
@@ -44,9 +41,9 @@ export const validateVerificationToken = async ({
 }: {
   token: string;
 }) => {
-  const storedToken = await db.userVerificationToken.findFirst({
+  const storedToken = await db.userVerificationToken.findUnique({
     where: {
-      token,
+      id: token,
     },
   });
 

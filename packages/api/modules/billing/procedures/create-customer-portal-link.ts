@@ -14,7 +14,7 @@ export const createCustomerPortalLink = protectedProcedure
   .output(z.string())
   .mutation(
     async ({ input: { subscriptionId, redirectUrl }, ctx: { abilities } }) => {
-      const subscription = await db.subscription.findFirst({
+      const subscription = await db.subscription.findUnique({
         where: {
           id: subscriptionId,
         },
