@@ -62,6 +62,8 @@ model UserVerificationToken {
   userId  String
   user    User     @relation(references: [id], fields: [userId], onDelete: Cascade)
   expires DateTime
+
+  @@index([userId])
 }
 
 enum UserOneTimePasswordType {

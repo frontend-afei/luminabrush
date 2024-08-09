@@ -26,7 +26,6 @@ export const deleteTeam = protectedProcedure
       console.error(e);
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
-        message: "An unknown error occurred.",
       });
     }
   });

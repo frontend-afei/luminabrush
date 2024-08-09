@@ -46,7 +46,6 @@ export const impersonate = adminProcedure
 
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
-        message: "An unknown error occurred.",
       });
     }
   });

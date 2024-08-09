@@ -58,7 +58,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.forgotPassword.title") }}</h1>
-    <p class="mb-6 mt-2 text-muted-foreground">
+    <p class="text-muted-foreground mb-6 mt-2">
       {{ $t("auth.forgotPassword.message") }}
       <NuxtLinkLocale to="/auth/login" class="text-gray-700">
         {{ $t("auth.forgotPassword.backToSignin") }} &rarr;
@@ -67,7 +67,7 @@
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
-        <AlertTriangleIcon class="size-4" />
+        <AlertTriangleIcon class="size-6" />
         <AlertTitle>{{ serverError.title }}</AlertTitle>
         <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
