@@ -45,8 +45,8 @@ importers:
         specifier: ^6.12.1
         version: 6.12.1(magicast@0.3.4)(rollup@4.18.1)
       '@tanstack/vue-table':
-        specifier: ^8.20.2
-        version: 8.20.2(vue@3.4.33(typescript@5.5.4))
+        specifier: ^8.20.4
+        version: 8.20.4(vue@3.4.33(typescript@5.5.4))
       '@vee-validate/nuxt':
         specifier: ^4.13.2
         version: 4.13.2(magicast@0.3.4)(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))
@@ -2276,8 +2276,8 @@ packages:
   '@tanstack/virtual-core@3.8.3':
     resolution: {integrity: sha512-vd2A2TnM5lbnWZnHi9B+L2gPtkSeOtJOAw358JqokIH1+v2J7vUAzFVPwB/wrye12RFOurffXu33plm4uQ+JBQ==}
 
-  '@tanstack/vue-table@8.20.2':
-    resolution: {integrity: sha512-MBsnJFUi2jg61vpn0bqSTNrFcKZN80wdJYah82AltbPZnaw2SZdOTuvadsB5Dfz9CRd8GmDfEaOQ85pPCNfs0A==}
+  '@tanstack/vue-table@8.20.4':
+    resolution: {integrity: sha512-84SCWnX8H44beXvtkLt11hYfvzNSwb9wHfSQkp64vsCh3ITPqT55oVD7I35JR++7u1BFzjzrfOGjhPj70CYUcw==}
     engines: {node: '>=12'}
     peerDependencies:
       vue: '>=3.2'
@@ -10012,7 +10012,7 @@ snapshots:
 
   '@tanstack/virtual-core@3.8.3': {}
 
-  '@tanstack/vue-table@8.20.2(vue@3.4.33(typescript@5.5.4))':
+  '@tanstack/vue-table@8.20.4(vue@3.4.33(typescript@5.5.4))':
     dependencies:
       '@tanstack/table-core': 8.20.1
       vue: 3.4.33(typescript@5.5.4)
