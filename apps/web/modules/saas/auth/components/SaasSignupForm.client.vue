@@ -84,6 +84,7 @@
         replace: true,
       });
     } catch (e) {
+      console.log(e);
       serverError.value = {
         title: t("auth.signup.hints.signupFailed.title"),
         message: t("auth.signup.hints.signupFailed.message"),
@@ -95,7 +96,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.signup.title") }}</h1>
-    <p class="mb-6 mt-2 text-muted-foreground">
+    <p class="text-muted-foreground mb-6 mt-2">
       {{ $t("auth.signup.message") }}
     </p>
 
