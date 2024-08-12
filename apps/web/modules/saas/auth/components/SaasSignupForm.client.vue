@@ -36,23 +36,27 @@
   });
 
   type ServerErrorType = {
-    title: string;
     message: string;
   };
+
   const serverError = ref<null | ServerErrorType>(null);
 
-  const {
-    handleSubmit,
-    setFieldValue,
-    isSubmitting,
-    values: formValues,
-  } = useForm({
+  const { setApiErrorsToForm } = useApiFormErrors();
+
+  const form = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
       password: "",
     },
   });
+
+  const {
+    handleSubmit,
+    setFieldValue,
+    isSubmitting,
+    values: formValues,
+  } = form;
 
   watchEffect(() => {
     if (emailParam.value) {
@@ -84,11 +88,9 @@
         replace: true,
       });
     } catch (e) {
-      console.log(e);
-      serverError.value = {
-        title: t("auth.signup.hints.signupFailed.title"),
-        message: t("auth.signup.hints.signupFailed.message"),
-      };
+      setApiErrorsToForm(e, form, {
+        defaultError: t("auth.signup.hints.signupFailed.message"),
+      });
     }
   });
 </script>
@@ -96,7 +98,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.signup.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
+    <p class="mb-6 mt-2 text-muted-foreground">
       {{ $t("auth.signup.message") }}
     </p>
 
@@ -115,7 +117,7 @@
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <Alert v-if="serverError" variant="error">
         <AlertTriangleIcon class="size-4" />
-        <AlertTitle>{{ serverError.title }}</AlertTitle>
+        <AlertTitle>TITEL</AlertTitle>
         <AlertDescription>{{ serverError.message }}</AlertDescription>
       </Alert>
 

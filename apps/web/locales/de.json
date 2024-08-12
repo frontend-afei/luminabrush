@@ -469,7 +469,7 @@
     },
     "title": "Richte dein Konto ein"
   },
-  "zodI18n": {
+  "zod": {
     "errors": {
       "custom": {
         "email_already_exists": "Diese E-Mail-Adresse ist bereits vergeben.",

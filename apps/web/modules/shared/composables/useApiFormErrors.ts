@@ -4,6 +4,7 @@ import {
   ZodIssueCode,
   ZodParsedType,
   type ZodErrorMap,
+  type ZodIssueOptionalMessage,
 } from "zod";
 
 /**
@@ -60,7 +61,7 @@ const getKeyAndValues = (
   return { key: defaultKey, values: {} };
 };
 
-export function useFormErrors() {
+export function useApiFormErrors() {
   const { t } = useTranslations();
 
   type TranslationKey = Parameters<typeof t>[0];
@@ -182,7 +183,10 @@ export function useFormErrors() {
           "zod.errors.custom",
         );
 
-        message = t(key, values);
+        message = t(
+          `zod.errors.custom.${key}` as Parameters<typeof t>[0],
+          values ?? {},
+        );
         break;
       }
       case ZodIssueCode.invalid_intersection_types:
@@ -200,9 +204,9 @@ export function useFormErrors() {
     return { message };
   };
 
-  function setApiErrors(
+  function setApiErrorsToForm<Form extends ReturnType<typeof useForm>>(
     e: unknown,
-    ref: Ref,
+    form: Form,
     {
       defaultError,
       errorMap = zodErrorMap,
@@ -212,16 +216,34 @@ export function useFormErrors() {
     },
   ) {
     if (e instanceof TRPCClientError) {
-      // TODO: handle trpc errors
+      if (e.data?.zodError?.fieldErrors) {
+        Object.entries(e.data.zodError.fieldErrors ?? {}).forEach(
+          ([field, errors]) => {
+            const error = ((errors ?? []) as ZodIssueOptionalMessage[])[0];
+
+            if (error) {
+              form.setFieldError(
+                field,
+                zodErrorMap?.(error, {
+                  data: {},
+                  defaultError: "",
+                }).message ?? error,
+              );
+            }
+          },
+        );
+
+        return;
+      }
     }
 
-    return {
-      message: defaultError,
-    };
+    form.setErrors({
+      $root: defaultError,
+    });
   }
 
   return {
     zodErrorMap,
-    setApiErrors,
+    setApiErrorsToForm,
   };
 }

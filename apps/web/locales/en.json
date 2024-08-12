@@ -470,7 +470,7 @@
     },
     "title": "Settings"
   },
-  "zodI18n": {
+  "zod": {
     "errors": {
       "custom": {
         "email_already_exists": "This email is already in use.",
