@@ -224,7 +224,7 @@ export function useApiFormErrors() {
             if (error) {
               form.setFieldError(
                 field,
-                zodErrorMap?.(error, {
+                errorMap?.(error, {
                   data: {},
                   defaultError: "",
                 }).message ?? error,
@@ -235,10 +235,28 @@ export function useApiFormErrors() {
 
         return;
       }
+
+      if (e.data?.zodError?.formErrors) {
+        const error = (
+          (e.data.zodError.formErrors ?? []) as ZodIssueOptionalMessage[]
+        )[0];
+
+        if (error) {
+          form.setFieldError(
+            "root",
+            zodErrorMap?.(error, {
+              data: {},
+              defaultError: "",
+            }).message ?? error,
+          );
+        }
+
+        return;
+      }
     }
 
     form.setErrors({
-      $root: defaultError,
+      root: defaultError,
     });
   }
 

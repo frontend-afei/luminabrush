@@ -3,6 +3,7 @@
   import { joinURL } from "ufo";
   import { z } from "zod";
   import { oAuthProviders } from "./SaasSocialSigninButton.client.vue";
+  import { passwordSchema } from "auth/lib/passwords";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
@@ -12,7 +13,7 @@
   const formSchema = toTypedSchema(
     z.object({
       email: z.string().email(),
-      password: z.string().min(8),
+      password: passwordSchema,
     }),
   );
 
@@ -35,13 +36,9 @@
       : redirectToParam.value || runtimeConfig.public.auth.redirectPath;
   });
 
-  type ServerErrorType = {
-    message: string;
-  };
+  const { zodErrorMap, setApiErrorsToForm } = useApiFormErrors();
 
-  const serverError = ref<null | ServerErrorType>(null);
-
-  const { setApiErrorsToForm } = useApiFormErrors();
+  z.setErrorMap(zodErrorMap);
 
   const form = useForm({
     validationSchema: formSchema,
@@ -65,8 +62,6 @@
   });
 
   const onSubmit = handleSubmit(async (values) => {
-    serverError.value = null;
-
     try {
       await apiCaller.auth.signup.mutate({
         email: values.email,
@@ -98,7 +93,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.signup.title") }}</h1>
-    <p class="mb-6 mt-2 text-muted-foreground">
+    <p class="text-muted-foreground mb-6 mt-2">
       {{ $t("auth.signup.message") }}
     </p>
 
@@ -115,10 +110,9 @@
     <hr class="my-8" />
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
-        <AlertTriangleIcon class="size-4" />
-        <AlertTitle>TITEL</AlertTitle>
-        <AlertDescription>{{ serverError.message }}</AlertDescription>
+      <Alert v-if="form.errors.root" variant="error">
+        <AlertTriangleIcon class="size-6" />
+        <AlertDescription>{{ form.errors.root }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="email">
