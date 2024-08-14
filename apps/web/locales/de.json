@@ -478,7 +478,8 @@
         "lowercase_character_required": "Bitte verwende mindestens einen Kleinbuchstaben.",
         "number_required": "Bitte verwende mindestens eine Zahl.",
         "special_character_required": "Bitte verwende mindesten ein Sonderzeiche ({character}).",
-        "uppercase_character_required": "Bitte verwende mindestens einen Großbuchstaben."
+        "uppercase_character_required": "Bitte verwende mindestens einen Großbuchstaben.",
+        "email_not_verified": "Bitte verifiziere erst deine E-Mail-Adresse."
       },
       "invalid_type": "{expected} erwartet, {received} erhalten",
       "invalid_type_received_undefined": "Darf nicht leer sein",

@@ -154,8 +154,9 @@
             type="text"
             id="email"
             required
-            autocomplete="name"
+            autocomplete="email"
           />
+          <FormMessage />
         </FormItem>
       </FormField>
 
@@ -174,6 +175,7 @@
             autocomplete="current-password"
             required
           />
+          <FormMessage />
           <FormDescription class="text-right">
             <NuxtLinkLocale to="/auth/forgot-password">
               {{ $t("auth.login.forgotPassword") }}
