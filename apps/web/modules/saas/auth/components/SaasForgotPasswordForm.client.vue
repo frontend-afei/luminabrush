@@ -10,26 +10,25 @@
 
   const formSchema = toTypedSchema(
     z.object({
+      root: z.string().optional(),
       email: z.string().email(),
     }),
   );
 
-  type ServerErrorType = {
-    title: string;
-    message: string;
-  };
-  const serverError = ref<null | ServerErrorType>(null);
+  const { zodErrorMap, setApiErrorsToForm } = useApiFormErrors();
 
-  const { handleSubmit, isSubmitting } = useForm({
+  z.setErrorMap(zodErrorMap);
+
+  const form = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
     },
   });
 
-  const onSubmit = handleSubmit(async (values) => {
-    serverError.value = null;
+  const { handleSubmit, isSubmitting, errors } = form;
 
+  const onSubmit = handleSubmit(async (values) => {
     try {
       await apiCaller.auth.forgotPassword.mutate({
         email: values.email,
@@ -46,11 +45,10 @@
       navigateTo(localePath(`/auth/otp?${redirectSearchParams.toString()}`), {
         replace: true,
       });
-    } catch (error) {
-      serverError.value = {
-        title: t("auth.forgotPassword.hints.linkNotSent.title"),
-        message: t("auth.forgotPassword.hints.linkNotSent.message"),
-      };
+    } catch (e) {
+      setApiErrorsToForm(e, form, {
+        defaultError: t("auth.forgotPassword.hints.linkNotSent.message"),
+      });
     }
   });
 </script>
@@ -58,7 +56,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.forgotPassword.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
+    <p class="mb-6 mt-2 text-muted-foreground">
       {{ $t("auth.forgotPassword.message") }}
       <NuxtLinkLocale to="/auth/login" class="text-gray-700">
         {{ $t("auth.forgotPassword.backToSignin") }} &rarr;
@@ -66,10 +64,9 @@
     </p>
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
+      <Alert v-if="errors.root" variant="error">
         <AlertTriangleIcon class="size-6" />
-        <AlertTitle>{{ serverError.title }}</AlertTitle>
-        <AlertDescription>{{ serverError.message }}</AlertDescription>
+        <AlertDescription>{{ errors.root }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="email">

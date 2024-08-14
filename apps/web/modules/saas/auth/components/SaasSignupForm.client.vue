@@ -1,9 +1,9 @@
 <script setup lang="ts">
+  import { passwordSchema } from "auth/lib/passwords";
   import { AlertTriangleIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
   import { z } from "zod";
   import { oAuthProviders } from "./SaasSocialSigninButton.client.vue";
-  import { passwordSchema } from "auth/lib/passwords";
 
   const runtimeConfig = useRuntimeConfig();
   const { apiCaller } = useApiCaller();
@@ -12,6 +12,7 @@
 
   const formSchema = toTypedSchema(
     z.object({
+      root: z.string().optional(),
       email: z.string().email(),
       password: passwordSchema,
     }),
@@ -53,6 +54,7 @@
     setFieldValue,
     isSubmitting,
     values: formValues,
+    errors,
   } = form;
 
   watchEffect(() => {
@@ -93,7 +95,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold">{{ $t("auth.signup.title") }}</h1>
-    <p class="text-muted-foreground mb-6 mt-2">
+    <p class="mb-6 mt-2 text-muted-foreground">
       {{ $t("auth.signup.message") }}
     </p>
 
@@ -110,9 +112,9 @@
     <hr class="my-8" />
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="form.errors.root" variant="error">
+      <Alert v-if="errors.root" variant="error">
         <AlertTriangleIcon class="size-6" />
-        <AlertDescription>{{ form.errors.root }}</AlertDescription>
+        <AlertDescription>{{ errors.root }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="email">

@@ -463,7 +463,9 @@
     "step": "Paso {paso} / {total}",
     "team": {
       "name": "Nombre del equipo",
-      "title": "crear un equipo"
+      "title": "crear un equipo",
+      "joinTeamDescription": "Te unes al equipo {teamName}.",
+      "joinTeam": "Únete al equipo"
     },
     "title": "Configurar tu cuenta"
   },

@@ -12,6 +12,7 @@
 
   const formSchema = toTypedSchema(
     z.object({
+      root: z.string().optional(),
       email: z.string().email(),
       password: z.optional(z.string()),
     }),
@@ -47,11 +48,16 @@
     }
   });
 
-  type ServerErrorType = {
-    title: string;
-    message: string;
-  };
-  const serverError = ref<null | ServerErrorType>(null);
+  const { zodErrorMap, setApiErrorsToForm } = useApiFormErrors();
+
+  z.setErrorMap(zodErrorMap);
+
+  const form = useForm({
+    validationSchema: formSchema,
+    initialValues: {
+      email: "",
+    },
+  });
 
   const {
     isSubmitting,
@@ -59,18 +65,13 @@
     resetForm,
     handleSubmit,
     setFieldValue,
-  } = useForm({
-    validationSchema: formSchema,
-    initialValues: {
-      email: "",
-    },
-  });
+    errors,
+  } = form;
 
   const signinMode = ref<"password" | "magic-link">("magic-link");
   watch(signinMode, async () => {
     resetForm();
     await nextTick();
-    serverError.value = null;
   });
 
   watchEffect(() => {
@@ -80,8 +81,6 @@
   });
 
   const onSubmit = handleSubmit(async (values) => {
-    serverError.value = null;
-
     try {
       if (signinMode.value === "password") {
         await apiCaller.auth.loginWithPassword.mutate({
@@ -110,11 +109,10 @@
           replace: true,
         });
       }
-    } catch (error) {
-      serverError.value = {
-        title: t("auth.login.hints.invalidCredentials.title"),
-        message: t("auth.login.hints.invalidCredentials.message"),
-      };
+    } catch (e) {
+      setApiErrorsToForm(e, form, {
+        defaultError: t("auth.login.hints.invalidCredentials"),
+      });
     }
   });
 </script>
@@ -141,10 +139,9 @@
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
       <SaasSigninModeSwitch class="w-full" v-model="signinMode" />
 
-      <Alert v-if="serverError" variant="error">
-        <AlertTriangleIcon class="size-4" />
-        <AlertTitle>{{ serverError.title }}</AlertTitle>
-        <AlertDescription>{{ serverError.message }}</AlertDescription>
+      <Alert v-if="errors.root" variant="error">
+        <AlertTriangleIcon class="size-6" />
+        <AlertDescription>{{ errors.root }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="email">
@@ -185,7 +182,12 @@
         </FormItem>
       </FormField>
 
-      <Button class="w-full" type="submit" :loading="isSubmitting">
+      <Button
+        class="w-full"
+        type="submit"
+        variant="secondary"
+        :loading="isSubmitting"
+      >
         {{
           signinMode === "password"
             ? t("auth.login.submit")
@@ -193,7 +195,7 @@
         }}
       </Button>
 
-      <p>
+      <div class="text-center text-sm">
         <span class="text-muted-foreground">
           {{ $t("auth.login.dontHaveAnAccount") }}&nbsp;</span
         >
@@ -206,7 +208,7 @@
         >
           {{ $t("auth.login.createAnAccount") }} &rarr;
         </NuxtLinkLocale>
-      </p>
+      </div>
     </form>
   </div>
 </template>

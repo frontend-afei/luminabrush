@@ -235,7 +235,9 @@
     },
     "team": {
       "title": "Create a team",
-      "name": "Team name"
+      "name": "Team name",
+      "joinTeamDescription": "You are joining the team {teamName}.",
+      "joinTeam": "Join the team"
     },
     "notifications": {
       "accountSetupFailed": "We are sorry, but we were unable to set up your account. Please try again later."
