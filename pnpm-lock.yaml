@@ -147,6 +147,9 @@ importers:
       eslint-config-custom:
         specifier: workspace:*
         version: link:../../tooling/eslint
+      logs:
+        specifier: workspace:*
+        version: link:../logs
       mail:
         specifier: workspace:*
         version: link:../mail
