@@ -1,15 +1,16 @@
 {
   "name": "api",
   "version": "0.0.0",
+  "main": "./index.ts",
   "scripts": {
     "lint": "eslint \"**/*.ts\""
   },
-  "main": "./index.ts",
   "dependencies": {
     "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
     "auth": "workspace:*",
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
+    "logs": "workspace:*",
     "mail": "workspace:*",
     "storage": "workspace:*",
     "stripe": "^16.7.0",
