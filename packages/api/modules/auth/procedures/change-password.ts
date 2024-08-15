@@ -1,4 +1,5 @@
-import { hashPassword } from "auth/lib/password";
+import { hashPassword } from "auth/lib/hashing";
+import { passwordSchema } from "auth/lib/passwords";
 import { db } from "database";
 import { z } from "zod";
 import { protectedProcedure } from "../../trpc";
@@ -6,7 +7,7 @@ import { protectedProcedure } from "../../trpc";
 export const changePassword = protectedProcedure
   .input(
     z.object({
-      password: z.string().min(8).max(255),
+      password: passwordSchema,
     }),
   )
   .mutation(async ({ ctx: { user }, input: { password } }) => {

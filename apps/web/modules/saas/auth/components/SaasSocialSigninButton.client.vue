@@ -45,7 +45,7 @@
 </script>
 
 <template>
-  <Button asChild variant="secondary" type="button">
+  <Button asChild variant="outline" type="button">
     <a :href="providerPath">
       <component
         v-if="providerData.icon"

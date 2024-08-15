@@ -47,7 +47,7 @@
   <section class="py-24">
     <div class="container">
       <div class="mb-12 text-center">
-        <KeyIcon class="mx-auto mb-3 size-12 text-primary" />
+        <KeyIcon class="text-primary mx-auto mb-3 size-12" />
         <h1 class="text-3xl font-bold lg:text-4xl">
           {{ $t("newsletter.title") }}
         </h1>
@@ -56,7 +56,7 @@
 
       <div class="mx-auto max-w-lg">
         <Alert v-if="isSubmitSuccessful === true" variant="success">
-          <CheckCircleIcon class="size-4" />
+          <CheckCircleIcon class="size-6" />
           <AlertTitle>{{ $t("newsletter.hints.success.title") }}</AlertTitle>
           <AlertDescription>{{
             $t("newsletter.hints.success.message")

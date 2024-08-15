@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { passwordSchema } from "auth/lib/passwords";
   import { AlertTriangleIcon } from "lucide-vue-next";
   import { joinURL } from "ufo";
   import { z } from "zod";
@@ -11,8 +12,9 @@
 
   const formSchema = toTypedSchema(
     z.object({
+      root: z.string().optional(),
       email: z.string().email(),
-      password: z.string().min(8),
+      password: passwordSchema,
     }),
   );
 
@@ -35,24 +37,25 @@
       : redirectToParam.value || runtimeConfig.public.auth.redirectPath;
   });
 
-  type ServerErrorType = {
-    title: string;
-    message: string;
-  };
-  const serverError = ref<null | ServerErrorType>(null);
+  const { zodErrorMap, setApiErrorsToForm } = useApiFormErrors();
 
-  const {
-    handleSubmit,
-    setFieldValue,
-    isSubmitting,
-    values: formValues,
-  } = useForm({
+  z.setErrorMap(zodErrorMap);
+
+  const form = useForm({
     validationSchema: formSchema,
     initialValues: {
       email: "",
       password: "",
     },
   });
+
+  const {
+    handleSubmit,
+    setFieldValue,
+    isSubmitting,
+    values: formValues,
+    errors,
+  } = form;
 
   watchEffect(() => {
     if (emailParam.value) {
@@ -61,8 +64,6 @@
   });
 
   const onSubmit = handleSubmit(async (values) => {
-    serverError.value = null;
-
     try {
       await apiCaller.auth.signup.mutate({
         email: values.email,
@@ -84,10 +85,9 @@
         replace: true,
       });
     } catch (e) {
-      serverError.value = {
-        title: t("auth.signup.hints.signupFailed.title"),
-        message: t("auth.signup.hints.signupFailed.message"),
-      };
+      setApiErrorsToForm(e, form, {
+        defaultError: t("auth.signup.hints.signupFailed.message"),
+      });
     }
   });
 </script>
@@ -112,10 +112,9 @@
     <hr class="my-8" />
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
-        <AlertTriangleIcon class="size-4" />
-        <AlertTitle>{{ serverError.title }}</AlertTitle>
-        <AlertDescription>{{ serverError.message }}</AlertDescription>
+      <Alert v-if="errors.root" variant="error">
+        <AlertTriangleIcon class="size-6" />
+        <AlertDescription>{{ errors.root }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="email">

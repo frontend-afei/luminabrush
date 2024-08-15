@@ -11,6 +11,7 @@
 
   const formSchema = toTypedSchema(
     z.object({
+      root: z.string().optional(),
       code: z.string().min(6).max(6),
     }),
   );
@@ -62,22 +63,20 @@
     }
   });
 
-  type ServerErrorType = {
-    title: string;
-    message: string;
-  };
-  const serverError = ref<null | ServerErrorType>(null);
+  const { zodErrorMap, setApiErrorsToForm } = useApiFormErrors();
 
-  const { handleSubmit, isSubmitting } = useForm({
+  z.setErrorMap(zodErrorMap);
+
+  const form = useForm({
     validationSchema: formSchema,
     initialValues: {
       code: "",
     },
   });
 
-  const onSubmit = handleSubmit(async (values) => {
-    serverError.value = null;
+  const { handleSubmit, isSubmitting, errors } = form;
 
+  const onSubmit = handleSubmit(async (values) => {
     try {
       await apiCaller.auth.verifyOtp.mutate({
         code: values.code,
@@ -86,11 +85,10 @@
       });
 
       handleRedirect();
-    } catch (error) {
-      serverError.value = {
-        title: t("auth.verifyOtp.hints.verificationFailed.title"),
-        message: t("auth.verifyOtp.hints.verificationFailed.message"),
-      };
+    } catch (e) {
+      setApiErrorsToForm(e, form, {
+        defaultError: t("auth.verifyOtp.hints.verificationFailed"),
+      });
     }
   });
 </script>
@@ -105,10 +103,9 @@
     <SaasTeamInvitationInfo v-if="invitationCode" class="mb-6" />
 
     <form @submit.prevent="onSubmit" class="flex flex-col items-stretch gap-6">
-      <Alert v-if="serverError" variant="error">
-        <AlertTriangleIcon class="size-4" />
-        <AlertTitle>{{ serverError.title }}</AlertTitle>
-        <AlertDescription>{{ serverError.message }}</AlertDescription>
+      <Alert v-if="errors.root" variant="error">
+        <AlertTriangleIcon class="size-6" />
+        <AlertDescription>{{ errors.root }}</AlertDescription>
       </Alert>
 
       <FormField v-slot="{ componentField }" name="code">

@@ -1,6 +1,7 @@
 import { TRPCError } from "@trpc/server";
 import { generateOneTimePassword, generateVerificationToken } from "auth";
-import { hashPassword } from "auth/lib/password";
+import { hashPassword } from "auth/lib/hashing";
+import { passwordSchema } from "auth/lib/passwords";
 import { UserRoleSchema, db } from "database";
 import { z } from "zod";
 import { publicProcedure } from "../../trpc";
@@ -13,8 +14,23 @@ export const signup = publicProcedure
         .email()
         .min(1)
         .max(255)
-        .transform((v) => v.toLowerCase()),
-      password: z.string().min(8).max(255),
+        .transform((v) => v.trim().toLowerCase())
+        .refine(
+          async (email) =>
+            !(await db.user.findUnique({
+              where: {
+                email,
+              },
+            })),
+          {
+            params: {
+              i18n: {
+                key: "email_already_exists",
+              },
+            },
+          },
+        ),
+      password: passwordSchema,
       callbackUrl: z.string(),
     }),
   )
