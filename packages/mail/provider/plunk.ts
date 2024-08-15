@@ -1,3 +1,4 @@
+import { logger } from "logs";
 import type { SendEmailHandler } from "../types";
 
 export const send: SendEmailHandler = async ({ to, subject, html, text }) => {
@@ -16,7 +17,7 @@ export const send: SendEmailHandler = async ({ to, subject, html, text }) => {
   });
 
   if (!response.ok) {
-    console.error(await response.json());
+    logger.error(await response.json());
     throw new Error("Could not send email");
   }
 };

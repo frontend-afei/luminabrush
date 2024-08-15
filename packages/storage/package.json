@@ -1,4 +1,12 @@
 {
+  "name": "storage",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./index.ts",
+  "types": "./**/.ts",
+  "scripts": {
+    "lint": "eslint \"**/*.ts*\""
+  },
   "dependencies": {
     "@aws-sdk/client-s3": "3.437.0",
     "@aws-sdk/s3-request-presigner": "3.437.0"
@@ -8,13 +16,5 @@
     "eslint": "8.57.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
-  },
-  "license": "MIT",
-  "main": "./index.ts",
-  "name": "storage",
-  "scripts": {
-    "lint": "eslint \"**/*.ts*\""
-  },
-  "types": "./**/.ts",
-  "version": "0.0.0"
+  }
 }

@@ -1,14 +1,8 @@
 import { OAuth2RequestError } from "arctic";
 import { db } from "database";
+import type { EventHandlerRequest, H3Event } from "h3";
+import { getRequestURL, parseCookies, sendRedirect, setCookie } from "h3";
 import { lucia } from "./lucia";
-import {
-  EventHandlerRequest,
-  H3Event,
-  getRequestURL,
-  parseCookies,
-  sendRedirect,
-  setCookie,
-} from "h3";
 
 export function createOauthRedirectHandler(
   providerId: string,
@@ -61,7 +55,7 @@ export function createOauthCallbackHandler(
     const state = url.searchParams.get("state");
     const cookies = parseCookies(event);
     const storedState = cookies[`${providerId}_oauth_state`] ?? null;
-    const storedCodeVerifier = cookies["code_verifier"] ?? null;
+    const storedCodeVerifier = cookies.code_verifier ?? null;
 
     if (!code || !state || !storedState || state !== storedState) {
       return new Response(null, {
@@ -104,7 +98,7 @@ export function createOauthCallbackHandler(
       if (existingUser) {
         if (
           !existingUser.oauthAccounts.some(
-            (account) => account.providerId === providerId,
+            (account: any) => account.providerId === providerId,
           )
         ) {
           await db.userOauthAccount.create({

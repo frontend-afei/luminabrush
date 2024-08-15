@@ -1,5 +1,6 @@
 import { TRPCError, initTRPC } from "@trpc/server";
 import { UserRoleSchema } from "database";
+import { logger } from "logs";
 import superjson from "superjson";
 import { ZodError } from "zod";
 import type { Context } from "./context";
@@ -52,7 +53,33 @@ const isAdminMiddleware = t.middleware(({ ctx, next }) => {
   });
 });
 
+const loggerMiddleware = t.middleware(async (opts) => {
+  const { type, meta, next, path, rawInput } = opts;
+  const start = Date.now();
+  const request = await next(opts);
+  const duration = Date.now() - start;
+
+  const resultPayload = {
+    input: await rawInput,
+    meta,
+  };
+
+  const logLabel = `${type.toUpperCase()} ${path} in ${duration}ms`;
+
+  request.ok
+    ? logger.info(logLabel, resultPayload)
+    : logger.error(logLabel, resultPayload);
+
+  return request;
+});
+
 export const { router, createCallerFactory } = t;
-export const publicProcedure = t.procedure;
-export const protectedProcedure = t.procedure.use(isAuthenticatedMiddleware);
-export const adminProcedure = t.procedure.use(isAdminMiddleware);
+export const publicProcedure = t.procedure.use(loggerMiddleware);
+export const protectedProcedure = t.procedure
+  .use(loggerMiddleware)
+  .use(isAuthenticatedMiddleware);
+export const adminProcedure = t.procedure
+  .use(loggerMiddleware)
+  .use(isAdminMiddleware);
+
+export { TRPCError };
