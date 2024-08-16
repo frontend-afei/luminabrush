@@ -1,13 +1,12 @@
 {
-  "name": "mail",
+  "name": "logs",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@vue-email/nuxt": "^0.8.19",
+    "consola": "^3.2.3",
     "eslint-config-custom": "workspace:*",
-    "logs": "workspace:*",
-    "nodemailer": "^6.9.14",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "utils": "workspace:*"
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.11",

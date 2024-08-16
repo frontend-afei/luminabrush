@@ -16,7 +16,7 @@ export const generateVerificationToken = async ({
   });
 
   if (storedUserTokens.length > 0) {
-    const reusableStoredToken = storedUserTokens.find((token) => {
+    const reusableStoredToken = storedUserTokens.find((token: any) => {
       return isWithinExpirationDate(
         new Date(Number(token.expires) - expireDuration / 2),
       );
@@ -82,7 +82,7 @@ export const generateOneTimePassword = async ({
   });
 
   if (storedUserTokens.length > 0) {
-    const reusableStoredToken = storedUserTokens.find((token) => {
+    const reusableStoredToken = storedUserTokens.find((token: any) => {
       return isWithinExpirationDate(
         new Date(Number(token.expires) - expireDuration / 2),
       );
