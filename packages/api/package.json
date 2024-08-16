@@ -13,7 +13,7 @@
     "logs": "workspace:*",
     "mail": "workspace:*",
     "storage": "workspace:*",
-    "stripe": "^16.7.0",
+    "stripe": "^16.8.0",
     "tsconfig": "workspace:*",
     "utils": "workspace:*"
   },
