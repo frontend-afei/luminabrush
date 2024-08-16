@@ -6,6 +6,7 @@
   <div class="container pb-20 pt-44 text-center">
     <div class="mb-4 flex justify-center">
       <div
+        data-test="banner"
         class="mx-auto flex flex-wrap items-center justify-center rounded-full border border-highlight p-px px-4 py-1 text-sm font-normal text-highlight"
       >
         <span

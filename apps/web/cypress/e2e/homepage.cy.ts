@@ -22,19 +22,7 @@ describe("homepage", () => {
     it("should show banner on initial load", () => {
       const banner = cy.get('[data-test="banner"]');
       banner.should("exist");
-      banner.should(
-        "contain",
-        "New: In this banner you can show your awesome new feature",
-      );
-    });
-
-    it("should be closable", () => {
-      const banner = cy.get('[data-test="banner"]');
-      const closeButton = cy.get('[data-test="banner"] button');
-      closeButton.should("exist");
-      closeButton.click();
-
-      banner.should("not.exist");
+      banner.should("contain.text", "Amazing feature of your SaaS");
     });
   });
 
@@ -44,6 +32,7 @@ describe("homepage", () => {
     });
 
     it("should toggle to light mode if selected", () => {
+      cy.wait(1000);
       cy.get('[data-test="color-mode-toggle"]').click();
       cy.get('[data-test="color-mode-toggle-item-light"]').click();
 
@@ -51,6 +40,7 @@ describe("homepage", () => {
     });
 
     it("should toggle to dark mode if selected", () => {
+      cy.wait(1000);
       cy.get('[data-test="color-mode-toggle"]').click();
       cy.get('[data-test="color-mode-toggle-item-dark"]').click();
 
