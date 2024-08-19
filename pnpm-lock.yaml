@@ -36,8 +36,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(magicast@0.3.4)(rollup@4.18.1)
       '@nuxtjs/i18n':
-        specifier: 8.4.0
-        version: 8.4.0(magicast@0.3.4)(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))
+        specifier: 8.5.0
+        version: 8.5.0(magicast@0.3.4)(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))
       '@nuxtjs/seo':
         specifier: 2.0.0-rc.18
         version: 2.0.0-rc.18(h3@1.12.0)(magicast@0.3.4)(rollup@4.18.1)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2))(vue@3.4.33(typescript@5.5.4))
@@ -1668,8 +1668,8 @@ packages:
   '@nuxtjs/google-fonts@3.2.0':
     resolution: {integrity: sha512-cGAjDJoeQ2jm6VJCo4AtSmKO6KjsbO9RSLj8q261fD0lMVNMZCxkCxBkg8L0/2Vfgp+5QBHWVXL71p1tiybJFw==}
 
-  '@nuxtjs/i18n@8.4.0':
-    resolution: {integrity: sha512-+iFDUlWNT99jVlXoVTcaEJdiE/psWBVMyVvDl4aB58/nB9ICzNy1bLAYrUxtoEtxhFF2tF+DHTdcs8dSVWeHWQ==}
+  '@nuxtjs/i18n@8.5.0':
+    resolution: {integrity: sha512-FMdVUzsbTWu3FOCQsUt5aDyc6ffPAowo1MfPmuFwDIgqWgzMnayDEaQM2c2D1Hyn1pjYYI46IVsJ9+aJqp+SHQ==}
     engines: {node: ^14.16.0 || >=16.11.0}
 
   '@nuxtjs/mdc@0.8.3':
@@ -9277,7 +9277,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@nuxtjs/i18n@8.4.0(magicast@0.3.4)(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))':
+  '@nuxtjs/i18n@8.5.0(magicast@0.3.4)(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))':
     dependencies:
       '@intlify/h3': 0.5.0
       '@intlify/shared': 9.13.1
@@ -14727,10 +14727,22 @@ snapshots:
       read-cache: 1.0.0
       resolve: 1.22.8
 
+  postcss-import@15.1.0(postcss@8.4.41):
+    dependencies:
+      postcss: 8.4.41
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.8
+
   postcss-js@4.0.1(postcss@8.4.39):
     dependencies:
       camelcase-css: 2.0.1
       postcss: 8.4.39
+
+  postcss-js@4.0.1(postcss@8.4.41):
+    dependencies:
+      camelcase-css: 2.0.1
+      postcss: 8.4.41
 
   postcss-load-config@4.0.2(postcss@8.4.39):
     dependencies:
@@ -14738,6 +14750,13 @@ snapshots:
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.39
+
+  postcss-load-config@4.0.2(postcss@8.4.41):
+    dependencies:
+      lilconfig: 3.1.2
+      yaml: 2.4.5
+    optionalDependencies:
+      postcss: 8.4.41
 
   postcss-merge-longhand@7.0.2(postcss@8.4.39):
     dependencies:
@@ -14781,6 +14800,11 @@ snapshots:
   postcss-nested@6.0.1(postcss@8.4.39):
     dependencies:
       postcss: 8.4.39
+      postcss-selector-parser: 6.1.0
+
+  postcss-nested@6.0.1(postcss@8.4.41):
+    dependencies:
+      postcss: 8.4.41
       postcss-selector-parser: 6.1.0
 
   postcss-nesting@12.1.5(postcss@8.4.38):
@@ -15721,11 +15745,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.1
-      postcss: 8.4.39
-      postcss-import: 15.1.0(postcss@8.4.39)
-      postcss-js: 4.0.1(postcss@8.4.39)
-      postcss-load-config: 4.0.2(postcss@8.4.39)
-      postcss-nested: 6.0.1(postcss@8.4.39)
+      postcss: 8.4.41
+      postcss-import: 15.1.0(postcss@8.4.41)
+      postcss-js: 4.0.1(postcss@8.4.41)
+      postcss-load-config: 4.0.2(postcss@8.4.41)
+      postcss-nested: 6.0.1(postcss@8.4.41)
       postcss-selector-parser: 6.1.0
       resolve: 1.22.8
       sucrase: 3.35.0
