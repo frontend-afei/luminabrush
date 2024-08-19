@@ -57,8 +57,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0(vue@3.4.33(typescript@5.5.4))
       '@vueuse/nuxt':
-        specifier: ^11.0.0
-        version: 11.0.0(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.1)(terser@5.31.2)(typescript@5.5.4)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2)))(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))
+        specifier: ^11.0.1
+        version: 11.0.1(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.1)(terser@5.31.2)(typescript@5.5.4)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2)))(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))
       api:
         specifier: workspace:*
         version: link:../../packages/api
@@ -360,7 +360,7 @@ importers:
     devDependencies:
       '@mertasan/tailwindcss-variables':
         specifier: ^2.7.0
-        version: 2.7.0(autoprefixer@10.4.19(postcss@8.4.39))(postcss@8.4.39)
+        version: 2.7.0(autoprefixer@10.4.19(postcss@8.4.41))(postcss@8.4.41)
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.10)
@@ -2690,6 +2690,9 @@ packages:
   '@vueuse/core@11.0.0':
     resolution: {integrity: sha512-shibzNGjmRjZucEm97B8V0NO5J3vPHMCE/mltxQ3vHezbDoFQBMtK11XsfwfPionxSbo+buqPmsCljtYuXIBpw==}
 
+  '@vueuse/core@11.0.1':
+    resolution: {integrity: sha512-YTrekI18WwEyP3h168Fir94G/HNC27wvXJI21Alm0sPOwvhihfkrvHIe+5PNJq+MpgWdRcsjvE/38JaoKrgZhQ==}
+
   '@vueuse/head@2.0.0':
     resolution: {integrity: sha512-ykdOxTGs95xjD4WXE4na/umxZea2Itl0GWBILas+O4oqS7eXIods38INvk3XkJKjqMdWPcpCyLX/DioLQxU1KA==}
     peerDependencies:
@@ -2701,13 +2704,16 @@ packages:
   '@vueuse/metadata@11.0.0':
     resolution: {integrity: sha512-0TKsAVT0iUOAPWyc9N79xWYfovJVPATiOPVKByG6jmAYdDiwvMVm9xXJ5hp4I8nZDxpCcYlLq/Rg9w1Z/jrGcg==}
 
+  '@vueuse/metadata@11.0.1':
+    resolution: {integrity: sha512-dTFvuHFAjLYOiSd+t9Sk7xUiuL6jbfay/eX+g+jaipXXlwKur2VCqBCZX+jfu+2vROUGcUsdn3fJR9KkpadIOg==}
+
   '@vueuse/nuxt@10.11.1':
     resolution: {integrity: sha512-UiaYSIwOkmUVn8Gl1AqtLWYR12flO+8sEu9X0Y1fNjSR7EWy9jMuiCvOGqwtoeTsqfHrivl0d5HfMzr11GFnMA==}
     peerDependencies:
       nuxt: ^3.0.0
 
-  '@vueuse/nuxt@11.0.0':
-    resolution: {integrity: sha512-mkfB2ZCMQqkMvMm2apV9K0stU937b3rC7/S5dw9i4b87e5mTLbGshKLa7ASP+55mRxbbKp7YkU1Y5+P8zFWhuQ==}
+  '@vueuse/nuxt@11.0.1':
+    resolution: {integrity: sha512-2utGiRItdFV6/ED39YMyVl/mWFg/Hfx21sVTpo/uv+ZVwg38bLP79Ziqy21WXow18t1E9NEOirU9KhB655ERug==}
     peerDependencies:
       nuxt: ^3.0.0
 
@@ -2716,6 +2722,9 @@ packages:
 
   '@vueuse/shared@11.0.0':
     resolution: {integrity: sha512-i4ZmOrIEjSsL94uAEt3hz88UCz93fMyP/fba9S+vypX90fKg3uYX9cThqvWc9aXxuTzR0UGhOKOTQd//Goh1nQ==}
+
+  '@vueuse/shared@11.0.1':
+    resolution: {integrity: sha512-eAPf5CQB3HR0S76HqrhjBqFYstZfiHWZq8xF9EQmobGBkrhPfErJEhr8aMNQMqd6MkENIx2pblIEfJGlHpClug==}
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -7178,17 +7187,6 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-demi@0.14.8:
-    resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
-    engines: {node: '>=12'}
-    hasBin: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-
   vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
 
@@ -8670,11 +8668,11 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mertasan/tailwindcss-variables@2.7.0(autoprefixer@10.4.19(postcss@8.4.39))(postcss@8.4.39)':
+  '@mertasan/tailwindcss-variables@2.7.0(autoprefixer@10.4.19(postcss@8.4.41))(postcss@8.4.41)':
     dependencies:
-      autoprefixer: 10.4.19(postcss@8.4.39)
+      autoprefixer: 10.4.19(postcss@8.4.41)
       lodash: 4.17.21
-      postcss: 8.4.39
+      postcss: 8.4.41
 
   '@miyaneee/rollup-plugin-json5@1.2.0(rollup@4.18.1)':
     dependencies:
@@ -10680,7 +10678,7 @@ snapshots:
       '@types/web-bluetooth': 0.0.20
       '@vueuse/metadata': 10.11.1
       '@vueuse/shared': 10.11.1(vue@3.4.33(typescript@5.5.4))
-      vue-demi: 0.14.8(vue@3.4.33(typescript@5.5.4))
+      vue-demi: 0.14.10(vue@3.4.33(typescript@5.5.4))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -10690,6 +10688,16 @@ snapshots:
       '@types/web-bluetooth': 0.0.20
       '@vueuse/metadata': 11.0.0
       '@vueuse/shared': 11.0.0(vue@3.4.33(typescript@5.5.4))
+      vue-demi: 0.14.10(vue@3.4.33(typescript@5.5.4))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  '@vueuse/core@11.0.1(vue@3.4.33(typescript@5.5.4))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.20
+      '@vueuse/metadata': 11.0.1
+      '@vueuse/shared': 11.0.1(vue@3.4.33(typescript@5.5.4))
       vue-demi: 0.14.10(vue@3.4.33(typescript@5.5.4))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -10707,6 +10715,8 @@ snapshots:
 
   '@vueuse/metadata@11.0.0': {}
 
+  '@vueuse/metadata@11.0.1': {}
+
   '@vueuse/nuxt@10.11.1(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.1)(terser@5.31.2)(typescript@5.5.4)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2)))(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))':
     dependencies:
       '@nuxt/kit': 3.12.4(magicast@0.3.4)(rollup@4.18.1)
@@ -10722,11 +10732,11 @@ snapshots:
       - supports-color
       - vue
 
-  '@vueuse/nuxt@11.0.0(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.1)(terser@5.31.2)(typescript@5.5.4)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2)))(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))':
+  '@vueuse/nuxt@11.0.1(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.1)(terser@5.31.2)(typescript@5.5.4)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2)))(rollup@4.18.1)(vue@3.4.33(typescript@5.5.4))':
     dependencies:
       '@nuxt/kit': 3.12.4(magicast@0.3.4)(rollup@4.18.1)
-      '@vueuse/core': 11.0.0(vue@3.4.33(typescript@5.5.4))
-      '@vueuse/metadata': 11.0.0
+      '@vueuse/core': 11.0.1(vue@3.4.33(typescript@5.5.4))
+      '@vueuse/metadata': 11.0.1
       local-pkg: 0.5.0
       nuxt: 3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(encoding@0.1.13)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.1)(terser@5.31.2)(typescript@5.5.4)(vite@5.3.4(@types/node@22.4.1)(terser@5.31.2))
       vue-demi: 0.14.10(vue@3.4.33(typescript@5.5.4))
@@ -10745,6 +10755,13 @@ snapshots:
       - vue
 
   '@vueuse/shared@11.0.0(vue@3.4.33(typescript@5.5.4))':
+    dependencies:
+      vue-demi: 0.14.10(vue@3.4.33(typescript@5.5.4))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  '@vueuse/shared@11.0.1(vue@3.4.33(typescript@5.5.4))':
     dependencies:
       vue-demi: 0.14.10(vue@3.4.33(typescript@5.5.4))
     transitivePeerDependencies:
@@ -10981,6 +10998,16 @@ snapshots:
       normalize-range: 0.1.2
       picocolors: 1.0.1
       postcss: 8.4.39
+      postcss-value-parser: 4.2.0
+
+  autoprefixer@10.4.19(postcss@8.4.41):
+    dependencies:
+      browserslist: 4.23.2
+      caniuse-lite: 1.0.30001642
+      fraction.js: 4.3.7
+      normalize-range: 0.1.2
+      picocolors: 1.0.1
+      postcss: 8.4.41
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -16412,10 +16439,6 @@ snapshots:
   vue-component-type-helpers@1.8.27: {}
 
   vue-demi@0.14.10(vue@3.4.33(typescript@5.5.4)):
-    dependencies:
-      vue: 3.4.33(typescript@5.5.4)
-
-  vue-demi@0.14.8(vue@3.4.33(typescript@5.5.4)):
     dependencies:
       vue: 3.4.33(typescript@5.5.4)
 
