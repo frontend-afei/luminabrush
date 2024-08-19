@@ -54,10 +54,10 @@ importers:
         specifier: ^4.13.2
         version: 4.13.2(vue@3.4.38(typescript@5.5.4))
       '@vueuse/core':
-        specifier: ^11.0.0
+        specifier: ^11.0.1
         version: 11.0.1(vue@3.4.38(typescript@5.5.4))
       '@vueuse/nuxt':
-        specifier: ^11.0.0
+        specifier: ^11.0.1
         version: 11.0.1(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.4.1)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.21.0)(terser@5.31.6)(typescript@5.5.4)(vite@5.4.1(@types/node@22.4.1)(terser@5.31.6)))(rollup@4.21.0)(vue@3.4.38(typescript@5.5.4))
       api:
         specifier: workspace:*
