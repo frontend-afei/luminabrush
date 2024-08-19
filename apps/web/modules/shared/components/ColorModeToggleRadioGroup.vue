@@ -30,6 +30,7 @@
       v-for="option of colorModeOptions"
       :key="option.value"
       :value="option.value"
+      :data-test="`color-mode-toggle-item-${option.value}`"
     >
       <component :is="option.icon" class="mr-2 size-4 opacity-50" />
       {{ option.label }}

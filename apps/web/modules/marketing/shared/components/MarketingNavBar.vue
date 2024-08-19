@@ -58,6 +58,7 @@
     :class="[
       isTop ? 'shadow-none' : 'bg-background/80 shadow-sm backdrop-blur-lg',
     ]"
+    data-test="navigation"
   >
     <div class="container">
       <div

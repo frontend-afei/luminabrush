@@ -35,11 +35,11 @@
   const selectPlanLabel = computed(() => {
     if (isActivePlan.value) {
       return props.labels.currentPlan;
-    } else if (props.activePlanId) {
-      return props.labels.switchToPlan;
-    } else {
-      return props.labels.subscribe;
     }
+    if (props.activePlanId) {
+      return props.labels.switchToPlan;
+    }
+    return props.labels.subscribe;
   });
 
   const planSelectionPending = ref(false);
@@ -80,7 +80,10 @@
       </div>
 
       <div>
-        <strong class="text-2xl font-bold text-highlight">
+        <strong
+          class="text-2xl font-bold text-highlight"
+          data-test="price-table-plan-price"
+        >
           {{ n(variant.price / 100, "currency") }}
           <span class="text-sm font-normal opacity-70">
             / {{ props.labels[interval] }}

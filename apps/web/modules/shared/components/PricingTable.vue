@@ -59,7 +59,11 @@
 <template>
   <div :class="cn(props.class, '@container')">
     <div class="flex justify-center">
-      <Tabs v-model="interval" class="mb-4">
+      <Tabs
+        v-model="interval"
+        class="mb-4"
+        data-test="price-table-interval-tabs"
+      >
         <TabsList>
           <TabsTrigger value="month">{{ labels.monthly }}</TabsTrigger>
           <TabsTrigger value="year">{{ labels.yearly }}</TabsTrigger>
@@ -82,6 +86,7 @@
           subscribe: labels.subscribe,
         }"
         :activePlanId="props.activePlanId"
+        data-test="price-table-plan"
       />
     </div>
   </div>
