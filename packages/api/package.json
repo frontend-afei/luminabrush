@@ -8,6 +8,7 @@
   "dependencies": {
     "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
     "auth": "workspace:*",
+    "chargebee-typescript": "^2.38.0",
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "logs": "workspace:*",
