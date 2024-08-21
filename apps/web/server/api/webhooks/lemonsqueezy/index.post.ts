@@ -5,7 +5,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 
 export default defineEventHandler(async (event) => {
   try {
-    const text = await readRawBody(event);
+    const text = await readBody(event);
     const hmac = createHmac(
       "sha256",
       process.env.LEMONSQUEEZY_WEBHOOK_SECRET as string,
@@ -62,7 +62,9 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     throw createError({
       statusCode: 400,
-      statusMessage: `Webhook error: ${error instanceof Error ? error.message : ""}`,
+      statusMessage: `Webhook error: ${
+        error instanceof Error ? error.message : ""
+      }`,
     });
   }
 
