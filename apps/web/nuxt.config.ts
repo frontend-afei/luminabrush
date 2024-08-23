@@ -1,4 +1,5 @@
 import { getBaseUrl } from "utils";
+import { config } from "../../config";
 
 const baseUrl = getBaseUrl();
 
@@ -109,7 +110,7 @@ export default defineNuxtConfig({
         name: "Deutsch",
       },
     ],
-    defaultLocale: "en",
+    defaultLocale: config.i18n.defaultLocale,
     strategy: "no_prefix",
     detectBrowserLanguage: {
       useCookie: true,
@@ -117,7 +118,7 @@ export default defineNuxtConfig({
       redirectOn: "root",
     },
     lazy: true,
-    langDir: "locales",
+    langDir: "../../packages/i18n/translations/",
   },
 
   // @nuxtjs/google-fonts
