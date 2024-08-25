@@ -1,3 +1,4 @@
+import { config, type Locale } from "@config";
 import type { inferAsyncReturnType } from "@trpc/server";
 import { lucia } from "auth";
 import { db } from "database";
@@ -47,11 +48,18 @@ export async function createContext(event?: H3Event | { isAdmin?: boolean }) {
     teamMemberships,
   });
 
+  const locale =
+    (event &&
+      "node" in event &&
+      parseCookies(event)?.[config.i18n.cookieName]) ||
+    (config.i18n.defaultLocale as Locale);
+
   return {
     user,
     teamMemberships,
     abilities,
     session,
+    locale,
     isAdmin: event && "isAdmin" in event ? event.isAdmin : false,
     event: event && "node" in event ? event : undefined,
   };

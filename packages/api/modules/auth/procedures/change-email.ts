@@ -16,46 +16,49 @@ export const changeEmail = protectedProcedure
       callbackUrl: z.string(),
     }),
   )
-  .mutation(async ({ ctx: { user, event }, input: { email, callbackUrl } }) => {
-    if (!user) {
-      return;
-    }
+  .mutation(
+    async ({ ctx: { user, event, locale }, input: { email, callbackUrl } }) => {
+      if (!user) {
+        return;
+      }
 
-    const updatedUser = await db.user.update({
-      where: {
-        id: user.id,
-      },
-      data: {
-        email,
-        emailVerified: false,
-      },
-    });
+      const updatedUser = await db.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          email,
+          emailVerified: false,
+        },
+      });
 
-    await lucia.invalidateUserSessions(user.id);
-    const sessionCookie = lucia.createBlankSessionCookie();
-    if (event) {
-      setCookie(
-        event,
-        sessionCookie.name,
-        sessionCookie.value,
-        sessionCookie.attributes,
-      );
-    }
+      await lucia.invalidateUserSessions(user.id);
+      const sessionCookie = lucia.createBlankSessionCookie();
+      if (event) {
+        setCookie(
+          event,
+          sessionCookie.name,
+          sessionCookie.value,
+          sessionCookie.attributes,
+        );
+      }
 
-    const token = await generateVerificationToken({
-      userId: user.id,
-    });
+      const token = await generateVerificationToken({
+        userId: user.id,
+      });
 
-    const url = new URL(callbackUrl);
-    url.searchParams.set("token", token);
+      const url = new URL(callbackUrl);
+      url.searchParams.set("token", token);
 
-    // @ts-expect-error - sendEmail is auto-imported
-    sendEmail({
-      to: email,
-      templateId: "emailChange",
-      context: {
-        name: updatedUser.name ?? updatedUser.email,
-        url: url.toString(),
-      },
-    });
-  });
+      // @ts-expect-error - sendEmail is auto-imported
+      sendEmail({
+        to: email,
+        templateId: "emailChange",
+        locale,
+        context: {
+          name: updatedUser.name ?? updatedUser.email,
+          url: url.toString(),
+        },
+      });
+    },
+  );

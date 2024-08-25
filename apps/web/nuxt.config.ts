@@ -1,3 +1,4 @@
+import path from "node:path";
 import { getBaseUrl } from "utils";
 import { config } from "../../config";
 
@@ -6,6 +7,10 @@ const baseUrl = getBaseUrl();
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
+  },
+
+  alias: {
+    "@config": path.resolve(__dirname, path.join("..", "..", "config")),
   },
 
   experimental: {

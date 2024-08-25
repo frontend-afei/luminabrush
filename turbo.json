@@ -33,7 +33,8 @@
     "S3_SECRET_ACCESS_KEY",
     "PLUNK_API_KEY",
     "RESEND_API_KEY",
-    "POSTMARK_API_KEY"
+    "POSTMARK_API_KEY",
+    "POSTMARK_SERVER_TOKEN"
   ],
   "tasks": {
     "build": {

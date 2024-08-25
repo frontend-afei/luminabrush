@@ -1,8 +1,8 @@
+import { config } from "@config";
 import nodemailer from "nodemailer";
-import { config } from "../config";
 import type { SendEmailHandler } from "../types";
 
-const { from } = config;
+const { from } = config.mailing;
 
 export const send: SendEmailHandler = async ({ to, subject, text, html }) => {
   const transporter = nodemailer.createTransport({
