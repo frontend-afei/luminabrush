@@ -42,15 +42,8 @@ export const config = {
     defaultCurrency: "USD",
     cookieName: "NUXT_LOCALE",
   },
-  teams: {
-    avatarColors: ["#4e6df5", "#e5a158", "#9dbee5", "#ced3d9"],
-  },
   auth: {
     redirectAfterLogout: "/",
-  },
-  mailing: {
-    provider: "plunk",
-    from: "hello@your-domain.com",
   },
 } as const satisfies Config;
 
@@ -70,18 +63,7 @@ export type Config = {
     defaultCurrency: string;
     cookieName: string;
   };
-  teams: { avatarColors: string[] };
   auth: { redirectAfterLogout: string };
-  mailing: {
-    provider:
-      | "custom"
-      | "console"
-      | "plunk"
-      | "resend"
-      | "postmark"
-      | "nodemailer";
-    from: string;
-  };
 };
 
 export type Locale = keyof (typeof config)["i18n"]["locales"];
