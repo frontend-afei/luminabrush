@@ -101,29 +101,21 @@ export default defineNuxtConfig({
 
   // @nuxtjs/i18n
   i18n: {
-    locales: [
-      {
-        code: "en",
-        language: "en-US",
-        file: "en.json",
-        name: "English",
-      },
-      {
-        code: "de",
-        language: "de-DE",
-        file: "de.json",
-        name: "Deutsch",
-      },
-    ],
+    locales: Object.entries(config.i18n.locales).map(([code, locale]) => ({
+      code,
+      file: `${code}.json`,
+      name: locale.label,
+    })),
     defaultLocale: config.i18n.defaultLocale,
     strategy: "no_prefix",
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: "NUXT_LOCALE",
+      cookieKey: config.i18n.cookieName,
       redirectOn: "root",
     },
     lazy: true,
-    langDir: "../../packages/i18n/translations/",
+
+    langDir: path.join("..", "..", "packages", "i18n", "translations"),
   },
 
   // @nuxtjs/google-fonts

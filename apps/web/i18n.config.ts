@@ -1,3 +1,5 @@
+import { config } from "@config";
+
 /**
  * Global i18n configuration.
  * The currency setting (e.g. "USD") only works with Stripe for now.
@@ -6,54 +8,13 @@
  */
 export default defineI18nConfig(() => ({
   legacy: false,
-  availableLocales: ["en", "de", "es"],
-  locale: "en",
-  fallbackLocale: "en",
-  numberFormats: {
-    de: {
-      currency: {
-        style: "currency",
-        currency: "USD",
-        notation: "standard",
-      },
-      number: {
-        style: "decimal",
-        maximumFractionDigits: 0,
-      },
-      percent: {
-        style: "percent",
-        useGrouping: false,
-      },
-    },
-    en: {
-      currency: {
-        style: "currency",
-        currency: "USD",
-        notation: "standard",
-      },
-      number: {
-        style: "decimal",
-        maximumFractionDigits: 0,
-      },
-      percent: {
-        style: "percent",
-        useGrouping: false,
-      },
-    },
-    es: {
-      currency: {
-        style: "currency",
-        currency: "USD",
-        notation: "standard",
-      },
-      number: {
-        style: "decimal",
-        maximumFractionDigits: 0,
-      },
-      percent: {
-        style: "percent",
-        useGrouping: false,
-      },
-    },
-  },
+  availableLocales: Object.keys(config.i18n.locales),
+  locale: config.i18n.defaultLocale,
+  fallbackLocale: config.i18n.defaultLocale,
+  numberFormats: Object.fromEntries(
+    Object.entries(config.i18n.locales).map(([key, value]) => [
+      key,
+      value.numberFormats,
+    ]),
+  ),
 }));

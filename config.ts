@@ -1,18 +1,46 @@
 export const config = {
   i18n: {
     locales: {
-      en: {
-        currency: "USD",
-        label: "English",
-      },
       de: {
-        currency: "USD",
         label: "Deutsch",
+        numberFormats: {
+          currency: {
+            style: "currency",
+            currency: "USD",
+            notation: "standard",
+          },
+          number: {
+            style: "decimal",
+            maximumFractionDigits: 0,
+          },
+          percent: {
+            style: "percent",
+            useGrouping: false,
+          },
+        },
+      },
+      en: {
+        label: "English",
+        numberFormats: {
+          currency: {
+            style: "currency",
+            currency: "USD",
+            notation: "standard",
+          },
+          number: {
+            style: "decimal",
+            maximumFractionDigits: 0,
+          },
+          percent: {
+            style: "percent",
+            useGrouping: false,
+          },
+        },
       },
     },
     defaultLocale: "en",
     defaultCurrency: "USD",
-    cookieName: "NEXT_LOCALE",
+    cookieName: "NUXT_LOCALE",
   },
   teams: {
     avatarColors: ["#4e6df5", "#e5a158", "#9dbee5", "#ced3d9"],
@@ -28,7 +56,16 @@ export const config = {
 
 export type Config = {
   i18n: {
-    locales: { [locale: string]: { currency: string; label: string } };
+    locales: {
+      [locale: string]: {
+        label: string;
+        numberFormats: {
+          currency: { style: string; currency: string; notation: string };
+          number: { style: string; maximumFractionDigits: number };
+          percent: { style: string; useGrouping: boolean };
+        };
+      };
+    };
     defaultLocale: string;
     defaultCurrency: string;
     cookieName: string;
