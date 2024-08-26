@@ -40,7 +40,7 @@ export const loginWithEmail = publicProcedure
       callbackUrl: z.string(),
     }),
   )
-  .mutation(async ({ input: { email, callbackUrl }, ctx: { locale } }) => {
+  .mutation(async ({ input: { email, callbackUrl } }) => {
     try {
       const user = await db.user.findUnique({
         where: {
@@ -68,7 +68,6 @@ export const loginWithEmail = publicProcedure
       await sendEmail({
         templateId: "magicLink",
         to: email,
-        locale,
         context: {
           url: url.toString(),
           name: user.name ?? user.email,

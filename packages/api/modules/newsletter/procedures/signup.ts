@@ -7,11 +7,10 @@ export const signup = publicProcedure
       email: z.string(),
     }),
   )
-  .mutation(async ({ input: { email }, ctx: { locale } }) => {
+  .mutation(async ({ input: { email } }) => {
     // @ts-expect-error - sendEmail is auto-imported
     return await sendEmail({
       to: email,
-      locale,
       templateId: "newsletterSignup",
       context: {},
     });

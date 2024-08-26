@@ -35,47 +35,44 @@ export const signup = publicProcedure
       callbackUrl: z.string(),
     }),
   )
-  .mutation(
-    async ({ input: { email, password, callbackUrl }, ctx: { locale } }) => {
-      try {
-        const hashedPassword = await hashPassword(password);
-        const user = await db.user.create({
-          data: {
-            email,
-            role: UserRoleSchema.Values.USER,
-            hashedPassword,
-          },
-        });
+  .mutation(async ({ input: { email, password, callbackUrl } }) => {
+    try {
+      const hashedPassword = await hashPassword(password);
+      const user = await db.user.create({
+        data: {
+          email,
+          role: UserRoleSchema.Values.USER,
+          hashedPassword,
+        },
+      });
 
-        const token = await generateVerificationToken({
-          userId: user.id,
-        });
-        const otp = await generateOneTimePassword({
-          userId: user.id,
-          type: "SIGNUP",
-          identifier: email,
-        });
+      const token = await generateVerificationToken({
+        userId: user.id,
+      });
+      const otp = await generateOneTimePassword({
+        userId: user.id,
+        type: "SIGNUP",
+        identifier: email,
+      });
 
-        const url = new URL(callbackUrl);
-        url.searchParams.set("token", token);
+      const url = new URL(callbackUrl);
+      url.searchParams.set("token", token);
 
-        // @ts-expect-error - sendEmail is auto-imported
-        await sendEmail({
-          templateId: "newUser",
-          to: email,
-          locale,
-          context: {
-            url: url.toString(),
-            otp,
-            name: user.name ?? user.email,
-          },
-        });
-      } catch (e) {
-        logger.error(e);
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: "An unknown error occurred.",
-        });
-      }
-    },
-  );
+      // @ts-expect-error - sendEmail is auto-imported
+      await sendEmail({
+        templateId: "newUser",
+        to: email,
+        context: {
+          url: url.toString(),
+          otp,
+          name: user.name ?? user.email,
+        },
+      });
+    } catch (e) {
+      logger.error(e);
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "An unknown error occurred.",
+      });
+    }
+  });
