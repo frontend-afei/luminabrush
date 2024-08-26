@@ -45,6 +45,12 @@ export const config = {
   auth: {
     redirectAfterLogout: "/",
   },
+  mailing: {
+    from: "hello@your-domain.com",
+  },
+  teams: {
+    avatarColors: ["#4E6DF5", "#E5A158", "#9DBEE5", "#CED3D9"],
+  },
 } as const satisfies Config;
 
 export type Config = {
@@ -64,6 +70,12 @@ export type Config = {
     cookieName: string;
   };
   auth: { redirectAfterLogout: string };
+  mailing: {
+    from: string;
+  };
+  teams: {
+    avatarColors: string[];
+  };
 };
 
 export type Locale = keyof (typeof config)["i18n"]["locales"];

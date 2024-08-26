@@ -21,7 +21,7 @@
 <template>
   <DropdownMenu v-if="currentTeam">
     <DropdownMenuTrigger
-      class="-ml-2 flex w-full items-center justify-between rounded-md p-2 text-left outline-none focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-ring"
+      class="focus-visible:border-primary focus-visible:ring-ring -ml-2 flex w-full items-center justify-between rounded-md p-2 text-left outline-none focus-visible:ring-1"
     >
       <div class="flex items-center justify-start gap-2 text-sm">
         <span class="hidden lg:block">

@@ -1,3 +1,5 @@
+import { config } from "@config";
+
 /**
  * Uses the values defined in `i18n.config.ts`
  */
@@ -7,7 +9,7 @@ export const useLocaleCurrency = () => {
   const localeCurrency = computed(() => {
     return (
       (getNumberFormat(locale.value)?.currency?.currency as string | null) ||
-      "USD"
+      config.i18n.defaultCurrency
     );
   });
 

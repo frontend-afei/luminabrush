@@ -475,6 +475,7 @@
   "zod": {
     "errors": {
       "custom": {
+        "email_not_found": "This email does not exist.",
         "email_already_exists": "This email is already in use.",
         "email_not_verified": "Please verify your email address first.",
         "lowercase_character_required": "Please use at least one lowercase character.",
