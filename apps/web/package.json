@@ -22,7 +22,7 @@
     "@nuxtjs/i18n": "8.5.1",
     "@nuxtjs/seo": "2.0.0-rc.19",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@tanstack/vue-table": "^8.20.4",
+    "@tanstack/vue-table": "^8.20.5",
     "@vee-validate/nuxt": "^4.13.2",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.0.3",
