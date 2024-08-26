@@ -87,8 +87,8 @@ importers:
         specifier: 3.13.0
         version: 3.13.0(@parcel/watcher@2.4.1)(@types/node@22.5.0)(eslint@8.57.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.21.0)(terser@5.31.6)(typescript@5.5.4)(vite@5.4.2(@types/node@22.5.0)(terser@5.31.6))
       radix-vue:
-        specifier: ^1.9.4
-        version: 1.9.4(vue@3.4.38(typescript@5.5.4))
+        specifier: ^1.9.5
+        version: 1.9.5(vue@3.4.38(typescript@5.5.4))
       shadcn-nuxt:
         specifier: ^0.10.2
         version: 0.10.4(magicast@0.3.4)(rollup@4.21.0)
@@ -6488,8 +6488,8 @@ packages:
   queue@6.0.2:
     resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
-  radix-vue@1.9.4:
-    resolution: {integrity: sha512-d950wxB+MVVU6L9h39OsNzAdk2BiGDDfhXJiHsksPAIK5pCR8W4U0RB0WLQEdjmmL9p1aXOYm4FBDq0oIo2G/w==}
+  radix-vue@1.9.5:
+    resolution: {integrity: sha512-vtCq+WDAZj5BQtJiChGf/oC7w3y7jaod3agcntgph7fD6aqdcghLZYcUWdgT/XNJs2bEsk+3cjK3ONPRNeFcuQ==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -16205,7 +16205,7 @@ snapshots:
     dependencies:
       inherits: 2.0.4
 
-  radix-vue@1.9.4(vue@3.4.38(typescript@5.5.4)):
+  radix-vue@1.9.5(vue@3.4.38(typescript@5.5.4)):
     dependencies:
       '@floating-ui/dom': 1.6.10
       '@floating-ui/vue': 1.1.4(vue@3.4.38(typescript@5.5.4))
