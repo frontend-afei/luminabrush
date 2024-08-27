@@ -1,0 +1,13 @@
+{
+  "name": "i18n",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "deepmerge": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*"
+  }
+}

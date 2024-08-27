@@ -66,13 +66,10 @@
       "email": "Email",
       "forgotPassword": "Forgot password?",
       "hints": {
+        "invalidCredentials": "The email or password you entered are invalid. Please try again.",
         "emailNotVerified": {
           "message": "Please verify your email before signing in. Check your inbox for the verification mail.",
           "title": "Email not verified"
-        },
-        "invalidCredentials": {
-          "message": "We are sorry, but the credentials you entered are invalid. Please try again.",
-          "title": "Invalid credentials"
         },
         "linkNotSent": {
           "message": "We are sorry, but we were unable to send you a magic link. Please try again later.",
@@ -475,6 +472,7 @@
   "zod": {
     "errors": {
       "custom": {
+        "email_not_found": "This email does not exist.",
         "email_already_exists": "This email is already in use.",
         "email_not_verified": "Please verify your email address first.",
         "lowercase_character_required": "Please use at least one lowercase character.",

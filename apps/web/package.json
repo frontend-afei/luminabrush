@@ -44,6 +44,7 @@
     "utils": "workspace:*",
     "uuid": "^10.0.0",
     "vue-advanced-cropper": "^2.8.9",
+    "vue-boring-avatars": "^1.4.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

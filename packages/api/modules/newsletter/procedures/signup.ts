@@ -12,5 +12,6 @@ export const signup = publicProcedure
     return await sendEmail({
       to: email,
       templateId: "newsletterSignup",
+      context: {},
     });
   });

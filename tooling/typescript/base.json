@@ -16,7 +16,11 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@config": ["../../config"]
+    }
   },
   "exclude": ["node_modules"]
 }
