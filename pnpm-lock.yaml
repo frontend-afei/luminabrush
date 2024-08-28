@@ -191,8 +191,8 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       openai:
-        specifier: ^4.56.0
-        version: 4.56.0(zod@3.23.8)
+        specifier: ^4.56.1
+        version: 4.56.1(zod@3.23.8)
       prisma:
         specifier: ^5.19.0
         version: 5.19.0
@@ -6041,8 +6041,8 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openai@4.56.0:
-    resolution: {integrity: sha512-zcag97+3bG890MNNa0DQD9dGmmTWL8unJdNkulZzWRXrl+QeD+YkBI4H58rJcwErxqGK6a0jVPZ4ReJjhDGcmw==}
+  openai@4.56.1:
+    resolution: {integrity: sha512-XMsxdjrWBYgbP6EsDIwbhkQEgeyL2C41te/QrJm8kdfho22exhTUJ/cFJSmCTToam/RSOC1BlOylHvD6i/bmsA==}
     hasBin: true
     peerDependencies:
       zod: ^3.23.8
@@ -10767,7 +10767,7 @@ snapshots:
 
   '@types/http-proxy@1.17.15':
     dependencies:
-      '@types/node': 22.5.0
+      '@types/node': 22.5.1
 
   '@types/json-schema@7.0.15': {}
 
@@ -10791,7 +10791,7 @@ snapshots:
 
   '@types/node-fetch@2.6.11':
     dependencies:
-      '@types/node': 22.5.0
+      '@types/node': 22.5.1
       form-data: 4.0.0
 
   '@types/node@18.19.45':
@@ -10836,7 +10836,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.5.0
+      '@types/node': 22.5.1
     optional: true
 
   '@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)':
@@ -12172,7 +12172,7 @@ snapshots:
 
   chrome-launcher@1.1.2:
     dependencies:
-      '@types/node': 22.5.0
+      '@types/node': 22.5.1
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 2.0.1
@@ -15782,7 +15782,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openai@4.56.0(zod@3.23.8):
+  openai@4.56.1(zod@3.23.8):
     dependencies:
       '@types/node': 18.19.45
       '@types/node-fetch': 2.6.11
