@@ -20,4 +20,8 @@ export const send: SendEmailHandler = async ({ to, subject, html, text }) => {
     logger.error(await response.json());
     throw new Error("Could not send email");
   }
+
+  if (response.ok) {
+    logger.info("Email sent successfully");
+  }
 };
