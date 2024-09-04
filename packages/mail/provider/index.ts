@@ -3,6 +3,7 @@ import type { MailProvider } from "../types";
 
 export async function getProvider() {
   const providerResolvers = {
+    console: () => import("./console"),
     custom: () => import("./custom"),
     postmark: () => import("./postmark"),
     resend: () => import("./resend"),

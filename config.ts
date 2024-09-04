@@ -72,7 +72,13 @@ export type Config = {
   };
   auth: { redirectAfterLogout: string };
   mailing: {
-    provider: "custom" | "plunk" | "resend" | "postmark" | "nodemailer";
+    provider:
+      | "console"
+      | "custom"
+      | "plunk"
+      | "resend"
+      | "postmark"
+      | "nodemailer";
     from: string;
   };
   teams: {
