@@ -46,6 +46,7 @@ export const config = {
     redirectAfterLogout: "/",
   },
   mailing: {
+    provider: "plunk",
     from: "hello@your-domain.com",
   },
   teams: {
@@ -71,6 +72,13 @@ export type Config = {
   };
   auth: { redirectAfterLogout: string };
   mailing: {
+    provider:
+      | "console"
+      | "custom"
+      | "plunk"
+      | "resend"
+      | "postmark"
+      | "nodemailer";
     from: string;
   };
   teams: {

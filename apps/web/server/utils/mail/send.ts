@@ -1,6 +1,6 @@
-import { mailTemplates } from "mail/util/templates";
-import { send } from "mail/provider";
 import { useCompiler } from "#vue-email";
+import { getProvider } from "mail/provider";
+import { mailTemplates } from "mail/util/templates";
 
 export const sendEmail = async <TemplateId extends keyof typeof mailTemplates>({
   to,
@@ -18,6 +18,8 @@ export const sendEmail = async <TemplateId extends keyof typeof mailTemplates>({
   });
 
   try {
+    const { send } = await getProvider();
+
     await send({
       to,
       subject: templateData.subject,
