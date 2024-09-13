@@ -78,8 +78,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       lucide-vue-next:
-        specifier: ^0.439.0
-        version: 0.439.0(vue@3.5.1(typescript@5.6.2))
+        specifier: ^0.441.0
+        version: 0.441.0(vue@3.5.1(typescript@5.6.2))
       mail:
         specifier: workspace:*
         version: link:../../packages/mail
@@ -5579,8 +5579,8 @@ packages:
   lucia@3.2.0:
     resolution: {integrity: sha512-eXMxXwk6hqtjRTj4W/x3EnTUtAztLPm0p2N2TEBMDEbakDLXiYnDQ9z/qahjPdPdhPguQc+vwO0/88zIWxlpuw==}
 
-  lucide-vue-next@0.439.0:
-    resolution: {integrity: sha512-XZ4KbYoEbVvAYxSuFjzZ/9oGTpCSK0CXWV6bUXe3PVN7tkSxRaoiYz+p8d/2vk43pxxOb6BSwAMfsxwbOzFk0Q==}
+  lucide-vue-next@0.441.0:
+    resolution: {integrity: sha512-WaPNRjH5O74mD3hVgKB4HtMYsjAuQSuOcNAeK8h6s8GqySkpsBnd2tmuc+EooNkogNv6l8UNmwgBANZVZ6SHqQ==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -15063,7 +15063,7 @@ snapshots:
     dependencies:
       oslo: 1.2.0
 
-  lucide-vue-next@0.439.0(vue@3.5.1(typescript@5.6.2)):
+  lucide-vue-next@0.441.0(vue@3.5.1(typescript@5.6.2)):
     dependencies:
       vue: 3.5.1(typescript@5.6.2)
 
