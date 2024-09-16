@@ -32,7 +32,7 @@
     "class-variance-authority": "^0.7.0",
     "cropperjs": "^1.6.2",
     "database": "workspace:*",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.0.0",
     "lucide-vue-next": "^0.441.0",
     "mail": "workspace:*",
     "nuxt": "3.13.1",
