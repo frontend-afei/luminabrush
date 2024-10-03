@@ -191,8 +191,8 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       openai:
-        specifier: ^4.66.1
-        version: 4.66.1(zod@3.23.8)
+        specifier: ^4.67.1
+        version: 4.67.1(zod@3.23.8)
       prisma:
         specifier: ^5.20.0
         version: 5.20.0
@@ -6205,8 +6205,8 @@ packages:
     resolution: {integrity: sha512-OS+QTnw1/4vrf+9hh1jc1jnYjzSG4ttTBB8UxOwAnInG3Uo4ssetzC1ihqaIHjLJnA5GGlRl6QlZXOTQhRBUvg==}
     engines: {node: '>=14.16'}
 
-  openai@4.66.1:
-    resolution: {integrity: sha512-+sSyV6VtGHerPb6Kfi76hrEOVt+wayvuw7GX/ky7rAR11kN6JVs4dgbtoaxzDXvAxc5dcQLuXeco54mBfOMoQQ==}
+  openai@4.67.1:
+    resolution: {integrity: sha512-2YbRFy6qaYRJabK2zLMn4txrB2xBy0KP5g/eoqeSPTT31mIJMnkT75toagvfE555IKa2RdrzJrZwdDsUipsAMw==}
     hasBin: true
     peerDependencies:
       zod: ^3.23.8
@@ -16378,7 +16378,7 @@ snapshots:
       is-inside-container: 1.0.0
       is-wsl: 2.2.0
 
-  openai@4.66.1(zod@3.23.8):
+  openai@4.67.1(zod@3.23.8):
     dependencies:
       '@types/node': 18.19.45
       '@types/node-fetch': 2.6.11
