@@ -11,7 +11,7 @@
     "arctic": "^1.9.2",
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
-    "h3": "^1.12.0",
+    "h3": "^1.13.0",
     "lucia": "^3.2.0",
     "mail": "workspace:*",
     "oslo": "^1.2.1",
