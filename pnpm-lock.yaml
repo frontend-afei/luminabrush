@@ -210,7 +210,7 @@ importers:
     dependencies:
       '@lucia-auth/adapter-prisma':
         specifier: ^4.0.1
-        version: 4.0.1(@prisma/client@5.21.0(prisma@5.21.0))(lucia@3.2.0)
+        version: 4.0.1(@prisma/client@5.21.0(prisma@5.21.0))(lucia@3.2.1)
       arctic:
         specifier: ^1.9.2
         version: 1.9.2
@@ -224,8 +224,8 @@ importers:
         specifier: ^1.13.0
         version: 1.13.0
       lucia:
-        specifier: ^3.2.0
-        version: 3.2.0
+        specifier: ^3.2.1
+        version: 3.2.1
       mail:
         specifier: workspace:*
         version: link:../mail
@@ -1746,6 +1746,18 @@ packages:
 
   '@nuxtjs/tailwindcss@6.12.1':
     resolution: {integrity: sha512-UKmaPRVpxlFqLorhL6neEba2tySlsj6w6yDb7jzS6A0AAjyBQ6k3BQqWO+AaTy2iQLX7eR+1yj3/w43HzY8RtA==}
+
+  '@oslojs/asn1@1.0.0':
+    resolution: {integrity: sha512-zw/wn0sj0j0QKbIXfIlnEcTviaCzYOY3V5rAyjR6YtOByFtJiT574+8p9Wlach0lZH9fddD4yb9laEAIl4vXQA==}
+
+  '@oslojs/binary@1.0.0':
+    resolution: {integrity: sha512-9RCU6OwXU6p67H4NODbuxv2S3eenuQ4/WFLrsq+K/k682xrznH5EVWA7N4VFk9VYVcbFtKqur5YQQZc0ySGhsQ==}
+
+  '@oslojs/crypto@1.0.1':
+    resolution: {integrity: sha512-7n08G8nWjAr/Yu3vu9zzrd0L9XnrJfpMioQcvCMxBIiF5orECHe5/3J0jmXRVvgfqMm/+4oxlQ+Sq39COYLcNQ==}
+
+  '@oslojs/encoding@1.1.0':
+    resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
 
   '@oxc-parser/wasm@0.1.0':
     resolution: {integrity: sha512-oA7XhTbg9rRBJhIzxCNhJwYmON/9LFAH4GBQxl7HWmGSS6HTrb2t6Peq82nxY0W7knguH52neh9T7zs27FVvsQ==}
@@ -5630,8 +5642,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucia@3.2.0:
-    resolution: {integrity: sha512-eXMxXwk6hqtjRTj4W/x3EnTUtAztLPm0p2N2TEBMDEbakDLXiYnDQ9z/qahjPdPdhPguQc+vwO0/88zIWxlpuw==}
+  lucia@3.2.1:
+    resolution: {integrity: sha512-yIVBS/wU3R+8cLClh2ksBNxqHkAd0VUcjvib53azkSdRT1cPkKuFglkxFsghuspaioX+AHhmIECEkdOz/vIJsQ==}
 
   lucide-vue-next@0.447.0:
     resolution: {integrity: sha512-NXD61EHwgdIHZsVxFGYHowrPZnhWJOByVJ23LJB28BnXII29Cg157DmIbvrJ7idwbfhwYhCZ2moRfKOCwIvNiw==}
@@ -9618,10 +9630,10 @@ snapshots:
 
   '@lemonsqueezy/lemonsqueezy.js@3.3.1': {}
 
-  '@lucia-auth/adapter-prisma@4.0.1(@prisma/client@5.21.0(prisma@5.21.0))(lucia@3.2.0)':
+  '@lucia-auth/adapter-prisma@4.0.1(@prisma/client@5.21.0(prisma@5.21.0))(lucia@3.2.1)':
     dependencies:
       '@prisma/client': 5.21.0(prisma@5.21.0)
-      lucia: 3.2.0
+      lucia: 3.2.1
 
   '@mapbox/node-pre-gyp@1.0.11':
     dependencies:
@@ -10465,6 +10477,19 @@ snapshots:
       - ts-node
       - uWebSockets.js
       - webpack-sources
+
+  '@oslojs/asn1@1.0.0':
+    dependencies:
+      '@oslojs/binary': 1.0.0
+
+  '@oslojs/binary@1.0.0': {}
+
+  '@oslojs/crypto@1.0.1':
+    dependencies:
+      '@oslojs/asn1': 1.0.0
+      '@oslojs/binary': 1.0.0
+
+  '@oslojs/encoding@1.1.0': {}
 
   '@oxc-parser/wasm@0.1.0': {}
 
@@ -15316,9 +15341,10 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucia@3.2.0:
+  lucia@3.2.1:
     dependencies:
-      oslo: 1.2.0
+      '@oslojs/crypto': 1.0.1
+      '@oslojs/encoding': 1.1.0
 
   lucide-vue-next@0.447.0(vue@3.5.1(typescript@5.6.2)):
     dependencies:
