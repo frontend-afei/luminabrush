@@ -12,7 +12,7 @@
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "h3": "^1.13.0",
-    "lucia": "^3.2.0",
+    "lucia": "^3.2.1",
     "mail": "workspace:*",
     "oslo": "^1.2.1",
     "tsconfig": "workspace:*",
