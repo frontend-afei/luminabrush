@@ -160,8 +160,8 @@ importers:
         specifier: workspace:*
         version: link:../auth
       chargebee-typescript:
-        specifier: ^2.40.1
-        version: 2.40.1
+        specifier: ^2.41.0
+        version: 2.41.0
       database:
         specifier: workspace:*
         version: link:../database
@@ -3469,8 +3469,8 @@ packages:
   character-reference-invalid@2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
 
-  chargebee-typescript@2.40.1:
-    resolution: {integrity: sha512-uEjMJD4jufkkjun3rW87xiNbq5TU8gS+9pNcMH5meC9zZsusjaDZ0L3GjWoAAPXlRbOAo/Fizc8v5391d0UTKQ==}
+  chargebee-typescript@2.41.0:
+    resolution: {integrity: sha512-/HSdwmxY8NtzpWg41mdvRMGmgT1z1ePi14N+gYB7KIkK1bZito/ca8SxMRzd58DW0hfGjhNS+AmF4ZvsuLT6Rg==}
     engines: {node: '>=8.0.0'}
 
   check-more-types@2.24.0:
@@ -12664,7 +12664,7 @@ snapshots:
 
   character-reference-invalid@2.0.1: {}
 
-  chargebee-typescript@2.40.1:
+  chargebee-typescript@2.41.0:
     dependencies:
       q: 1.5.1
 
