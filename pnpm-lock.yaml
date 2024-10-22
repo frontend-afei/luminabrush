@@ -210,7 +210,7 @@ importers:
     dependencies:
       '@lucia-auth/adapter-prisma':
         specifier: ^4.0.1
-        version: 4.0.1(@prisma/client@5.21.1(prisma@5.21.1))(lucia@3.2.1)
+        version: 4.0.1(@prisma/client@5.21.1(prisma@5.21.1))(lucia@3.2.2)
       arctic:
         specifier: ^1.9.2
         version: 1.9.2
@@ -224,8 +224,8 @@ importers:
         specifier: ^1.13.0
         version: 1.13.0
       lucia:
-        specifier: ^3.2.1
-        version: 3.2.1
+        specifier: ^3.2.2
+        version: 3.2.2
       mail:
         specifier: workspace:*
         version: link:../mail
@@ -5642,8 +5642,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucia@3.2.1:
-    resolution: {integrity: sha512-yIVBS/wU3R+8cLClh2ksBNxqHkAd0VUcjvib53azkSdRT1cPkKuFglkxFsghuspaioX+AHhmIECEkdOz/vIJsQ==}
+  lucia@3.2.2:
+    resolution: {integrity: sha512-P1FlFBGCMPMXu+EGdVD9W4Mjm0DqsusmKgO7Xc33mI5X1bklmsQb0hfzPhXomQr9waWIBDsiOjvr1e6BTaUqpA==}
 
   lucide-vue-next@0.453.0:
     resolution: {integrity: sha512-5zmv83vxAs9SVoe22veDBi8Dw0Fh2F+oTngWgKnKOkrZVbZjceXLQ3tescV2boB0zlaf9R2Sd9RuUP2766xvsQ==}
@@ -9627,10 +9627,10 @@ snapshots:
 
   '@lemonsqueezy/lemonsqueezy.js@3.3.1': {}
 
-  '@lucia-auth/adapter-prisma@4.0.1(@prisma/client@5.21.1(prisma@5.21.1))(lucia@3.2.1)':
+  '@lucia-auth/adapter-prisma@4.0.1(@prisma/client@5.21.1(prisma@5.21.1))(lucia@3.2.2)':
     dependencies:
       '@prisma/client': 5.21.1(prisma@5.21.1)
-      lucia: 3.2.1
+      lucia: 3.2.2
 
   '@mapbox/node-pre-gyp@1.0.11':
     dependencies:
@@ -15334,7 +15334,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucia@3.2.1:
+  lucia@3.2.2:
     dependencies:
       '@oslojs/crypto': 1.0.1
       '@oslojs/encoding': 1.1.0
