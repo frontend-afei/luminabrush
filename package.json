@@ -25,6 +25,6 @@
   "dependencies": {
     "eslint": "8.57.0",
     "eslint-config-custom": "workspace:*",
-    "turbo": "^2.1.3"
+    "turbo": "^2.2.2"
   }
 }
