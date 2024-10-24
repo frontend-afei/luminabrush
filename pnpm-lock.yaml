@@ -48,11 +48,11 @@ importers:
         specifier: ^8.20.5
         version: 8.20.5(vue@3.5.1(typescript@5.6.3))
       '@vee-validate/nuxt':
-        specifier: ^4.14.3
-        version: 4.14.3(magicast@0.3.5)(rollup@4.21.0)(vue@3.5.1(typescript@5.6.3))(webpack-sources@3.2.3)
+        specifier: ^4.14.4
+        version: 4.14.4(magicast@0.3.5)(rollup@4.21.0)(vue@3.5.1(typescript@5.6.3))(webpack-sources@3.2.3)
       '@vee-validate/zod':
-        specifier: ^4.14.3
-        version: 4.14.3(vue@3.5.1(typescript@5.6.3))
+        specifier: ^4.14.4
+        version: 4.14.4(vue@3.5.1(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.1.0
         version: 11.1.0(vue@3.5.1(typescript@5.6.3))
@@ -148,8 +148,8 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript
       vee-validate:
-        specifier: ^4.14.3
-        version: 4.14.3(vue@3.5.1(typescript@5.6.3))
+        specifier: ^4.14.4
+        version: 4.14.4(vue@3.5.1(typescript@5.6.3))
 
   packages/api:
     dependencies:
@@ -2740,11 +2740,11 @@ packages:
     peerDependencies:
       webpack: ^4 || ^5
 
-  '@vee-validate/nuxt@4.14.3':
-    resolution: {integrity: sha512-Nnu5zovDVMB2MZvx03Z6gpwK5S3UCkNRooKtWdeLoXCA88lIJdbi31MAwI8YYLCWilM9Vyq2raMh/gIkpShbyA==}
+  '@vee-validate/nuxt@4.14.4':
+    resolution: {integrity: sha512-hh1/Dd4csfMIsMsGwpI2R8DBMTpJKOc/Wr7VuVY0p06lXARGxF7hHooffus4v7bAH2OPDWdbmfVd+C7I7ujK7Q==}
 
-  '@vee-validate/zod@4.14.3':
-    resolution: {integrity: sha512-x33wzKCc7G9jB+U9iypw/7KAzoNCr+UzgN2O3wXIocKEDF3hoauXrB3/8Yk5KfPwURCHQugkoJxnKLmSZRQrDQ==}
+  '@vee-validate/zod@4.14.4':
+    resolution: {integrity: sha512-ovRr2jZ+exuPnqT2LwNpsmxW4ETOywrvZv4aoihTSsBHZIi082IbqPjM+wBd4oaCK7vyByMPyGSZOG19GTmjYw==}
 
   '@vercel/nft@0.26.5':
     resolution: {integrity: sha512-NHxohEqad6Ra/r4lGknO52uc/GrWILXAMs1BB4401GTqww0fw1bAqzpG1XHuDO+dprg4GvsD9ZLLSsdo78p9hQ==}
@@ -7919,8 +7919,8 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vee-validate@4.14.3:
-    resolution: {integrity: sha512-o4yABwgmCxyNz63hAFiDuLtK4qSrJ3+Ri5kbbJ9RQecXpaMp6NzJUEGE3LOcScakkSmtLDzvliQ2yBdFyPWDIw==}
+  vee-validate@4.14.4:
+    resolution: {integrity: sha512-Eg1FK2IqxqmujjN8Oehvqfx+QynyrIVc6Su2h/HQI/m3VEyUXW4wlB0h0sLkNizsEWlTj7Kwxn5Q2UWCr7RTQg==}
     peerDependencies:
       vue: ^3.4.26
 
@@ -11676,11 +11676,11 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vee-validate/nuxt@4.14.3(magicast@0.3.5)(rollup@4.21.0)(vue@3.5.1(typescript@5.6.3))(webpack-sources@3.2.3)':
+  '@vee-validate/nuxt@4.14.4(magicast@0.3.5)(rollup@4.21.0)(vue@3.5.1(typescript@5.6.3))(webpack-sources@3.2.3)':
     dependencies:
       '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.21.0)(webpack-sources@3.2.3)
       local-pkg: 0.5.0
-      vee-validate: 4.14.3(vue@3.5.1(typescript@5.6.3))
+      vee-validate: 4.14.4(vue@3.5.1(typescript@5.6.3))
     transitivePeerDependencies:
       - magicast
       - rollup
@@ -11688,10 +11688,10 @@ snapshots:
       - vue
       - webpack-sources
 
-  '@vee-validate/zod@4.14.3(vue@3.5.1(typescript@5.6.3))':
+  '@vee-validate/zod@4.14.4(vue@3.5.1(typescript@5.6.3))':
     dependencies:
       type-fest: 4.25.0
-      vee-validate: 4.14.3(vue@3.5.1(typescript@5.6.3))
+      vee-validate: 4.14.4(vue@3.5.1(typescript@5.6.3))
       zod: 3.23.8
     transitivePeerDependencies:
       - vue
@@ -18445,7 +18445,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vee-validate@4.14.3(vue@3.5.1(typescript@5.6.3)):
+  vee-validate@4.14.4(vue@3.5.1(typescript@5.6.3)):
     dependencies:
       '@vue/devtools-api': 7.5.2
       type-fest: 4.25.0
