@@ -78,8 +78,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       lucide-vue-next:
-        specifier: ^0.453.0
-        version: 0.453.0(vue@3.5.1(typescript@5.6.3))
+        specifier: ^0.454.0
+        version: 0.454.0(vue@3.5.1(typescript@5.6.3))
       mail:
         specifier: workspace:*
         version: link:../../packages/mail
@@ -5626,8 +5626,8 @@ packages:
   lucia@3.2.2:
     resolution: {integrity: sha512-P1FlFBGCMPMXu+EGdVD9W4Mjm0DqsusmKgO7Xc33mI5X1bklmsQb0hfzPhXomQr9waWIBDsiOjvr1e6BTaUqpA==}
 
-  lucide-vue-next@0.453.0:
-    resolution: {integrity: sha512-5zmv83vxAs9SVoe22veDBi8Dw0Fh2F+oTngWgKnKOkrZVbZjceXLQ3tescV2boB0zlaf9R2Sd9RuUP2766xvsQ==}
+  lucide-vue-next@0.454.0:
+    resolution: {integrity: sha512-UeThgLHm5sZyVTBIE1pcFn2jJsZTKe7AWo94lY2OMQAgYTKgPnrj1QLlSco2lU+kE7iFWl/stNLSsbxfoWCd6A==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -15276,7 +15276,7 @@ snapshots:
       '@oslojs/crypto': 1.0.1
       '@oslojs/encoding': 1.1.0
 
-  lucide-vue-next@0.453.0(vue@3.5.1(typescript@5.6.3)):
+  lucide-vue-next@0.454.0(vue@3.5.1(typescript@5.6.3)):
     dependencies:
       vue: 3.5.1(typescript@5.6.3)
 
