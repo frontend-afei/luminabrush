@@ -420,8 +420,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.14)
       tailwindcss-themer:
-        specifier: ^4.0.0
-        version: 4.0.0(tailwindcss@3.4.14)
+        specifier: ^4.1.0
+        version: 4.1.0(tailwindcss@3.4.14)
 
   tooling/typescript: {}
 
@@ -7340,8 +7340,8 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
-  tailwindcss-themer@4.0.0:
-    resolution: {integrity: sha512-kngKDW+z36JtjvaNziX0aesO95r8f5+3FFdANVFDt1uzNHZsL6XLla1YDK6EBAYFqPichoPDbO4lrrTyB+UAbA==}
+  tailwindcss-themer@4.1.0:
+    resolution: {integrity: sha512-zbou6wTFFaICkNqYN/RA/MkGrLtbCHx4LYH7yeQViBu2lCGPbH0SuJ3v5ED1Q3WzUDur2DQu5T9Rr0VUd5iDfg==}
     peerDependencies:
       tailwindcss: ^3.1.0
 
@@ -17742,7 +17742,7 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.14
 
-  tailwindcss-themer@4.0.0(tailwindcss@3.4.14):
+  tailwindcss-themer@4.1.0(tailwindcss@3.4.14):
     dependencies:
       color: 4.2.3
       just-unique: 4.2.0
