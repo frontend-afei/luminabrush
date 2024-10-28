@@ -23,8 +23,8 @@
     "@nuxtjs/seo": "2.0.0-rc.23",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@tanstack/vue-table": "^8.20.5",
-    "@vee-validate/nuxt": "^4.14.4",
-    "@vee-validate/zod": "^4.14.4",
+    "@vee-validate/nuxt": "^4.14.6",
+    "@vee-validate/zod": "^4.14.6",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "api": "workspace:*",
@@ -56,7 +56,7 @@
     "@nuxtjs/i18n": "8.5.5",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/uuid": "^10.0.0",
-    "@vee-validate/zod": "^4.14.4",
+    "@vee-validate/zod": "^4.14.6",
     "@vueuse/core": "^11.1.0",
     "class-variance-authority": "^0.7.0",
     "cypress": "^13.15.1",
@@ -74,7 +74,7 @@
     "trpc-nuxt": "^0.10.21",
     "tsconfig": "workspace:*",
     "ufo": "^1.5.3",
-    "vee-validate": "^4.14.4",
+    "vee-validate": "^4.14.6",
     "zod": "^3.23.8"
   }
 }
