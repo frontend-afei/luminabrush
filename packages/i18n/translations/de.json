@@ -66,7 +66,7 @@
       "email": "E-Mail",
       "forgotPassword": "Passwort vergessen?",
       "hints": {
-        "invalidCredentials": "Es tut uns leid, aber die von dir eingegebenen Anmeldeinformationen sind ungültig. \nBitte versuche es erneut.",
+        "invalidCredentials": "Die von dir eingegebenen Anmeldeinformationen sind ungültig. \nBitte versuche es erneut.",
         "emailNotVerified": {
           "message": "Bitte überprüfe deine E-Mail-Adresse, bevor du dich anmeldest. Überprüfe deinen Posteingang auf die Bestätigungsmail.",
           "title": "E-Mail nicht bestätigt"
