@@ -23,7 +23,7 @@ export const generateVerificationToken = async ({
   });
 
   if (storedUserTokens.length > 0) {
-    const reusableStoredToken = storedUserTokens.find((token) => {
+    const reusableStoredToken = storedUserTokens.find((token: any) => {
       return new Date(Number(token.expires) - expireDuration / 2) >= new Date();
     });
     if (reusableStoredToken) {
@@ -87,7 +87,7 @@ export const generateOneTimePassword = async ({
   });
 
   if (storedUserTokens.length > 0) {
-    const reusableStoredToken = storedUserTokens.find((token) => {
+    const reusableStoredToken = storedUserTokens.find((token: any) => {
       return new Date(Number(token.expires) - expireDuration) >= new Date();
     });
     if (reusableStoredToken) {
