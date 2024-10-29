@@ -44,6 +44,8 @@ export const config = {
   },
   auth: {
     redirectAfterLogout: "/",
+    sessionCookieName: "auth_session",
+    sessionCookieMaxAge: 60 * 60 * 24 * 30,
   },
   mailing: {
     provider: "plunk",
@@ -70,7 +72,11 @@ export type Config = {
     defaultCurrency: string;
     cookieName: string;
   };
-  auth: { redirectAfterLogout: string };
+  auth: {
+    redirectAfterLogout: string;
+    sessionCookieName: string;
+    sessionCookieMaxAge: number;
+  };
   mailing: {
     provider:
       | "console"
