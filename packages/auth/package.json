@@ -7,7 +7,6 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "dependencies": {
-    "@lucia-auth/adapter-prisma": "^4.0.1",
     "@node-rs/argon2": "^2.0.0",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
@@ -16,7 +15,6 @@
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "h3": "^1.13.0",
-    "lucia": "^3.2.2",
     "mail": "workspace:*",
     "oslo": "^1.2.1",
     "tsconfig": "workspace:*",
