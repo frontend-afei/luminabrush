@@ -19,7 +19,7 @@ export function createSessionCookie(
   return {
     name,
     value,
-    ...cookieOptions,
+    attributes: cookieOptions,
     serialize: () => serialize(name, value, cookieOptions),
   };
 }

@@ -2,6 +2,7 @@ import { OAuth2RequestError } from "arctic";
 import { db } from "database";
 import type { EventHandlerRequest, H3Event } from "h3";
 import { getRequestURL, parseCookies, sendRedirect, setCookie } from "h3";
+import { createSessionCookie } from "./cookies";
 import { createSession, generateSessionToken } from "./sessions";
 
 export function createOauthRedirectHandler(
@@ -141,7 +142,14 @@ export function createOauthCallbackHandler(
       const sessionToken = generateSessionToken();
       await createSession(sessionToken, newUser.id);
 
-      setCookie(event, "sessionToken", sessionToken);
+      const sessionCookie = createSessionCookie(sessionToken);
+
+      setCookie(
+        event,
+        sessionCookie.name,
+        sessionCookie.value,
+        sessionCookie.attributes,
+      );
 
       return new Response(null, {
         status: 302,
