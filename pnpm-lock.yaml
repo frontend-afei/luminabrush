@@ -90,8 +90,8 @@ importers:
         specifier: ^1.9.7
         version: 1.9.8(vue@3.5.12(typescript@5.6.3))
       shadcn-nuxt:
-        specifier: ^0.10.2
-        version: 0.10.4(magicast@0.3.5)(rollup@4.24.2)(webpack-sources@3.2.3)
+        specifier: ^0.11.2
+        version: 0.11.2(magicast@0.3.5)(rollup@4.24.2)(webpack-sources@3.2.3)
       tailwind-merge:
         specifier: ^2.5.4
         version: 2.5.4
@@ -1818,8 +1818,8 @@ packages:
   '@oslojs/jwt@0.2.0':
     resolution: {integrity: sha512-bLE7BtHrURedCn4Mco3ma9L4Y1GR2SMBuIvjWr7rmQ4/W/4Jy70TIAgZ+0nIlk0xHz1vNP8x8DCns45Sb2XRbg==}
 
-  '@oxc-parser/wasm@0.1.0':
-    resolution: {integrity: sha512-oA7XhTbg9rRBJhIzxCNhJwYmON/9LFAH4GBQxl7HWmGSS6HTrb2t6Peq82nxY0W7knguH52neh9T7zs27FVvsQ==}
+  '@oxc-parser/wasm@0.29.0':
+    resolution: {integrity: sha512-Ks5yFtJHypJZUdSNLImwtfkDt0/8ll9CDPyfmldhudtKB/1o6F/WQGWA4Oo+bCskDIp2MPKc3HfHccN3ALhtSg==}
 
   '@parcel/watcher-android-arm64@2.4.1':
     resolution: {integrity: sha512-LOi/WTbbh3aTn2RYddrO8pnapixAziFl6SMxHM69r3tvdSm94JtCenaKgk1GRg5FJ5wpMCpHeW+7yqPlvZv7kg==}
@@ -6914,8 +6914,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn-nuxt@0.10.4:
-    resolution: {integrity: sha512-WhSGzjaSMi1D2xb9Aflpwl8G8Qvlb0g4OuJLPO4YyRhduQDuscU6Pr1HdF7T4700foLLglgFnz7m8E2DDLLHJA==}
+  shadcn-nuxt@0.11.2:
+    resolution: {integrity: sha512-z8l6PbrgY6Gld6hvToCqqrF9+OdIQRFGQsBYLyCoUhdLszjmRvGvQ/eS+zH9C4cRopYKaTeFo2fOxYG3eDTiJA==}
 
   sharp@0.32.6:
     resolution: {integrity: sha512-KyLTWwgcR9Oe4d9HwCwNM2l7+J0dUQwn/yf7S0EnTtb0eVS4RxO0eUSvxPtzT4F3SY+C4K6fqdv/DO27sJ/v/w==}
@@ -10267,7 +10267,7 @@ snapshots:
     dependencies:
       '@oslojs/encoding': 0.4.1
 
-  '@oxc-parser/wasm@0.1.0': {}
+  '@oxc-parser/wasm@0.29.0': {}
 
   '@parcel/watcher-android-arm64@2.4.1':
     optional: true
@@ -16918,10 +16918,11 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn-nuxt@0.10.4(magicast@0.3.5)(rollup@4.24.2)(webpack-sources@3.2.3):
+  shadcn-nuxt@0.11.2(magicast@0.3.5)(rollup@4.24.2)(webpack-sources@3.2.3):
     dependencies:
       '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.24.2)(webpack-sources@3.2.3)
-      '@oxc-parser/wasm': 0.1.0
+      '@oxc-parser/wasm': 0.29.0
+      typescript: 5.6.3
     transitivePeerDependencies:
       - magicast
       - rollup

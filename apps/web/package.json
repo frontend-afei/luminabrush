@@ -37,7 +37,7 @@
     "mail": "workspace:*",
     "nuxt": "3.13.1",
     "radix-vue": "^1.9.7",
-    "shadcn-nuxt": "^0.10.2",
+    "shadcn-nuxt": "^0.11.2",
     "tailwind-merge": "^2.5.4",
     "trpc-nuxt": "^0.10.22",
     "ufo": "^1.5.4",
