@@ -9,7 +9,7 @@ export function createSessionCookie(
   const value = sessionToken ?? "";
 
   const cookieOptions: SerializeOptions = {
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
     path: "/",
     httpOnly: true,
     maxAge: sessionToken ? config.auth.sessionCookieMaxAge : 0,
