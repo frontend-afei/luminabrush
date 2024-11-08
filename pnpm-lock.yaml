@@ -154,8 +154,8 @@ importers:
   packages/api:
     dependencies:
       '@lemonsqueezy/lemonsqueezy.js':
-        specifier: ^3.3.1
-        version: 3.3.1
+        specifier: ^4.0.0
+        version: 4.0.0
       auth:
         specifier: workspace:*
         version: link:../auth
@@ -1407,8 +1407,8 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@lemonsqueezy/lemonsqueezy.js@3.3.1':
-    resolution: {integrity: sha512-gM/FdNsK3BlrD6JRrhmiyqBXQsCpzSUdKSoZwJMQfXqfqcK321og+uMssc6HYcygUMrGvPnNJyJ1RqZPFDrgtg==}
+  '@lemonsqueezy/lemonsqueezy.js@4.0.0':
+    resolution: {integrity: sha512-xcY1/lDrY7CpIF98WKiL1ElsfoVhddP7FT0fw7ssOzrFqQsr44HgolKrQZxd9SywsCPn12OTOUieqDIokI3mFg==}
     engines: {node: '>=20'}
 
   '@mapbox/node-pre-gyp@1.0.11':
@@ -9422,7 +9422,7 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lemonsqueezy/lemonsqueezy.js@3.3.1': {}
+  '@lemonsqueezy/lemonsqueezy.js@4.0.0': {}
 
   '@mapbox/node-pre-gyp@1.0.11':
     dependencies:
