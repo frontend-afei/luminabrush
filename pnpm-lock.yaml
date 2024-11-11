@@ -353,8 +353,8 @@ importers:
         version: 3.437.0
     devDependencies:
       '@types/node':
-        specifier: ^22.8.6
-        version: 22.8.6
+        specifier: ^22.9.0
+        version: 22.9.0
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -2532,12 +2532,6 @@ packages:
 
   '@types/node@18.19.60':
     resolution: {integrity: sha512-cYRj7igVqgxhlHFdBHHpU2SNw3+dN2x0VTZJtLYk6y/ieuGN4XiBgtDjYVktM/yk2y/8pKMileNc6IoEzEJnUw==}
-
-  '@types/node@22.8.2':
-    resolution: {integrity: sha512-NzaRNFV+FZkvK/KLCsNdTvID0SThyrs5SHB6tsD/lajr22FGC73N2QeDPM2wHtVde8mgcXuSsHQkH5cX1pbPLw==}
-
-  '@types/node@22.8.6':
-    resolution: {integrity: sha512-tosuJYKrIqjQIlVCM4PEGxOmyg3FCPa/fViuJChnGeEIhjA46oy8FMVoF9su1/v8PNs2a8Q0iFNyOx0uOF91nw==}
 
   '@types/node@22.9.0':
     resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==}
@@ -10989,21 +10983,13 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@22.8.2':
-    dependencies:
-      undici-types: 6.19.8
-
-  '@types/node@22.8.6':
-    dependencies:
-      undici-types: 6.19.8
-
   '@types/node@22.9.0':
     dependencies:
       undici-types: 6.19.8
 
   '@types/nodemailer@6.4.16':
     dependencies:
-      '@types/node': 22.8.2
+      '@types/node': 22.9.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -17224,7 +17210,7 @@ snapshots:
 
   stripe@17.3.1:
     dependencies:
-      '@types/node': 22.8.6
+      '@types/node': 22.9.0
       qs: 6.13.0
 
   strnum@1.0.5: {}
