@@ -81,11 +81,6 @@ export default defineNuxtConfig({
     transpile: ["trpc-nuxt"],
   },
 
-  // packages/auth
-  nitro: {
-    moduleSideEffects: ["lucia/polyfill/node"],
-  },
-
   modules: [
     "@nuxtjs/i18n", // configured here and in i18n.config.ts
     "@nuxtjs/tailwindcss", // configured in tailwind.config.ts
