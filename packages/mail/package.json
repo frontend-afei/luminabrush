@@ -10,7 +10,7 @@
     "tsconfig": "workspace:*"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.16",
+    "@types/nodemailer": "^6.4.17",
     "eslint": "8.57.0"
   }
 }
