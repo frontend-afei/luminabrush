@@ -11,7 +11,7 @@
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
     "arctic": "^2.2.2",
-    "cookie": "^1.0.1",
+    "cookie": "^1.0.2",
     "database": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "h3": "^1.13.0",
