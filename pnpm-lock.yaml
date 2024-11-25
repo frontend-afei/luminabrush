@@ -218,8 +218,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       arctic:
-        specifier: ^2.2.2
-        version: 2.2.2
+        specifier: ^2.3.0
+        version: 2.3.0
       cookie:
         specifier: ^1.0.2
         version: 1.0.2
@@ -3284,8 +3284,8 @@ packages:
     resolution: {integrity: sha512-ZcbTaIqJOfCc03QwD468Unz/5Ir8ATtvAHsK+FdXbDIbGfihqh9mrvdcYunQzqn4HrvWWaFyaxJhGZagaJJpPQ==}
     engines: {node: '>= 14'}
 
-  arctic@2.2.2:
-    resolution: {integrity: sha512-m6xyOTBom5/qvAOiJPDpmHuR+vW3q5qH1LwWzWQMQE4tmWOX+CPSeTv3SFYG+CsnmPhfuXz2CfvxIQJmsS/u2w==}
+  arctic@2.3.0:
+    resolution: {integrity: sha512-ImueY1iKm044nMVxQGsLvzSFLrLsqCIpsvohZprK2l8o3ypXjoSKiMBlxBBdoFpAG0iC78cJ6J/vyLpvdLQlkw==}
 
   are-we-there-yet@2.0.0:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
@@ -12319,7 +12319,7 @@ snapshots:
       tar-stream: 3.1.7
       zip-stream: 6.0.1
 
-  arctic@2.2.2:
+  arctic@2.3.0:
     dependencies:
       '@oslojs/crypto': 1.0.1
       '@oslojs/encoding': 1.1.0
