@@ -61,7 +61,7 @@
     "class-variance-authority": "^0.7.0",
     "cypress": "^13.15.2",
     "database": "workspace:*",
-    "dotenv-cli": "^7.3.0",
+    "dotenv-cli": "^7.4.4",
     "eslint": "8.57.0",
     "eslint-config-custom": "*",
     "lucide-vue-next": "^0.460.0",
