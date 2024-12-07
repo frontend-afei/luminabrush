@@ -22,7 +22,7 @@
     "eslint": "8.57.0",
     "openai": "^4.73.1",
     "prisma": "^6.0.1",
-    "superjson": "^2.0.0",
+    "superjson": "^2.2.2",
     "trpc-nuxt": "^0.10.22",
     "zod": "^3.23.8"
   }
