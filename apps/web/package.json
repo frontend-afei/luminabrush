@@ -45,7 +45,7 @@
     "uuid": "^11.0.3",
     "vue-advanced-cropper": "^2.8.9",
     "vue-boring-avatars": "^1.4.0",
-    "zod": "^3.23.8"
+    "zod": "^3.24.0"
   },
   "devDependencies": {
     "@nuxt/content": "^2.13.4",
@@ -75,6 +75,6 @@
     "tsconfig": "workspace:*",
     "ufo": "^1.5.3",
     "vee-validate": "^4.14.7",
-    "zod": "^3.23.8"
+    "zod": "^3.24.0"
   }
 }

@@ -114,8 +114,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
       zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+        specifier: ^3.24.0
+        version: 3.24.0
     devDependencies:
       '@nuxt/devtools':
         specifier: ^1.6.3
@@ -192,7 +192,7 @@ importers:
         version: 8.57.0
       openai:
         specifier: ^4.76.0
-        version: 4.76.0(zod@3.23.8)
+        version: 4.76.0(zod@3.24.0)
       prisma:
         specifier: ^6.0.1
         version: 6.0.1
@@ -203,8 +203,8 @@ importers:
         specifier: ^0.10.22
         version: 0.10.22(@trpc/client@10.45.2(@trpc/server@10.45.2))(@trpc/server@10.45.2)(ofetch@1.4.1)
       zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+        specifier: ^3.24.0
+        version: 3.24.0
 
   packages/auth:
     dependencies:
@@ -245,8 +245,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+        specifier: ^3.24.0
+        version: 3.24.0
     devDependencies:
       eslint:
         specifier: 8.57.0
@@ -274,8 +274,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+        specifier: ^3.24.0
+        version: 3.24.0
       zod-prisma-types:
         specifier: ^3.2.1
         version: 3.2.1(@prisma/client@6.0.1(prisma@6.0.1))(prisma@6.0.1)
@@ -8426,8 +8426,8 @@ packages:
       '@prisma/client': ^4.x.x || ^5.x.x || ^6.x.x
       prisma: ^4.x.x || ^5.x.x || ^6.x.x
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zod@3.24.0:
+    resolution: {integrity: sha512-Hz+wiY8yD0VLA2k/+nsg2Abez674dDGTai33SwNvMPuf9uIrBC9eFgIMQxBBbHFxVXi8W+5nX9DcAh9YNSQm/w==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -11909,7 +11909,7 @@ snapshots:
     dependencies:
       type-fest: 4.26.1
       vee-validate: 4.14.7(vue@3.5.12(typescript@5.7.2))
-      zod: 3.23.8
+      zod: 3.24.0
     transitivePeerDependencies:
       - vue
 
@@ -16530,7 +16530,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openai@4.76.0(zod@3.23.8):
+  openai@4.76.0(zod@3.24.0):
     dependencies:
       '@types/node': 18.19.60
       '@types/node-fetch': 2.6.11
@@ -16540,7 +16540,7 @@ snapshots:
       formdata-node: 4.4.1
       node-fetch: 2.7.0
     optionalDependencies:
-      zod: 3.23.8
+      zod: 3.24.0
     transitivePeerDependencies:
       - encoding
 
@@ -18986,8 +18986,8 @@ snapshots:
       code-block-writer: 12.0.0
       lodash: 4.17.21
       prisma: 6.0.1
-      zod: 3.23.8
+      zod: 3.24.0
 
-  zod@3.23.8: {}
+  zod@3.24.0: {}
 
   zwitch@2.0.4: {}
