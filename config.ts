@@ -47,8 +47,7 @@ export const config = {
     sessionCookieName: "auth_session",
     sessionCookieMaxAge: 60 * 60 * 24 * 30,
   },
-  mailing: {
-    provider: "plunk",
+  mails: {
     from: "hello@your-domain.com",
   },
   teams: {
@@ -77,14 +76,7 @@ export type Config = {
     sessionCookieName: string;
     sessionCookieMaxAge: number;
   };
-  mailing: {
-    provider:
-      | "console"
-      | "custom"
-      | "plunk"
-      | "resend"
-      | "postmark"
-      | "nodemailer";
+  mails: {
     from: string;
   };
   teams: {
