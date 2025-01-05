@@ -127,8 +127,8 @@ importers:
         specifier: ^13.17.0
         version: 13.17.0
       dotenv-cli:
-        specifier: ^7.4.4
-        version: 7.4.4
+        specifier: ^8.0.0
+        version: 8.0.0
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -265,8 +265,8 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(prisma@6.1.0)
       dotenv-cli:
-        specifier: ^7.4.4
-        version: 7.4.4
+        specifier: ^8.0.0
+        version: 8.0.0
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -4072,8 +4072,8 @@ packages:
     resolution: {integrity: sha512-1gxPBJpI/pcjQhKgIU91II6Wkay+dLcN3M6rf2uwP8hRur3HtQXjVrdAK3sjC0piaEuxzMwjXChcETiJl47lAQ==}
     engines: {node: '>=18'}
 
-  dotenv-cli@7.4.4:
-    resolution: {integrity: sha512-XkBYCG0tPIes+YZr4SpfFv76SQrV/LeCE8CI7JSEMi3VR9MvTihCGTOtbIexD6i2mXF+6px7trb1imVCXSNMDw==}
+  dotenv-cli@8.0.0:
+    resolution: {integrity: sha512-aLqYbK7xKOiTMIRf1lDPbI+Y+Ip/wo5k3eyp6ePysVaSqbyxjyK3dK35BTxG+rmd7djf5q2UPs4noPNH+cj0Qw==}
     hasBin: true
 
   dotenv-expand@10.0.0:
@@ -5405,10 +5405,6 @@ packages:
   jest-worker@27.5.1:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
-
-  jiti@1.21.6:
-    resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
-    hasBin: true
 
   jiti@1.21.7:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
@@ -13087,7 +13083,7 @@ snapshots:
     dependencies:
       type-fest: 4.30.1
 
-  dotenv-cli@7.4.4:
+  dotenv-cli@8.0.0:
     dependencies:
       cross-spawn: 7.0.6
       dotenv: 16.4.7
@@ -14836,8 +14832,6 @@ snapshots:
       '@types/node': 22.10.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
-
-  jiti@1.21.6: {}
 
   jiti@1.21.7: {}
 
