@@ -42,7 +42,7 @@
     "trpc-nuxt": "^0.10.22",
     "ufo": "^1.5.4",
     "utils": "workspace:*",
-    "uuid": "^11.0.4",
+    "uuid": "^11.0.5",
     "vue-advanced-cropper": "^2.8.9",
     "vue-boring-avatars": "^1.4.0",
     "zod": "^3.24.0"
