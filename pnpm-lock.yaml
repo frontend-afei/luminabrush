@@ -353,8 +353,8 @@ importers:
         version: 3.437.0
     devDependencies:
       '@types/node':
-        specifier: ^22.10.1
-        version: 22.10.2
+        specifier: ^22.10.7
+        version: 22.10.7
       eslint:
         specifier: 8.57.0
         version: 8.57.0
