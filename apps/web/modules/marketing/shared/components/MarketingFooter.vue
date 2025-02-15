@@ -4,22 +4,22 @@
       <div>
         <Logo class="opacity-50 grayscale" />
         <p class="mt-3 text-sm opacity-70">
-          © {{ new Date().getFullYear() }} supastarter. All rights reserved.
+          Copyright © {{ new Date().getFullYear() }} - All rights reserved.
         </p>
       </div>
 
-      <div class="flex flex-col gap-2">
+      <!-- <div class="flex flex-col gap-2">
         <NuxtLinkLocale to="/blog" class="block"> Blog </NuxtLinkLocale>
         <a href="#" class="block"> Features </a>
         <a href="#" class="block"> Pricing </a>
-      </div>
+      </div> -->
 
-      <div class="flex flex-col gap-2">
+      <!-- <div class="flex flex-col gap-2">
         <NuxtLink to="/legal/privacy" class="block"> Privacy policy </NuxtLink>
         <NuxtLink href="/legal/terms" class="block">
           Terms and conditions
         </NuxtLink>
-      </div>
+      </div> -->
     </div>
   </footer>
 </template>

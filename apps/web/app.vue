@@ -11,7 +11,7 @@
 
   const useIdFunction = () => useId();
 
-  const titleTemplateDefault = "supastarter.nuxt - Application";
+  const titleTemplateDefault = "LuminaBrush";
   const titleDivider = "|";
 
   const i18nHead = useLocaleHead({
@@ -23,12 +23,16 @@
   // You might want to display a consent banner before initializing analytics
   init();
 
+  const route = useRoute();
+
   useHead({
     // general seo
-    titleTemplate: (title) =>
-      title
-        ? `${title} ${titleDivider} ${titleTemplateDefault}`
-        : titleTemplateDefault,
+    titleTemplate: (title: any) => {
+      if (route.path === "/") {
+        return title;
+      }
+      return `${title} ${titleDivider} ${titleTemplateDefault}`;
+    },
 
     // i18n
     htmlAttrs: {

@@ -56,7 +56,9 @@
   <nav
     class="fixed left-0 top-0 z-20 w-full transition-[height] duration-200"
     :class="[
-      isTop ? 'shadow-none' : 'bg-background/80 shadow-sm backdrop-blur-lg',
+      isTop
+        ? 'text-white shadow-none'
+        : 'bg-background/80 text-foreground shadow-sm backdrop-blur-lg',
     ]"
     data-test="navigation"
   >
@@ -74,7 +76,7 @@
           </NuxtLinkLocale>
         </div>
 
-        <div class="hidden flex-1 items-center justify-center lg:flex">
+        <!-- <div class="hidden flex-1 items-center justify-center lg:flex">
           <NuxtLinkLocale
             v-for="menuItem of menuItems"
             :key="menuItem.to"
@@ -84,9 +86,9 @@
           >
             {{ menuItem.label }}
           </NuxtLinkLocale>
-        </div>
+        </div> -->
 
-        <div class="flex flex-1 items-center justify-end gap-3">
+        <!-- <div class="flex flex-1 items-center justify-end gap-3">
           <ColorModeToggle />
           <LocaleSwitch />
 
@@ -140,7 +142,7 @@
               }}
             </NuxtLinkLocale>
           </Button>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
