@@ -1,32 +1,24 @@
+import { useAnalytics as useGoogleAnalytics } from "../google";
+import { useAnalytics as useClarityAnalytics } from "../clarity";
+
 export const useAnalytics = () => {
+  const googleAnalytics = useGoogleAnalytics();
+  const clarityAnalytics = useClarityAnalytics();
+
   const init = () => {
-    if (!process.client) {
+    if (typeof window === "undefined") {
       return;
     }
 
-    /*
-		const runtimeConfig = useRuntimeConfig()
-		*/
-
-    useHead({
-      script: [
-        // Add your script here
-        /*
-				{
-					key: 'analytics-custom',
-					src: 'https://example.com/script.js',
-					'data-tracking-id': runtimeConfig.public.analytics.customTrackingId, // add something like this to your `nuxt.config.ts`
-					async: true,
-				},
-				*/
-      ],
-    });
+    // 初始化两个分析服务
+    clarityAnalytics.init();
+    googleAnalytics.init();
   };
 
   const trackEvent = (event: string, data?: Record<string, any>) => {
-    // call your analytics service to track a custom event here
-    // eslint-disable-next-line no-console
-    console.info("tracking event", event, data);
+    // 同时向两个服务发送事件数据
+    googleAnalytics.trackEvent(event, data);
+    clarityAnalytics.trackEvent(event, data);
   };
 
   return {
