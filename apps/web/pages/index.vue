@@ -79,14 +79,15 @@
     {
       title: "Apply Effects",
       description:
-        "Use intuitive brushes to add sophisticated lighting effects",
+        "Use intuitive brushes to scribble for sophisticated lighting effects",
     },
     {
-      title: "Add Prompts",
-      description: "Customize effects with natural language prompts",
+      title: "Write Prompts",
+      description:
+        "Customize lighting and background with natural language prompts",
     },
     {
-      title: "AI Analysis",
+      title: "AI Processing",
       description: "Our advanced AI analyzes and processes your image",
     },
     // {
@@ -201,7 +202,7 @@
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
       <div class="container mx-auto px-6 py-24">
-        <div class="flex flex-col items-center lg:flex-row">
+        <div class="flex flex-col items-center gap-4 lg:flex-row">
           <div class="space-y-8 lg:w-1/2">
             <h1 class="text-5xl font-bold leading-tight">
               Transform Your Digital Art with LuminaBrush
@@ -217,11 +218,11 @@
             </a>
           </div>
           <div class="mt-10 lg:mt-0 lg:w-1/2">
-            <!-- <img
-              src="/hero-image.png"
-              alt="LuminaBrush Interface"
+            <img
+              src="/images/luminabrush-hero.png"
+              alt="LuminaBrush Hero"
               class="rounded-lg shadow-2xl"
-            /> -->
+            />
           </div>
         </div>
       </div>
@@ -406,7 +407,7 @@
           <div
             v-for="faq in faqs"
             :key="faq.question"
-            class="rounded-lg border border-gray-300 bg-card transition-all duration-200 hover:border-purple-600"
+            class="rounded-lg border border-gray-200 bg-card transition-all duration-200 hover:border-purple-600"
           >
             <button
               @click="faq.isOpen = !faq.isOpen"

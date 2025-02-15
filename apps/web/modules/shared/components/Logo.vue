@@ -29,6 +29,12 @@
         fill="currentColor"
       />
     </svg> -->
-    <span v-if="props.withLabel" class="text-xl">LuminaBrush</span>
+    <img
+      src="/icon.png"
+      title="LuminaBrush Logo"
+      alt="LuminaBrush Logo"
+      class="size-8"
+    />
+    <span v-if="props.withLabel" class="ml-3 text-xl">LuminaBrush</span>
   </span>
 </template>
