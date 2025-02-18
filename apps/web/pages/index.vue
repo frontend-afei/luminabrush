@@ -13,7 +13,7 @@
     layout: "marketing",
   });
   useSeoMeta({
-    title: "LuminaBrush - Interactive AI Tool for Illumination Effects",
+    title: "LuminaBrush - AI Drawing Tool for Illumination Effects",
     description:
       "Transform your art with LuminaBrush, the AI-powered lighting tool. Enjoy real-time preview, custom tools, and advanced layers. Create stunning art for free!",
   });
@@ -22,7 +22,7 @@
     {
       title: "Unique Brush Technology",
       description:
-        "LuminaBrush's revolutionary brush engine delivers unparalleled realism and precision, perfectly simulating traditional artistic techniques",
+        "The revolutionary brush engine of LuminaBrush delivers unparalleled realism and precision, perfectly simulating traditional artistic techniques",
       icon: Brush,
     },
     {
@@ -40,20 +40,38 @@
     {
       title: "Customizable Tools",
       description:
-        "LuminaBrush's versatile toolkit allows you to fine-tune every aspect of your brushes, from texture to opacity, for truly unique artistic expression",
+        "The versatile toolkit of Lumina Brush allows you to fine-tune every aspect of your brushes, from texture to opacity, for truly unique artistic expression",
       icon: Settings2,
     },
     {
       title: "Advanced Layer System",
       description:
-        "Master complex compositions with our professional-grade layer management system, offering complete creative control",
+        "Master complex compositions with LuminaBrush, using the professional-grade layer management system for complete creative control",
       icon: Layers,
     },
     {
       title: "Intuitive Interface",
       description:
-        "Focus on your creativity with our streamlined workspace designed for maximum efficiency and minimal learning curve",
+        "Focus on your creativity with Lumina Brush, utilizing the streamlined workspace designed for maximum efficiency and minimal learning curve",
       icon: Layout,
+    },
+    {
+      title: "Two-Stage Framework",
+      description:
+        "LuminaBrush employs a revolutionary two-stage approach that first transforms images to achieve uniform lighting, then generates precise illumination effects guided by user input",
+      icon: Layers,
+    },
+    {
+      title: "Flux Integration",
+      description:
+        "Built on the cutting-edge Flux framework, LuminaBrush provides unparalleled consistency and professional-grade results in demanding artistic projects",
+      icon: Layout,
+    },
+    {
+      title: "Advanced Control System",
+      description:
+        "Achieve precise control with LuminaBrush through the responsive brush system while maintaining professional output quality",
+      icon: Settings2,
     },
   ];
 
@@ -177,15 +195,15 @@
       isOpen: false,
     },
     {
-      question: "What visual effects can I create with LuminaBrush?",
+      question: "What visual effects can I create with Lumina Brush?",
       answer:
-        "LuminaBrush offers a comprehensive suite of effects including atmospheric ambience, directional illumination, multi-source setups, natural environments, dynamic transitions, color temperature control, rim highlights, and volumetric effects.",
+        "Lumina Brush offers a comprehensive suite of effects including atmospheric ambience, directional illumination, multi-source setups, natural environments, dynamic transitions, color temperature control, rim highlights, and volumetric effects.",
       isOpen: false,
     },
     {
-      question: "Is LuminaBrush suitable for professional use?",
+      question: "Is Lumina Brush suitable for professional use?",
       answer:
-        "Absolutely. LuminaBrush is trusted by professional digital artists, photographers, and concept artists worldwide. Its sophisticated AI-powered system delivers professional-grade results while maintaining intuitive usability.",
+        "Absolutely. Lumina Brush is trusted by professional digital artists, photographers, and concept artists worldwide. Its sophisticated AI-powered system delivers professional-grade results while maintaining intuitive usability.",
       isOpen: false,
     },
     {
@@ -195,6 +213,38 @@
       isOpen: false,
     },
   ]);
+
+  const capabilities = [
+    {
+      title: "Atmospheric Effects",
+      description:
+        "Create sophisticated atmospheric lighting with intelligent diffusion",
+    },
+    {
+      title: "Directional Lighting",
+      description:
+        "Apply precise directional illumination using advanced ray-tracing",
+    },
+    {
+      title: "Multi-Light Scenarios",
+      description:
+        "Generate complex multi-light setups with intelligent light interaction",
+    },
+    {
+      title: "Natural Ambient",
+      description:
+        "Achieve realistic ambient lighting through advanced mapping",
+    },
+    {
+      title: "Dynamic Transitions",
+      description:
+        "Implement smooth lighting transitions with temporal coherence",
+    },
+    {
+      title: "Color Temperature",
+      description: "Fine-tune color temperature with enhancement tools",
+    },
+  ];
 </script>
 
 <template>
@@ -232,7 +282,7 @@
     <section class="bg-gray-50 py-20">
       <div class="container mx-auto px-6">
         <h2 class="mb-16 text-center text-4xl font-bold">
-          Key Features of LuminaBrush
+          Key Features of LuminaBrush AI
         </h2>
         <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div
@@ -392,6 +442,45 @@
       </div>
     </section>
 
+    <!-- Capabilities Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="mb-16 text-center text-4xl font-bold">
+          Advanced Capabilities of LuminaBrush
+        </h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div
+            v-for="cap in capabilities"
+            :key="cap.title"
+            class="rounded-xl bg-white p-8 shadow-lg transition hover:shadow-xl"
+          >
+            <h3 class="mb-4 text-xl font-semibold">{{ cap.title }}</h3>
+            <p class="text-gray-600">{{ cap.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="bg-card py-20">
+      <div class="container mx-auto px-6">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="mb-8 text-4xl font-bold">Revolutionary Technology</h2>
+          <p class="mb-8 text-xl">
+            At the heart of LuminaBrush lies a pioneering approach to image
+            lighting manipulation. Our innovative two-stage process enables
+            unprecedented control while maintaining natural image qualities.
+          </p>
+          <p class="text-xl">
+            The sophisticated system allows artists to achieve both subtle
+            adjustments and dramatic transformations with equal precision,
+            making it the premier choice for professional digital artists
+            worldwide.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ Section -->
     <section class="py-20">
       <div class="container mx-auto px-6">
@@ -428,7 +517,9 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-purple-600 py-20 text-white">
+    <section
+      class="bg-gradient-to-r from-purple-600 to-blue-600 py-20 text-white"
+    >
       <div class="container mx-auto px-6 text-center">
         <h2 class="mb-8 text-4xl font-bold">
           Ready to Transform Your Artwork?
