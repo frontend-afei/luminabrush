@@ -92,7 +92,7 @@
     {
       title: "Import Your Art",
       description:
-        "Upload your artwork to LuminaBrush's intelligent processing system",
+        "Upload your artwork to the processing system of LuminaBrush",
     },
     {
       title: "Apply Effects",
@@ -116,25 +116,46 @@
 
   const testimonials = [
     {
-      author: "Sarah Chen",
-      role: "Digital Artist",
-      avatar: "/avatar1.jpg",
+      name: "Sarah Chen",
+      role: "Professional Digital Artist",
+      rating: 5,
       content:
-        "LuminaBrush has revolutionized my workflow. The AI-powered lighting effects save me hours of work while delivering stunning results.",
+        "LuminaBrush has revolutionized my workflow. The AI-powered lighting effects are incredibly natural, and the real-time preview feature helps me work faster than ever. It's become an essential part of my digital art toolkit.",
     },
     {
-      author: "Marcus Rodriguez",
-      role: "Concept Artist at GameStudio",
-      avatar: "/avatar2.jpg",
+      name: "Michael Rodriguez",
+      role: "Photography Studio Owner",
+      rating: 5,
       content:
-        "The real-time preview feature is a game-changer. I can experiment with different lighting scenarios instantly.",
+        "As an AI photo editor, Lumina Brush stands out from the competition. The two-stage framework produces remarkably consistent results, and the intuitive interface makes complex lighting adjustments feel effortless.",
     },
     {
-      author: "Emma Thompson",
-      role: "Freelance Illustrator",
-      avatar: "/avatar3.jpg",
+      name: "Emma Thompson",
+      role: "Concept Artist",
+      rating: 5,
       content:
-        "As a professional illustrator, I rely on LuminaBrush daily. It's become an essential part of my digital art toolkit.",
+        "I've tried many AI image editors, but the precision and control of Lumina Brush are unmatched. The advanced layer system and customizable tools give me the flexibility I need for professional projects.",
+    },
+    {
+      name: "David Park",
+      role: "Game Art Director",
+      rating: 5,
+      content:
+        "LuminaBrush's AI photo editor capabilities have transformed our concept art pipeline. The speed and quality of the lighting effects are remarkable, saving us countless hours in post-production.",
+    },
+    {
+      name: "Lisa Zhang",
+      role: "Digital Illustrator",
+      rating: 5,
+      content:
+        "LuminaBrush is a game-changer for digital artists. The AI image editor features are incredibly sophisticated, yet easy to use. I especially love how it preserves the original artwork's integrity while enhancing the lighting.",
+    },
+    {
+      name: "James Wilson",
+      role: "Visual Effects Supervisor",
+      rating: 5,
+      content:
+        "In my 15 years of industry experience, Lumina Brush is the most innovative lighting tool I've used. The AI-powered effects are not just impressive - they're production-ready and consistently reliable.",
     },
   ];
 
@@ -195,15 +216,15 @@
       isOpen: false,
     },
     {
-      question: "What visual effects can I create with Lumina Brush?",
+      question: "What visual effects can I create with Luminar Brush?",
       answer:
-        "Lumina Brush offers a comprehensive suite of effects including atmospheric ambience, directional illumination, multi-source setups, natural environments, dynamic transitions, color temperature control, rim highlights, and volumetric effects.",
+        "Luminar Brush offers a comprehensive suite of effects including atmospheric ambience, directional illumination, multi-source setups, natural environments, dynamic transitions, color temperature control, rim highlights, and volumetric effects.",
       isOpen: false,
     },
     {
-      question: "Is Lumina Brush suitable for professional use?",
+      question: "Is Luminar Brush suitable for professional use?",
       answer:
-        "Absolutely. Lumina Brush is trusted by professional digital artists, photographers, and concept artists worldwide. Its sophisticated AI-powered system delivers professional-grade results while maintaining intuitive usability.",
+        "Absolutely. Luminar Brush is trusted by professional digital artists, photographers, and concept artists worldwide. Its sophisticated AI-powered system delivers professional-grade results while maintaining intuitive usability.",
       isOpen: false,
     },
     {
@@ -356,37 +377,6 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <!-- <section class="py-20">
-      <div class="container mx-auto px-6">
-        <h2 class="mb-16 text-center text-4xl font-bold">
-          Trusted by Artists Worldwide
-        </h2>
-        <div class="grid gap-12 md:grid-cols-3">
-          <div
-            v-for="testimonial in testimonials"
-            :key="testimonial.author"
-            class="rounded-xl bg-white p-8 shadow-lg"
-          >
-            <div class="mb-6 flex items-center">
-              {/*
-              <img
-                :src="testimonial.avatar"
-                :alt="testimonial.author"
-                class="mr-4 size-12 rounded-full"
-              />
-              */}
-              <div>
-                <h4 class="font-semibold">{{ testimonial.author }}</h4>
-                <p class="text-gray-600">{{ testimonial.role }}</p>
-              </div>
-            </div>
-            <p class="italic text-gray-700">{{ testimonial.content }}</p>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <!-- Pricing Section -->
     <!-- <section class="bg-gray-50 py-20">
       <div class="container mx-auto px-6">
@@ -443,7 +433,7 @@
     </section>
 
     <!-- Capabilities Section -->
-    <section class="py-20">
+    <!-- <section class="py-20">
       <div class="container mx-auto px-6">
         <h2 class="mb-16 text-center text-4xl font-bold">
           Advanced Capabilities of LuminaBrush
@@ -459,10 +449,54 @@
           </div>
         </div>
       </div>
+    </section> -->
+
+    <!-- Testimonials Section -->
+    <section class="bg-gradient-to-b from-background to-card py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="mb-16 text-center text-3xl font-bold md:text-4xl">
+          Trusted by Professionals Worldwide
+        </h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div
+            v-for="testimonial in testimonials"
+            :key="testimonial.name"
+            class="group rounded-2xl bg-card p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div class="mb-6 flex items-center">
+              <div
+                class="flex size-12 items-center justify-center rounded-full bg-purple-100"
+              >
+                <span class="text-xl font-semibold text-purple-600">
+                  {{ testimonial.name.charAt(0) }}
+                </span>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-semibold">{{ testimonial.name }}</h4>
+                <p class="text-foreground/60">{{ testimonial.role }}</p>
+              </div>
+            </div>
+            <div class="mb-4 flex text-yellow-400">
+              <svg
+                v-for="star in testimonial.rating"
+                :key="star"
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5 fill-current"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="text-foreground/80">{{ testimonial.content }}</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Technology Section -->
-    <section class="bg-card py-20">
+    <!-- <section class="bg-card py-20">
       <div class="container mx-auto px-6">
         <div class="mx-auto max-w-3xl text-center">
           <h2 class="mb-8 text-4xl font-bold">Revolutionary Technology</h2>
@@ -479,7 +513,7 @@
           </p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- FAQ Section -->
     <section class="py-20">
