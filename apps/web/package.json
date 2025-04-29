@@ -54,7 +54,7 @@
     "dotenv-cli": "^8.0.0",
     "eslint": "8.57.0",
     "eslint-config-custom": "*",
-    "nuxt-simple-robots": "^3.1.9",
+    "nuxt-simple-robots": "^4.0.1",
     "start-server-and-test": "^2.0.8",
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
