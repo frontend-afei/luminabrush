@@ -201,7 +201,7 @@
         "What makes LuminaBrush different from other image editing tools?",
       answer:
         "LuminaBrush combines advanced AI technology with intuitive controls, allowing artists to achieve professional lighting effects with unprecedented ease and precision.",
-      isOpen: false,
+      isOpen: true,
     },
     {
       question: "How does LuminaBrush's two-stage lighting process work?",
@@ -423,10 +423,13 @@
     </section> -->
 
     <section class="bg-transparent">
+      <p class="bg-white p-6 text-center text-gray-600">
+        2025 May 01: The huggingface space in under maintenance now ...
+      </p>
       <div id="try-luminabrush">
         <iframe
           src="https://lllyasviel-luminabrush.hf.space/?__theme=light"
-          class="h-[1000px] w-full"
+          class="h-[800px] w-full"
           title="LuminaBrush Demo"
         ></iframe>
       </div>
