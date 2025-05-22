@@ -75,6 +75,13 @@ export default defineNuxtConfig({
           href: "/icon.png",
         },
       ],
+      script: [
+        {
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7182158994702735",
+          async: true,
+          crossorigin: "anonymous",
+        },
+      ],
     },
   },
 
