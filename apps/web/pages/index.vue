@@ -422,14 +422,14 @@
       </div>
     </section> -->
 
-    <section class="bg-transparent">
-      <p class="bg-white p-6 text-center text-gray-600">
+    <section id="try-luminabrush" class="bg-white pt-16 pb-4">
+      <!-- <p class="bg-white p-6 text-center text-gray-600">
         2025 May 01: The huggingface space in under maintenance now ...
-      </p>
-      <div id="try-luminabrush">
+      </p> -->
+      <div>
         <iframe
-          src="https://lllyasviel-luminabrush.hf.space/?__theme=light"
-          class="h-[800px] w-full"
+          src="https://jasperai-lbm-relighting.hf.space/"
+          class="h-[600px] w-full"
           title="LuminaBrush Demo"
         ></iframe>
       </div>

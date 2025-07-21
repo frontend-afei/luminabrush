@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-muted py-12 text-muted-foreground">
-    <div class="container grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div class="container grid grid-cols-1 gap-6 md:grid-cols-3">
       <div>
         <Logo class="opacity-50 grayscale" />
         <p class="mt-3 text-sm opacity-70">
@@ -8,13 +8,28 @@
         </p>
       </div>
 
-      <!-- <div class="flex flex-col gap-2">
-        <NuxtLinkLocale to="/blog" class="block"> Blog </NuxtLinkLocale>
-        <a href="#" class="block"> Features </a>
-        <a href="#" class="block"> Pricing </a>
-      </div> -->
+      <div class="flex flex-col gap-2">
+        <div class="font-bold">Partners</div>
+        <a
+          href="https://math-gpt.ai/"
+          title="Math AI"
+          target="_blank"
+          class="block"
+        >
+          Math AI
+        </a>
+        <a
+          href="https://watermark-remover.io/"
+          title="Watermark Remover"
+          target="_blank"
+          class="block"
+        >
+          Watermark Remover
+        </a>
+      </div>
 
       <div class="flex flex-col gap-2">
+        <div class="font-bold">Legal</div>
         <NuxtLink to="/legal/privacy" class="block"> Privacy policy </NuxtLink>
         <NuxtLink to="/legal/terms" class="block">Terms and conditions</NuxtLink>
       </div>
