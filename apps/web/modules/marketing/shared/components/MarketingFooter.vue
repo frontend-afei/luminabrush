@@ -19,6 +19,14 @@
           Math AI
         </a>
         <a
+          href="https://image-gpt.ai/"
+          title="ImageGPT"
+          target="_blank"
+          class="block"
+        >
+          ImageGPT
+        </a>
+        <a
           href="https://watermark-remover.io/"
           title="Watermark Remover"
           target="_blank"
