@@ -75,38 +75,20 @@
     },
   ];
 
-  const demos = [
-    {
-      id: 1,
-      title: "Portrait Enhancement",
-      image: "/demo1.jpg",
-    },
-    {
-      id: 2,
-      title: "Landscape Lighting",
-      image: "/demo2.jpg",
-    },
-  ];
-
   const workflow = [
     {
-      title: "Import Your Art",
+      title: "Import Your Photo",
       description:
-        "Upload your artwork to the processing system of LuminaBrush",
+        "Upload your photo to the processing system of LuminaBrush",
     },
     {
-      title: "Apply Effects",
+      title: "Upload or Select a target background",
       description:
-        "Use intuitive brushes to scribble for sophisticated lighting effects",
-    },
-    {
-      title: "Write Prompts",
-      description:
-        "Customize lighting and background with natural language prompts",
+        "Upload your own image or choose a lighting effect from the options below",
     },
     {
       title: "AI Processing",
-      description: "Our advanced AI analyzes and processes your image",
+      description: "Click the Relight button, our advanced AI will analyze and process your image",
     },
     // {
     //   title: "Export & Share",
@@ -357,7 +339,7 @@
         <p class="mx-auto mb-16 max-w-3xl text-center text-xl text-gray-600">
           Transform your artwork in minutes with our intuitive process
         </p>
-        <div class="grid gap-8 md:grid-cols-4">
+        <div class="grid gap-8 md:grid-cols-3">
           <div
             v-for="(step, index) in workflow"
             :key="step.title"
