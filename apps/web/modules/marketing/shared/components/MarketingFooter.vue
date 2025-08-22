@@ -19,12 +19,28 @@
           Math AI
         </a>
         <a
+          href="https://math-tutor.ai/"
+          title="MathTutor"
+          target="_blank"
+          class="block"
+        >
+          MathTutor
+        </a>
+        <a
           href="https://image-gpt.ai/"
           title="ImageGPT"
           target="_blank"
           class="block"
         >
           ImageGPT
+        </a>
+        <a
+          href="https://nano-banana-ai.org/"
+          title="Nano Banana AI"
+          target="_blank"
+          class="block"
+        >
+          Nano Banana AI
         </a>
         <a
           href="https://watermark-remover.io/"
