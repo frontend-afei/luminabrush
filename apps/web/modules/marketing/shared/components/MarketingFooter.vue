@@ -43,6 +43,14 @@
           Nano Banana AI
         </a>
         <a
+          href="https://ai-image-editor.com/"
+          title="AI Image Editor"
+          target="_blank"
+          class="block"
+        >
+          AI Image Editor
+        </a>
+        <a
           href="https://watermark-remover.io/"
           title="Watermark Remover"
           target="_blank"
