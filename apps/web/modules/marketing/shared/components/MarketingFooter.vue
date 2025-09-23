@@ -58,6 +58,14 @@
         >
           Watermark Remover
         </a>
+        <a
+          href="https://wan-animate.io/"
+          title="Wan Animate"
+          target="_blank"
+          class="block"
+        >
+          Wan Animate
+        </a>
       </div>
 
       <div class="flex flex-col gap-2">
