@@ -11,36 +11,20 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
-          href="https://math-gpt.ai/"
-          title="Math AI"
+          href="https://animove.ai/"
+          title="Animove"
           target="_blank"
           class="block"
         >
-          Math AI
+          Animove
         </a>
         <a
-          href="https://math-tutor.ai/"
-          title="MathTutor"
+          href="https://wan-animate.io/"
+          title="Wan Animate"
           target="_blank"
           class="block"
         >
-          MathTutor
-        </a>
-        <a
-          href="https://image-gpt.ai/"
-          title="ImageGPT"
-          target="_blank"
-          class="block"
-        >
-          ImageGPT
-        </a>
-        <a
-          href="https://nano-banana-ai.org/"
-          title="Nano Banana AI"
-          target="_blank"
-          class="block"
-        >
-          Nano Banana AI
+          Wan Animate
         </a>
         <a
           href="https://ai-image-editor.com/"
@@ -51,20 +35,12 @@
           AI Image Editor
         </a>
         <a
-          href="https://watermark-remover.io/"
-          title="Watermark Remover"
+          href="https://math-gpt.ai/"
+          title="Math AI"
           target="_blank"
           class="block"
         >
-          Watermark Remover
-        </a>
-        <a
-          href="https://wan-animate.io/"
-          title="Wan Animate"
-          target="_blank"
-          class="block"
-        >
-          Wan Animate
+          Math AI
         </a>
       </div>
 
