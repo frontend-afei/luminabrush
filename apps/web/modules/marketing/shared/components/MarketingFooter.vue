@@ -11,12 +11,12 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
-          href="https://animove.ai/"
-          title="Animove"
+          href="https://image-to-video.ai/"
+          title="Image To Video AI"
           target="_blank"
           class="block"
         >
-          Animove
+          Image To Video AI
         </a>
         <a
           href="https://wan-animate.io/"
