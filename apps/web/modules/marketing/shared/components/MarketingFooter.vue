@@ -11,6 +11,14 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
+          href="https://happy-horse-ai.io/"
+          title="HappyHorse"
+          target="_blank"
+          class="block"
+        >
+          HappyHorse
+        </a>
+        <a
           href="https://image-to-video.ai/"
           title="Image To Video AI"
           target="_blank"
