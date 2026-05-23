@@ -11,15 +11,15 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
-          href="https://happy-horse-ai.io/"
-          title="HappyHorse"
+          href="https://shotugc.ai"
+          title="ShotUGC"
           target="_blank"
           class="block"
         >
-          HappyHorse
+          ShotUGC
         </a>
         <a
-          href="https://image-to-video.ai/"
+          href="https://image-to-video.ai"
           title="Image To Video AI"
           target="_blank"
           class="block"
@@ -27,7 +27,7 @@
           Image To Video AI
         </a>
         <a
-          href="https://wan-animate.io/"
+          href="https://wan-animate.io"
           title="Wan Animate"
           target="_blank"
           class="block"
@@ -35,7 +35,7 @@
           Wan Animate
         </a>
         <a
-          href="https://ai-image-editor.com/"
+          href="https://ai-image-editor.com"
           title="AI Image Editor"
           target="_blank"
           class="block"
@@ -43,7 +43,7 @@
           AI Image Editor
         </a>
         <a
-          href="https://math-gpt.ai/"
+          href="https://math-gpt.ai"
           title="Math AI"
           target="_blank"
           class="block"
