@@ -11,12 +11,20 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
-          href="https://shotugc.ai"
-          title="ShotUGC"
+          href="https://sparkvid.ai"
+          title="SparkVid"
           target="_blank"
           class="block"
         >
-          ShotUGC
+          SparkVid
+        </a>
+        <a
+          href="https://animove.ai"
+          title="AI Image Editor"
+          target="_blank"
+          class="block"
+        >
+          Animove
         </a>
         <a
           href="https://image-to-video.ai"
@@ -25,14 +33,6 @@
           class="block"
         >
           Image To Video AI
-        </a>
-        <a
-          href="https://wan-animate.io"
-          title="Wan Animate"
-          target="_blank"
-          class="block"
-        >
-          Wan Animate
         </a>
         <a
           href="https://ai-image-editor.com"
