@@ -11,6 +11,14 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
+          href="https://minimaxh3max.io"
+          title="MiniMax H3 Max"
+          target="_blank"
+          class="block"
+        >
+          MiniMax H3 Max
+        </a>
+        <a
           href="https://sparkvid.ai"
           title="SparkVid"
           target="_blank"
