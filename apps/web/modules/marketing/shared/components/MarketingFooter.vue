@@ -11,6 +11,22 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
+          href="https://h3maxturbo.org"
+          title="H3 Max Turbo"
+          target="_blank"
+          class="block"
+        >
+          H3 Max Turbo
+        </a>
+        <a
+          href="https://h3-max.io"
+          title="H3 Max"
+          target="_blank"
+          class="block"
+        >
+          H3 Max
+        </a>
+        <a
           href="https://minimaxh3max.io"
           title="MiniMax H3 Max"
           target="_blank"
