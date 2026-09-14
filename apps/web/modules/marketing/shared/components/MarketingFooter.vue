@@ -11,23 +11,15 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
-          href="https://h3maxturbo.org"
-          title="H3 Max Turbo"
+          href="https://seedance-2-5.io/"
+          title="Seedance 2.5"
           target="_blank"
           class="block"
         >
-          H3 Max Turbo
+          Seedance 2.5
         </a>
         <a
-          href="https://h3-max.io"
-          title="H3 Max"
-          target="_blank"
-          class="block"
-        >
-          H3 Max
-        </a>
-        <a
-          href="https://minimaxh3max.io"
+          href="https://minimaxh3max.io/"
           title="MiniMax H3 Max"
           target="_blank"
           class="block"
@@ -35,7 +27,7 @@
           MiniMax H3 Max
         </a>
         <a
-          href="https://sparkvid.ai"
+          href="https://sparkvid.ai/"
           title="SparkVid"
           target="_blank"
           class="block"
@@ -43,7 +35,7 @@
           SparkVid
         </a>
         <a
-          href="https://animove.ai"
+          href="https://animove.ai/"
           title="AI Image Editor"
           target="_blank"
           class="block"
@@ -51,7 +43,7 @@
           Animove
         </a>
         <a
-          href="https://image-to-video.ai"
+          href="https://image-to-video.ai/"
           title="Image To Video AI"
           target="_blank"
           class="block"
@@ -59,7 +51,7 @@
           Image To Video AI
         </a>
         <a
-          href="https://ai-image-editor.com"
+          href="https://ai-image-editor.com/"
           title="AI Image Editor"
           target="_blank"
           class="block"
@@ -67,7 +59,7 @@
           AI Image Editor
         </a>
         <a
-          href="https://math-gpt.ai"
+          href="https://math-gpt.ai/"
           title="Math AI"
           target="_blank"
           class="block"
