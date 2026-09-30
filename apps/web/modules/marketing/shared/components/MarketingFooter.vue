@@ -11,6 +11,14 @@
       <div class="flex flex-col gap-2">
         <div class="font-bold">Partners</div>
         <a
+          href="https://kling40.io/"
+          title="Kling 4.0"
+          target="_blank"
+          class="block"
+        >
+          Kling 4.0
+        </a>
+        <a
           href="https://seedance-2-5.io/"
           title="Seedance 2.5"
           target="_blank"
@@ -33,14 +41,6 @@
           class="block"
         >
           SparkVid
-        </a>
-        <a
-          href="https://animove.ai/"
-          title="AI Image Editor"
-          target="_blank"
-          class="block"
-        >
-          Animove
         </a>
         <a
           href="https://image-to-video.ai/"
