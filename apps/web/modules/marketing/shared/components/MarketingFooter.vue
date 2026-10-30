@@ -19,6 +19,14 @@
           Kling 4.0
         </a>
         <a
+          href="https://tryseedance3.com/"
+          title="Seedance 3.0"
+          target="_blank"
+          class="block"
+        >
+          Seedance 3.0
+        </a>
+        <a
           href="https://seedance-2-5.io/"
           title="Seedance 2.5"
           target="_blank"
